@@ -1,0 +1,321 @@
+\documentclass[../Thesis-IJspeert.tex]{subfiles}
+
+\begin{document}
+
+\graphicspath{ {"Atomic Trajectories in Optical Potentials/figs/"} }
+\pgfplotsset{table/search path={"Atomic Trajectories in Optical Potentials/data/"}}
+
+\chapter{Atomic Trajectories in Optical Potentials}
+\addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
+\label{chap:AtomicTrajectoriesinOpticalPotentials}
+
+\iffalse
+\section{Theory}
+%\subsection{Light-atom interactions}
+The interaction of neutral atoms with a light field can be dissipative or conservative. The processes of absorption and spontaneous emission result in a net transfer of momentum, which gives rise to a dissipative scattering force that can be used for laser cooling and magneto-optical traps. The conservative part of the atom-light interaction stems from the fact that light induces a shift in the potential energy of the atom, which is known as the ac-Stark shift. If the light is far detuned from the atomic resonance, the rate of spontaneous emission is negligible. In this case, the energy shift can be used to establish a conservative trapping potential, which is the underlying mechanism of an optical dipole trap. After a brief discussion of the light-matter system Hamiltonian below, both the dissipative scattering force and conservative dipole force shall be discussed in more detail.
+\subsection{System Hamiltonian}
+\label{subsection_System_Hamiltonian}
+Consider a two-level atom with eigenstates $\vert g \rangle$ and $\vert e \rangle$ and corresponding energies $\hbar\omega_{g}$ and $\hbar\omega_{e}$. The atomic transition has an electric dipole moment $\vec{d}_{eg}=\langle e \vert q \hat{\vec{r}} \,\vert g \rangle$, which contains the position operator $\hat{\vec{r}}$ and charge $q=-e$ of the electron. In the semi-classical description of the atom-light interaction, the light is considered an oscillating electric field $\vec{E}(t)=\vec{\epsilon}E_0\cos \left(\omega t\right)$, with frequency $\omega$, polarisation vector $\vec{\epsilon}$ and electric field amplitude $E_0$ at the position of the atom. The Hamiltonian for the combined system can be expressed as $\hat{H}=\hat{H}_0+\hat{H}_I$, where $\hat{H}_0$ is the Hamiltonian of the unperturbed atom and $\hat{H}_I$ is the interaction Hamiltonian given by $\hat{H}_I=-\hat{\vec{d}}\cdot \vec{E}$, where the dipole operator $\hat{\vec{d}}=q\hat{\vec{r}}$ can be represented in the atomic basis as follows:
+\begin{equation}
+\hat{\vec{d}}=\sum_{i,j} \langle i \vert q \hat{\vec{r}}\, \vert j \rangle \vert i \rangle \langle j \vert  = \sum_{i,j} \vec{d}_{ij} \vert  i \rangle \langle j \vert\,.
+\end{equation}
+In matrix form, $\hat{H}$ can then be written as:
+\begin{equation}
+\label{hamiltonian1}
+\hat{H}=\hbar
+\begin{pmatrix} 
+\omega_\text{g} & \Omega\cos(\omega t)\\
+\Omega\cos(\omega t) & \omega_\text{e}
+\end{pmatrix}
+\,,
+\end{equation}
+where we have defined the Rabi frequency $\Omega=\vec{d}_{eg}\cdot\vec{\epsilon}E_0/\hbar$. Under the rotating wave approximation, this Hamiltonian can be transformed to \cite{loudon}:
+\begin{equation}
+\label{timeindependentH}
+\hat{H}=\frac{\hbar}{2}
+\begin{pmatrix} 
+\Delta& \Omega\\
+\Omega& -\Delta
+\end{pmatrix}\,,
+\end{equation}
+where $\Delta=\omega-\omega_0=\omega-\left(\omega_e-\omega_g\right)$ is the detuning of the laser relative to the atomic resonance frequency.
+\subsection{The scattering force}
+The preceding description does not account for spontaneous emission, as it does not involve any coupling to the environment. Therefore, we must consider the Lindblad master equation, which describes the evolution of an open quantum system weakly coupled to the vacuum state of free space, which is considered a reservoir containing an infinite number of degrees of freedom. Under certain assumptions\footnote{(i) The state of the environment is time-independent and its correlations with the system are small (Born approximation); (ii) The timescale over which the environment preserves information is sufficiently short (Markov approximation); (iii) Fast-oscillating terms can be neglected (rotating wave approximation).}, the dynamics of an open, two-level atom driven by an external field are governed by
+\begin{equation}
+\label{lindblad}
+\dot{\rho}=-i\frac{\Delta}{2}\big[\hat{\sigma}_z,\rho\big]-i\frac{\Omega}{2}\big[\hat{\sigma}_x,\rho\big] + \gamma \big(-\hat{\sigma}_+\hat{\sigma}_-\rho+2\hat{\sigma}_-\rho\hat{\sigma}_+-\rho\hat{\sigma}_+\hat{\sigma}_-\big)\,,
+\end{equation}
+where $\rho$ is the time dependent density operator\footnote{In the rotating frame, for which the unitary transformation is given by $U=\exp(i\omega\sigma_z t/2)$.} of the atom,
+ $\hat{\sigma}_z=\vert e \rangle \langle e \vert-\vert g \rangle \langle g \vert$, $\hat{\sigma}_x=\vert e \rangle \langle g \vert+\vert g \rangle \langle e \vert$, $\hat{\sigma}_+=\vert e \rangle \langle g \vert$, $\hat{\sigma}_-=\vert g \rangle \langle e \vert$ and $\gamma$ is the transverse decay rate, which in the case of purely radiative damping equals half the natural linewidth ($\gamma= \Gamma/2$). Note that \autoref{lindblad} features a competition between the coherent dynamics induced by the light field (first two terms) and the dissipative dynamics that arise from the decay into the vacuum of the radiation field (last three terms). Typically, \autoref{lindblad} is rewritten as a system of coupled differential equations (optical Bloch equations), from which one can extract the steady state ($\dot{\rho}=0$) solution for $\rho_{ee}=\langle e \vert \rho \vert e\rangle$, which represents the equilibrium population in the excited state:
+\begin{equation}
+\label{rhoee}
+\rho_{ee}=\frac{\Omega^2}{\Gamma^2+4\Delta^2+2\Omega^2}\,.
+\end{equation}
+The natural decay rate $\Gamma$ depends on the transition dipole moment:
+\begin{equation}
+\Gamma=\frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\vec{d}_{eg}|^2
+\end{equation}
+Now the scattering rate $R_\text{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\text{sc}=\Gamma \rho_{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as
+\begin{equation}
+\label{scatter}
+R_\text{sc}=\frac{\Gamma}{2}\frac{I/I_\text{sat}}{1+4\Delta^2/\Gamma^2+I/I_\text{sat}}\,,
+\end{equation}
+where we have defined the saturation intensity $I_\text{sat}=\hbar \omega_0^3\Gamma/12\pi c^2$. Note that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\Gamma/2$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\Gamma\Omega^2/4\Delta^2$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
+\begin{equation}
+F_\text{sc}=\hbar kR_\text{sc}\,.
+\end{equation}
+Since this force depends on $\Delta$, it can have a velocity dependent component due to the Doppler shift (optical molasses) or a position dependency in the presence of a magnetic field gradient (magneto-optical trapping force).
+
+\subsection{The dipole force}
+The second effect of the light is that it perturbs the atomic energy states, which is known as the ac-Stark shift\footnote{A more detailed description of the ac-Stark effect is given in \autoref{acstark}}. To calculate this perturbation, we consider the atom together with a quantised light field. For an atom in the ground state (i.\,e. zero internal energy), the unperturbed energy of the system is $\epsilon_g=n\hbar \omega$ if the field contains $n$ photons of frequency $\omega$. However, after absorption of a single photon, the total unperturbed energy of the combined system is $\epsilon_e=\hbar \omega_0+(n-1)\hbar\omega=-\hbar\Delta+n\hbar\omega$. The effect of the interaction can now be calculated using second order perturbation theory. As an effect of the interaction Hamiltonian $\hat{H}_I$, the energy of a non-degenerate atomic eigenstate $\vert i \rangle$ with unperturbed energy $\epsilon_i$ is shifted by
+\begin{equation}
+\Delta E_i=\sum_{j\neq i}\frac{\lvert \langle j \vert\hat{H}_I \vert i \rangle\rvert^2}{\epsilon_i-\epsilon_j}\,.
+\end{equation}
+For a two-level atom, the denominator reads $\epsilon_g - \epsilon_e = \hbar \Delta$ and $\hat{H}_I$ equals the (off-diagonal) interaction part of the transformed Hamiltonian in \autoref{timeindependentH}. The energy shifts are thus given by
+\begin{equation}
+\Delta E_{g/e}=\pm\frac{\hbar\Omega^2}{4\Delta}=\pm \frac{3\pi c^2}{2\omega_0^3}\frac{\Gamma}{\Delta}I\,,
+\end{equation}
+where the plus and minus sign correspond to the ground and excited state respectively. One can see from \autoref{rhoee} that the atom is practically in the ground state for large detuning. Therefore, the energy of the atom corresponds to the energy of the light shifted ground state, which results in an effective dipole potential $V_\text{dip} = \Delta E_g$. Note that this potential is proportional to the intensity and attractive for a ground state atom in red-detuned light ($\Delta<0$), in which case it can be trapped. The dipole force $F_\text{dip}$ is given by the potential gradient:
+\begin{equation}
+F_\text{dip}=-\nabla V_\text{dip}\,,
+\end{equation}
+which is only non-zero if there is a spatial intensity variation of the light. This is the case for a Gaussian laser beam, which, in radial ($r$) and axial ($z$) coordinates, has an intensity profile $I$ given by
+\begin{equation}
+\label{laser}
+I(r,z)=\frac{2P}{\pi w^2(z)}e^{-2\frac{r^2}{w^2(z)}}\,,
+\end{equation}
+where $w(z)=w_0(1+(z/z_R)^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius, $z_R=\pi w^2/\lambda$ is the Rayleigh length and $P$ is the total power of the laser light. The peak intensity is given by $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are attracted towards the potential minimum where the intensity is maximal. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
+
+\subsection{Ac-Stark effect}
+\label{acstark}
+When considering the ac-Stark effect in the context of an atomic hyperfine structure, the two-level approximation no longer holds. In addition, the orientation of the atom with respect to the interacting field must be taken into account. Let us again consider a monochromatic optical field of the form
+\begin{equation}
+\label{Efield}
+\vec{E}(\vec{r},t) = \underbrace{\hat{\epsilon}E_0^{(+)}(\vec{r}) e^{-i\omega t}}_{\vec{E}^{(+)}} +  \underbrace{\hat{\epsilon}^*E_0^{(-)}(\vec{r}) e^{i\omega t}}_{\vec{E}^{(-)}} =  2\Re {\hat{\epsilon}{E_0}^{(+)}(\vec{r}) e^{-i\omega t} } \,,
+\end{equation}
+where we have explicitly decomposed the field into its positive and negative frequency components. The polarisation unit vector is represented by $\hat{\epsilon}$ and the complex field amplitudes are denoted by $E_0^{(+)}$ and $E_0^{(-)}$ for the positive and negative frequency components, respectively. Note that with this definition, the intensity of the light is expressed as $I=2\epsilon_0 c \vert E_0^{(+)}\vert ^2$. At the position of the atom, the oscillating field induces a displacement of the electron $x(t)=x^{(+)}(t)+x^{(-)}(t)$, which can be found by treating the system as a damped harmonic oscillator driven by an external force. The positive frequency component of the induced dipole moment of the atom is then given by:
+\begin{equation}
+\label{dipolemoment}
+\vec{d}^{\,(+)}= q \hat{\epsilon} x^{(+)} \,.
+\end{equation}
+The complete response of the atom to the applied field can then be characterised via its (frequency dependent) polarisability $\alpha (\omega)$. It is defined via the relation
+\begin{equation}
+	\vec{d}^{\,(+)}=\alpha(\omega)\vec{E}^{(+)}
+\end{equation}
+and describes how easily the dipole moment is induced by an applied electric field. More generally, the polarisability is defined as a rank-2 tensor $\alpha_{\mu \nu}$ such that to first order (\ie\ for a sufficiently small electric field), the positive frequency component of the mean induced dipole moment vector can be written as
+\begin{equation}
+\label{definingrelationpolarisability}
+\langle d_\mu^{(+)}(\omega) \rangle = \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu	
+\end{equation}
+in tensor component notation ($( E_0^{(+)} )_\nu:={\epsilon}_\nu E_0^{(+)}$). According to the electric-dipole interaction, the potential energy associated with an induced dipole moment is given by
+\begin{equation}
+V = -\frac{\vec{d}\cdot \vec{E}}{2}\,.
+\end{equation}
+It is precisely this relation that will lead us to an expression for the energy shifts known as the ac-Stark shifts. In order to make progress, we can write out the positive and negative frequency components and discard those that oscillate at twice the optical frequency:
+\begin{align}
+\begin{split}
+V &= -\frac{1}{2}\left( \vec{d}^{\,(+)} + \vec{d}^{\,(-)} \right) \cdot \left( \vec{E}^{(+)} + \vec{E}^{(-)} \right)\\ &\approx -\frac{1}{2} \vec{d}^{\,(+)}\cdot \vec{E}^{(-)} -\frac{1}{2} \vec{d}^{\,(-)} \cdot \vec{E}^{(+)}\,.
+\end{split}
+\end{align}
+Replacing the frequency components of the induced dipole moments with their respective means allows us to express the potential energy in terms of the real part of the tensor polarisability:
+\begin{align}
+\begin{split}
+V &\approx -\frac{1}{2} \langle d_\mu^{(+)}(\omega) \rangle ( E_0^{(-)} )_\mu  -\frac{1}{2} \langle d_\nu^{(-)}(\omega) \rangle ( E_0^{(+)} )_\nu \\&= -\frac{1}{2} \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu ( E_0^{(-)} )_\mu -\frac{1}{2} \alpha_{\nu \mu}(\omega) ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu \\ &= -\Re [ \alpha_{\mu \nu}(\omega) ] ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu\,,
+\end{split}
+\end{align}
+where we have used the fact that $\alpha_{\nu \mu}(\omega) = \alpha_{\mu \nu}^*(\omega)$, as we will see later. Thus far we have omitted the dependence of the polarisability on the atomic state in the notation above. To be more precise, the ac-Stark shift $\Delta E(F,m_F;\omega)$ of a particular hyperfine sublevel $\vert F\,m_F \rangle$ depends on the tensor polarisability associated with that specific state:
+\begin{equation}
+\label{StarkSummary}
+	 \Delta E(F,m_F;\omega)=-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ] ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu\,.
+\end{equation}
+The remaining step at this stage is to find an expression for the tensor polarisability using the defining relation in \autoref{definingrelationpolarisability}. In order to achieve this, we need to find the mean induced dipole moment starting from the semi-classical atom-field interaction Hamiltonian as discussed in \autoref{subsection_System_Hamiltonian}:
+\begin{align}
+\begin{split}
+	\hat{H}_I &= -\hat{\vec{d}} \cdot \vec{E} \\ &=-\sum_{j} \left( \langle g \vert \hat{\vec{d}}\, \vert e_j \rangle \vert g \rangle \langle e_j \vert +  \langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \vert e_j \rangle \langle g \vert \right) \cdot \\ &\hspace{12em} \left( \hat{\epsilon}E_0^{(+)} e^{-i\omega t} + \hat{\epsilon}^*E_0^{(-)} e^{i\omega t} \right) \,,
+\end{split}
+\end{align}
+where we have assumed, for the sake of simplicity and without loss of generality, that the atom is in the ground state, since the following results can be applied to any atomic state $\vert i \rangle$ via the substitution $\vert g \rangle \rightarrow \vert i \rangle$. The next step is to calculate the mean dipole moment of the perturbed ground state found via time dependent perturbation theory. The interaction causes mixing of the ground state with the excited states, which leads us to the following ansatz for the perturbed ground state
+\begin{equation}
+\label{ansatzgroundstate}
+	\underbrace{e^{-i\omega_0 t} \vert g \rangle}_{\vert g(t) \rangle} + \underbrace{\sum_j \left( c_j^{(+)} e^{-i\omega t} + c_j^{(-)} e^{i\omega t} \right) e^{-i\omega_0 t} \vert e_j \rangle }_{\vert \delta g (t) \rangle} \,,
+\end{equation}
+in which $\omega_0=E_0/\hbar$ represents the angular frequency associated with the ground state energy $E_0$. Furthermore, we have introduced the unknown coefficients $c_j^{(+)}$ and $c_j^{(-)}$ that can be solved through substitution of \autoref{ansatzgroundstate} into the Schrödinger equation with $\hat{H}=\hat{H}_0+\hat{H}_I$, where the Hamiltonian $\hat{H}_0$ of the unperturbed atom is given by
+\begin{equation}
+	\hat{H}_0=\hbar\omega_0\vert g \rangle \langle g \vert + \sum_j \hbar \omega_j \vert e_j \rangle \langle e_j \vert \,.
+\end{equation}
+In this equation, $\omega_j=E_j/\hbar$ represents the angular frequency associated with the energy $E_j$ of the excited state $\vert e_j \rangle$. Keeping only terms up to first order and grouping those with matching time dependence, allows us to express the perturbation coefficients as
+\begin{align}
+\begin{split}
+c_j^{(+)} &= \frac{\langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \cdot \hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j}-\omega_0-\omega)} \\ 
+c_j^{(-)} &= \frac{\langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \cdot \hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j}-\omega_0+\omega)} \,.
+\end{split}
+\end{align}
+To simplify the notation, we define the transition frequency $\omega_{j0}$ between $\vert e_j \rangle$ and the ground state as $\omega_{j0}=\omega_j-\omega_0$. Given that the mean dipole moment of the unperturbed ground state is zero ($\langle g \vert \hat{\vec{d}} \, \vert g \rangle= \vec{0}\,$), we can write the mean dipole moment of the perturbed ground state to first order in the perturbation as
+\begin{align}
+\label{equationdipolemomentexpectationvalue}
+\begin{split}
+	\langle \hat{d}_\mu (t) \rangle &= \langle g(t) \vert \hat{d}_\mu \vert \delta g(t) \rangle + \langle \delta g(t) \vert \hat{d}_\mu \vert g(t) \rangle \\ &= \sum_j \underbrace{ \langle g \vert \hat{{d}}_\mu \vert e_j \rangle \langle e_j \vert \hat{{d}}_\nu \vert g \rangle }_{M_{\mu\nu,j}} \underbrace{ \left( \frac{\hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j0} - \omega)}e^{-i\omega t} + \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar ( \omega_{j0} + \omega)} e^{i\omega t} \right)_{\!\nu} }_{A_{\nu,j}} \\ &+ \sum_j \underbrace{  \langle g \vert \hat{{d}}_\nu \vert e_j \rangle \langle e_j \vert \hat{{d}}_\mu \vert g \rangle }_{M_{\nu\mu,j}} \underbrace{ \left( \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j0} - \omega)}e^{i\omega t} + \frac{\hat{\epsilon} E_0^{(+)}}{\hbar ( \omega_{j0} + \omega)} e^{-i\omega t} \right)_{\!\nu} }_{A^*_{\nu,j}} \\ &= \sum_j M_{\mu\nu,j} A_{\nu,j} + M_{\nu\mu,j} A_{\nu,j}^* \,.
+\end{split}
+\end{align}
+Note the switch to tensor component notation and the simplification using the newly defined tensors $M_{\mu\nu,j}$ and $A_{\nu,j}$. To simplify this expression further, we can decompose the Cartesian second rank tensor $M_{\mu\nu}$ into its isotropic, antisymmetric and symmetric traceless parts:
+
+
+\begin{equation}
+\label{irreduciblerepcartesian}
+	M_{\mu\nu}=\frac{1}{3}M^{(0)}\delta_{\mu\nu} + \frac{1}{4}M_{\sigma}^{(1)}\epsilon_{\sigma\mu\nu} + M_{\mu\nu}^{(2)} \,,
+\end{equation}
+
+
+the terms of which contain the scalar, vector and tensor components
+
+\begin{align}
+\begin{split}
+ M^{(0)} &= M_{\sigma\sigma} \\
+ M^{(1)}_\sigma &= \epsilon_{\sigma\mu\nu}(M_{\mu\nu}-M_{\nu\mu}) \\
+ M^{(2)}_{\mu\nu} &= \frac{1}{2}(M_{\mu\nu}+M_{\nu\mu}) - \frac{1}{3}M_{\sigma\sigma}\delta_{\mu\nu} \,.
+\end{split}
+\end{align}
+With this decomposition, \autoref{equationdipolemomentexpectationvalue} can be rewritten as:
+\begin{align}
+\begin{split}
+\langle \hat{d}_\mu (t) \rangle = \sum_j \frac{1}{3}&M^{(0)}_j \delta_{\mu\nu} \left(A_{\nu,j}+A_{\nu,j}^*\right) \\+ \frac{1}{4} &M^{(1)}_{\sigma,j} \epsilon_{\sigma\mu\nu} \left( A_{\nu,j} - A_{\nu,j}^* \right) + M^{(2)}_{\mu\nu,j} \left( A_{\nu,j}+A_{\nu,j}^*\right) \,.
+\end{split}
+\end{align}
+Considering separate cases of linearly and circularly polarised light and writing out only the positive frequency amplitudes, the expressions within parentheses can be simplified, allowing us to write
+\begin{align}
+\label{dipolemomentintermsofirreduciblerep}
+\begin{split}
+\langle \hat{d}^{(+)}_\mu (\omega) \rangle = \sum_j \frac{1}{3} M^{(0)}_j \delta_{\mu\nu} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ \frac{1}{4} M^{(1)}_{\sigma,j} \epsilon_{\sigma\mu\nu} \frac{2\omega }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ M^{(2)}_{\mu\nu,j} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \,.
+\end{split}
+\end{align}
+Comparing the above expression with the defining relation in \autoref{definingrelationpolarisability}, we can directly infer the full polarisability tensor $\alpha_{\mu\nu}(\omega)$ and its decomposition into the isotropic, antisymmetric and symmetric traceless parts. Substituting this result into \autoref{StarkSummary}, we can evaluate the Stark shift of a particular hyperfine sublevel $\vert F\,m_F \rangle$ by replacing $\vert g \rangle \rightarrow \vert F\,m_F \rangle$ and $\vert e_j \rangle \rightarrow \vert F'\,m_F' \rangle$. The associated energy shift can be viewed as the scalar contraction of two rank-$2$ tensors: $T_{\mu\nu}:=-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ]$ containing the tensor polarisability and the dyadic tensor $U_{\mu\nu}:=( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu$ of the electric field. In general, it is more convenient to work with a decomposition of these tensors into their irreducible spherical components $T_q^{(k)}$ given by $\{T_0^{(0)}, T_{q}^{(1)}, T_{q}^{(2)}\}$ with $q$ running from $-k$ to $k$. These spherical tensor operators transform among themselves like $2k+1$ angular momentum eigenstates $\vert j = k, m = q\rangle$, exactly like spherical harmonics according to
+\begin{align}
+R(\vec{n}, \theta)T_q^{(k)} R^\dagger(\vec{n}, \theta)= \sum_{q'=-k}^{k} T_{q'}^{(k)}\mathcal{D}_{q'q}^{(k)}(\vec{n}, \theta)\,,
+\end{align}
+in terms of the unitary rotation operator $R(\vec{n}, \theta):=e^{-i\vec{n}\cdot \hat{J}\theta/\hbar}$ for a rotation of $\theta$ about the unit vector $\vec{n}$, where $\hat{J}$ represents the angular momentum vector operator. On the right hand side we find the Wigner $\mathcal{D}$-matrix which is defined as $\mathcal{D}_{q'q}^{(k)}(\vec{n}, \theta):=\langle j=k, m=q' \vert e^{-i\vec{n}\cdot \hat{J}\theta/\hbar} \vert j=k, m=q \rangle$. See \autoref{sphericaltensors} for a procedure that allows us to express the spherical tensor components $T_q^{(k)}$ in terms of the Cartesian components $T_{\mu\nu}$. The scalar contraction $T_{\mu\nu}U_{\mu\nu}$ in the spherical irreducible representation can then be written as the sum of inner products of the scalar, vector and tensors parts \cite{Man2013}:
+\begin{align}
+\label{scalarcontraction}
+	T_{\mu\nu} U_{\mu\nu} = 
+	\sum_{k=0}^{2} \sum_{q=-k}^{k} (-1)^{k+q} T^{(k)}_q U^{(k)}_{-q}\,.
+\end{align}
+Note that the scalar contraction operation, when applied to tensors decomposed into their irreducible parts, involves contracting components that are in the same representation space. Since the symmetric and antisymmetric parts are orthogonal to each other, contracting a symmetric part with an antisymmetric part results in zero. Likewise, the scalar part has a vanishing interaction with the traceless tensor part which can be inferred from \autoref{irreduciblerepcartesian}. From the definitions of $T_q^{(k)}$ in \autoref{sphericalintermsofcartesian}, we see that the rank-$0$, rank-$1$ and rank-$2$ spherical components relate only to the isotropic, antisymmetric and symmetric traceless parts of the tensor $T_{\mu\nu}$ (and thus of $\alpha_{\mu\nu}(\omega)$), respectively (see \autoref{dipolemomentintermsofirreduciblerep}). That means we can write the rank-$0$ spherical component as:
+\begin{align}
+\begin{split}
+T^{(0)}_0&=-\sum_{F'}f_{F'F}(\omega) \langle F\, m_F \vert \underbrace{-\frac{1}{\sqrt{3}} \sum_{m'_F} \hat{d}_\mu \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{d}_\mu }_{\tilde{T}^{(0)}_0}  \vert F\, m_F \rangle\\&= -\sum_{F'}f_{F'F}(\omega) \langle F\| \tilde{T}^{(0)}_0 \| F \rangle \underbrace{\langle F\, m_F \vert F\, m_F ; 0\,0 \rangle }_{=1} \,,
+\end{split}
+\end{align}
+with $f_{F'F}(\omega):= {2\omega_{F' F} }/{\hbar (\omega_{F' F}^2-\omega^2)}$. We have kept the sum over $m'_F$ as part of a newly defined tensor $\tilde{T}_{\mu\nu}:=\sum_{m'_F} \hat{d}_\mu \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{d}_\nu$, of which we recognise the rank-$0$ spherical component $\tilde{T}^{(0)}_0$ in the first expression. In this way, we can apply the Wigner-Eckart theorem (\autoref{wignereckart}) as seen in the second expression. The reduced matrix element can then be decomposed according to \autoref{splitreducedmatrixelement}, resulting in
+\begin{align}
+\begin{split}
+ \langle F\| \tilde{T}^{(0)}_0 \| F \rangle &= \sum_{F''}\sqrt{2F''+1} \tj{1}{1}{0}{F}{F}{F''}\\ &\hspace{5em}\times \langle F\| \hat{\vec{d}} \, \| F'' \rangle \langle F''\| \sum_{m'_F} \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{\vec{d}} \, \| F \rangle \\ &= \sqrt{2F'+1} \tj{1}{1}{0}{F}{F}{F'} \langle F\| \hat{\vec{d}} \, \| F' \rangle \langle F'\| \hat{\vec{d}} \, \| F \rangle \\ &= (-1)^{F+F'}\sqrt{2F+1} \tj{1}{1}{0}{F}{F}{F'} \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2 \\ &=-\frac{1}{\sqrt{3}} \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\,.
+ \end{split}
+\end{align}
+Due to orthogonality, the second reduced matrix element vanishes, except when $F''=F'$, in which case it equals $\langle{F'}\| \hat{\vec{d}} \, \|{F}\rangle$. This becomes apparent when applying the inverted Wigner-Eckart relation (\autoref{inversewigner}). In the second step, we have used \autoref{ccreducedmatrixelement} to rewrite it as a conjugated reduced matrix element, before substituting the value of $(-1)^{-F-F'-1}/\sqrt{3(2F+1)}$ for the Wigner 6-j symbol. The rank-$1$ and rank-$2$ spherical components $T^{(1)}_q$ and $T^{(2)}_q$ can be evaluated following the same procedure. Starting from
+\begin{align}
+\begin{split}
+T^{(1)}_q&=-\sum_{F'} g_{F'F}(\omega) \langle F\, m_F \vert {\tilde{T}^{(1)}_q}  \vert F\, m_F \rangle\\ T^{(2)}_q&=-\sum_{F'} f_{F'F}(\omega) \langle F\, m_F \vert {\tilde{T}^{(2)}_q}  \vert F\, m_F \rangle\,,
+\end{split}
+\end{align}
+where we have defined $g_{F'F}(\omega):= {2\omega }/{\hbar (\omega_{F' F}^2-\omega^2)}$, the results are
+\begin{align}
+\begin{split}
+T^{(1)}_q&=-\sum_{F'} g_{F'F}(\omega) (-1)^{F+F'+1} \sqrt{\frac{3(2F+1)}{F(F+1)}} \tj{1}{1}{1}{F}{F}{F'} \delta_{q0} m_F  \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\\ T^{(2)}_q&=-\sum_{F'} f_{F'F}(\omega) (-1)^{F+F'} \sqrt{\frac{5(2F+1)}{F(F+1)(2F-1)(2F+3)}}\\ &\hspace{6em} \times \tj{1}{1}{2}{F}{F}{F'} \delta_{q0} (3m_F^2-F(F+1)) \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\,.
+\end{split}
+\end{align}
+Plugging all spherical tensor components $T^{(k)}_q$ and $U^{(k)}_q$ into \autoref{scalarcontraction}, we arrive at the final expression for the ac-Stark shift of a hyperfine sublevel:
+\begin{align}
+\label{acStarkHyperfineShifts}
+\begin{split}
+	\Delta E\left(F,m_F;\omega\right) = &- \alpha^{(0)}\left(F;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(F;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{m_F}{F}   \\&- \alpha^{(2)}\left(F;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3m_F^2-F\left(F+1\right)}{F\left(2F-1\right)} \,,
+\end{split}
+\end{align}
+written in terms of the spherical components of the positive-frequency electric field amplitude $(E_0^{(+)})_q:={\epsilon}_q E_0^{(+)}$ and the respective scalar, vector and tensor polarisabilities:
+\begin{align}
+\label{Ftensorpolarisabilities}
+\begin{split}
+ \alpha^{(0)}\left(F;\omega\right) &= \sum_{F'} \frac{2\omega_{F'F} \lvert \langle{F}\| \hat{\vec{d}}\, \|{F'}\rangle\rvert^2}{3\hbar\left(\omega_{F'F}^2-\omega^2\right)} \\ \alpha^{(1)}\left(F;\omega\right) &= \sum_{F'}  \left(-1\right)^{F+F'+1}\sqrt{\frac{6F\left(2F+1\right)}{F+1}}  \\ &\hspace{9em}\times\tj{1}{1}{1}{F}{F}{F'} \frac{\omega \lvert \langle{F}\|  \hat{\vec{d}}\,  \|{F'}\rangle\rvert^2}{\hbar\left(\omega_{F'F}^2-\omega^2\right)} \\ \alpha^{(2)}\left(F;\omega\right) &= \sum_{F'}  \left(-1\right)^{F+F'}\sqrt{\frac{40F\left(2F+1\right)\left(2F-1\right)}{3\left(F+1\right)\left(2F+3\right)}} \\ &\hspace{9em}\times \tj{1}{1}{2}{F}{F}{F'}  \frac{\omega_{F'F} \lvert \langle{F}\|  \hat{\vec{d}}\,  \|{F'}\rangle\rvert^2}{\hbar\left(\omega_{F'F}^2-\omega^2\right)}  \,.
+\end{split}    
+\end{align}
+Note that in the derivation of these expressions, we have implicitly assumed that the electric field is weak enough such that the resulting Stark shifts are much smaller than the hyperfine splitting, ensuring that the interaction with the electric field can be treated as a perturbation to the eigenstates of the hyperfine interaction Hamiltonian, which is discussed in \autoref{hyperfineinteraction}. In the case of a largely detuned optical field with respect to the atomic transitions, we can simplify the tensor polarisability assuming $\omega_{F'F}\approx\omega_{J'J}$ and using the following decomposition of the reduced matrix element
+\begin{align}
+\begin{split}
+	 \langle F\| \hat{\vec{d}}\, \| F'\rangle &:= \langle J\, I\, F\| \hat{\vec{d}}\, \| J'\, I\, F'\rangle \\
+	&=\langle J\| \hat{\vec{d}}\, \| J'\rangle(-1)^{F'+J+1+I} \sqrt{\left(2 F'+1\right)(2 J+1)} \\ &\hspace{9em}\times \tj{J}{J'}{1}{F'}{F}{I}\,,
+\end{split}  
+\end{align}
+in terms of the fine-structure (electronic) reduced matrix element $\langle J\| \hat{\vec{d}}\, \| J'\rangle$ and a factor that describes the orientation of the electron with respect to the nucleus, since the dipole operator does not act on the nuclear state $\vert I\, m_I \rangle$. Substituting this result into \autoref{Ftensorpolarisabilities} and making use of \autoref{orthogonality6j} and \autoref{elliottrule} to simplify the expression, we arrive at:
+\begin{align}
+	\begin{split}
+	 \alpha^{(0)}(F ; \omega) &\approx \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J\| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \\
+	 \alpha^{(1)}(F ; \omega) &\approx \sum_{J'}(-1)^{-2 J-J'-F-I+1} \sqrt{\frac{6 F(2 F+1)}{F+1}}(2 J+1) \\ 
+	 &\hspace{4em}\times \tj{1}{1}{1}{J}{J}{J'} \tj{J}{J}{1}{F}{F}{I} \frac{\omega\lvert \langle J\| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{\hbar\left(\omega_{J' J}^2-\omega^2\right)}\\
+	 \alpha^{(2)}(F ; \omega) &\approx \sum_{J'}(-1)^{-2 J-J'-F-I} \sqrt{\frac{40 F(2 F+1)(2 F-1)}{3(F+1)(2 F+3)}}(2 J+1)  \\
+	&\hspace{4em}\times \tj{1}{1}{2}{J}{J}{J'}\tj{J}{J}{2}{F}{F}{I} \frac{\omega_{J' J}\lvert \langle J\| \hat{\vec{d}}\, \| J' \rangle\rvert^2}{\hbar\left(\omega_{J' J}^2-\omega^2\right)}\,.
+\end{split}
+\end{align}
+For the alkali ground state, we have $L=0$ and $J=\sfrac{1}{2}$, for which
+\begin{align}
+\tj{1}{1}{2}{\sfrac{1}{2}}{\sfrac{1}{2}}{J'}=0\,,
+\end{align}
+resulting in $\alpha^{(2)}(F ; \omega) \approx 0$. If we furthermore assume a linearly polarised field ($(E_0^{(+)})_{-1} = (E_0^{(+)})_{1}=0$), we also have $\alpha^{(1)}(F ; \omega) \approx 0$. The ac-Stark shift of the alkali ground state for sufficiently detuned, linearly polarised light can thus be written as
+\begin{align}
+\begin{split}
+\Delta E_\text{g}\left(\omega\right) &\approx - \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \lvert E_0^{(+)}\rvert ^2 \\&= -\frac{1}{\epsilon_0 c} \sum_{J'} \frac{\omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} I \,.
+\end{split}
+\end{align}
+
+\subsection{Intermediate and strong field regime}
+In writing down the preceding expressions, we have assumed the tensor shifts to be much smaller than the hyperfine splittings. In this case, one can turn \autoref{acStarkHyperfineShifts} into an effective hyperfine Stark Hamiltonian. In the case of stronger fields however, $F$ is no longer a good quantum number and the above equations no longer apply. Since the electric field couples only to the electron and not to the nucleus, one can nonetheless define an effective Stark Hamiltonian in terms of the electron angular momentum $J$. As long as the Stark interaction energy does not exceed the fine structure of the atom, this is an adequate Hamiltonian for describing the hyperfine Stark shifts for stronger fields. This effective Hamiltonian is given by
+
+\begin{equation}
+	1
+\end{equation}
+
+\section{Hyperfine interaction}
+\label{hyperfineinteraction}
+In general, the interaction between the nuclear and electron angular momenta can be expanded in a multipole series,
+\begin{equation}
+	\hat{H}_{\text{hfs}}=\sum_{k}T_\text{n}^{(k)} \cdot T_\text{e}^{(k)}
+\end{equation}
+in terms of the spherical tensor operators $T_\text{n}^{(k)}$ and $T_\text{e}^{(k)}$ of rank $k$ that operate on the nuclear and electronic Hilbert spaces, respectively. The $k = 0$ term accounts for the monopole and is typically included in the calculation for the fine structure of the atom. Subsequent terms include the magnetic dipole ($k=1$), the electric quadrupole ($k=2$) and the magnetic octupole ($k=3$). Expectation values are calculated with respect to the $|J\, I\, F\rangle$ states. In the expansion, electric multipoles of odd $k$ and magnetic multipoles of even $k$ are forbidden due to violations of parity and time-reversibility, causing either the electric or magnetic interaction to vanish at each subsequent multipole order. Up to the electric quadrupole, the interaction between the electron and nuclear angular momenta can be expressed as
+\begin{equation}
+\hat{H}_{\text{hfs}}=A_{\text{hfs}} \frac{\hat{\vec{I}} \cdot \hat{\vec{J}}}{\hbar^2}+B_{\text{hfs}} \frac{\frac{3}{\hbar^4} (\hat{\vec{I}} \cdot \hat{\vec{J}} \,)^2+\frac{3}{2 \hbar^2}(\hat{\vec{I}} \cdot \hat{\vec{J}}\,)-I(I+1) J(J+1)}{2 I(2 I-1) J(2 J-1)} \,.
+\iffalse
++C_{\text{hfs}} \frac{\frac{10}{\hbar^3}(\mathbf{I} \cdot \mathbf{J})^3+\frac{20}{\hbar^2}(\mathbf{I} \cdot \mathbf{J})^2+\frac{2}{\hbar}(\mathbf{I} \cdot \mathbf{J})[I(I+1)+J(J+1)+3-3 I(I+1) J(J+1)]-5 I(I+1) J(J+1)}{I(I-1)(2 I-1) J(J-1)(2 J-1)} .
+\fi
+\end{equation}
+
+The first term on the right hand side represents the magnetic dipole. It applies only when $I, J>0$ and scales with the magnetic dipole hyperfine constant $A_{\text{hfs}}$. The second term represents the electric quadrupole. It applies only when $I, J>1 / 2$  and scales with the electric quadrupole hyperfine constant $B_{\text{hfs}}$. We are neglecting the magnetic octupole and higher order couplings. By making use of the following identity
+\begin{equation}
+	\hat{\vec{I}} \cdot \hat{\vec{J}} = \frac{1}{2}\left(\hat{\vec{F}} \cdot \hat{\vec{F}} - \hat{\vec{I}} \cdot \hat{\vec{I}} - \hat{\vec{J}} \cdot \hat{\vec{J}}\right)
+\end{equation}
+and substituting the eigenvalues of each operator one can express the eigenenergies under the hyperfine interaction in terms of the energy shifts as follows
+\begin{equation}
+\Delta E_{\text{hfs}}= \frac{1}{2} A_{\text{hfs}} K+B_{\text{hfs}} \frac{\frac{3}{2} K(K+1)-2 I(I+1) J(J+1)}{4 I(2 I-1) J(2 J-1)} \,,
+\end{equation}
+where $K$ is defined as
+\begin{equation}
+K = F(F+1)- I(I+1) - J(J+1) \,.
+\end{equation}
+
+\fi
+
+\section{Stochastic scattering model}
+
+\section{Simulated trajectories}
+\begin{figure}[!t]
+	\center
+	\includegraphics[width=0.7\linewidth]{{"peanut"}.png}
+	\caption[asdf]{}
+	\label{fig:BreitRabiDiagram} 
+\end{figure}
+
+\begin{figure}[!t]
+	\center
+	\includegraphics[width=0.6\linewidth]{{"peanut2"}.png}
+	\caption[asdf]{}
+	\label{fig:BreitRabiDiagram} 
+\end{figure}
+
+
+\end{document}

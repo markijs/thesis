@@ -10,5 +10,6 @@
 *.blg
 *.bbl
 *.auxlock
+.DS_Store
 /build/
 /tikz/

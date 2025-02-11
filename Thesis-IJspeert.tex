@@ -1,0 +1,103 @@
+\documentclass[a4paper,12pt,times,numbered,print,index,twoside,openright]{report}
+\usepackage{subfiles}
+
+% ********************************** Path safe input **********************************
+% Define the pathSafeInput command.  This runs the normal \input command if
+% the this is the main tex file being compiled, else if the pre-amble is being pulled
+% in by a subfile compilation then ../ is appended to the path (which presumes
+% the subfile is one level down in the file structure.
+\usepackage{etoolbox}
+
+% ********************************** Preamble **********************************
+% Preamble: Contains packages and user-defined commands and settings
+
+\makeatletter
+
+\input{"Preamble/Preamble"}
+
+\makeatother
+
+\begin{document}
+
+% ******************************** Front matter ******************************** 
+\pagenumbering{roman}
+
+\subfile{Title/Title}
+
+\begin{spacing}{1.0}
+
+\subfile{"Dedication/Dedication"}
+\subfile{"Abstract/Abstract"}
+\subfile{"Declaration/Declaration"}
+\subfile{"Acknowledgements/Acknowledgements"}
+
+\end{spacing}
+
+% *********************** Adding TOC and List of Figures ***********************
+
+\begin{spacing}{1.0}
+
+\makeatletter
+\renewcommand\tableofcontents{%
+	\@starttoc{toc}%
+}
+\renewcommand\listoffigures{%
+	\@starttoc{lof}%
+}
+\renewcommand\listoftables{%
+	\@starttoc{lot}%
+}
+\makeatother
+
+\cleardoublepage
+\chapter*{Table of Contents}
+\singlespacing
+\tableofcontents
+\cleardoublepage
+\chapter*{List of Figures}
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\chapter*{List of Tables}
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\end{spacing} 
+
+% ******************************** Main Matter *********************************
+\cleardoublepage
+\pagenumbering{arabic}
+
+\subfile{"Introduction/Introduction"}
+\subfile{"Light Matter Interactions/Light Matter Interactions"}
+\subfile{"Atomic Trajectories in Optical Potentials/Atomic Trajectories in Optical Potentials"}
+\subfile{"Dynamic Dipole Traps for Single Atoms/Dynamic Dipole Traps for Single Atoms"}
+\subfile{"Hologram Generation with Spatial Light Modulators/Hologram Generation with Spatial Light Modulators"}
+\subfile{"Theory and Design of an Optical Resonator/Theory and Design of an Optical Resonator"}
+\subfile{"Cavity Compatible Trapping Architectures/Cavity Compatible Trapping Architectures"}
+\subfile{"Strong Coupling in an Atom-Cavity System/Strong Coupling in an Atom-Cavity System"}
+%\subfile{"Dummy Chapter/Dummy Chapter"}
+\subfile{"Conclusion/Conclusion"}
+\subfile{"Appendices/Appendices"}
+
+
+% ******************************** Back Matter *********************************
+
+\begin{spacing}{1}
+\setlength{\bibsep}{4pt}
+
+
+\cleardoublepage
+% uncomment below for biblatex
+%\printbibliography
+
+% uncomment below for natbib
+%\let\enquote\undefined % csquotes and natbib define enquote
+%\bibliographystyle{References/bibstyle}
+
+\bibliographystyle{References/unsrtnatnomonthnoissnnourl}
+\bibliography{References/References}
+
+\end{spacing}
+
+\end{document}

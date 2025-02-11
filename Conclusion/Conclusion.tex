@@ -1,0 +1,139 @@
+\documentclass[../Thesis-IJspeert.tex]{subfiles}
+
+\begin{document}
+
+\graphicspath{ {Conclusion/figs/} }
+\pgfplotsset{table/search path={"Conclusion/data/"}}
+
+\chapter{Conclusion}
+\addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
+\label{chap:Conclusion}
+
+\iffalse
+This thesis has presented the construction, characterisation and application of a single-photon source that provides exceptional control over the photons themselves.  This system has wide-ranging applications in the field of quantum information, offering a path to preparing many-photon states for use in LOQC and providing the interface between flying and stationary qubits in quantum networks.  \Crefbf{sec:results} briefly summarises the key results found in this work and \crefbf{sec:futureOutlook} discusses the next steps to be taken.
+\pagebreak
+%----------------------------------------------------------------------------------------
+%	SECTION_: Results
+%----------------------------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+The work described in this thesis can be broadly separated into three areas: implementation of the source, interference of the photons through optical networks, and novel effects observed in the polarised atom-cavity interface.
+
+To begin we successfully demonstrated the production of alternately polarised single-photons from an atom-cavity system.  This polarisation control allowed for the deterministic routing of the emitted photon stream into optical paths of differing lengths and thus the delivery of pairs of simultaneous photons.  The flexibility of this scheme was illustrated by the arbitrary shaping of the photon wavepackets and their long temporal profiles which allowed the coherence of the produced photon pairs to be examined in a time-resolved manner.  A Hong-Ou-Mandel experiment showed an overall two-photon interference visibility of \SI{70.8\pm4.6}{\percent} for \SI{300}{\ns} long photons, further increasing to $\geq\SI{97.8}{\percent}$ when post-selecting only correlated detections within less than \SI{23}{\ns} of each other.
+
+%The deterministic production of single-photons and the preparation of multi-photon states is required to scale LOQC-based systems beyond proof-of-principle demonstrations.  To this end 
+The combination of our source with a multimode interferometer integrated onto a photonic chip was demonstrated.  The two-photon interference through this network exhibited a comparable degree of non-classical behaviour to that observed on the Hong-Ou-Mandel beam splitter, showing that the source can be applied to more complex systems without a loss of performance.
+
+In the course of this work we observed two unforeseen and previously unconsidered effects.  Firstly a novel model for V-STIRAP processes that includes the unavoidable birefringence inherent to most real-world dielectric mirrors was presented and tested.  Using this model we demonstrated how this birefringence impacts both the inherent ability of the cavity to couple different transitions in an atom and how any misalignment between the cavity and atomic bases leads to the emission of photons with an evolving polarisation state along their length.
+
+It was then shown that the nonlinear effects of the external magnetic field on the atomic energy levels and coupling strengths, and in particular the transition from the Zeeman to the Paschen-Back regime, must be considered to fully explain the behaviour of the source.  After confirming the predicted shifts by observing the polarised emission of an atom driven at different frequencies, it was seen that these effects are significant and explain previously unresolved discrepancies between the modelled and measured behaviours of the system.  Although it was concluded that the asymmetry induced in the production of each polarisation of photon ultimately hinders the efficient generation of many-photon states, the greater understanding gleaned was vital to the discussion of future improvements to the source.
+
+%
+%\begin{itemize}
+%	\item The results of each set of measurements and simulations are detailed at the end of the relevant chapters and so will not be repeated here.
+%	\item Instead an overall view of the work achieved broadly separates into three areas.
+%	\item Source implementation: we successfully constructed a source of single photons, designed around principles that allow near-deterministic photon production and preparation of many-photon states.
+%	\item Quantum information: these deterministic sources are required to scale LOQC based quantum networks.  To this end we demonstrated the successful integration of our source with a multimode interferometer integrated onto a photonic chip.
+%	\item Novel effects on the source: in the course of building and testing the experiment we came across two unforeseen and previously unconsidered effects that impact the idealised model on which we base the source.
+%		\begin{itemize}
+%			\item A novel model for the V-STIRAP processes that include the birefringence inherent to any dielectric mirrors is presented and tested.  Using this model we demonstrate how such birefringence impacts both the inherent ability of the cavity to couple different transitions in an atom and how any misalignment between the cavity and atomic bases leads to a time-dependent polarisation basis of the single photon emitted.
+%			\item The effect of the external magnetic field on the energy levels and coupling strengths of the atom is then considered.  By calculating these parameters using the full Hamiltonian of how the magnetic field couples the atomic levels on the \DTwo{} or \DOne{} line, these parameters are calculated and subsequently used in a more computationally manageable simulation of the time-dependent V-STIRAP process.  It was seen that these effects are significant and can explain previously unexplained discrepancies between the modelled and measured behaviours of the system.  This greater understanding of the system then informed a discussion of future improvements.
+%		\end{itemize}
+%\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	SECTION_: Future outlook
+%----------------------------------------------------------------------------------------
+\section{Future outlook}
+\label{sec:futureOutlook}
+
+One of our motivations for using a polarised scheme for single-photon production was the efficient preparation of $n{>}2$-photon states.  Ultimately the inhibited photon emission arising from nonlinear shifts of the atomic transition strengths prevented us from efficiently producing three or more consecutive photons.  However this is not an insurmountable issue.  Here we discuss some possible routes to realising this goal and also potential enhancements and applications of the system to quantum networks.
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION_: Single polarisation generation
+%----------------------------------------------------------------------------------------
+\subsubsection*{Single polarisation generation}
+
+The efficient production of a stream of alternately polarised photons is limited by the driving scheme with the lowest probability of emission.  In our case we have found that in the presence of an external field, this limitation is due to the cavity coupling a weakened atomic transition.  Instead we could only use the orthogonal (strengthened) V-STIRAP process by repumping the system back to the initial magnetic substate after every driving pulse.  Optically repumping in this manner would be inherently probabilisitic given the various excitation and decay channels available to the atom, however if it could be achieved efficiently then a stream of more than two photons could be emitted with far higher probability.  Moreover in this scheme the atom-cavity coupling strength would increase with the magnetic field.
+
+It is worth noting that the emitted stream of photons will all have the same polarisation and so active routing would be required to deterministically send photons into differing delay lines.  This can be achieved with, for example, Pockels cells as was briefly discussed in \cref{sec:experimentalRealisation}.
+
+%An alternative approach would be to flip the orientation of the bias field between parallel and anti-parallel to the cavity axis after every driving process.  If this switching could be accomplished such that the resultant spin flip in the atomic state
+%
+%
+%If the field was synchronised with the driving scheme such that it was pointing opposite directions along the cavity axis for subsequent photon generations then\dots \todo{help AK?} 
+%
+%\begin{enumerate}
+%	\item Produce photon on strong transition
+%	\item Flip field \rarrow Majorna spin flips
+%	\item `Resets' atomic state to initial state in B-field basis
+%	\item Produce another photon
+%	\item Note in cavity basis the polarisation emitted alternates.
+%	\item Also note it is not trivial/obvious to realise a sufficiently fast field flip where the atoms magnetic moment doesn't follow the field (as would, for example, be the case for a rotating magnetic field.
+%\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION_: Smaller mode cavities
+%----------------------------------------------------------------------------------------
+\subsubsection*{Smaller mode cavities}
+
+We have seen that the \DOne{} line, with its further separated hyperfine structure, is more resilient to the nonlinear Zeeman effects discussed in \cref{chap:NonlinearZeemanEffects} and so appears better suited to our scheme so long as the weaker transitions inherent to it are counter-balanced by a more strongly coupled (smaller mode volume) atom-cavity system.  Whilst simply shortening our cavity was shown to provide some improvement in comparison to our current configuration on the \DTwo{} line, the next major improvement would be to utilise the tighter-curvature mirrors available using new fabrication techniques that we have started to explore in our group.
+
+Mirrors ablated onto the tips of fibres are one such possibility, however constructing cavities from these mirrors is technically challenging.  The immediate difficulty is aligning two fibre-tips in free space such that they form a cavity mode and attempting avoid stability issues as these fibres flex and vibrate.  Even with such a cavity constructed, the coupling of the cavity mode into the fibre core is a major source of loss.  Whilst a single-mode fibre may have total diameter of ${\sim}\diameter\SI{125}{\um}$, the core will typically only be ${\sim}\diameter\SI{5}{\um}$.  With this core being a comparable size to the cavity mode on the mirror surface, a significant fraction of this mode is lost to the fibre cladding even for optimal alignment.  One possible solution to this problem has been demonstrated by Keller \etal{} who spliced graded-index (GRIN) fibres to the front of single-mode fibres to achieve increased mode-matching out of their cavity \cite{gulati17}.
+
+An alternative would be to ablate equivalent mirror curvatures onto solid substrates.  This would require the free-space coupling of light into and out of the cavity mode using additional optics (much as our current system does) but the bulk substrate used could be inherently more stable and not subject to inherent mode coupling losses.
+%
+%
+%Constructing fibre cavities is tough -- but the benefits are huge.  Moreover possible alternatives that maintain the tight mirror curvatures but remove the constraints of difficult alignment and clipping losses include hybrid mirror-fibre cavities and ion-beam milled substrates.
+%
+%Fibre cavity difficulties:
+%\begin{itemize}
+%	\item Clipping losses (but this is factored into the finesse)
+%	\item Coupling losses: big one - even if you generate a photon it may be lost to the fibre cladding rather than the core - possible solution is GRIN lenses from Matthias Keller \cite{gulati17}.
+%	\item Alignment and stability issues.
+%\end{itemize}
+%
+%\ce{CO2} ablated substrates:
+%\begin{itemize}
+%	\item Solid substrates could provide relief from some of these issues.
+%	\item Coupling losses: `free space' out-coupling through the substrate could act like our cavity.
+%	\item Alignment: solid substrates are less susceptible to vibrations and inherently more stable.
+%	\item What is the state of the art?
+%\end{itemize}
+%
+%Ion Beam milling:
+%\begin{itemize}
+%	\item micro-cavities ($<\SI{5}{\um}$), e.g. Jason Smith (High-Q) NV centres in cavities.
+%	\item Difficult to scale to atoms though as feature sizes are smaller than ideal and with smaller cavities surface quality/coating is problematic.
+%\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION_: Dipole trap
+%----------------------------------------------------------------------------------------
+\subsubsection*{Dipole trap}
+
+An additional benefit of these smaller mirrors (be they fibre-tips or solid substrates) is an improved optical access from the side, which could allow for the integration of a dipole trap to improve the loading and increase the interaction time of individual atoms.  Our present system relies on the stochastic delivery of atoms and the loading efficiency is kept deliberately low to reduce the risk of multiple atoms being in the cavity simultaneously.  Consequently the majority of experimental time is spent with no atoms in the cavity.  Moreover moving beyond random loading is required before experiments using multiple atom-cavity systems can be performed as the probability of two cavities being simultaneously loaded with a single atom (as is desirable) scales with the probability of two atoms being loaded into the same cavity (undesirable).
+
+Single \Rb{} atoms trapped in far-detuned optical tweezers have already been demonstrated \cite{brandt09,brandt11,stuart14}, moreover once in the cavity additional cooling processes have been shown to allow long interaction times and high degrees of localisation \cite{maunz04, reiserer13}.  Care must be taken to ensure the trapping light does not detrimentally perturb the atomic structure, for example with energy levels shifted by the AC Stark effect or potentially analogous effects to the nonlinear Zeeman effects discussed in \cref{chap:NonlinearZeemanEffects} \cite{neuzner15}.
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION_: Remote entanglement of atom-cavity systems
+%----------------------------------------------------------------------------------------
+\subsubsection*{Remote entanglement of atom-cavity systems}
+
+Remote entanglement is a key resource for quantum networks and the inherent entanglement of an emitted photon to the final atomic state can be leveraged to entangle two atoms in different cavities.  Such schemes typically involve preparing the atom in an $m_F=0$ state and driving a V-STIRAP process with $\pi$-polarised laser light to entangle the polarity of the emitted photon with the final atomic state.  This was first demonstrated by Rempe \etal{} \cite{wilk07b,wilk08} with the generation of an entangled photon pair from a single atom.  This was subsequently repeated and optimised using a trapped atom \cite{weber09,specht11}.
+
+To instead entangle two atoms, consider both producing a single photon, and this pair then interfering in a Hong-Ou-Mandel experiment on a beam splitter.  If the photons `anti-bunch' (\ie{} are detected in different output ports) then they were orthogonally polarised and so the atoms are probabilistically projected into an entangled state.  An \emph{a priori} deterministic atom-atom entanglement scheme can be similarly realised by the direct absorption of a photon emitted from the first atom by the second atom \cite{ritter12}.
+
+To extend this work one could consider using more complex networks in place of the simple beam splitter.  For example the MMI demonstrated in \cref{chap:MultimodeInterferometer} has four input channels each of which could be linked to a different atom-cavity system.  In general the interference of the emitted photons through larger quantum networks could offer a path to generating cluster states of atomic qubits.  Instead of scaling to ever larger numbers of cavities each with a single atom, the ongoing work into reconfigurable arrays of dipole-trapped atoms \cite{stuart14,holland17} could allow individual atoms to be moved into and out of a cavity, significantly reducing the resource overhead for such a scheme. 
+
+%----------------------------------------------------------------------------------------
+%	SUBSUBSECTION_: The last word
+%----------------------------------------------------------------------------------------
+\subsubsection*{The last word}
+
+Quantum information is a fast-evolving field and the current state-of-the-art is still far away from the robust and reliable technologies that may one day become common place.  Whilst the path to this future is still unclear, it seems inevitable that shift from large experimental set-ups to integrated technologies, with light proving the transfer of information over larger distances, must eventually come to the fore.  The interfacing of matter and light in quantum states is a key building block to this end, and cavity-enhanced interaction with a single mode of the electric field provides this.  Our system of an atom coupled a high finesse optical cavity is then an excellent proving ground to explore and expand this interface.  Whether as a single-photon source for LOQC or as a node in a quantum network, the field seems well placed to continue to substantially contribute to the study of these technologies and of fundamental quantum phenomena in the future.
+
+\fi
+\end{document}
