@@ -10,3 +10,5 @@
 *.blg
 *.bbl
 *.auxlock
+/build/
+/tikz/
