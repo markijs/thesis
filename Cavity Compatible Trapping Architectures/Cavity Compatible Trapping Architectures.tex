@@ -12,7 +12,30 @@
 \section{CAVITY MOUNTING FINGER DESIGN}
 In the current setup for cavity-assisted photon generation \cite{Barrett2019}, atoms are loaded stochastically into the cavity mode via an atomic fountain. However, the cavity used in that experiment (with a geometry as shown in \autoref{fig:cavity}) is not compatible with holographic optical tweezers, since its mirrors are relatively large ($\diameter \SI{1.5}{\milli\meter}$) in comparison to the length of the cavity (\SI{339}{\micro\meter}). These dimensions imply that the full accessible angle of this cavity is \ang{25.5}, whereas the trapping light would propagate through the glass cell at nearly the full acceptance angle of the high numerical aperture lens, which is \ang{73.7}. A new cavity is under construction which consists of two truncated square pyramids of silica. An important difference is that the surfaces of truncation are much smaller ($\SI{300}{\micro\meter}\times\SI{300}{\micro\meter}$). This implies that for a similar cavity length ($\sim\SI{300}{\micro\meter}$), the new design would feature a full accessible angle of \ang{90}, which is compatible with the current optical tweezers. Another difference is the method of cavity mirror fabrication. In the current design, the macroscopic silica substrates are super-polished, which means that these mirrors can have exceptionally low losses ($\sim\SI{2}{ppm}$). The disadvantage of this technique is that it results in a relatively large radius of curvature (\SI{50}{\milli\meter}) and mirror diameter. An alternative approach involves the use of intense \ce{CO2} laser pulses to ablate Gaussian micro-dimples onto the end facets of optical fibres \cite{Hunger2010}, which yields a much smaller radius of curvature (\SI{200}{\micro\meter} within a range varying from \SI{50}{\micro\meter} to \SI{1}{\milli\meter}) that can enable a smaller mode volume and therefore higher cooperativity. However, fibre-based optical microcavities can be difficult to stabilise due to the limited mass of the fibre and the fact that the cavity facets are always under some tension from the rest of the structure \cite{Janitz2017}. Another complication is the limited spatial mode matching between the cavity mode and the input/output modes of the fibre. In the new cavity design, the ablation is performed on the truncated surfaces of the macroscopic silica bases for increased stability and improved mode matching, whilst incorporating the advantages of an ablated mirror surface.
 
-
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"finger"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			\node[markgrijs, align=center, rotate=0] at (0.05,0.9) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.67,0.42) {\footnotesize\sc (c)};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption[Mirror design of a Fabry-Pérot resonator.]{Mirror design of a Fabry-Pérot resonator. Dielectric mirror coatings are applied to the superpolished (\textsc{a}) or laser-ablated (\textsc{b}) end facets of glass substrates with conical (\textsc{a}) and pyramidal (\textsc{b}) geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram (\textsc{c}) reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. (\textsc{d}) Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
+	\label{finger} 
+\end{figure}
 
 
 \begin{figure}[!t]
@@ -1260,27 +1283,55 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 \begin{figure}[t]
 	\hspace{-0cm}
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
-	
-	% left four
-	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	% labels
-	%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
-	%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
-	%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-	
-	\node[markgrijs, align=center, rotate=0] at (0.15,0.) {\footnotesize\sc (a)};
-	\node[markgrijs, align=center, rotate=0] at (0.5,0.) {\footnotesize\sc (b)};
-	\node[markgrijs, align=center, rotate=0] at (0.85,0.) {\footnotesize\sc (c)};
-	
-	\end{scope}
-	
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+			
+			\node[markgrijs, align=center, rotate=0] at (0.15,0.) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.5,0.) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.85,0.) {\footnotesize\sc (c)};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption[Mirror design of a Fabry-Pérot resonator.]{Mirror design of a Fabry-Pérot resonator. Dielectric mirror coatings are applied to the superpolished (\textsc{a}) or laser-ablated (\textsc{b}) end facets of glass substrates with conical (\textsc{a}) and pyramidal (\textsc{b}) geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram (\textsc{c}) reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. (\textsc{d}) Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
+	\label{finger} 
+\end{figure}
+
+
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.95\textwidth]{{"pyramidtest"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			\node[markgrijs, align=center, rotate=0] at (0.05,0.9) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.53,0.9) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (c)};
+			\node[markgrijs, align=center, rotate=0] at (0.53,0.42) {\footnotesize\sc (d)};
+			
+		\end{scope}
+		
 	\end{tikzpicture}
 	\caption[Mirror design of a Fabry-Pérot resonator.]{Mirror design of a Fabry-Pérot resonator. Dielectric mirror coatings are applied to the superpolished (\textsc{a}) or laser-ablated (\textsc{b}) end facets of glass substrates with conical (\textsc{a}) and pyramidal (\textsc{b}) geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram (\textsc{c}) reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. (\textsc{d}) Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
 	\label{finger} 
