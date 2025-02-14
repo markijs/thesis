@@ -1273,11 +1273,75 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 
 For the operation of holographic optical tweezers inside a cavity (see \autoref{exp5}), it is not possible to load microtraps from a MOT positioned between the cavity mirrors due to limited optical access for the MOT beams. The idea is to position the MOT cloud in the neighbourhood of the cavity, from which atoms are then transported towards the focal plane of the trapping light inside the cavity. There are various methods of doing this, which include funnelling atoms ejected with an atomic fountain using a combination of blue detuned cavity modes \cite{Puppe2007}, guiding atoms from a static MOT with a single, red detuned beam \cite{Numann2005} or using an optical lattice that can act as an optical conveyor belt \cite{Gallego2018,Schrader2001}. For this experiment, we propose using an atomic fountain to load a large grid of holographic microtraps in the cavity. This will increase the capture probability from the thermally expanding cloud of atoms.
 
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"polish"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+			
+			\node[markgrijs, align=center, rotate=0] at (0.155,-0.05) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.845,-0.05) {\footnotesize\sc (c)};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+	\label{polish} 
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+			\node[markgrijs, align=center, rotate=0] at (0.10,0.555) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.10+0.206,0.555) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.10+0.412,0.555) {\footnotesize\sc (c)};
+			
+			\node[markgrijs, align=center, rotate=0] at (0.10,0.055) {\footnotesize\sc (d)};
+			\node[markgrijs, align=center, rotate=0] at (0.10+0.206,0.055) {\footnotesize\sc (e)};
+			\node[markgrijs, align=center, rotate=0] at (0.10+0.412,0.055) {\footnotesize\sc (f)};
+			
+			\node[markgrijs, align=center, rotate=0] at (0.815,0.055) {\footnotesize\sc (g)};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+	\label{mirror} 
+\end{figure}
+
+
 \begin{figure}[!t]
 	\center
 	\includegraphics[width=0.75\linewidth]{{"motdiffraction"}.pdf}
 	\caption[asdf]{}
-	\label{fig:BreitRabiDiagram} 
+	\label{motdiffraction} 
 \end{figure}
 
 \begin{figure}[t]
@@ -1298,9 +1362,9 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
 			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
 			
-			\node[markgrijs, align=center, rotate=0] at (0.15,0.) {\footnotesize\sc (a)};
-			\node[markgrijs, align=center, rotate=0] at (0.5,0.) {\footnotesize\sc (b)};
-			\node[markgrijs, align=center, rotate=0] at (0.85,0.) {\footnotesize\sc (c)};
+			\node[markgrijs, align=center, rotate=0] at (0.15,-0.05) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.85,-0.05) {\footnotesize\sc (c)};
 			
 		\end{scope}
 		
@@ -1313,7 +1377,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.95\textwidth]{{"pyramidtest"}.pdf}};
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidtest"}.pdf}};
 		
 		% left four
 		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -1324,15 +1388,15 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
 			
 			% labels
-			\node[markgrijs, align=center, rotate=0] at (0.05,0.9) {\footnotesize\sc (a)};
-			\node[markgrijs, align=center, rotate=0] at (0.53,0.9) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.57,0.95) {\footnotesize\sc (b)};
 			\node[markgrijs, align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (c)};
-			\node[markgrijs, align=center, rotate=0] at (0.53,0.42) {\footnotesize\sc (d)};
+			\node[markgrijs, align=center, rotate=0] at (0.57,0.42) {\footnotesize\sc (d)};
 			
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[asdf]{Mirror design of a Fabry-Pérot resonator. Dielectric mirror coatings are applied to the superpolished (\textsc{a}) or laser-ablated (\textsc{b}) end facets of glass substrates with conical (\textsc{a}) and pyramidal (\textsc{b}) geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram (\textsc{c}) reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. (\textsc{d}) Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
+	\caption[Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry–Pérot resonator]{Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry–Pérot resonator. (\textsc{a}) A PTFE holder secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. (\textsc{b}) Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. (\textsc{c}) The stainless steel mounting finger supports the PTFE holder and aluminium mount, keeping the assembly in place while allowing optical access for the cooling beams. (\textsc{d}) Full assembly inside the glass cell, with anti-Helmholtz coils affixed to a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
 	\label{pyramidtest} 
 \end{figure}
 
