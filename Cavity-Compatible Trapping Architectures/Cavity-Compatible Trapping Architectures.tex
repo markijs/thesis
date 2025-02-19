@@ -1302,6 +1302,109 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\label{polish} 
 \end{figure}
 
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+			\begin{groupplot}[group style={group size=4 by 1,horizontal sep=0.5cm, vertical sep=1.5cm},height=5cm,width=5cm,no markers]
+			\nextgroupplot
+			[
+			ylabel={},
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			xticklabels={,\textcolor{white}{0},},
+			yticklabels={,,},
+			%legend pos=north west,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			axis lines=none,        % No axis lines
+			%tick style=none,        % No ticks
+			%xtick=\empty,           % No x-axis ticks
+			%ytick=\empty,           % No y-axis ticks
+			xlabel={},              % No x-axis label
+			ylabel={},              % No y-axis label
+			%enlargelimits=true,     % Keeps the plot within the bounds
+			]
+			
+			\addplot graphics [
+			xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+			ymin=0, ymax=1    % Stretch to fit the y-axis limits
+			] {polishtool.pdf};
+			
+			\nextgroupplot
+			[
+			ylabel={},
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			xticklabels={,\textcolor{white}{0},},
+			yticklabels={,,},
+			%legend pos=north west,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			axis lines=none,        % No axis lines
+			%tick style=none,        % No ticks
+			%xtick=\empty,           % No x-axis ticks
+			%ytick=\empty,           % No y-axis ticks
+			xlabel={},              % No x-axis label
+			ylabel={},              % No y-axis label
+			%enlargelimits=true,     % Keeps the plot within the bounds
+			]
+			
+			\addplot graphics [
+			xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+			ymin=0, ymax=1    % Stretch to fit the y-axis limits
+			] {polishtool.pdf};
+			
+			\nextgroupplot
+			[
+			x=30,
+			ylabel={},
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			xticklabels={,\textcolor{white}{0},},
+			yticklabels={,,},
+			%legend pos=north west,
+			axis lines=none,        % No axis lines
+			tick style=none,        % No ticks
+			xtick=\empty,           % No x-axis ticks
+			ytick=\empty,           % No y-axis ticks
+			xlabel={},              % No x-axis label
+			ylabel={},              % No y-axis label
+			%enlargelimits=true,     % Keeps the plot within the bounds
+			]
+			
+			\nextgroupplot
+			[
+			xmin=163,
+			xmax=182,
+			xlabel={Polishing time (\si{\second})},
+			ylabel={End facet length (\si{\milli\meter})},
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			]
+			\addplot[only marks, markgrijs, error bars/.cd,
+			y dir=both, y explicit,
+			x dir=both, x explicit] table[x=x, y=y, x error=xe, y error=ye] {
+				x     y      xe     ye
+				168   0.310  0.1    0.005
+				168   0.274  0.1    0.005
+				168   0.337  0.1    0.005
+				168   0.327  0.1    0.005
+				165   0.344  0.1    0.005
+				169   0.267  0.1    0.005
+				180   0.208  0.1    0.005
+			};
+			
+			\addplot[markrood, thick, domain=160:185, samples=200] {(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+		
+		\end{groupplot}
+	\end{tikzpicture}
+	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+\label{polish} 
+\end{figure}
+
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[remember picture]
