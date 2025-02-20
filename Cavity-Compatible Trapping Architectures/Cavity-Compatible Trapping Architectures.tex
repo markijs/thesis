@@ -1298,7 +1298,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+	\caption[Polishing procedure for right-angle prism mirrors]{Polishing procedure for right-angle prism mirrors. (\textsc{a}) The right-angle prism mirror is secured in a custom aluminium mount using a grub screw. A polishing film is attached to a rotating disk of a fibre optic polishing tool. After removal of the required amount of glass from one corner (\textsc{b}), the prism mirror is flipped inside the mount to polish the adjacent corner (\textsc{c}). White arrows indicate the direction of polishing.}
 	\label{polish} 
 \end{figure}
 
@@ -1338,20 +1338,25 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			
 			\node[markgrijs, align=center, rotate=0] at (0.23,-0.025) {\footnotesize $5$};
 			\node[markgrijs, align=center, rotate=0] at (0.413,0.05) {\footnotesize $b$};
+			\node[markgrijs, align=center, rotate=0] at (0.255,0.115) {\footnotesize $a$};
 			
-			\node[markgrijs, align=center, rotate=0] at (0.95,0.55) {\footnotesize $5$};
-			\node[markgrijs, align=center, rotate=0] at (0.8,0.2) {\footnotesize $5$};
+			\node[markgrijs, align=center, rotate=0] at (0.93,0.52) {\footnotesize $5$};
+			\node[markgrijs, align=center, rotate=0] at (0.832,0.175) {\footnotesize $5$};
 			
 			
 			\nextgroupplot
 			[
-			xmin=163,
-			xmax=182,
-			xlabel={Polishing time (\si{\second})},
-			ylabel={End facet length (\si{\milli\meter})},
+			ymin=0,
+			ymax=5,
+			xmin=0,
+			xmax=200,
+			ytick={0,1,2,3,4,5},
+			xlabel={Polishing time $t$ (\si{\second})},
+			ylabel={End facet length $a$ (\si{\milli\meter})},
 			ymajorgrids=true,
 			xmajorgrids=true,
 			grid style=dashed,
+			name=plot1,
 			]
 			\addplot[only marks, markgrijs, error bars/.cd,
 			y dir=both, y explicit,
@@ -1366,13 +1371,67 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 				180   0.208  0.1    0.005
 			};
 			
-			\addplot[markrood, thick, domain=160:185, samples=200] {(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+			\addplot[markrood, thick, domain=0:200, samples=200] {(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+			
+			%\draw[] (axis cs:163,0.190) rectangle (axis cs:182,0.360);
 			
 			
 		\end{groupplot}
+		\begin{axis}[
+			xticklabel style={rotate=90},
+			xlabel style={yshift=0.2cm},
+			ylabel style={yshift=-0.1cm},
+			xmin=163,
+			xmax=182,
+			ymin=190,
+			ymax=360,
+			at={(plot1.north east)},
+			xshift=-5pt,
+			yshift=-5pt,
+			width=3.5cm,
+			height=3.5cm,
+			anchor=north east,
+			xlabel={$t$ (\si{\second})},
+			ylabel={$a$ (\si{\micro\meter})},
+			]
+			
+			\addplot[only marks, markgrijs, error bars/.cd,
+			y dir=both, y explicit,
+			x dir=both, x explicit] table[x=x, y=y, x error=xe, y error=ye] {
+				x     y      xe     ye
+				168   310  0.1    5
+				168   274  0.1    5
+				168   337  0.1    5
+				168   327  0.1    5
+				165   344  0.1    5
+				169   267  0.1    5
+				180   208  0.1    5
+			};
+			
+			\addplot[markrood, thick, domain=160:185, samples=200] {1000*(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+			
+		\end{axis}
 	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
-\label{polish} 
+	\caption[Loading an intracavity dipole trap from a pyramid MOT]{(Left) Schematic of the right-angle mirror substrate with dimensions in millimetres. The end facet length 
+		a
+		a and adjacent length 
+		b
+		b are indicated, with the gold-coated surface highlighted in yellow. The red volume represents the material to be removed, which depends on 
+		a
+		a. (Right) Measured end facet length 
+		a
+		a as a function of polishing time. Data points show measured values with error bars. The solid line is a fit based on Preston’s law, which assumes a constant material removal volume per unit time. The only fit parameter is the material removal rate, found to be 
+		0.0128
+		
+		m
+		m
+		3
+		/
+		s
+		0.0128mm 
+		3
+		/s.}
+\label{polishtime} 
 \end{figure}
 
 \begin{figure}[t]
