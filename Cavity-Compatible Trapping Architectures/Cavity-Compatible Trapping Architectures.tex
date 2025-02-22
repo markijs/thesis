@@ -1343,6 +1343,10 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			\node[markgrijs, align=center, rotate=0] at (0.93,0.52) {\footnotesize $5$};
 			\node[markgrijs, align=center, rotate=0] at (0.832,0.175) {\footnotesize $5$};
 			
+			\node[markrood, align=center, rotate=0] at (0.57,0.23) {\footnotesize $V$};
+			
+			
+			
 			
 			\nextgroupplot
 			[
@@ -1373,10 +1377,33 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			
 			\addplot[markrood, thick, domain=0:200, samples=200] {(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
 			
-			%\draw[] (axis cs:163,0.190) rectangle (axis cs:182,0.360);
+			
+			
+			%\fill[fill=markdiepblauw, opacity=0.5] (axis cs:163,0.190) rectangle (axis cs:182,0.360);
+			
 			
 			
 		\end{groupplot}
+		\begin{axis}[
+			xticklabel style={rotate=90},
+			xlabel style={yshift=0.2cm},
+			ylabel style={yshift=-0.1cm},
+			xmin=163,
+			xmax=182,
+			ymin=190,
+			ymax=360,
+			at={(plot1.north east)},
+			xshift=-5pt,
+			yshift=-5pt,
+			width=3.5cm,
+			height=3.5cm,
+			anchor=north east,
+			xlabel={$t$ (\si{\second})},
+			ylabel={$a$ (\si{\micro\meter})},
+			]
+			\fill[fill=white] (axis cs:163,190) rectangle (axis cs:182,360);
+			
+		\end{axis}
 		\begin{axis}[
 			xticklabel style={rotate=90},
 			xlabel style={yshift=0.2cm},
@@ -1410,27 +1437,14 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			
 			\addplot[markrood, thick, domain=160:185, samples=200] {1000*(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
 			
+			\draw[markgrijs]       (axis cs:165, 334) -- (axis cs:165, 304) node[below, align=center, markgrijs] {\footnotesize 1};
+			\draw[markgrijs]       (axis cs:168+1, 337) -- (axis cs:168+5, 340) node[right, align=center, markgrijs] {\footnotesize 2};
+			\draw[markgrijs]       (axis cs:168+1, 327) -- (axis cs:168+7, 315) node[right, align=center, markgrijs] {\footnotesize 3};
+			\draw[markgrijs]       (axis cs:168+1, 310) -- (axis cs:168+9, 290) node[right, align=center, markgrijs] {\footnotesize 4};
+			
 		\end{axis}
 	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramid MOT]{(Left) Schematic of the right-angle mirror substrate with dimensions in millimetres. The end facet length 
-		a
-		a and adjacent length 
-		b
-		b are indicated, with the gold-coated surface highlighted in yellow. The red volume represents the material to be removed, which depends on 
-		a
-		a. (Right) Measured end facet length 
-		a
-		a as a function of polishing time. Data points show measured values with error bars. The solid line is a fit based on Preston’s law, which assumes a constant material removal volume per unit time. The only fit parameter is the material removal rate, found to be 
-		0.0128
-		
-		m
-		m
-		3
-		/
-		s
-		0.0128mm 
-		3
-		/s.}
+	\caption[Right-angle prism mirror geometry and dependence of mirror end facet length on polishing time]{Right-angle prism mirror geometry (left) and dependence of mirror end facet length on polishing time (right). The schematic shows the substrate dimensions in millimetres, as well as the end facet length $a$ and adjacent length $b$. The red volume $V$ represents the amount of removed material, which can be expressed in terms of the polishing depth $z$ or facet length $a$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1-4). The solid line represents a fit based on Preston’s law, which assumes a constant material removal rate ($\dot{V}=\SI{0.0128}{\milli\meter\cubed\per\second}$).}
 \label{polishtime} 
 \end{figure}
 
