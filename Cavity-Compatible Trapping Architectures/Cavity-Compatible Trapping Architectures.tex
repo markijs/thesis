@@ -1465,7 +1465,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
 			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
 			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-			\node[markgrijs, align=center, rotate=0] at (0.10,0.555) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.10,0.555) {\footnotesize\sc (a)}; 
 			\node[markgrijs, align=center, rotate=0] at (0.10+0.206,0.555) {\footnotesize\sc (b)};
 			\node[markgrijs, align=center, rotate=0] at (0.10+0.412,0.555) {\footnotesize\sc (c)};
 			
@@ -1488,11 +1488,36 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\label{mirror} 
 \end{figure}
 
-
+5 - 2 * ((6. * a * t) ** (1./3.))
 \begin{figure}[!t]
-	\center
-	\includegraphics[width=0.75\linewidth]{{"motdiffraction"}.pdf}
-	\caption[asdf]{}
+	\centering
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.75\textwidth]{{"motdiffraction"}.pdf}};
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	\node[markgrijs, align=center, rotate=0] at (0.13,-0.1) {\footnotesize\sc front view}; 
+	\node[markgrijs, align=center, rotate=0] at (0.45,-0.1) {\footnotesize\sc side view}; 
+	
+	\node[white, align=center, rotate=0, anchor=center] at (0.52,0.5) {\footnotesize \SI{780}{\nano\meter}}; 
+	\node[white, align=center, rotate=0, anchor=center] at (0.73,0.5) {\footnotesize \SI{780}{\nano\meter}}; 
+	
+	\draw[markgrijs, ->] (0.848, 0.2) -- (0.848, 0.4) node[left, pos=0.5] {\footnotesize $a$};
+	\draw[markgrijs, ->] (0.848, 0.8) -- (0.848, 0.6) node[above, anchor=mid] {\footnotesize };
+	
+	\draw[markgrijs, dotted] (0.848, 0.2) -- (0.848, 0.05) node[above, anchor=mid] {};
+	\draw[markgrijs, <->] (0.848, 0.1) -- (0.983, 0.1) node[below, pos=0.5] {\footnotesize $d$};
+	
+	\node[markgrijs, align=center, anchor=center] at (0.63, 0.5) {\footnotesize $=$};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[asdf]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam interacting with the aperture. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction of size $a$ (right). The diffraction pattern is modelled at various distances $d$.}
 	\label{motdiffraction} 
 \end{figure}
 
