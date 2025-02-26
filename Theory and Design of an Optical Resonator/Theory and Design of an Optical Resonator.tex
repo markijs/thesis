@@ -735,17 +735,17 @@ $n_y = p - m + 1$ for the odd modes.
 	
 	% axis
 	
-	\draw[thick, ->, line cap=rect] (-0.012 + 1/2 + \xgap/2, 1.024) -- (-0.012 + 1/2 + \xgap/2, -0.04) node[above left] {$m$};
-	\draw[thick, ->, line cap=rect] (-0.012 + 1/2 + \xgap/2, 1.024) -- (1.02, 1.024) node[above left] {$\epsilon$};
+	\draw[thick, ->, line cap=rect] (-0.012 + 1/2 + \xgap/2, 1.024) -- (-0.012 + 1/2 + \xgap/2, -0.04) node[above left] {\small $m$};
+	\draw[thick, ->, line cap=rect] (-0.012 + 1/2 + \xgap/2, 1.024) -- (1.02, 1.024) node[above left] {\small $\epsilon$};
 	
-	\node[align=center] at (-0.03 + 1/2 + \xgap/2, \ystep/2) {$4$};
-	\node[align=center] at (-0.03 + 1/2 + \xgap/2, 3*\ystep/2 + \ygap) {$2$};
-	\node[align=center] at (-0.03 + 1/2 + \xgap/2, 5*\ystep/2 + 2*\ygap) {$0$};
+	\node[align=center] at (-0.03 + 1/2 + \xgap/2, \ystep/2) {\small $4$};
+	\node[align=center] at (-0.03 + 1/2 + \xgap/2, 3*\ystep/2 + \ygap) {\small $2$};
+	\node[align=center] at (-0.03 + 1/2 + \xgap/2, 5*\ystep/2 + 2*\ygap) {\small $0$};
 	
 	
-	\node[align=center] at (1/2 + \xgap/2 + \xstep/2, 1.07) {$0$};
-	\node[align=center] at (1/2 + 3*\xgap/2 + 3*\xstep/2, 1.07) {$2$};
-	\node[align=center] at (1/2 + 5*\xgap/2 + 5*\xstep/2, 1.07) {$\infty$};
+	\node[align=center] at (1/2 + \xgap/2 + \xstep/2, 1.07) {\small $0$};
+	\node[align=center] at (1/2 + 3*\xgap/2 + 3*\xstep/2, 1.07) {\small $2$};
+	\node[align=center] at (1/2 + 5*\xgap/2 + 5*\xstep/2, 1.07) {\small $\infty$};
 	
 	\begin{scope}[on background layer]
 		\node[anchor=center, inner sep=0pt,
@@ -1405,30 +1405,30 @@ fill between/on layer={
 	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
 	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
 	
-	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {$n_y$};
-	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {$n_x$};
+	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {\small $n_y$};
+	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {\small $n_x$};
 	
-	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {$n$};
-	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {$l$};
+	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {\small $n$};
+	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {\small $l$};
 	
-	\node[align=center] at (-0.03, \step/2) {$5$};
-	\node[align=center] at (-0.03, 3*\step/2 + \gap) {$4$};
-	\node[align=center] at (-0.03, 5*\step/2 + 2*\gap) {$3$};
-	\node[align=center] at (-0.03, 7*\step/2 + 3*\gap) {$2$};
-	\node[align=center] at (-0.03, 9*\step/2 + 4*\gap) {$1$};
-	\node[align=center] at (-0.03, 11*\step/2 + 5*\gap) {$0$};
+	\node[align=center] at (-0.03, \step/2) {\small $5$};
+	\node[align=center] at (-0.03, 3*\step/2 + \gap) {\small $4$};
+	\node[align=center] at (-0.03, 5*\step/2 + 2*\gap) {\small $3$};
+	\node[align=center] at (-0.03, 7*\step/2 + 3*\gap) {\small $2$};
+	\node[align=center] at (-0.03, 9*\step/2 + 4*\gap) {\small $1$};
+	\node[align=center] at (-0.03, 11*\step/2 + 5*\gap) {\small $0$};
 	
-	\node[align=center] at (\step/2, 1.035) {$0$};
-	\node[align=center] at (3*\step/2 + \gap, 1.035) {$1$};
-	\node[align=center] at (5*\step/2 + 2*\gap, 1.035) {$2$};
-	\node[align=center] at (7*\step/2 + 3*\gap, 1.035) {$3$};
-	\node[align=center] at (9*\step/2 + 4*\gap, 1.035) {$4$};
-	\node[align=center] at (11*\step/2 + 5*\gap, 1.035) {$5$};
+	\node[align=center] at (\step/2, 1.035) {\small $0$};
+	\node[align=center] at (3*\step/2 + \gap, 1.035) {\small $1$};
+	\node[align=center] at (5*\step/2 + 2*\gap, 1.035) {\small $2$};
+	\node[align=center] at (7*\step/2 + 3*\gap, 1.035) {\small $3$};
+	\node[align=center] at (9*\step/2 + 4*\gap, 1.035) {\small $4$};
+	\node[align=center] at (11*\step/2 + 5*\gap, 1.035) {\small $5$};
 	
-	\node[align=center] at (0.661-0.018, 3*\step/2 + \gap) {$0$};
-	\node[align=center] at (0.661-0.018, \step/2) {$1$};
-	\node[align=center] at (0.661+0.012 + \step/2, 1-0.661+0.023) {$0$};
-	\node[align=center] at (0.661+0.012 + 3*\step/2 + \gap, 1-0.661+0.023) {$1$};
+	\node[align=center] at (0.661-0.018, 3*\step/2 + \gap) {\small $0$};
+	\node[align=center] at (0.661-0.018, \step/2) {\small $1$};
+	\node[align=center] at (0.661+0.012 + \step/2, 1-0.661+0.023) {\small $0$};
+	\node[align=center] at (0.661+0.012 + 3*\step/2 + \gap, 1-0.661+0.023) {\small $1$};
 	
 \end{scope}
 \end{tikzpicture}

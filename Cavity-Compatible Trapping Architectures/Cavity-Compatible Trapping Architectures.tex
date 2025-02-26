@@ -1383,29 +1383,29 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	
 	\end{groupplot}
 	
-	\draw[thick, white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {$a$};
+	\draw[thick, white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\small $a$};
 	
 	\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
-	\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {$d$};
+	\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {\small $d$};
 	
 	
-	\node[align=center] at (vert1) {\footnotesize $0.1$};
-	\node[align=center] at (vert9) {\footnotesize $0.2$};
-	\node[align=center] at (vert17) {\footnotesize $0.3$};
-	\node[align=center] at (vert25) {\footnotesize $0.4$};
-	\node[align=center] at (vert33) {\footnotesize $0.5$};
-	\node[align=center] at (vert41) {\footnotesize $0.6$};
-	\node[align=center] at (vert49) {\footnotesize $0.7$};
-	\node[align=center] at (vert57) {\footnotesize $0.8$};
+	\node[align=center] at (vert1) {\small $0.1$};
+	\node[align=center] at (vert9) {\small $0.2$};
+	\node[align=center] at (vert17) {\small $0.3$};
+	\node[align=center] at (vert25) {\small $0.4$};
+	\node[align=center] at (vert33) {\small $0.5$};
+	\node[align=center] at (vert41) {\small $0.6$};
+	\node[align=center] at (vert49) {\small $0.7$};
+	\node[align=center] at (vert57) {\small $0.8$};
 	
-	\node[align=center] at (hor1) {\footnotesize $0$};
-	\node[align=center] at (hor2) {\footnotesize $1$};
-	\node[align=center] at (hor3) {\footnotesize $2$};
-	\node[align=center] at (hor4) {\footnotesize $3$};
-	\node[align=center] at (hor5) {\footnotesize $4$};
-	\node[align=center] at (hor6) {\footnotesize $5$};
-	\node[align=center] at (hor7) {\footnotesize $6$};
-	\node[align=center] at (hor8) {\footnotesize $7$};
+	\node[align=center] at (hor1) {\small $0$};
+	\node[align=center] at (hor2) {\small $1$};
+	\node[align=center] at (hor3) {\small $2$};
+	\node[align=center] at (hor4) {\small $3$};
+	\node[align=center] at (hor5) {\small $4$};
+	\node[align=center] at (hor6) {\small $5$};
+	\node[align=center] at (hor7) {\small $6$};
+	\node[align=center] at (hor8) {\small $7$};
 	
 	\end{tikzpicture}
 	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
@@ -1461,8 +1461,11 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			\coordinate (vert#1) at (axis cs:-0.35,1);
 			\coordinate (hor#1) at (axis cs:0.5,2.5);
 			
-			\coordinate (edgeleft#1) at (axis cs:0.11,1);
-			\coordinate (edgeright#1) at (axis cs:0.89,1);
+			\coordinate (edgeleft#1) at (axis cs:0.11,0.7);
+			\coordinate (edgeright#1) at (axis cs:0.89,0.7);
+			
+			\coordinate (hedgeleft#1) at (axis cs:0,1.7);
+			\coordinate (hedgeright#1) at (axis cs:1,1.7);
 			
 			\coordinate (outerright#1) at (axis cs:1.15,1);
 			\coordinate (louterright#1) at (axis cs:1.15,0);
@@ -1472,47 +1475,48 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		
 		
 		
-		\draw[thick, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {$a$};
+		\draw[thick, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\footnotesize $a$};
+		\draw[thick, <->] (hedgeleft57) -- (hedgeright57) node[below, pos=0.5] {\footnotesize \SI{1}{\milli\meter}};
 		
-		\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
-		\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {$d$};
+		\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {\small $a$};
+		\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {\small $d$};
 		
 		
-		\node[align=center] at (vert1) {\footnotesize $0.1$};
-		\node[align=center] at (vert9) {\footnotesize $0.2$};
-		\node[align=center] at (vert17) {\footnotesize $0.3$};
-		\node[align=center] at (vert25) {\footnotesize $0.4$};
-		\node[align=center] at (vert33) {\footnotesize $0.5$};
-		\node[align=center] at (vert41) {\footnotesize $0.6$};
-		\node[align=center] at (vert49) {\footnotesize $0.7$};
-		\node[align=center] at (vert57) {\footnotesize $0.8$};
+		\node[align=center] at (vert1) {\small $0.1$};
+		\node[align=center] at (vert9) {\small $0.2$};
+		\node[align=center] at (vert17) {\small $0.3$};
+		\node[align=center] at (vert25) {\small $0.4$};
+		\node[align=center] at (vert33) {\small $0.5$};
+		\node[align=center] at (vert41) {\small $0.6$};
+		\node[align=center] at (vert49) {\small $0.7$};
+		\node[align=center] at (vert57) {\small $0.8$};
 		
-		\node[align=center] at (hor1) {\footnotesize $0$};
-		\node[align=center] at (hor2) {\footnotesize $1$};
-		\node[align=center] at (hor3) {\footnotesize $2$};
-		\node[align=center] at (hor4) {\footnotesize $3$};
-		\node[align=center] at (hor5) {\footnotesize $4$};
-		\node[align=center] at (hor6) {\footnotesize $5$};
-		\node[align=center] at (hor7) {\footnotesize $6$};
-		\node[align=center] at (hor8) {\footnotesize $7$};
+		\node[align=center] at (hor1) {\small $0$};
+		\node[align=center] at (hor2) {\small $1$};
+		\node[align=center] at (hor3) {\small $2$};
+		\node[align=center] at (hor4) {\small $3$};
+		\node[align=center] at (hor5) {\small $4$};
+		\node[align=center] at (hor6) {\small $5$};
+		\node[align=center] at (hor7) {\small $6$};
+		\node[align=center] at (hor8) {\small $7$};
 		
-		\node[markgrijs, align=center] at (outerright8) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright16) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright24) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright32) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright40) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright48) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright56) {\footnotesize $1$};
-		\node[markgrijs, align=center] at (outerright64) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright8) {\small $1$};
+		\node[markgrijs, align=center] at (outerright16) {\small $1$};
+		\node[markgrijs, align=center] at (outerright24) {\small $1$};
+		\node[markgrijs, align=center] at (outerright32) {\small $1$};
+		\node[markgrijs, align=center] at (outerright40) {\small $1$};
+		\node[markgrijs, align=center] at (outerright48) {\small $1$};
+		\node[markgrijs, align=center] at (outerright56) {\small $1$};
+		\node[markgrijs, align=center] at (outerright64) {\small $1$};
 		
-		\node[markgrijs, align=center] at (louterright8) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright16) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright24) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright32) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright40) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright48) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright56) {\footnotesize $0$};
-		\node[markgrijs, align=center] at (louterright64) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright8) {\small $0$};
+		\node[markgrijs, align=center] at (louterright16) {\small $0$};
+		\node[markgrijs, align=center] at (louterright24) {\small $0$};
+		\node[markgrijs, align=center] at (louterright32) {\small $0$};
+		\node[markgrijs, align=center] at (louterright40) {\small $0$};
+		\node[markgrijs, align=center] at (louterright48) {\small $0$};
+		\node[markgrijs, align=center] at (louterright56) {\small $0$};
+		\node[markgrijs, align=center] at (louterright64) {\small $0$};
 		
 	\end{tikzpicture}
 	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
