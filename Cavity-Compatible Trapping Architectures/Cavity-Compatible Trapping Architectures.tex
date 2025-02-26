@@ -10,6 +10,8 @@
 \label{chap:CavityCompatibleTrappingArchitectures}
 
 \section{CAVITY MOUNTING FINGER DESIGN}
+\subsection{Overview}
+\subsection{Structural analysis}
 In the current setup for cavity-assisted photon generation \cite{Barrett2019}, atoms are loaded stochastically into the cavity mode via an atomic fountain. However, the cavity used in that experiment (with a geometry as shown in \autoref{fig:cavity}) is not compatible with holographic optical tweezers, since its mirrors are relatively large ($\diameter \SI{1.5}{\milli\meter}$) in comparison to the length of the cavity (\SI{339}{\micro\meter}). These dimensions imply that the full accessible angle of this cavity is \ang{25.5}, whereas the trapping light would propagate through the glass cell at nearly the full acceptance angle of the high numerical aperture lens, which is \ang{73.7}. A new cavity is under construction which consists of two truncated square pyramids of silica. An important difference is that the surfaces of truncation are much smaller ($\SI{300}{\micro\meter}\times\SI{300}{\micro\meter}$). This implies that for a similar cavity length ($\sim\SI{300}{\micro\meter}$), the new design would feature a full accessible angle of \ang{90}, which is compatible with the current optical tweezers. Another difference is the method of cavity mirror fabrication. In the current design, the macroscopic silica substrates are super-polished, which means that these mirrors can have exceptionally low losses ($\sim\SI{2}{ppm}$). The disadvantage of this technique is that it results in a relatively large radius of curvature (\SI{50}{\milli\meter}) and mirror diameter. An alternative approach involves the use of intense \ce{CO2} laser pulses to ablate Gaussian micro-dimples onto the end facets of optical fibres \cite{Hunger2010}, which yields a much smaller radius of curvature (\SI{200}{\micro\meter} within a range varying from \SI{50}{\micro\meter} to \SI{1}{\milli\meter}) that can enable a smaller mode volume and therefore higher cooperativity. However, fibre-based optical microcavities can be difficult to stabilise due to the limited mass of the fibre and the fact that the cavity facets are always under some tension from the rest of the structure \cite{Janitz2017}. Another complication is the limited spatial mode matching between the cavity mode and the input/output modes of the fibre. In the new cavity design, the ablation is performed on the truncated surfaces of the macroscopic silica bases for increased stability and improved mode matching, whilst incorporating the advantages of an ablated mirror surface.
 
 \begin{figure}[t]
@@ -1270,8 +1272,140 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 
 
 \section{PYRAMID MOT}
-
+\subsection{Introduction}
 For the operation of holographic optical tweezers inside a cavity (see \autoref{exp5}), it is not possible to load microtraps from a MOT positioned between the cavity mirrors due to limited optical access for the MOT beams. The idea is to position the MOT cloud in the neighbourhood of the cavity, from which atoms are then transported towards the focal plane of the trapping light inside the cavity. There are various methods of doing this, which include funnelling atoms ejected with an atomic fountain using a combination of blue detuned cavity modes \cite{Puppe2007}, guiding atoms from a static MOT with a single, red detuned beam \cite{Numann2005} or using an optical lattice that can act as an optical conveyor belt \cite{Gallego2018,Schrader2001}. For this experiment, we propose using an atomic fountain to load a large grid of holographic microtraps in the cavity. This will increase the capture probability from the thermally expanding cloud of atoms.
+
+
+
+5 - 2 * ((6. * a * t) ** (1./3.))
+
+
+\begin{figure}[t]
+	\hspace{-0cm}
+	\begin{tikzpicture}[remember picture]
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
+		
+		% left four
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			% draw a grid
+			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+			% draw ticks
+			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+			
+			% labels
+			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+			
+			\node[markgrijs, align=center, rotate=0] at (0.15,-0.05) {\footnotesize\sc (a)};
+			\node[markgrijs, align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
+			\node[markgrijs, align=center, rotate=0] at (0.85,-0.05) {\footnotesize\sc (c)};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+	\label{pyramidloading} 
+\end{figure}
+
+\subsection{Aperture diffraction}
+
+\begin{figure}[!t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.75\textwidth]{{"motdiffraction"}.pdf}};
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	\node[markgrijs, align=center, rotate=0] at (0.13,-0.1) {\footnotesize\sc front view}; 
+	\node[markgrijs, align=center, rotate=0] at (0.45,-0.1) {\footnotesize\sc side view}; 
+	
+	\node[white, align=center, rotate=0, anchor=center] at (0.52,0.5) {\footnotesize \SI{780}{\nano\meter}}; 
+	\node[white, align=center, rotate=0, anchor=center] at (0.73,0.5) {\footnotesize \SI{780}{\nano\meter}}; 
+	
+	\draw[markgrijs, ->] (0.848, 0.2) -- (0.848, 0.4) node[left, pos=0.5] {\footnotesize $a$};
+	\draw[markgrijs, ->] (0.848, 0.8) -- (0.848, 0.6) node[above, anchor=mid] {\footnotesize };
+	
+	\draw[markgrijs, dotted] (0.848, 0.2) -- (0.848, 0.05) node[above, anchor=mid] {};
+	\draw[markgrijs, <->] (0.848, 0.1) -- (0.983, 0.1) node[below, pos=0.5] {\footnotesize $d$};
+	
+	\node[markgrijs, align=center, anchor=center] at (0.6245, 0.5) {\footnotesize $=$};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[asdf]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction of size $a$ (right). The diffraction pattern is modelled at various distances $d$.}
+	\label{motdiffraction} 
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=8 by 8,horizontal sep=0.1cm, vertical sep=0.1cm},height=3cm,width=3cm,no markers]
+	
+	\pgfplotsinvokeforeach{1,...,64} {
+		\nextgroupplot[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		axis lines=none,
+		xlabel={},
+		ylabel={},
+		]
+		\addplot graphics [
+		xmin=0, xmax=1,
+		ymin=0, ymax=1
+		] {motdiff#1.pdf}; % #1 is the current number
+		
+		\coordinate (topnode#1) at (axis cs: -0.1,1.1);
+		\coordinate (bottomnode#1) at (axis cs: -0.1,-0.15);
+		\coordinate (rightnode#1) at (axis cs: 1.15,1.1);
+		
+		\coordinate (vert#1) at (axis cs: -0.35,0.5);
+		\coordinate (hor#1) at (axis cs: 0.5,1.25);
+	}
+	
+	\end{groupplot}
+	
+	\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
+	\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {$d$};
+	
+	
+	\node[align=center] at (vert1) {\footnotesize $0.1$};
+	\node[align=center] at (vert9) {\footnotesize $0.2$};
+	\node[align=center] at (vert17) {\footnotesize $0.3$};
+	\node[align=center] at (vert25) {\footnotesize $0.4$};
+	\node[align=center] at (vert33) {\footnotesize $0.5$};
+	\node[align=center] at (vert41) {\footnotesize $0.6$};
+	\node[align=center] at (vert49) {\footnotesize $0.7$};
+	\node[align=center] at (vert57) {\footnotesize $0.8$};
+	
+	\node[align=center] at (hor1) {\footnotesize $0$};
+	\node[align=center] at (hor2) {\footnotesize $1$};
+	\node[align=center] at (hor3) {\footnotesize $2$};
+	\node[align=center] at (hor4) {\footnotesize $3$};
+	\node[align=center] at (hor5) {\footnotesize $4$};
+	\node[align=center] at (hor6) {\footnotesize $5$};
+	\node[align=center] at (hor7) {\footnotesize $6$};
+	\node[align=center] at (hor8) {\footnotesize $7$};
+	
+	\end{tikzpicture}
+	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
+\end{figure}
+
+\subsection{Mirror fabrication}
+
 
 \begin{figure}[t]
 	\centering
@@ -1302,11 +1436,13 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\label{polish} 
 \end{figure}
 
+
+
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
-			\begin{groupplot}[group style={group size=2 by 1,horizontal sep=2.5cm, vertical sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
-
+		\begin{groupplot}[group style={group size=2 by 1,horizontal sep=2.5cm, vertical sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
+			
 			
 			\nextgroupplot
 			[
@@ -1445,7 +1581,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\end{axis}
 	\end{tikzpicture}
 	\caption[Right-angle prism mirror geometry and dependence of mirror end facet length on polishing time]{Right-angle prism mirror geometry (left) and dependence of mirror end facet length on polishing time (right). The schematic shows the substrate dimensions in millimetres, as well as the end facet length $a$ and adjacent length $b$. The red volume $V$ represents the amount of removed material, which can be expressed in terms of the polishing depth $z$ or facet length $a$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1-4). The solid line represents a fit based on Preston’s law, which assumes a constant material removal rate ($\dot{V}=\SI{0.0128}{\milli\meter\cubed\per\second}$).}
-\label{polishtime} 
+	\label{polishtime} 
 \end{figure}
 
 \begin{figure}[t]
@@ -1493,43 +1629,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\label{mirror}
 \end{figure}
 
-
-\begin{figure}[!t]
-	\center
-	\includegraphics[width=0.75\linewidth]{{"motdiffraction"}.pdf}
-	\caption[asdf]{}
-	\label{motdiffraction} 
-\end{figure}
-
-\begin{figure}[t]
-	\hspace{-0cm}
-	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
-			% labels
-			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
-			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
-			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-			
-			\node[markgrijs, align=center, rotate=0] at (0.15,-0.05) {\footnotesize\sc (a)};
-			\node[markgrijs, align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
-			\node[markgrijs, align=center, rotate=0] at (0.85,-0.05) {\footnotesize\sc (c)};
-			
-		\end{scope}
-		
-	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. (\textsc{a}) A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. (\textsc{b}) The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in (\textsc{c}) is indicated in light blue. (\textsc{c}) A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
-	\label{pyramidloading} 
-\end{figure}
-
+\subsection{MOT detection}
 
 \begin{figure}[t]
 	\centering
