@@ -1374,9 +1374,16 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		
 		\coordinate (vert#1) at (axis cs: -0.35,0.5);
 		\coordinate (hor#1) at (axis cs: 0.5,1.25);
+		
+		\coordinate (edgeleft#1) at (axis cs: 0.11,0.5);
+		\coordinate (edgeright#1) at (axis cs: 0.89,0.5);
 	}
 	
+
+	
 	\end{groupplot}
+	
+	\draw[thick, white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {$a$};
 	
 	\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
 	\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {$d$};
@@ -1400,6 +1407,113 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\node[align=center] at (hor7) {\footnotesize $6$};
 	\node[align=center] at (hor8) {\footnotesize $7$};
 	
+	\end{tikzpicture}
+	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}
+		
+		\begin{groupplot}[group style={group size=8 by 8,horizontal sep=0.1cm, vertical sep=0.1cm},height=3cm,width=3cm,no markers]
+		
+		\pgfplotsinvokeforeach{1,...,64} {
+			% Plots with indices 8,16,24,...,64 -> show y-tick labels on the right
+			\nextgroupplot[
+			ylabel={},
+			ymin=0, ymax=2,
+			xmin=0, xmax=1,
+			xticklabels={,\textcolor{white}{0},},
+			yticklabels={,,},
+			yticklabel pos=right,
+			y axis line style={draw=black},
+			ymajorgrids=false,
+			xmajorgrids=false,
+			grid style=dashed,
+			xlabel={},
+			xtick=\empty,
+			ytick=\empty,
+			]
+			
+			
+			% Load data from CSV files (motdiffcs#.csv with x,y columns)
+			\addplot[
+			name path=curve,
+			color=markrood
+			] table [x index=0, y index=1, col sep=comma] {motdiffcs#1.csv};
+			
+			\addplot[
+			name path=axis,
+			draw=none
+			] coordinates {(0,0) (1,0)};
+			
+			\addplot[
+			fill=markrood,
+			fill opacity=0.3
+			] fill between [of=curve and axis];
+			
+			\draw[dashed, markgrijs] (0,1) -- (1,1);
+			
+			\coordinate (topnode#1) at (axis cs:-0.1,2.2);
+			\coordinate (bottomnode#1) at (axis cs:-0.1,-0.3);
+			\coordinate (rightnode#1) at (axis cs:1.15,2.2);
+			
+			\coordinate (vert#1) at (axis cs:-0.35,1);
+			\coordinate (hor#1) at (axis cs:0.5,2.5);
+			
+			\coordinate (edgeleft#1) at (axis cs:0.11,1);
+			\coordinate (edgeright#1) at (axis cs:0.89,1);
+			
+			\coordinate (outerright#1) at (axis cs:1.15,1);
+			\coordinate (louterright#1) at (axis cs:1.15,0);
+		}
+		
+		\end{groupplot}
+		
+		
+		
+		\draw[thick, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {$a$};
+		
+		\draw[thick, ->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
+		\draw[thick, ->, line cap=rect] (topnode1) -- (rightnode8) node[above] {$d$};
+		
+		
+		\node[align=center] at (vert1) {\footnotesize $0.1$};
+		\node[align=center] at (vert9) {\footnotesize $0.2$};
+		\node[align=center] at (vert17) {\footnotesize $0.3$};
+		\node[align=center] at (vert25) {\footnotesize $0.4$};
+		\node[align=center] at (vert33) {\footnotesize $0.5$};
+		\node[align=center] at (vert41) {\footnotesize $0.6$};
+		\node[align=center] at (vert49) {\footnotesize $0.7$};
+		\node[align=center] at (vert57) {\footnotesize $0.8$};
+		
+		\node[align=center] at (hor1) {\footnotesize $0$};
+		\node[align=center] at (hor2) {\footnotesize $1$};
+		\node[align=center] at (hor3) {\footnotesize $2$};
+		\node[align=center] at (hor4) {\footnotesize $3$};
+		\node[align=center] at (hor5) {\footnotesize $4$};
+		\node[align=center] at (hor6) {\footnotesize $5$};
+		\node[align=center] at (hor7) {\footnotesize $6$};
+		\node[align=center] at (hor8) {\footnotesize $7$};
+		
+		\node[markgrijs, align=center] at (outerright8) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright16) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright24) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright32) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright40) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright48) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright56) {\footnotesize $1$};
+		\node[markgrijs, align=center] at (outerright64) {\footnotesize $1$};
+		
+		\node[markgrijs, align=center] at (louterright8) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright16) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright24) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright32) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright40) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright48) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright56) {\footnotesize $0$};
+		\node[markgrijs, align=center] at (louterright64) {\footnotesize $0$};
+		
 	\end{tikzpicture}
 	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
 \end{figure}
@@ -1612,15 +1726,15 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			\node[markgrijs, align=center, rotate=0] at (0.815,0.055) {\footnotesize\sc (g)};
 			
 			
-			\node[markgrijs, align=center, rotate=0] at (0.514,0.15) {\footnotesize\sc \SI{310}{\micro\meter}};
-			\node[markgrijs, align=center, rotate=0] at (0.514,0.45) {\footnotesize\sc \SI{344}{\micro\meter}};
-			\node[markgrijs, align=center, rotate=90] at (0.59,0.29) {\footnotesize\sc \SI{337}{\micro\meter}};
-			\node[markgrijs, align=center, rotate=90] at (0.44,0.29) {\footnotesize\sc \SI{327}{\micro\meter}};
+			\node[black, align=center, rotate=0] at (0.514,0.15) {\footnotesize\sc \SI{310}{\micro\meter}};
+			\node[black, align=center, rotate=0] at (0.514,0.45) {\footnotesize\sc \SI{344}{\micro\meter}};
+			\node[black, align=center, rotate=90] at (0.59,0.29) {\footnotesize\sc \SI{337}{\micro\meter}};
+			\node[black, align=center, rotate=90] at (0.44,0.29) {\footnotesize\sc \SI{327}{\micro\meter}};
 			
-			\node[markgrijs, align=center, rotate=0] at (0.514-0.207-0.005,0.15+0.05) {\footnotesize\sc 4};
-			\node[markgrijs, align=center, rotate=0] at (0.514-0.207-0.005,0.45-0.05) {\footnotesize\sc 1};
-			\node[markgrijs, align=center, rotate=0] at (0.59-0.207-0.03,0.295) {\footnotesize\sc 2};
-			\node[markgrijs, align=center, rotate=0] at (0.44-0.207+0.02,0.295) {\footnotesize\sc 3};
+			\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.15+0.05) {\footnotesize\sc 4};
+			\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.45-0.05) {\footnotesize\sc 1};
+			\node[black, align=center, rotate=0] at (0.59-0.207-0.03,0.295) {\footnotesize\sc 2};
+			\node[black, align=center, rotate=0] at (0.44-0.207+0.02,0.295) {\footnotesize\sc 3};
 			
 		\end{scope}
 		
