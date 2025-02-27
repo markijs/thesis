@@ -1377,11 +1377,51 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		
 		\coordinate (edgeleft#1) at (axis cs: 0.11,0.5);
 		\coordinate (edgeright#1) at (axis cs: 0.89,0.5);
+		
+		\coordinate (fresnel#1) at (axis cs: 0.5,0.85);
+		\coordinate (mfresnel#1) at (axis cs: 0.5,0.5);
 	}
 	
 
 	
 	\end{groupplot}
+	
+	% Set constants
+	\pgfmathsetmacro{\lambda}{0.780} % Wavelength in millimetres
+	
+	% Fresnel numbers for combinations of a and d
+	% The pattern: a from {0.1,...,0.8}, d from {0,...,7} → 64 values total
+	\pgfplotsinvokeforeach{1,...,64}{
+		
+		% Convert #1 to indices for a and d:
+		% a-index: floor((#1-1)/8), d-index: mod(#1-1,8)
+		\pgfmathtruncatemacro{\aindex}{int((#1-1)/8)}
+		\pgfmathtruncatemacro{\dindex}{mod(#1-1,8)}
+		
+		% Map indices to actual values:
+		\pgfmathsetmacro{\a}{0.1*(\aindex+1)} % a in {0.1,...,0.8}
+		\pgfmathsetmacro{\d}{\dindex}          % d in {0,...,7}
+		
+		% Calculate Fresnel number:
+		\ifnum\dindex=0
+			\pgfmathsetmacro{\result}{0}
+		\else
+			\pgfmathsetmacro{\boolean}{ifthenelse(\a<0.5, 0, 1)} 
+			\ifnum\boolean=0
+				\pgfmathsetmacro{\result}{1e3*(\a^2)/(\lambda*\d)}
+				\node[align=center, white] at (fresnel#1) {\tiny $\pgfmathprintnumber[precision=1]{\result}$};
+			\else
+				\pgfmathsetmacro{\result}{1e3*(\a^2)/(\lambda*\d)}
+				\node[align=center, white] at (mfresnel#1) {\tiny $\pgfmathprintnumber[precision=1]{\result}$};
+			\fi
+		\fi
+	}
+	
+	
+	% Print with three significant digits
+	
+	
+
 	
 	\draw[thick, white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\small $a$};
 	
@@ -1410,6 +1450,9 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\end{tikzpicture}
 	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
 \end{figure}
+
+
+
 
 \begin{figure}[t]
 	\centering
