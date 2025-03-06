@@ -1563,9 +1563,347 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\node[markgrijs, align=center] at (louterright64) {\small $0$};
 		
 	\end{tikzpicture}
-	\caption[Cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$.}
+	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$.}
 \label{diffraction1d}
 \end{figure}
+
+
+\begin{figure}[t]
+	\hspace{-0.15cm}
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=3 by 4,horizontal sep=0.9cm, vertical sep=1.7cm},height=5cm,width=5cm,no markers]
+	
+		\nextgroupplot
+	[
+	%xlabel={$x$},
+	%ylabel={$y$},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=2.0,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=10,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=10    % Stretch to fit the y-axis limits
+	] {fresnelfull.pdf};
+	
+	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	
+	\pgfplotsset{
+	after end axis/.append code={
+		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc Fresnel approx.};
+		}
+	}
+	
+	
+	
+	\nextgroupplot
+	[
+	%xlabel={$x$},
+	%ylabel={$y$},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=2.0,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=10,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=10    % Stretch to fit the y-axis limits
+	] {kirfull.pdf};
+	
+	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	
+	\pgfplotsset{
+	after end axis/.append code={
+		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc direct integration};
+		}
+	}
+	
+	
+		\nextgroupplot
+	[
+	%xlabel={$x$},
+	%ylabel={$y$},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		xtick={0,2.5,5,7.5,10},
+		xticklabels={0,2.5,5,7.5,10}
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=10,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=10,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=10    % Stretch to fit the y-axis limits
+	] {errorfull.pdf};
+	
+	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc error (\si{\percent})};
+		}
+	}
+	
+	
+	
+	\nextgroupplot
+	[
+	%xlabel={$x$},
+	ylabel={$y$ (\si{\milli\meter})},
+	ylabel style={xshift=2.5cm},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=2.0,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {fresnelzoom.pdf};
+	
+	\addplot graphics [
+	xmin=0.6, xmax=0.98,  % Stretch to fit the x-axis limits
+	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
+	] {fresnelsmall.pdf};
+	
+	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	
+	
+	\node (lowerleft) at (axis cs: 0, -1.5) {};
+	
+	
+		\nextgroupplot
+	[
+	xlabel={$x$ (\si{\milli\meter})},
+	%ylabel={$y$},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=2.0,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {kirzoom.pdf};
+
+	\addplot graphics [
+	xmin=0.6, xmax=0.98,  % Stretch to fit the x-axis limits
+	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
+	] {kirsmall.pdf};
+	
+	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	
+	
+
+	
+		\nextgroupplot
+	[
+	%xlabel={$x$ (\si{milli\meter})},
+	%ylabel={$y$},
+	enlargelimits=false,
+	%xmin=0.5,
+	%xmax=4.5,
+	%ymin=0.5,
+	%ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.2)},
+		anchor=north west,
+		xticklabel pos=upper,
+		xtick={0,2.5,5,7.5,10},
+		xticklabels={0,2.5,5,7.5,10}
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.0,
+	point meta max=10,
+	%xtick={1,2,3,4},
+	%ytick={1,2,3,4},
+	%xticklabels={1,2,3,4},
+	%yticklabels={1,2,3,4},
+	]
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {errorzoom.pdf};
+	
+	
+	\addplot graphics [
+	xmin=0.6, xmax=0.98,  % Stretch to fit the x-axis limits
+	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
+	] {errorsmallbright.pdf};
+	
+	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	
+	
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	
+	\caption[Error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration with an aperture of $\SI{0.1}{\milli\meter}\times\SI{0.1}{\milli\meter}$. The methods are based on the Fresnel approximation (left column) and direct numerical integration of the Fresnel–Kirchhoff integral (middle column). The error between these methods is shown as a percentage of maximum intensity of the undiffracted beam (right column). The top and bottom rows correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and a magnification of the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area, respectively. Insets show additional simulations based on the central area only, highlighting significant boundary artefacts in the direct integration approach.}
+	\label{differror}
+\end{figure}
+
+
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=1 by 2,horizontal sep=1cm, vertical sep=0.65cm},height=4cm,width=13.5cm,no markers, y label style={at={(-0.085,0.5)}, anchor=base}]
+	
+	\nextgroupplot
+	[
+	height=3cm,
+	ymin=0,
+	ymax=0.2,
+	%xlabel={$x$ (\si{\milli\meter})},
+	ylabel={Error (\si{\percent})},
+	xticklabels={,,},
+	ytick={0,0.05,0.1,0.15,0.2},
+	yticklabels={0,5,10,15,20},
+	enlargelimits=false,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	name path=curve,
+	color=markgrijs
+	] table [x index=0, y index=1, col sep=comma] {E.csv};
+	
+	\nextgroupplot
+	[
+	ymin=0,
+	ymax=2,
+	xlabel={$x$ (\si{\milli\meter})},
+	ylabel={Norm. intensity},
+	enlargelimits=false,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none
+	}
+	]
+	
+	\addplot[
+	name path=curve,
+	color=markdiepblauw,
+	opacity=1
+	] table [x index=0, y index=1, col sep=comma] {Fcs.csv};
+	
+	\addplot[
+	name path=curve,
+	color=markrood,
+	opacity=0.7
+	] table [x index=0, y index=1, col sep=comma] {Kcs.csv};
+	
+	\legend{\footnotesize\hspace{0.3em}Fresnel approx., \footnotesize\hspace{0.3em}direct integration}
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	
+	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel–Kirchhoff integral. The error (top) between these methods (bottom) is shown as a percentage of maximum intensity of the undiffracted beam.}
+\end{figure}
+
 
 \subsection{Mirror fabrication}
 
