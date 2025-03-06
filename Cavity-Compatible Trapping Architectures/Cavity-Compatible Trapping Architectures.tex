@@ -1842,18 +1842,17 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\vspace{0em}
 	\centering
 	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=1 by 2,horizontal sep=1cm, vertical sep=0.65cm},height=4cm,width=13.5cm,no markers, y label style={at={(-0.085,0.5)}, anchor=base}]
+	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=0.5cm, vertical sep=0.5cm},height=4cm,x=1.05cm,no markers, y label style={at={(-0.085,0.5)}, anchor=base}]
 	
 	\nextgroupplot
 	[
-	height=3cm,
 	ymin=0,
-	ymax=0.2,
+	ymax=0.4,
 	%xlabel={$x$ (\si{\milli\meter})},
 	ylabel={Error (\si{\percent})},
 	xticklabels={,,},
-	ytick={0,0.05,0.1,0.15,0.2},
-	yticklabels={0,5,10,15,20},
+	ytick={0,0.1,0.2,0.3,0.4},
+	yticklabels={0,10,20,30,40},
 	enlargelimits=false,
 	ymajorgrids=true,
 	xmajorgrids=true,
@@ -1864,6 +1863,26 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	name path=curve,
 	color=markgrijs
 	] table [x index=0, y index=1, col sep=comma] {E.csv};
+	
+	\nextgroupplot
+	[
+	ymin=0,
+	ymax=0.4,
+	%xlabel={$x$ (\si{\milli\meter})},
+	%ylabel={Error (\si{\percent})},
+	xticklabels={,,},
+	ytick={0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4},
+	yticklabels={,,},
+	enlargelimits=false,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	name path=curve,
+	color=markgrijs
+	] table [x index=0, y index=1, col sep=comma] {Es.csv};
 	
 	\nextgroupplot
 	[
@@ -1898,10 +1917,37 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	
 	\legend{\footnotesize\hspace{0.3em}Fresnel approx., \footnotesize\hspace{0.3em}direct integration}
 	
+	\nextgroupplot
+	[
+	ymin=0,
+	ymax=2,
+	%xlabel={$x$ (\si{\milli\meter})},
+	%ylabel={Norm. intensity},
+	enlargelimits=false,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	xtick={0,1},
+	]
+	
+	\addplot[
+	name path=curve,
+	color=markdiepblauw,
+	opacity=1
+	] table [x index=0, y index=1, col sep=comma] {Fscs.csv};
+	
+	\addplot[
+	name path=curve,
+	color=markrood,
+	opacity=0.7
+	] table [x index=0, y index=1, col sep=comma] {Kscs.csv};
+	
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel–Kirchhoff integral. The error (top) between these methods (bottom) is shown as a percentage of maximum intensity of the undiffracted beam.}
+	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel–Kirchhoff integral. The error (top) between these methods (bottom) is shown as a percentage of maximum intensity of the undiffracted beam. The left and right columns correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ (centred), respectively.}
+	\label{differrorcross}
 \end{figure}
 
 
