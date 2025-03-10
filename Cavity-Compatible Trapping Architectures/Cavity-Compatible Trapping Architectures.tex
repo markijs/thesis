@@ -123,7 +123,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_x_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=xfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_x_5.csv};
 	
@@ -137,7 +137,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = xfive and xone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = xzero and xfive,
 	]; 
 	
@@ -198,7 +198,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=yfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_5.csv};
 	
@@ -212,7 +212,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = yfive and yone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = yzero and yfive,
 	]; 
 	
@@ -272,7 +272,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_z_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=zfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_z_5.csv};
 	
@@ -286,7 +286,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = zfive and zone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = zzero and zfive,
 	]; 
 	
@@ -974,7 +974,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_x_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=xfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_x_5.csv};
 	
@@ -988,7 +988,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = xfive and xone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = xzero and xfive,
 	]; 
 	
@@ -1047,7 +1047,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_y_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=yfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_y_5.csv};
 	
@@ -1061,7 +1061,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = yfive and yone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = yzero and yfive,
 	]; 
 	
@@ -1119,7 +1119,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_z_1.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	name path=zfive,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_z_5.csv};
 	
@@ -1133,7 +1133,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = zfive and zone,
 	]; 
 	
-	\addplot[color=rainbow3of8, opacity=0.5] fill between[
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
 	of = zzero and zfive,
 	]; 
 	
@@ -1458,10 +1458,13 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}
+	
+	\pgfplotstableread[col sep=comma]{differrs.csv}\datatable
 		
 		\begin{groupplot}[group style={group size=8 by 8,horizontal sep=0.1cm, vertical sep=0.1cm},height=3cm,width=3cm,no markers]
 		
 		\pgfplotsinvokeforeach{1,...,64} {
+			%\pgfmathtruncatemacro{\rowindex}{1+floor((#1-1)/8)}
 			% Plots with indices 8,16,24,...,64 -> show y-tick labels on the right
 			\nextgroupplot[
 			ylabel={},
@@ -1483,7 +1486,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			% Load data from CSV files (motdiffcs#.csv with x,y columns)
 			\addplot[
 			name path=curve,
-			color=markrood
+			color=markrood,
 			] table [x index=0, y index=1, col sep=comma] {motdiffcs#1.csv};
 			
 			\addplot[
@@ -1513,6 +1516,24 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			
 			\coordinate (outerright#1) at (axis cs:1.15,1);
 			\coordinate (louterright#1) at (axis cs:1.15,0);
+			
+			\pgfmathtruncatemacro{\aindex}{int((#1-1)/8)}
+			\pgfmathtruncatemacro{\dindex}{mod(#1-1,8)}
+			
+			% Map indices to actual values:
+			\pgfmathsetmacro{\a}{0.1*(\aindex+1)} % a in {0.1,...,0.8}
+			\pgfmathsetmacro{\d}{\dindex}          % d in {0,...,7}
+			
+			% Calculate Fresnel number:
+			\ifnum\dindex=0
+				\pgfmathsetmacro{\result}{0}
+			\else
+				\pgfmathparse{#1 - 1}
+				\pgfplotstablegetelem{\pgfmathresult}{[index] 0}\of\datatable % Get nth row, 1st column
+				\edef\value{\pgfplotsretval} % Store value
+				\pgfmathsetmacro{\result}{\value}
+				\node[align=center, markgrijs] at (axis cs: 0.5, 1.7) {\tiny $\pgfmathprintnumber[precision=1]{\result}N^{-1}$};
+			\fi
 		}
 		
 		\end{groupplot}
@@ -1566,6 +1587,8 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$.}
 \label{diffraction1d}
 \end{figure}
+
+
 
 
 \begin{figure}[t]
@@ -1859,10 +1882,14 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	grid style=dashed,
 	]
 	
+	\fill[rainbow7of8, opacity=0.2] (axis cs: 4.5, 0) rectangle (axis cs: 5.5, 2);
+	
 	\addplot[
 	name path=curve,
-	color=markgrijs
+	color=rainbow3of8,
 	] table [x index=0, y index=1, col sep=comma] {E.csv};
+	
+	
 	
 	\nextgroupplot
 	[
@@ -1870,8 +1897,9 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	ymax=0.4,
 	%xlabel={$x$ (\si{\milli\meter})},
 	%ylabel={Error (\si{\percent})},
+	xtick={0,1},
 	xticklabels={,,},
-	ytick={0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4},
+	ytick={0,0.1,0.2,0.3,0.4},
 	yticklabels={,,},
 	enlargelimits=false,
 	ymajorgrids=true,
@@ -1879,9 +1907,11 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	grid style=dashed,
 	]
 	
+	\fill[rainbow7of8, opacity=0.2] (axis cs: 0, 0) rectangle (axis cs: 1, 2);
+	
 	\addplot[
 	name path=curve,
-	color=markgrijs
+	color=rainbow3of8,
 	] table [x index=0, y index=1, col sep=comma] {Es.csv};
 	
 	\nextgroupplot
@@ -1903,6 +1933,8 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	}
 	]
 	
+	\fill[rainbow7of8, opacity=0.2] (axis cs: 4.5, 0) rectangle (axis cs: 5.5, 2);
+	
 	\addplot[
 	name path=curve,
 	color=markdiepblauw,
@@ -1914,6 +1946,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	color=markrood,
 	opacity=0.7
 	] table [x index=0, y index=1, col sep=comma] {Kcs.csv};
+	
 	
 	\legend{\footnotesize\hspace{0.3em}Fresnel approx., \footnotesize\hspace{0.3em}direct integration}
 	
@@ -1930,6 +1963,8 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	yticklabels={,,},
 	xtick={0,1},
 	]
+	
+	\fill[rainbow7of8, opacity=0.2] (axis cs: 0, 0) rectangle (axis cs: 1, 2);
 	
 	\addplot[
 	name path=curve,

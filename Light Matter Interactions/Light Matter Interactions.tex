@@ -471,9 +471,9 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\begin{tikzpicture}
 	
 	% Colors
-	\definecolor{cavitycolor}{RGB}{244,177,157}
-	\definecolor{cylindercolor}{RGB}{154,182,206}
-	\definecolor{atomcolor}{RGB}{255,238,214}
+	\colorlet{cavitycolor}{markrood!50}
+	\definecolor{cylindercolor}{RGB}{85,107,47}
+	\definecolor{atomcolor}{RGB}{210,180,140}
 	
 	\def\a{(0, 2) circle (1.4)}
 	\def\b{(0, 0) circle (2)}
@@ -609,21 +609,21 @@ Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored
 	]
 	
 	\addplot[
-	color=rainbow1of8,
+	color=rainbow2of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{VRO_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow2of8,
+	color=rainbow3of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{VRO_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
@@ -706,21 +706,21 @@ In the strong coupling regime, where the energy exchange between atom and cavity
 	]
 	
 	\addplot[
-	color=rainbow1of8,
+	color=rainbow2of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{SCR_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow2of8,
+	color=rainbow3of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{SCR_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
@@ -812,21 +812,21 @@ written in terms of the cooperativity. In the bad cavity regime, photon generati
 	]
 	
 	\addplot[
-	color=rainbow1of8,
+	color=rainbow2of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{BCR_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow2of8,
+	color=rainbow3of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{BCR_get_atomic_population.csv};
 	
 	\addplot[
-	color=rainbow3of8,
+	color=rainbow4of8,
 	/pgfplots/error bars/.cd,
 	x dir = both,
 	x explicit,

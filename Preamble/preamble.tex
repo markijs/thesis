@@ -713,7 +713,7 @@ labelfont={small,bf}
 \definecolor{markgrijs}{RGB}{92,92,92}
 \definecolor{markrood}{RGB}{139,0,0}
 \definecolor{markblauw}{RGB}{132,189,195}
-\definecolor{markdiepblauw}{RGB}{43,92,220}
+\definecolor{markdiepblauw}{RGB}{0,128,128} % used to be {43,92,220}
 \definecolor{markgoud}{RGB}{202,171,49}
 \definecolor{markviesblauw}{RGB}{138,162,158}
 \definecolor{marklichtgrijs2}{RGB}{200,200,200}
@@ -730,7 +730,7 @@ labelfont={small,bf}
 \definecolor{rainbow6of8}{RGB}{70,240,240}
 \definecolor{rainbow7of8}{RGB}{0,130,200}
 \definecolor{rainbow8of8}{RGB}{145,30,180}
-\fi
+
 
 \definecolor{rainbow1of8}{RGB}{86,152,198}
 \definecolor{rainbow2of8}{RGB}{255,158,74}
@@ -742,6 +742,21 @@ labelfont={small,bf}
 \definecolor{rainbow8of8}{RGB}{158,158,158}
 \definecolor{rainbow9of8}{RGB}{204,205,89}
 \definecolor{rainbow10of8}{RGB}{80,206,218}
+
+\fi
+
+% DeepSeek colours
+\definecolor{rainbow1of8}{RGB}{139,0,0}			% markrood
+\definecolor{rainbow2of8}{RGB}{0,128,128}		% muted teal
+\definecolor{rainbow3of8}{RGB}{85,107,47}		% olive green
+\definecolor{rainbow4of8}{RGB}{204,85,0}		% Burnt Orange
+\definecolor{rainbow5of8}{RGB}{255,204,0} 		% Sunflower Yellow
+\definecolor{rainbow6of8}{RGB}{102,51,153}     % Deep Plum
+\definecolor{rainbow7of8}{RGB}{210,180,140}   % Soft Gold
+\definecolor{rainbow8of8}{RGB}{92,92,92}    % markgrijs
+
+%\definecolor{rainbow9of8}{RGB}{0,0,0}%
+%\definecolor{rainbow10of8}{RGB}{0,0,0}%
 
 
 %
@@ -763,7 +778,7 @@ labelfont={small,bf}
 \hypersetup{
 	%draft, % Uncomment to remove all links (useful for printing in black and white)
 	colorlinks=true, breaklinks=true, bookmarks=true,bookmarksnumbered,
-	urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, % Link colors
+	urlcolor=webbrown, linkcolor=rainbow2of8, citecolor=rainbow3of8, % Link colors
 	pdftitle={}, % PDF title
 	pdfauthor={\textcopyright}, % PDF Author
 	pdfsubject={}, % PDF Subject
