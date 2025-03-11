@@ -1378,7 +1378,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\coordinate (edgeleft#1) at (axis cs: 0.11,0.5);
 		\coordinate (edgeright#1) at (axis cs: 0.89,0.5);
 		
-		\coordinate (fresnel#1) at (axis cs: 0.5,0.85);
+		\coordinate (fresnel#1) at (axis cs: 0.5,0.9);
 		\coordinate (mfresnel#1) at (axis cs: 0.5,0.5);
 	}
 	
@@ -1460,6 +1460,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\begin{tikzpicture}
 	
 	\pgfplotstableread[col sep=comma]{differrs.csv}\datatable
+	\pgfplotstableread[col sep=comma]{diffmaxerrs2d.csv}\datatablemax
 		
 		\begin{groupplot}[group style={group size=8 by 8,horizontal sep=0.1cm, vertical sep=0.1cm},height=3cm,width=3cm,no markers]
 		
@@ -1530,9 +1531,14 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 			\else
 				\pgfmathparse{#1 - 1}
 				\pgfplotstablegetelem{\pgfmathresult}{[index] 0}\of\datatable % Get nth row, 1st column
-				\edef\value{\pgfplotsretval} % Store value
-				\pgfmathsetmacro{\result}{\value}
-				\node[align=center, markgrijs] at (axis cs: 0.5, 1.7) {\tiny $\pgfmathprintnumber[precision=1]{\result}N^{-1}$};
+				\edef\valueone{\pgfplotsretval} % Store value
+				\pgfmathsetmacro{\resultone}{\valueone}
+				\node[align=left, markgrijs, anchor=west] at (axis cs: -0.05, 1.8) {\tiny $\pgfmathprintnumber[precision=1]{\resultone}$};
+				
+				\pgfplotstablegetelem{\pgfmathresult}{[index] 0}\of\datatablemax % Get nth row, 1st column
+				\edef\valuetwo{\pgfplotsretval} % Store value
+				\pgfmathsetmacro{\resulttwo}{\valuetwo*100}
+				\node[align=right, markgrijs, anchor=east] at (axis cs: 1.05, 1.8) {\tiny $\pgfmathprintnumber[precision=0]{\resulttwo}$};
 			\fi
 		}
 		
@@ -1584,7 +1590,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\node[markgrijs, align=center] at (louterright64) {\small $0$};
 		
 	\end{tikzpicture}
-	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$.}
+	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (with arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over a distance of \SI{10}{\milli\meter}). The top right number is the maximum absolute difference as a percentage of maximum incident intensity.}
 \label{diffraction1d}
 \end{figure}
 
@@ -1919,7 +1925,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	ymin=0,
 	ymax=2,
 	xlabel={$x$ (\si{\milli\meter})},
-	ylabel={Norm. intensity},
+	ylabel={Intensity (a.\,u.)},
 	enlargelimits=false,
 	ymajorgrids=true,
 	xmajorgrids=true,
@@ -2237,6 +2243,51 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\end{tikzpicture}
 	\caption[Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry–Pérot resonator]{Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry–Pérot resonator. (\textsc{a}) A PTFE holder secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. (\textsc{b}) Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. (\textsc{c}) The stainless steel mounting finger supports the PTFE holder and aluminium mount, keeping the assembly in place while allowing optical access for the cooling beams. (\textsc{d}) Full assembly inside the glass cell, with anti-Helmholtz coils affixed to a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
 	\label{pyramidtest} 
+\end{figure}
+
+
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbzero.pdf}};
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$B=0$};
+		\end{scope}
+		%\node[color=white] at (1.03,1.1) {\footnotesize \SI{20}{\micro\meter}};
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{motbfielda}
+	\end{subfigure}
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbnonzero.pdf}};
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$B=\SI{11.3}{\gauss\per\centi\meter}$};
+		\end{scope}
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{motbfieldb}
+	\end{subfigure}
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbdiff.pdf}};
+		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize\sc diff.};
+		\end{scope}
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{motbfieldc}
+	\end{subfigure}
+	\caption[asdf]{CCD images of a pyramidal mirror configuration installed under ultra-high vacuum (UHV) and continuously illuminated with red-detuned cooling light. (\textsc{a}) Image taken at zero magnetic field ($B = 0$). (\textsc{b}) Image taken at a magnetic field gradient of $B =\SI{11.3}{\gauss\per\centi\meter}$. (\textsc{c}) Difference image obtained by subtracting (\textsc{a}) from (\textsc{b}).}
+	\label{motbfield}
 \end{figure}
 
 
