@@ -868,3 +868,19 @@ labelfont={small,bf}
 		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 	
 \renewcommand{\mathcal}{\mathscr}
+
+\usetikzlibrary{3d, fit}
+% fix the implementation of "canvas is xy plane at z"
+\makeatletter
+\tikzoption{canvas is xy plane at z}[]{%
+	\def\tikz@plane@origin{\pgfpointxyz{0}{0}{#1}}%
+	\def\tikz@plane@x{\pgfpointxyz{1}{0}{#1}}%
+	\def\tikz@plane@y{\pgfpointxyz{0}{1}{#1}}%
+	\tikz@canvas@is@plane
+}
+\makeatother
+
+% define styles for the three coordinate planes
+\tikzset{xyp/.style={canvas is xy plane at z=#1}}
+\tikzset{xzp/.style={canvas is xz plane at y=#1}}
+\tikzset{yzp/.style={canvas is yz plane at x=#1}}

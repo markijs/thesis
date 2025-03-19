@@ -180,7 +180,7 @@ An overview of the experimental setup is shown in \autoref{overviewsetup}.
 	\caption[Optical setup for the generation of dipole traps and a MOT]{(Left) Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. (Right) Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. To achieve collimation and circular polarisation of the beams, we employ $f=\SI{30}{\milli\meter}$ lenses and pairs of quarter-wave plates, respectively. A pair of high-NA lenses focus and image the dipole trapping light.}
 	\label{overviewsetup} 
 \end{figure}
-In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nm}) and eventually loaded into optical dipole-force traps established at a wavelength of \SI{1064}{\nm}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified for both \SI{780}{\nm} and \SI{1064}{\nm} (\SI{< 0.2}{\percent} for $\SI{650}{\nm} \leq \lambda \leq \SI{1100}{\nm}$ and angle of incidence between \SI{\pm 10}{\degree}, \SI{< 0.5}{\percent} for $\SI{760}{\nm} \leq \lambda \leq \SI{860}{\nm}$ and angle of incidence between \SI{\pm 45}{\degree}). The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{13}{\gauss\per\centi\meter} at the quadrupole centre. The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kHz}) light at \SI{1064}{\nm}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a uniform tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an EMCCD camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nm} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nm} bandpass filter (Semrok \num{780}/\SI{12}{\nm} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nm}.
+In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nm}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nm}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nm} \leq \lambda \leq \SI{1100}{\nm}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nm} \leq \lambda \leq \SI{860}{\nm}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nm} and \SI{1064}{\nm}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{13}{\gauss\per\centi\meter} at the quadrupole centre. The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kHz}) light at \SI{1064}{\nm}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a uniform tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nm} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nm} bandpass filter (Semrok \num{780}/\SI{12}{\nm} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nm}.
 \iffalse
 \begin{figure}[h]
 	\centering
@@ -303,22 +303,89 @@ L_n = \frac{\Gamma^2}{\Gamma^2 + (\Delta - n \omega_m)^2}\quad\quad D_n = \frac{
 in terms of the laser frequency detuning $\Delta$ from the line centre. We demodulate the signal $S_b$ through the use of a mixer and low-pass filter as shown in \autoref{lockingsetup}. By tuning the phase $\phi$, one can select either the in-phase component ($\phi=0$) or the quadrature component ($\phi=\sfrac{\pi}{2}$) in \autoref{mtsbeatsignal}. Either component is an odd function of $\Delta$ and provided that $\omega_m\le \Gamma$, features a large gradient at resonance, yielding a suitable error signal that feeds into a PID controller (Toptica PID100) that locks the frequency of the branched beam to the $ F = 2 \leftrightarrow F' = 3 $ cooling transition. In a secondary, double-pass AOM configuration, the frequency of the unbranched beam is shifted by \SI{-220}{\mega\hertz} to establish three red-detuned cooling beams for the MOT. To stabilise the frequency of the repump ECDL, we employ a frequency offset lock \cite{Schnemann1999} operating at \SI{6.5}{\giga\hertz}, such that the repumping light is resonant to the $ F = 1 \leftrightarrow F' = 2 $ transition after the ECDL output beam has passed through an AOM that shifts its frequency by \SI{+107}{\mega\hertz}. The beat note is locked to a reference oscillator using an offset phase lock servo (Vescent D2-135). All optical components shown in \autoref{lockingsetup} are mounted on an optical breadboard with Sorbothane feet to establish vibrational isolation from the optical table, which significantly enhances the long term stability of the frequency locks.
 
 \subsection{Magnetic fields}
-The magnetic field for the MOT is produced by a pair of anti-Helmholtz
-coils consisting of N = 159 turns of 18 AWG copper wire, with a radius
-of R = 4 cm and a separation of 8 cm. By equation (2.22), operating the
-coils at a current of 2.0 A gives a magnetic field gradient of 13 Gauss cm−1
-at the quadrupole centre. The three compensation coils each have N = 9
-turns of 18 AWG copper wire on a square frame. The main MOT coils and
-the compensation coils are all mounted to a set of four vertical rails, with
-the main MOT coils positioned such that the glass cell goes through their
-centre.
-Operating the MOT coils at 2.0 A for a long period of time (several hours)
-causes the temperature to rise up to a maximum of approximately 50 ◦C. This
-temperature is not hot enough to require the use of any cooling mechanisms.
-When operating the experiment, the MOT coils should be switched on for
-approximately half an hour before beginning work, so that the temperature
-is starting to stabilise, since significant changes in temperature can affect the
-alignment and optimal values of other parameters.
+The field gradient required to spatially confine an optical molasses of neutral atoms is generated using a pair of anti-Helmholtz coils. Anti-Helmholtz coils consist of two coaxial circular current loops carrying equal currents in opposite directions. This configuration generates a quadrupole magnetic field with a zero crossing at the midpoint between the coils. \autoref{coils} shows a schematic representation of a pair of anti-Helmholtz coils. The coils, each of radius $r$, are separated by a distance of $2h$. The current $I$ flows in opposite directions in the two coils, leading to a quadrupole field $\vec{B}$, which is symmetric about the $z$-axis, chosen as the symmetry axis of the coil configuration.
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[x={(-30:1cm)},y={(190:1cm)},z={(90:1cm)}]% set unit vectors
+	
+	% "back" coil and optical axis
+	\filldraw[yzp=-1.1,rainbow7of8!80,draw=rainbow8of8,even odd rule](0,0) circle (1.8) (0,0) circle (2.2);
+	% vertical pin on top
+	\draw[yzp=-1, rainbow8of8](0,2.2) -- (0,3.1);
+	\filldraw[yzp=-0.9,rainbow7of8,draw=rainbow8of8,even odd rule](0,0) circle (1.8) (0,0) circle (2.2);
+	
+	% half diameter and text
+	\begin{scope}[canvas is xz plane at y=0,transform shape]
+	\pgflowlevelsynccm
+	\draw[<->, rainbow8of8] (-1,2.9) -- (1,2.9);
+	\node[rainbow8of8, above] at (0,2.9,0) {\footnotesize$2h$};
+	\end{scope}
+	%\node[xzp=0,below] at (0.75,0,1) {$\frac{d}{2}$};
+	
+	% AXES
+	\draw[xzp=0, rainbow8of8, ->] (1.5,0) -- (-1.5,0) node [left] {\footnotesize $z$};
+	\draw[xzp=0, rainbow8of8, ->] (0,-2) -- (0,2) node [left] {\footnotesize $y$};
+	\draw[yzp=0, rainbow8of8, ->] (-2,0) -- (2,0) node [below] {\footnotesize $x$};
+	
+	\begin{scope}[canvas is xz plane at y=0,transform shape]
+	\pgflowlevelsynccm
+	\draw[xzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-0.3,0);
+	\draw[xzp=0,->, rainbow2of8, thick] (1.3,0) -- (0.3,0);
+	\end{scope}
+	
+	\begin{scope}[canvas is yz plane at x=0,transform shape]
+	\pgflowlevelsynccm
+	\draw[yzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
+	\draw[yzp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+	\end{scope}
+	
+	\begin{scope}[canvas is yz plane at x=0,transform shape]
+	\pgflowlevelsynccm
+	\draw[xyp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
+	\draw[xyp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+	\end{scope}
+	
+	\node[xzp=0, rainbow2of8, align=center] at (1.05, 0, 0.3) {\footnotesize$\vec{B}$};
+	
+	% "front" coil and optical axis
+	\filldraw[yzp=0.9,rainbow7of8!80,draw=rainbow8of8,even odd rule](0,0) circle (1.8) (0,0) circle (2.2);
+	\draw[yzp=1, rainbow8of8](0,2.2) -- (0,3.1);
+	\filldraw[yzp=1.1,rainbow7of8,draw=rainbow8of8,even odd rule](0,0) circle (1.8) (0,0) circle (2.2);
+	
+	% diameter and text
+	\begin{scope}[canvas is xz plane at y=0,transform shape]
+	\pgflowlevelsynccm
+	\draw[rainbow8of8] (1.1,2) -- (2,2) (1.1,-2) -- (2,-2);
+	\draw[<->, rainbow8of8] (1.8,2) -- (1.8,-2);
+	\node[right, rainbow8of8] at (1.8, 0, 1.6) {\footnotesize$2r$};
+	\end{scope}
+	
+	%\draw[yzp=1, -latex] (0,0) -- (0,-1.8);
+	
+	
+	\draw [yzp=1.1, rainbow1of8, thick, ->] (2,0,1) arc (0:45:2.0) node [rainbow1of8, pos=0, below] {\footnotesize$I$};
+	\draw [yzp=-0.9, rainbow1of8, thick, <-] (2.0,0,-1) arc (0:45:2.0) node [rainbow1of8, pos=1, above right] {};
+	
+	\node[fit=(current bounding box),inner sep=2mm]{};
+	
+	\end{tikzpicture}
+	\caption[Schematic representation of a pair of anti-Helmholtz coils]{Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration.}
+	\label{coils}
+\end{figure}
+Along the symmetry axis, the magnetic field generated by pair of anti-Helmholtz coils can be expanded as
+\begin{align}
+\begin{split}
+\vec{B}(z)&= \frac{\mu_0NIr^2}{2}\left(\frac{1}{\left( r^2 + (z + h)^2  \right)^{\sfrac{3}{2}}} - \frac{1}{\left( r^2 + (z - h)^2  \right)^{\sfrac{3}{2}}} \right)\hat{z}\\
+&={\mu_0NIr^2}\left(-\frac{3h}{\left( r^2 + h^2  \right)^{\sfrac{5}{2}}}z - \frac{5h(4h^2-3r^2)}{2\left( r^2 + h^2  \right)^{\sfrac{9}{2}}}z^3  + \mathcal{O}\left(z^5\right) \right)\hat{z}\,,
+\end{split}
+\label{B}
+\end{align}
+where $\mu_0$ is the vacuum magnetic permeability, $N$ is the number of turns in each coil, and $I$ is the current flowing through the coils. The gradient of the field along the symmetry axis is obtained by differentiation:
+ \begin{align}
+ \frac{\mathrm{d} B_z(z)}{\mathrm{d}z}= \frac{-3\mu_0NIr^2h}{\left( r^2 + h^2  \right)^{\sfrac{5}{2}}} + \mathcal{O}\left(z^2\right)\,.
+ \label{Bdiff}
+ \end{align}
+The linearity of the field can be optimised by an appropriate choice\footnote{For a choice of $h=\frac{r\sqrt{3}}{2}$, the field gradient reduces to $\frac{\mathrm{d} B_z(z)}{\mathrm{d}z}= -\frac{48\sqrt{21} \mu_0NI }{343 r^2} + \mathcal{O}\left(z^4\right)$.} of coil geometry, which eliminates the cubic term in \autoref{B}. Due to constraints regarding optical access in our experimental setup, however, average values for the coil diameter and separation are $2r=\SI{7.5}{\centi\meter}$ and $2h=\SI{7.5}{\centi\meter}$, respectively. In this case, the cubic term in \autoref{B} attains a maximum of $\SI{0.37}{\percent}$ of the linear contribution for $z\in[\SI{-5}{\milli\meter}, \SI{5}{\milli\meter}]$, where the MOT is expected to form. Each coil is assembled using $159$ turns of copper wire with a diameter of $\SI{1.0}{\milli\meter}$ and electrical resistivity of $\SI{1.7e-8}{\ohm\per\meter}$. \autoref{Bdiff} thus implies that a current of $\SI{2.0}{\ampere}$ yields a field gradient of $\SI{15}{\gauss\per\centi\meter}$ at the quadrupole centre. Prolonged operation of the anti-Helmholtz coils at a current of $\SI{2.0}{\ampere}$ results in a power dissipation of $\SI{4.1}{\watt}$ per coil and a steady state temperature of $\SI{45}{\degreeCelsius}$, for which no active cooling mechanism is required. In addition to the anti-Helmholtz coils, three pairs of orthogonally positioned, Helmholtz bias coils ($N = 9$) are used to compensate for residual magnetic fields and to control the position of the MOT cloud by shifting the centre of the quadrupole field.
 
 \section{Static arrays of dipole traps}
 Prior to performing more advanced experiments such as moving atoms using dynamic holograms, it is essential to probe and understand the behaviour of atoms captured with static holographic tweezers. In this section, we present our analysis of the trapping potential as well as the collisional blockade, ac-stark effect, lifetime and filling fraction of traps with varying depths in a static trapping potential landscape.
