@@ -66,7 +66,12 @@ where we have defined the saturation intensity $I_\text{sat}=\hbar \omega_0^3\Ga
 \begin{equation}
 F_\text{sc}=\hbar kR_\text{sc}\,.
 \end{equation}
-Since this force depends on $\Delta$, it can have a velocity dependent component due to the Doppler shift (optical molasses) or a position dependency in the presence of a magnetic field gradient (magneto-optical trapping force).
+Since this force depends on $\Delta$, it has a velocity dependent component due to the Doppler shift of moving atoms, which is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field, which alters $\Delta$ via the Zeeman effect. This position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
+\subsection{Doppler cooling}
+\label{dopplercooling}
+
+\subsection{Magneto-optical traps}
+\label{mots}
 
 \subsection{The dipole force}
 \label{dipoleforce}
@@ -800,6 +805,7 @@ written in terms of the cooperativity. In the bad cavity regime, photon generati
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
+	legend cell align={left},
 	legend style={
 		at={(1, 0.75)},  % Adjust (x, y) to move it
 		anchor=north east,  % Attach the legend to its top-right corner
