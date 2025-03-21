@@ -48,27 +48,35 @@ The preceding description does not account for spontaneous emission, as it does 
 \frac{\partial\hat{\rho}}{\partial t}=-i\frac{\Delta}{2}\big[\hat{\sigma}_z,\hat{\rho}\big]-i\frac{\Omega}{2}\big[\hat{\sigma}_x,\hat{\rho}\big] + \gamma \big(-\hat{\sigma}_+\hat{\sigma}_-\hat{\rho}+2\hat{\sigma}_-\hat{\rho}\hat{\sigma}_+-\hat{\rho}\hat{\sigma}_+\hat{\sigma}_-\big)\,,
 \end{equation}
 where $\hat{\rho}$ is the time-dependent density operator\footnote{Also in the rotating frame, defined as $\hat{\rho}(t)=\hat{R}(t)\hat{\rho}'(t)\hat{R}^\dagger(t)$, where $\hat{\rho}'(t)$ is the density operator in the non-rotating frame and $\hat{R}(t)=\exp(i\omega\hat{\sigma}_z t/2)$.} of the atom,
- $\hat{\sigma}_z=\vert e \rangle \langle e \vert-\vert g \rangle \langle g \vert$, $\hat{\sigma}_x=\vert e \rangle \langle g \vert+\vert g \rangle \langle e \vert$, $\hat{\sigma}_+=\vert e \rangle \langle g \vert$, $\hat{\sigma}_-=\vert g \rangle \langle e \vert$ and $\gamma$ is the transverse decay rate, which in the case of purely radiative damping equals half the natural linewidth ($\gamma=\sfrac{\Gamma}{2}$). Note that \autoref{lindblad} features a competition between the coherent dynamics induced by the light field (first two terms) and the dissipative dynamics that arise from the decay into the vacuum of the radiation field (last three terms). Typically, \autoref{lindblad} is rewritten as a system of coupled differential equations (optical Bloch equations), from which one can extract the steady state ($\frac{\partial\hat{\rho}}{\partial t}=0$) solution for ${\rho}_{ee}=\langle e \vert \hat{\rho} \vert e\rangle$, which represents the equilibrium population in the excited state:
+ $\hat{\sigma}_z=\vert e \rangle \langle e \vert-\vert g \rangle \langle g \vert$, $\hat{\sigma}_x=\vert e \rangle \langle g \vert+\vert g \rangle \langle e \vert$, $\hat{\sigma}_+=\vert e \rangle \langle g \vert$, $\hat{\sigma}_-=\vert g \rangle \langle e \vert$ and $\gamma$ is the transverse decay rate, which in the case of purely radiative damping equals half the natural decay rate $\Gamma$ of the excited state: $\gamma=\sfrac{\Gamma}{2}$. Note that \autoref{lindblad} features a competition between the coherent dynamics induced by the light field (first two terms) and the dissipative dynamics that arise from the decay into the vacuum of the radiation field (last three terms). Typically, \autoref{lindblad} is rewritten as a system of coupled differential equations (optical Bloch equations), from which one can extract the steady state ($\frac{\partial\hat{\rho}}{\partial t}=0$) solution for ${\rho}_{ee}=\langle e \vert \hat{\rho} \vert e\rangle$, which represents the equilibrium population in the excited state:
 \begin{equation}
 \label{rhoee}
 {\rho}_{ee}=\frac{\Omega^2}{\Gamma^2+4\Delta^2+2\Omega^2}\,.
 \end{equation}
-The natural decay rate $\Gamma$ depends on the transition dipole moment:
-\begin{equation}
-\Gamma=\frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\vec{d}_{eg}|^2
-\end{equation}
-Now the scattering rate $R_\text{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\text{sc}=\Gamma \rho_{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as
+The scattering rate $R_\text{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\text{sc}=\Gamma \rho_{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as
 \begin{equation}
 \label{scatter}
 R_\text{sc}=\frac{\Gamma}{2}\frac{{I}/{I_\text{sat}}}{1+{4\Delta^2}/{\Gamma^2}+{I}/{I_\text{sat}}}\,,
 \end{equation}
-where we have defined the saturation intensity $I_\text{sat}=\hbar \omega_0^3\Gamma/12\pi c^2$. Note that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\Gamma/2$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\Gamma\Omega^2/4\Delta^2$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
+where we have defined the saturation intensity
+\begin{align}
+I_\text{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
+\end{align}
+such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\Gamma/2$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\Gamma\Omega^2/4\Delta^2$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
-F_\text{sc}=\hbar kR_\text{sc}\,.
+F_\text{sc}(\Delta)=\hbar kR_\text{sc}(\Delta)\,.
 \end{equation}
-Since this force depends on $\Delta$, it has a velocity dependent component due to the Doppler shift of moving atoms, which is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field, which alters $\Delta$ via the Zeeman effect. This position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
+Through the scattering rate, this force depends on the detuning $\Delta$, which contains a velocity dependent component due to the Doppler shift experienced by moving atoms. This velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field, which alters the detuning via the Zeeman effect. This position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
 \subsection{Doppler cooling}
 \label{dopplercooling}
+Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\text{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\text{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded as:
+\begin{align}
+\begin{split}
+	F_\text{net} &= F_\text{sc}(\omega_0-\omega+kv) - F_\text{sc}(\omega_0-\omega-kv) \\&= -\underbrace{\frac{16  \hbar k^2 \Gamma\Delta\Omega^2 }{(\Gamma^2 + 4 \Delta^2 +  2 \Omega^2)^2}}_{\alpha}v + \mathcal{O}(v^3) \\&\approx -\alpha v\,.
+\end{split}
+\label{coolingforce}
+\end{align}
+From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$), for which $\alpha$ is positive, exerts a frictional or damping force on the atom, effectively reducing its velocity and temperature. For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\text{max}=\sfrac{\hbar k^2}{2}$.
 
 \subsection{Magneto-optical traps}
 \label{mots}
