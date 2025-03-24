@@ -62,21 +62,138 @@ where we have defined the saturation intensity
 \begin{align}
 I_\text{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
 \end{align}
-such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\Gamma/2$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\Gamma\Omega^2/4\Delta^2$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
+such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\sfrac{\Gamma}{2}$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
 F_\text{sc}(\Delta)=\hbar kR_\text{sc}(\Delta)\,.
 \end{equation}
-Through the scattering rate, this force depends on the detuning $\Delta$, which contains a velocity dependent component due to the Doppler shift experienced by moving atoms. This velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field, which alters the detuning via the Zeeman effect. This position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
+Through the scattering rate, this force depends on the detuning $\Delta$. However, to account for the Doppler shift experienced by moving atoms, $\Delta$ is replaced with an effective detuning: $\Delta \rightarrow \Delta + f(\vec{v}\,)$. This effective detuning contains a velocity dependent component $f(\vec{v}\,)$. The resulting velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field (denoted by $g(\vec{r}\,)$), which alters the detuning via the Zeeman effect: $\Delta \rightarrow \Delta + g(\vec{r}\,)$. The resulting position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
 \subsection{Doppler cooling}
 \label{dopplercooling}
-Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\text{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\text{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded as:
+Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables their confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\text{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\text{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded around $v=0$ as:
 \begin{align}
 \begin{split}
-	F_\text{net} &= F_\text{sc}(\omega_0-\omega+kv) - F_\text{sc}(\omega_0-\omega-kv) \\&= -\underbrace{\frac{16  \hbar k^2 \Gamma\Delta\Omega^2 }{(\Gamma^2 + 4 \Delta^2 +  2 \Omega^2)^2}}_{\alpha}v + \mathcal{O}(v^3) \\&\approx -\alpha v\,.
+	F_\text{net} &= F_\text{sc}(\Delta+kv) - F_\text{sc}(\Delta-kv) \\&= -\underbrace{\frac{16  \hbar k^2 \Gamma\Delta\Omega^2 }{(\Gamma^2 + 4 \Delta^2 +  2 \Omega^2)^2}}_{\alpha}v + \mathcal{O}(v^3) \\&\approx -\alpha v\,.
 \end{split}
 \label{coolingforce}
 \end{align}
 From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$), for which $\alpha$ is positive, exerts a frictional or damping force on the atom, effectively reducing its velocity and temperature. For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\text{max}=\sfrac{\hbar k^2}{2}$.
+
+\begin{figure}[!t]
+	\hspace{-0.2em}
+	\begin{tikzpicture} 
+	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=3.7cm, vertical sep=0.5cm},width=6cm, height=6cm]
+	\nextgroupplot
+	[
+	xlabel={$\sfrac{\Delta}{\Gamma}$},
+	ylabel={$\sfrac{\Omega}{\Gamma}$},
+	enlargelimits=false,
+	axis on top,
+	xmin=-2, xmax=2,
+	ymin=0, ymax=3,
+	width=6cm, 
+	height=6cm,
+	colormap/viridis,
+	colorbar,
+	colorbar style={
+		at={(1.1, 0)},
+		anchor=south west,
+		ytick={-0.5,0,0.5}, % Decimal equivalents
+		yticklabels={$-\sfrac{1}{2}$,$0$,$\sfrac{1}{2}$},
+		scaled ticks=false
+		%xticklabel pos=upper,
+		%x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min={-0.5},
+	point meta max={0.5},
+	%xticklabels={,,}
+	]
+	
+	\addplot graphics [xmin=-2,xmax=2,ymin=0,ymax=3] {doppler.pdf};
+	
+	\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:-2,1);
+	\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:0.5,0);
+	%\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:217,217);
+	
+	\addplot[
+	only marks,
+	mark=+,       % Cross marker (×)
+	mark size=5pt, % Adjust size
+	thick,        % Line thickness
+	markgrijs           % Color
+	] coordinates {(0.5,1)}; % Position of the cross
+	
+	
+	
+	\nextgroupplot
+	[
+	xlabel={$\sfrac{v}{(\Gamma k^{-1} )}$},
+	ylabel={$\sfrac{F_\text{net}}{\hbar k \Gamma}$},
+	%axis lines = middle,
+	grid = major,
+	grid style = {dashed, gray!30},
+	xmin = -3, xmax = 3,
+	ymin = -0.4, ymax = 0.4,
+	%xtick = {-3,-2,...,3},
+	%ytick = {-0.3,-0.2,...,0.3},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none
+	},
+	legend cell align=left,
+	samples=200
+	]
+	
+	% Define the force function
+	\pgfmathdeclarefunction{F}{2}{% #1=Delta, #2=velocity
+		\pgfmathparse{
+			(1/(3+ 4*(#1 + #2)^2) - 
+			(1/(3 + 4*(#1 - #2)^2)
+		}
+	}
+
+	\pgfmathdeclarefunction{Fleft}{2}{% #1=Delta, #2=velocity
+	\pgfmathparse{
+		(1/(3+ 4*(#1 + #2)^2)
+		}
+	}
+
+	\pgfmathdeclarefunction{Fright}{2}{% #1=Delta, #2=velocity
+	\pgfmathparse{ -1/(3 + 4*(#1 - #2)^2)
+		}
+	}
+	
+	% Plot for Delta = Gamma/2 (optimal cooling)
+	\addplot[rainbow1of8, thick, domain=-3:3] {F(1/2, x)};
+	\addplot[rainbow1of8, dashed, domain=-3:3] {Fleft(1/2, x)};
+	\addplot[rainbow1of8, dashed, domain=-3:3] {Fright(1/2, x)};
+
+	
+	% Plot for Delta = Gamma (suboptimal)
+	\addplot[rainbow2of8, thick, domain=-3:3] {F(1, x)};
+	\addplot[rainbow2of8, dashed, domain=-3:3] {Fleft(1, x)};
+	\addplot[rainbow2of8, dashed, domain=-3:3] {Fright(1, x)};
+	
+	% Plot for Delta = Gamma (suboptimal)
+	\addplot[rainbow3of8, thick, domain=-3:3] {F(2, x)};
+	\addplot[rainbow3of8, dashed, domain=-3:3] {Fleft(2, x)};
+	\addplot[rainbow3of8, dashed, domain=-3:3] {Fright(2, x)};
+	
+	\legend{\footnotesize\hspace{0.3em}$\Delta = \sfrac{\Gamma}{2}$, , ,\footnotesize\hspace{0.3em}$\Delta = \Gamma$, , ,\footnotesize\hspace{0.3em}$\Delta = 2\Gamma$}
+	
+	%\addplot graphics [xmin=8,xmax=217,ymin=8,ymax=47] {FRdarkcalc.pdf};
+	%\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:47,47);
+	
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption[Damping coefficient and net cooling force in a one-dimensional optical molasses]{(Left) Dimensionless damping coefficient $\sfrac{\alpha}{\hbar k^2}$ in a one-dimensional optical molasses as a function of $\sfrac{\Omega}{\Gamma}$ and $\sfrac{\Delta}{\Gamma}$. The maximum is located at $\Omega = \Gamma$ and $\Delta = \sfrac{\Gamma}{2}$. (Right) Net cooling force $\sfrac{F_\text{net}}{\hbar k \Gamma}$ versus velocity $\sfrac{v}{(\Gamma k^{-1} )}$ (both dimensionless) for $\Omega = \Gamma$ and $\Delta\in\{\sfrac{\Gamma}{2}, \Gamma, 2\Gamma\}$. The antisymmetric profile is characteristic of Doppler cooling, exhibiting a linear dependence near $v = 0$ and saturation at higher velocities. Dashed curves represent the forces exerted by a single cooling beam.
+	}
+	\label{dopplerplots} 
+\end{figure}
+
 
 \subsection{Magneto-optical traps}
 \label{mots}
@@ -591,9 +708,7 @@ Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored
 	
 	\addplot[
 	color=markrood,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{VRO_get_cavity_number.csv};
 	
 	\nextgroupplot
@@ -623,23 +738,17 @@ Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored
 	
 	\addplot[
 	color=rainbow2of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{VRO_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow3of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{VRO_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow4of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{VRO_get_atomic_population.csv};
 	
 	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
@@ -682,15 +791,13 @@ In the strong coupling regime, where the energy exchange between atom and cavity
 	samples=200
 	]
 	
-	\addplot[markgrijs, dashed] {(sin(deg(pi*x/(2))))^2};
+	\addplot[markgrijs, dashed, thick] {(sin(deg(pi*x/(2))))^2};
 	
 	\node[markgrijs] at (1.6,0.8) {\footnotesize $\Omega(t)$};
 	
 	\addplot[
 	color=markrood,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{SCR_get_cavity_emission.csv};
 	
 	\nextgroupplot
@@ -720,23 +827,17 @@ In the strong coupling regime, where the energy exchange between atom and cavity
 	
 	\addplot[
 	color=rainbow2of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{SCR_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow3of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{SCR_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow4of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{SCR_get_atomic_population.csv};
 	
 	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
@@ -789,15 +890,13 @@ written in terms of the cooperativity. In the bad cavity regime, photon generati
 	samples=1000
 	]
 	
-	\addplot[markgrijs, dashed] {4.5*(sin(deg(pi*x/(0.3))))^2};
+	\addplot[markgrijs, dashed, thick] {4.5*(sin(deg(pi*x/(0.3))))^2};
 	
 	\node[markgrijs] at (0.26,3) {\footnotesize $\Omega(t)$};
 	
 	\addplot[
 	color=markrood,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{BCR_get_cavity_emission.csv};
 	
 	\nextgroupplot
@@ -827,23 +926,17 @@ written in terms of the cooperativity. In the bad cavity regime, photon generati
 	
 	\addplot[
 	color=rainbow2of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{BCR_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow3of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{4}]{BCR_get_atomic_population.csv};
 	
 	\addplot[
 	color=rainbow4of8,
-	/pgfplots/error bars/.cd,
-	x dir = both,
-	x explicit,
+	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{BCR_get_atomic_population.csv};
 	
 	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
