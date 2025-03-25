@@ -62,7 +62,7 @@ where we have defined the saturation intensity
 \begin{align}
 I_\text{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
 \end{align}
-such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\sfrac{\Gamma}{2}$, which is the regime for cooling lasers. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. To conclude, the scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
+such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\sfrac{\Gamma}{2}$, which is the saturation limit. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. The scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
 F_\text{sc}(\Delta)=\hbar kR_\text{sc}(\Delta)\,.
 \end{equation}
@@ -76,20 +76,20 @@ Doppler cooling is a technique used to reduce the kinetic energy of atoms, which
 \end{split}
 \label{coolingforce}
 \end{align}
-From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$), for which $\alpha$ is positive, exerts a frictional or damping force on the atom, effectively reducing its velocity and temperature. For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\text{max}=\sfrac{\hbar k^2}{2}$.
-
+From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$), for which $\alpha$ is positive, exerts a frictional or damping force on the atom, effectively reducing its velocity and temperature (see \autoref{dopplerplots}).
+%For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\text{max}=\sfrac{\hbar k^2}{2}$.
 \begin{figure}[!t]
-	\hspace{-0.2em}
+	\hspace{-0.4em}
 	\begin{tikzpicture} 
-	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=3.7cm, vertical sep=0.5cm},width=6cm, height=6cm]
+	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=3.3cm, vertical sep=0.5cm},width=6cm, height=6cm]
 	\nextgroupplot
 	[
-	xlabel={$\sfrac{\Delta}{\Gamma}$},
-	ylabel={$\sfrac{\Omega}{\Gamma}$},
+	xlabel={$\sfrac{\Delta}{\,\Gamma}$},
+	ylabel={$\sfrac{\Omega}{\,\Gamma}$},
 	enlargelimits=false,
 	axis on top,
-	xmin=-2, xmax=2,
-	ymin=0, ymax=3,
+	xmin=-1, xmax=1,
+	ymin=0, ymax=1,
 	width=6cm, 
 	height=6cm,
 	colormap/viridis,
@@ -99,22 +99,24 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 		anchor=south west,
 		ytick={-0.5,0,0.5}, % Decimal equivalents
 		yticklabels={$-\sfrac{1}{2}$,$0$,$\sfrac{1}{2}$},
-		scaled ticks=false
+		scaled ticks=false,
 		%xticklabel pos=upper,
 		%x tick scale label style={yshift=-25pt, xshift=23pt},
 	},
 	point meta=explicit,
 	point meta min={-0.5},
 	point meta max={0.5},
+	samples=300
 	%xticklabels={,,}
 	]
 	
-	\addplot graphics [xmin=-2,xmax=2,ymin=0,ymax=3] {doppler.pdf};
+	\addplot graphics [xmin=-1,xmax=1,ymin=0,ymax=1] {doppler.pdf};
 	
-	\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:-2,1);
-	\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:0.5,0);
+	%\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:-2,1);
+	%\draw[white, dashed] (axis cs:0.5,1) -- (axis cs:0.5,0);
 	%\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:217,217);
 	
+	\iffalse
 	\addplot[
 	only marks,
 	mark=+,       % Cross marker (×)
@@ -122,6 +124,18 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 	thick,        % Line thickness
 	markgrijs           % Color
 	] coordinates {(0.5,1)}; % Position of the cross
+	\fi
+	
+	\addplot[black, dashed, thick, domain=0.3:1] {((12*x^2-1)/2)^(0.5)};
+	\addplot[white, dashed, thick, domain=-0.3:-1] {((12*x^2-1)/2)^(0.5)};
+	\addplot[white, dashed, thick, domain=-0.288:-0.3] {((12*x^2-1)/2)^(0.5)};
+	\addplot[black, dashed, thick, domain=0.288:0.3] {((12*x^2-1)/2)^(0.5)};
+	
+	%\addplot[black, dashed, thick, domain=0:1] {((4*x^2+1)/2)^(0.5)};
+	%\addplot[white, dashed, thick, domain=0:-1] {((4*x^2+1)/2)^(0.5)};
+	
+	\node[white, anchor=east, align=right] at (axis cs: -0.3, 0.05) {\footnotesize\sc min.};
+	\node[black, anchor=west, align=left] at (axis cs: 0.3, 0.05) {\footnotesize\sc max.};
 	
 	
 	
@@ -133,55 +147,64 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 	grid = major,
 	grid style = {dashed, gray!30},
 	xmin = -3, xmax = 3,
-	ymin = -0.4, ymax = 0.4,
+	ymin = -0.25, ymax = 0.25,
 	%xtick = {-3,-2,...,3},
 	%ytick = {-0.3,-0.2,...,0.3},
+	legend columns = 2,
 	legend style={
-		at={(1, 1)},  % Adjust (x, y) to move it
-		anchor=north east,  % Attach the legend to its top-right corner
+		at={(0.5, 0.5)},  % Adjust (x, y) to move it
+		anchor=center,  % Attach the legend to its top-right corner
 		draw=none,           % Optional: Remove border around the legend
-		fill=none
+		fill=none,
+		row sep=3.3cm
 	},
 	legend cell align=left,
-	samples=200
+	samples=200,
+	ylabel shift = -0.3cm,
 	]
 	
 	% Define the force function
-	\pgfmathdeclarefunction{F}{2}{% #1=Delta, #2=velocity
+	\pgfmathdeclarefunction{F}{3}{% #1=Delta/Gamma, #2=velocity/(Gamma/k), + #3=Omega/Gamma
 		\pgfmathparse{
-			(1/(3+ 4*(#1 + #2)^2) - 
-			(1/(3 + 4*(#1 - #2)^2)
+			(#3^2/(1+ 4*(#1 + #2)^2 + 2*#3^2) - 
+			(#3^2/(1 + 4*(#1 - #2)^2 + 2*#3^2)
 		}
 	}
 
-	\pgfmathdeclarefunction{Fleft}{2}{% #1=Delta, #2=velocity
+	\pgfmathdeclarefunction{Fleft}{3}{% #1=Delta, #2=velocity
 	\pgfmathparse{
-		(1/(3+ 4*(#1 + #2)^2)
+		(#3^2/(1+ 4*(#1 + #2)^2 + 2*#3^2)
 		}
 	}
 
-	\pgfmathdeclarefunction{Fright}{2}{% #1=Delta, #2=velocity
-	\pgfmathparse{ -1/(3 + 4*(#1 - #2)^2)
+	\pgfmathdeclarefunction{Fright}{3}{% #1=Delta, #2=velocity
+	\pgfmathparse{ -#3^2/(1 + 4*(#1 - #2)^2 + 2*#3^2)
 		}
 	}
-	
+
+	\def\rabi{0.5}
+
 	% Plot for Delta = Gamma/2 (optimal cooling)
-	\addplot[rainbow1of8, thick, domain=-3:3] {F(1/2, x)};
-	\addplot[rainbow1of8, dashed, domain=-3:3] {Fleft(1/2, x)};
-	\addplot[rainbow1of8, dashed, domain=-3:3] {Fright(1/2, x)};
-
+	\addplot[rainbow4of8, thick, domain=-3:3] {F(0.1, x, \rabi)};
+	\addplot[rainbow4of8, dashed, domain=-3:3] {Fleft(0.1, x, \rabi)};
+	\addplot[rainbow4of8, dashed, domain=-3:3] {Fright(0.1, x, \rabi)};
+		
+	% Plot for Delta = Gamma/2 (optimal cooling)
+	\addplot[rainbow1of8, thick, domain=-3:3] {F(1/2, x, \rabi)};
+	\addplot[rainbow1of8, dashed, domain=-3:3] {Fleft(1/2, x, \rabi)};
+	\addplot[rainbow1of8, dashed, domain=-3:3] {Fright(1/2, x, \rabi)};
 	
 	% Plot for Delta = Gamma (suboptimal)
-	\addplot[rainbow2of8, thick, domain=-3:3] {F(1, x)};
-	\addplot[rainbow2of8, dashed, domain=-3:3] {Fleft(1, x)};
-	\addplot[rainbow2of8, dashed, domain=-3:3] {Fright(1, x)};
+	\addplot[rainbow3of8, thick, domain=-3:3] {F(1, x, \rabi)};
+	\addplot[rainbow3of8, dashed, domain=-3:3] {Fleft(1, x, \rabi)};
+	\addplot[rainbow3of8, dashed, domain=-3:3] {Fright(1, x, \rabi)};
 	
 	% Plot for Delta = Gamma (suboptimal)
-	\addplot[rainbow3of8, thick, domain=-3:3] {F(2, x)};
-	\addplot[rainbow3of8, dashed, domain=-3:3] {Fleft(2, x)};
-	\addplot[rainbow3of8, dashed, domain=-3:3] {Fright(2, x)};
+	\addplot[rainbow2of8, thick, domain=-3:3] {F(2, x, \rabi)};
+	\addplot[rainbow2of8, dashed, domain=-3:3] {Fleft(2, x, \rabi)};
+	\addplot[rainbow2of8, dashed, domain=-3:3] {Fright(2, x, \rabi)};
 	
-	\legend{\footnotesize\hspace{0.3em}$\Delta = \sfrac{\Gamma}{2}$, , ,\footnotesize\hspace{0.3em}$\Delta = \Gamma$, , ,\footnotesize\hspace{0.3em}$\Delta = 2\Gamma$}
+	\legend{\footnotesize\hspace{0.3em}$\Delta = \sfrac{\Gamma}{10}$, , ,\footnotesize\hspace{0.3em}$\Delta = \sfrac{\Gamma}{2}$, , ,\footnotesize\hspace{0.3em}$\Delta = \Gamma$, , ,\footnotesize\hspace{0.3em}$\Delta = 2\Gamma$}
 	
 	%\addplot graphics [xmin=8,xmax=217,ymin=8,ymax=47] {FRdarkcalc.pdf};
 	%\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:47,47);
@@ -189,14 +212,160 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 	
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption[Damping coefficient and net cooling force in a one-dimensional optical molasses]{(Left) Dimensionless damping coefficient $\sfrac{\alpha}{\hbar k^2}$ in a one-dimensional optical molasses as a function of $\sfrac{\Omega}{\Gamma}$ and $\sfrac{\Delta}{\Gamma}$. The maximum is located at $\Omega = \Gamma$ and $\Delta = \sfrac{\Gamma}{2}$. (Right) Net cooling force $\sfrac{F_\text{net}}{\hbar k \Gamma}$ versus velocity $\sfrac{v}{(\Gamma k^{-1} )}$ (both dimensionless) for $\Omega = \Gamma$ and $\Delta\in\{\sfrac{\Gamma}{2}, \Gamma, 2\Gamma\}$. The antisymmetric profile is characteristic of Doppler cooling, exhibiting a linear dependence near $v = 0$ and saturation at higher velocities. Dashed curves represent the forces exerted by a single cooling beam.
+	\caption[Damping coefficient and net cooling force in a one-dimensional optical molasses]{(Left) Dimensionless damping coefficient $\sfrac{\alpha}{\hbar k^2}$ in a one-dimensional optical molasses as a function of $\sfrac{\Omega}{\,\Gamma}$ and $\sfrac{\Delta}{\,\Gamma}$. For fixed values of $\sfrac{\Omega}{\,\Gamma}$, the minima and maxima are shown as white and black dashed lines, respectively. (Right) Net cooling force $\sfrac{F_\text{net}}{\hbar k \Gamma}$ versus velocity $\sfrac{v}{(\Gamma k^{-1} )}$ (both dimensionless) for ${\Omega}=\sfrac{\Gamma}{2}$ and $\Delta\in\{\sfrac{\Gamma}{10},\sfrac{\Gamma}{2}, \Gamma, 2\Gamma\}$. The antisymmetric profile is characteristic of Doppler cooling, exhibiting a linear dependence near $v = 0$ and saturation at higher velocities. Dashed curves represent the forces exerted by a single cooling beam.
 	}
 	\label{dopplerplots} 
 \end{figure}
-
-
+The kinetic energy cooling rate that corresponds to this damping force can be written as
+\begin{align}
+	\frac{\mathrm{d} \langle E_\text{c} \rangle}{\mathrm{d}t}=\langle F_\text{net}v\rangle\approx-\alpha\langle v^2 \rangle  \,,
+\label{coolingrate}
+\end{align}
+where the angle brackets denote the ensemble average. While the cooling force systematically reduces the atomic velocity, each spontaneously emitted photon (associated with a scattering event) transfers a momentum of magnitude $\hbar k$ to the atom in a random direction, which increases the kinetic energy by the recoil energy $E_\text{r}=\sfrac{\hbar^2 k^2}{2m}$. This stochastic process of recoil heating ultimately limits the minimum temperature $T_\text{D}$ achievable through Doppler cooling. The kinetic energy heating rate can be written as \cite{cohen1992}
+\begin{align}
+\frac{\mathrm{d} \langle E_\text{h} \rangle}{\mathrm{d}t}=4 E_\text{r} R_\text{sc} \,.
+\label{heatingrate}
+\end{align}
+To find an expression for $T_\text{D}$, we use the fact that at equilibrium, the sum of the Doppler cooling rate (\autoref{coolingrate}) and the recoil heating rate (\autoref{heatingrate}) equals zero. This allows us to write the following expression for the average kinetic energy:
+\begin{align}
+	 \frac{1}{2}m\langle v^2\rangle \approx \frac{\hbar^2 k^2 R_\text{sc}}{\alpha}= \frac{\hbar\left(\Gamma^2+4\Delta^2+2\Omega^2\right)}{16\Delta}\,,
+\label{dopplerlimit}
+\end{align}
+which attains a minimum of $\frac{\hbar\Gamma}{4}\sqrt{1+I/I_\text{sat}}$ for $\Delta=\frac{\Gamma}{2}\sqrt{1+I/I_\text{sat}}$. Using the fact that $\frac{1}{2}m\langle v^2\rangle = \frac{1}{2}k_\text{B}T$ and $I/I_\text{sat}\ll 1$, we arrive at the following result:
+\begin{align}
+	k_\text{B}T_\text{D} \approx \frac{\hbar\Gamma}{2}\,,
+\end{align}
+which is known as the Doppler cooling limit. For \ce{^{87}Rb}, $T_\text{D}=\SI{146}{\micro\kelvin}$.
 \subsection{Magneto-optical traps}
 \label{mots}
+asdfasdf
+ asdf
+ adsf 
+\begin{figure}[t]
+	\hspace{-0.5em}
+	\newsavebox{\mynewbox}
+	\sbox{\mynewbox}{%
+		\tikzset{external/optimize=false}%
+		\begin{tikzpicture}[x={(-30:1cm)},y={(190:1cm)},z={(90:1cm)}]% set unit vectors
+		
+		
+		% half diameter and text
+		\begin{scope}[canvas is xz plane at y=0,transform shape]
+		\pgflowlevelsynccm
+		\draw[<->, rainbow8of8] (-1,2.9) -- (1,2.9);
+		\node[rainbow8of8, above] at (0,2.9,0) {\footnotesize$2h$};
+		\end{scope}
+		%\node[xzp=0,below] at (0.75,0,1) {$\frac{d}{2}$};
+		
+		% AXES
+		\draw[xzp=0, rainbow8of8, ->] (1.5,0) -- (-1.5,0) node [left] {\footnotesize $z$};
+		\draw[xzp=0, rainbow8of8, ->] (0,-2) -- (0,2) node [left] {\footnotesize $y$};
+		\draw[yzp=0, rainbow8of8, ->] (-2,0) -- (2,0) node [below] {\footnotesize $x$};
+		
+		\begin{scope}[canvas is xz plane at y=0,transform shape]
+		\pgflowlevelsynccm
+		\draw[xzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-0.3,0);
+		\draw[xzp=0,->, rainbow2of8, thick] (1.3,0) -- (0.3,0);
+		\end{scope}
+		
+		\begin{scope}[canvas is yz plane at x=0,transform shape]
+		\pgflowlevelsynccm
+		\draw[yzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
+		\draw[yzp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+		\end{scope}
+		
+		\begin{scope}[canvas is yz plane at x=0,transform shape]
+		\pgflowlevelsynccm
+		\draw[xyp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
+		\draw[xyp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+		\end{scope}
+		
+		\node[xzp=0, rainbow2of8, align=center] at (1.05, 0, 0.3) {\footnotesize$\vec{B}$};
+		
+		
+		% diameter and text
+		\begin{scope}[canvas is xz plane at y=0,transform shape]
+		\pgflowlevelsynccm
+		\draw[rainbow8of8] (1.1,2) -- (2,2) (1.1,-2) -- (2,-2);
+		\draw[<->, rainbow8of8] (1.8,2) -- (1.8,-2);
+		\node[right, rainbow8of8] at (1.8, 0, 1.6) {\footnotesize$2r$};
+		\end{scope}
+		
+		%\draw[yzp=1, -latex] (0,0) -- (0,-1.8);
+		
+		
+		\draw [yzp=1.1, rainbow1of8, thick, ->] (2,0,1) arc (0:45:2.0) node [rainbow1of8, pos=0, below] {\footnotesize$I$};
+		\draw [yzp=-0.9, rainbow1of8, thick, <-] (2.0,0,-1) arc (0:45:2.0) node [rainbow1of8, pos=1, above right] {};
+		
+		\draw [white] (1.5,0,-2.17) arc (0:45:2.0) node [rainbow1of8, pos=1, above right] {};
+		
+		\node[fit=(current bounding box),inner sep=0mm]{};
+		%\node[fit=(current bounding box),inner sep=3mm, draw]{};
+		
+		
+		\end{tikzpicture}
+	}
+	
+	\begin{tikzpicture}
+	\vspace{0em}
+	\centering
+	\begin{groupplot}[group style={group name=my plots, group size=2 by 1,horizontal sep=3cm, vertical sep=2cm},height=6cm,width=6cm,no markers]
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=-2.5, xmax=2.5,
+	ymin=-1.5, ymax=1.5,
+	xticklabels={,,},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=false,
+	xmajorgrids=false,
+	grid style=dashed,
+	axis lines=none,        % No axis lines
+	tick style=none,        % No ticks
+	xtick=\empty,           % No x-axis ticks
+	ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	clip=false,
+	]
+	
+	\nextgroupplot
+	[
+	xlabel={$z$ (\si{\centi\meter})},
+	ylabel={$B_z(z)$ (\si{\gauss})},
+	%title={Magnetic Field in Anti-Helmholtz Configuration},
+	domain=-11:11, % Range of z
+	xmin=-10,
+	xmax=10,
+	samples=200,
+	smooth,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none
+	},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	
+	
+	\end{groupplot}
+	
+	
+	%\usebox{\mybox}
+	\node at (my plots c1r1.center) {\usebox{\mynewbox}};
+	\node at (my plots c2r1.center) {\usebox{\mynewbox}};
+	
+	\end{tikzpicture}
+	\caption[Schematic representation of a pair of anti-Helmholtz coils and induced magnetic field]{(Left) Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration. (Right) The induced magnetic field $B_z(z)$ along the $z$-axis for $h=r=\SI{7.5}{\centi\meter}$ and $h=\frac{r\sqrt{3}}{2}$ with $r=\SI{7.5}{\centi\meter}$ ($N=159$ and $I=\SI{2.0}{\ampere}$). Dashed lines correspond to the fields generated by each coil separately.}
+	\label{coils}
+\end{figure}
 
 \subsection{The dipole force}
 \label{dipoleforce}
