@@ -249,58 +249,77 @@ asdfasdf
 		\begin{tikzpicture}[x={(-30:1cm)},y={(190:1cm)},z={(90:1cm)}]% set unit vectors
 		
 		
-		% half diameter and text
-		\begin{scope}[canvas is xz plane at y=0,transform shape]
-		\pgflowlevelsynccm
-		\draw[<->, rainbow8of8] (-1,2.9) -- (1,2.9);
-		\node[rainbow8of8, above] at (0,2.9,0) {\footnotesize$2h$};
-		\end{scope}
-		%\node[xzp=0,below] at (0.75,0,1) {$\frac{d}{2}$};
-		
 		% AXES
-		\draw[xzp=0, rainbow8of8, ->] (1.5,0) -- (-1.5,0) node [left] {\footnotesize $z$};
+		\draw[xzp=0, rainbow8of8, ->] (1.5,0) -- (-1.5,0) node [above] {\footnotesize $z$};
 		\draw[xzp=0, rainbow8of8, ->] (0,-2) -- (0,2) node [left] {\footnotesize $y$};
 		\draw[yzp=0, rainbow8of8, ->] (-2,0) -- (2,0) node [below] {\footnotesize $x$};
 		
 		\begin{scope}[canvas is xz plane at y=0,transform shape]
 		\pgflowlevelsynccm
-		\draw[xzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-0.3,0);
-		\draw[xzp=0,->, rainbow2of8, thick] (1.3,0) -- (0.3,0);
+		\draw[xzp=0,->, rainbow2of8,  thick] (-0.975,0) -- (-0.225,0);
+		\draw[xzp=0,->, rainbow2of8,  thick] (0.975,0) -- (0.225,0);
+		
+		\draw[xzp=0,->, rainbow1of8,  thick] (-2.2*0.9,0) -- (-1.8*0.9,0);
+		\draw[xzp=0,->, rainbow1of8,  thick] (2.2*0.9,0) -- (1.8*0.9,0);
 		\end{scope}
 		
 		\begin{scope}[canvas is yz plane at x=0,transform shape]
 		\pgflowlevelsynccm
-		\draw[yzp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
-		\draw[yzp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+		\draw[yzp=0,->, rainbow2of8,  thick] (-1.3,0) -- (-1.8,0);
+		\draw[yzp=0,->, rainbow2of8,  thick] (1.3,0) -- (1.8,0);
+		
+		\draw[yzp=0,->, rainbow1of8,  thick] (-2.93333333333*0.9,0) -- (-2.4*0.9,0);
+		\draw[yzp=0,->, rainbow1of8,  thick] (2.93333333333*0.9,0) -- (2.4*0.9,0);
 		\end{scope}
 		
 		\begin{scope}[canvas is yz plane at x=0,transform shape]
 		\pgflowlevelsynccm
-		\draw[xyp=0,->, rainbow2of8, thick] (-1.3,0) -- (-1.8,0);
-		\draw[xyp=0,->, rainbow2of8, thick] (1.3,0) -- (1.8,0);
+		\draw[xyp=0,->, rainbow2of8,  thick] (-1.3,0) -- (-1.8,0);
+		\draw[xyp=0,->, rainbow2of8,  thick] (1.3,0) -- (1.8,0);
+		
+		\draw[xyp=0,->, rainbow1of8,  thick] (-2.93333333333*0.9,0) -- (-2.4*0.9,0);
+		\draw[xyp=0,->, rainbow1of8,  thick] (2.93333333333*0.9,0) -- (2.4*0.9,0);
 		\end{scope}
 		
 		\node[xzp=0, rainbow2of8, align=center] at (1.05, 0, 0.3) {\footnotesize$\vec{B}$};
 		
 		
-		% diameter and text
-		\begin{scope}[canvas is xz plane at y=0,transform shape]
-		\pgflowlevelsynccm
-		\draw[rainbow8of8] (1.1,2) -- (2,2) (1.1,-2) -- (2,-2);
-		\draw[<->, rainbow8of8] (1.8,2) -- (1.8,-2);
-		\node[right, rainbow8of8] at (1.8, 0, 1.6) {\footnotesize$2r$};
-		\end{scope}
-		
 		%\draw[yzp=1, -latex] (0,0) -- (0,-1.8);
 		
+		% z axis polarisations
+		\begin{scope}[canvas is yz plane at x=2.2*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, ->] (-0.2,0,0) arc (180:-180:0.20) node [rainbow1of8, pos=0, right, xshift=0cm, xscale=-1] {\footnotesize$\sigma^-$};
+		\end{scope}
+		\begin{scope}[canvas is yz plane at x=-2.2*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, ->] (0.2,0,0) arc (0:360:0.20) node [rainbow1of8, pos=0, right, xshift=0.65cm, xscale=-1] {\footnotesize$\sigma^+$};
+		\end{scope}
 		
-		\draw [yzp=1.1, rainbow1of8, thick, ->] (2,0,1) arc (0:45:2.0) node [rainbow1of8, pos=0, below] {\footnotesize$I$};
-		\draw [yzp=-0.9, rainbow1of8, thick, <-] (2.0,0,-1) arc (0:45:2.0) node [rainbow1of8, pos=1, above right] {};
+		% y axis polarisations
+		\begin{scope}[canvas is xy plane at z=2.93333333333*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, ->] (0,-0.2,0) arc (-90:270:0.20) node [rainbow1of8, pos=0, right, xshift=0cm, xscale=-1, rotate=-90] {\footnotesize$\sigma^-$};
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z=-2.93333333333*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, <-] (0,0.2,0) arc (-270:90:0.20) node [rainbow1of8, pos=0, right, yshift=0.7cm, xshift=0cm, xscale=-1, rotate=-90] {\footnotesize$\sigma^+$};
+		\end{scope}
 		
-		\draw [white] (1.5,0,-2.17) arc (0:45:2.0) node [rainbow1of8, pos=1, above right] {};
+		% x axis polarisations
+		\begin{scope}[canvas is xz plane at y=2.93333333333*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, <-] (-0.2,0,0) arc (-180:180:0.20) node [rainbow1of8, pos=0, right, xshift=-0.65cm, xscale=1, rotate=0] {\footnotesize$\sigma^-$};
+		\end{scope}
+		\begin{scope}[canvas is xz plane at y=-2.93333333333*0.9,transform shape]
+		\pgflowlevelsynccm
+		\draw [rainbow1of8, thin, ->] (0.2,0,0) arc (0:360:0.20) node [rainbow1of8, pos=0, right, xshift=0cm, xscale=1, rotate=0] {\footnotesize$\sigma^+$};
+		\end{scope}
+		
+		\draw [white] (-5.3,-1.3) rectangle (5.3,1.3);
 		
 		\node[fit=(current bounding box),inner sep=0mm]{};
-		%\node[fit=(current bounding box),inner sep=3mm, draw]{};
+		%\node[fit=(current bounding box),inner sep=0.5mm, draw]{};
 		
 		
 		\end{tikzpicture}
@@ -333,7 +352,7 @@ asdfasdf
 	
 	\nextgroupplot
 	[
-	xlabel={$z$ (\si{\centi\meter})},
+	xlabel={$z5$ (\si{\centi\meter})},
 	ylabel={$B_z(z)$ (\si{\gauss})},
 	%title={Magnetic Field in Anti-Helmholtz Configuration},
 	domain=-11:11, % Range of z
@@ -360,7 +379,7 @@ asdfasdf
 	
 	%\usebox{\mybox}
 	\node at (my plots c1r1.center) {\usebox{\mynewbox}};
-	\node at (my plots c2r1.center) {\usebox{\mynewbox}};
+	%\node at (my plots c2r1.east) {\usebox{\mynewbox}};
 	
 	\end{tikzpicture}
 	\caption[Schematic representation of a pair of anti-Helmholtz coils and induced magnetic field]{(Left) Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration. (Right) The induced magnetic field $B_z(z)$ along the $z$-axis for $h=r=\SI{7.5}{\centi\meter}$ and $h=\frac{r\sqrt{3}}{2}$ with $r=\SI{7.5}{\centi\meter}$ ($N=159$ and $I=\SI{2.0}{\ampere}$). Dashed lines correspond to the fields generated by each coil separately.}
