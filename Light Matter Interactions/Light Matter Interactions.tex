@@ -66,7 +66,7 @@ such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that fo
 \begin{equation}
 F_\text{sc}(\Delta)=\hbar kR_\text{sc}(\Delta)\,.
 \end{equation}
-Through the scattering rate, this force depends on the detuning $\Delta$. However, to account for the Doppler shift experienced by moving atoms, $\Delta$ is replaced with an effective detuning: $\Delta \rightarrow \Delta + f(\vec{v}\,)$. This effective detuning contains a velocity dependent component $f(\vec{v}\,)$. The resulting velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field (denoted by $g(\vec{r}\,)$), which alters the detuning via the Zeeman effect: $\Delta \rightarrow \Delta + g(\vec{r}\,)$. The resulting position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap (MOT) to cool and confine atoms (see \autoref{mots}).
+Through the scattering rate, this force depends on the detuning $\Delta$. However, to account for the Doppler shift experienced by moving atoms, $\Delta$ is replaced with an effective detuning: $\Delta \rightarrow \Delta + f(\vec{v}\,)$. This effective detuning contains a velocity dependent component $f(\vec{v}\,)$. The resulting velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field (denoted by $g(\vec{r}\,)$), which alters the detuning via the Zeeman effect: $\Delta \rightarrow \Delta + g(\vec{r}\,)$. The resulting position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap to cool and confine atoms (see \autoref{mots}).
 \subsection{Doppler cooling}
 \label{dopplercooling}
 Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables their confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\text{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\text{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded around $v=0$ as:
@@ -238,7 +238,7 @@ which attains a minimum of $\frac{\hbar\Gamma}{4}\sqrt{1+I/I_\text{sat}}$ for $\
 which is known as the Doppler cooling limit. For \ce{^{87}Rb}, $T_\text{D}=\SI{146}{\micro\kelvin}$.
 \subsection{Magneto-optical traps}
 \label{mots}
-Principle of the magneto-optical trap for a J=0 to J=1 transition. The atomic selection rules governing the absorption of circularly polarized light between the magnetic sublevels cause an imbalance in the radiative forces from the laser beams. This imbalance results in a trapping force that directs the atoms toward the center of the trap, where the quadrupole magnetic field plays a key role in selecting the appropriate transition for each magnetic sublevel, with varying detunings for each mJ state.
+A magneto-optical trap (MOT) combines laser cooling of neutral atoms with a spatially varying magnetic field to achieve confinement in all directions. The setup consists of three pairs of counter-propagating laser beams with opposite circular polarisation\footnote{\label{note1}The polarisations are defined with respect to the global quantisation axes ($x, y, z$).} and a quadrupole magnetic field, as illustrated in \autoref{mot}.
 \begin{figure}[t]
 	\hspace{-0.5em}
 	\newsavebox{\mynewbox}
@@ -368,13 +368,13 @@ Principle of the magneto-optical trap for a J=0 to J=1 transition. The atomic se
 	]
 	
 	% Excited state energy levels
-	\node[rainbow1of8, anchor=south, rotate=90] at (axis cs: -4, 10) {\footnotesize $m_J'$};
+	\node[rainbow1of8, anchor=south, rotate=90] at (axis cs: -4, 10) {\footnotesize $m_F'$};
 	\addplot[thick, rainbow1of8] {10+x} node[pos=0, anchor=east, xshift=-0.15cm] {\footnotesize $-1 $};
 	\addplot[thick, rainbow1of8] {10} node[pos=0, anchor=east, xshift=-0.15cm] {\footnotesize $0 $};
 	\addplot[thick, rainbow1of8] {10-x} node[pos=0, anchor=east, xshift=-0.15cm] {\footnotesize $1 $};
 	
-	\node[rainbow1of8, anchor=south, rotate=90, yshift=-0.7cm] at (axis cs: 3, 10) {\footnotesize $J'=1$};
-	\node[black, anchor=south, rotate=90, yshift=-0.7cm] at (axis cs: 3, 0) {\footnotesize $J=0$};
+	\node[rainbow1of8, anchor=south, rotate=90, yshift=-0.7cm] at (axis cs: 3, 10) {\footnotesize $F'=1$};
+	\node[black, anchor=south, rotate=90, yshift=-0.7cm] at (axis cs: 3, 0) {\footnotesize $F=0$};
 	
 	% Ground state way below (shifted by hbar omega)
 	%\addplot[thick, black, dashed] {0} node[pos=0.95, anchor=north east] {\( J=0 \) Ground State};
@@ -411,13 +411,18 @@ Principle of the magneto-optical trap for a J=0 to J=1 transition. The atomic se
 	%\node at (my plots c2r1.east) {\usebox{\mynewbox}};
 	
 	\end{tikzpicture}
-	\caption[Schematic representation of a pair of anti-Helmholtz coils and induced magnetic field]{(Left) Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration. (Right) The induced magnetic field $B_z(z)$ along the $z$-axis for $h=r=\SI{7.5}{\centi\meter}$ and $h=\frac{r\sqrt{3}}{2}$ with $r=\SI{7.5}{\centi\meter}$ ($N=159$ and $I=\SI{2.0}{\ampere}$). Dashed lines correspond to the fields generated by each coil separately.}
-	\label{coils}
+	\caption[Working principle of a magneto-optical trap]{(Left) Schematic representation of the six orthogonal, circularly polarised\footnoteref{note1} laser beams (red) and quadrupole magnetic field (blue) in a magneto-optical trap. (Right) Energy level diagram for a $F=0\leftrightarrow F'=1$ transition and a positive  Landé $g$-factor in the presence of a magnetic field gradient (blue) along the $z$-axis. The Zeeman shifted $m_F'$ sublevels (red) result in position-dependent detunings $\delta_-$ and $\delta_+$ with respect to the forward- and backward-propagating beams, respectively.}
+	\label{mot}
 \end{figure}
+In a transition between the hyperfine levels $F=0$ (ground state) and $F'=1$ (excited state), the quadrupole field leads to a position-dependent Zeeman shift of the $2F+1$ magnetic sublevels, lifting the degeneracy of the excited state. For a sublevel with quantum number $m_F$ and a magnetic field of magnitude $B$ that points along the quantisation axis, this energy shift (to first order) is given by
+\begin{align}
+	\Delta E = g_F\mu_B m_F B\,
+\end{align}
+where $g_F$ is the Landé $g$-factor and $\mu_B$ is the Bohr magneton. Since counter-propagating beams have opposite (circular) polarisations, the atoms displaced from the trap centre preferentially absorb photons from the beam with the smallest detuning from the relevant transition ($m_F'-m_F= \pm1$ for $\sigma_\pm$). The imbalance in scattering forces for opposing beams results in a net restoring force that directs the atoms back towards the trap centre.
 
 \subsection{The dipole force}
 \label{dipoleforce}
-The second effect of the light is that it perturbs the atomic energy states, which is known as the ac-Stark shift\footnote{A more detailed description of the ac-Stark effect is given in \autoref{acstark}}. To calculate this perturbation, we consider the atom together with a quantised light field. For an atom in the ground state (i.\,e. zero internal energy), the unperturbed energy of the system is $\epsilon_g=n\hbar \omega$ if the field contains $n$ photons of frequency $\omega$. However, after absorption of a single photon, the total unperturbed energy of the combined system is $\epsilon_e=\hbar \omega_0+(n-1)\hbar\omega=\hbar\Delta+n\hbar\omega$. The effect of the interaction can now be calculated using second order perturbation theory. As an effect of the interaction Hamiltonian $\hat{\mathcal{H}}_I$, the energy of a non-degenerate atomic eigenstate $\vert i \rangle$ with unperturbed energy $\epsilon_i$ is shifted by
+In addition to exerting a scattering force, light also perturbs the atomic energy levels, an effect known as the ac-Stark shift\footnote{A more detailed description of the ac-Stark effect is given in \autoref{acstark}}. To calculate this perturbation, we consider the atom together with a quantised light field. For an atom in the ground state (i.\,e. zero internal energy), the unperturbed energy of the system is $\epsilon_g=n\hbar \omega$ if the field contains $n$ photons of frequency $\omega$. However, after absorption of a single photon, the total unperturbed energy of the combined system is $\epsilon_e=\hbar \omega_0+(n-1)\hbar\omega=\hbar\Delta+n\hbar\omega$. The effect of the interaction can now be calculated using second order perturbation theory. As an effect of the interaction Hamiltonian $\hat{\mathcal{H}}_I$, the energy of a non-degenerate atomic eigenstate $\vert i \rangle$ with unperturbed energy $\epsilon_i$ is shifted by
 \begin{equation}
 \Delta E_i=\sum_{j\neq i}\frac{\lvert \langle j \vert\hat{\mathcal{H}}_I \vert i \rangle\rvert^2}{\epsilon_i-\epsilon_j}\,.
 \end{equation}
@@ -436,7 +441,7 @@ which is only non-zero if there is a spatial intensity variation of the light. T
 \label{laser}
 I(r,z)=\frac{2P}{\pi w^2(z)}\exp{-2\frac{r^2}{w^2(z)}}\,,
 \end{equation}
-where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R}})^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius in terms of the waist radius $w_0$ and the Rayleigh length $z_\mathrm{R}=\pi w^2_0/\lambda$. The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are attracted towards the potential minimum where the intensity is maximal. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
+where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R}})^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius in terms of the waist radius $w_0$ and the Rayleigh length $z_\mathrm{R}=\pi w^2_0/\lambda$. The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are drawn towards the region of highest intensity, where the optical potential reaches its minimum. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
 
 \section{The hyperfine interaction}
 \label{hyperfineinteraction}

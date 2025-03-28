@@ -886,3 +886,7 @@ labelfont={small,bf}
 \tikzset{yzp/.style={canvas is yz plane at x=#1}}
 
 \usepackage{wrapfig}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
