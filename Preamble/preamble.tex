@@ -332,10 +332,7 @@ labelfont={small,bf}
 
 \usepackage{tocloft}   % for customizing the table of contents
 
-% --- Custom Table of Contents in small caps ---
-\renewcommand{\cftchapfont}{\scshape}     % Small caps for chapter entries in TOC
-\renewcommand{\cftsecfont}{\scshape}      % Small caps for section entries in TOC
-\renewcommand{\cftsubsecfont}{\scshape}   % Small caps for subsection entries in TOC
+
 
 % Custom command for a full-width horizontal line
 \newcommand*\fullwidthline{%
@@ -890,3 +887,13 @@ labelfont={small,bf}
 \makeatletter
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
 \makeatother
+
+
+% Get hyperlinks in the page numbers in table of contents etc.
+
+\hypersetup{linktocpage=true}
+
+% --- Custom Table of Contents in small caps ---
+\renewcommand{\cftchapfont}{\color{markrood}\scshape}     % Small caps for chapter entries in TOC
+\renewcommand{\cftsecfont}{\scshape}      % Small caps for section entries in TOC
+\renewcommand{\cftsubsecfont}{\scshape}   % Small caps for subsection entries in TOC

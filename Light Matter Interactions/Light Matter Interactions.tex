@@ -10,7 +10,7 @@
 \label{chap:LightMatterInteractions}
 
 %\subsection{Light-atom interactions}
-The interaction of neutral atoms with a light field can be dissipative or conservative. The processes of absorption and spontaneous emission result in a net transfer of momentum, which gives rise to a dissipative scattering force that can be used for laser cooling and magneto-optical traps. The conservative part of the atom-light interaction stems from the fact that light induces a shift in the potential energy of the atom, which is known as the ac-Stark shift. If the light is far detuned from the atomic resonance, the rate of spontaneous emission is negligible. In this case, the energy shift can be used to establish a conservative trapping potential, which is the underlying mechanism of an optical dipole trap. After a brief discussion of the light-matter system Hamiltonian below, both the dissipative scattering force and conservative dipole force shall be discussed in more detail.
+The interaction between light and matter is central to many techniques in quantum optics, from laser cooling to optical trapping and cavity quantum electrodynamics. Depending on the nature of the interaction, light can exert forces on atoms that are either dissipative or conservative. Dissipative forces arise from absorption and spontaneous emission processes, which transfer momentum to the atom and enable cooling and trapping techniques such as the magneto-optical trap. Conservative forces, on the other hand, originate from energy shifts induced by the light field, known as the ac-Stark effect. When the light is far-detuned from resonance, these shifts can create trapping potentials with minimal spontaneous emission, forming the basis of optical dipole traps. This chapter first examines the fundamental forces exerted by light on a two-level atom in \autoref{subsection_System_Hamiltonian}, including their role in Doppler cooling, magneto-optical traps, and optical dipole traps. In real atomic systems, the analysis of light-induced energy shifts requires moving beyond the idealised two-level model. In \autoref{hyperfineinteraction}, we therefore consider the hyperfine interaction---present in most stable alkali isotopes due to their non-zero nuclear spin---before a detailed treatment of the ac-Stark effect in these atoms is given in \autoref{acstark}. Finally, the chapter introduces cavity quantum electrodynamics in \autoref{cqed}, where the interaction between atoms and quantised electromagnetic fields in optical cavities leads to effects beyond the standard atom-light interaction in free space.
 
 \section{Scattering and dipole forces for a two-level atom}
 \label{subsection_System_Hamiltonian}
@@ -445,7 +445,7 @@ where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R
 
 \section{The hyperfine interaction}
 \label{hyperfineinteraction}
-In this section, we discuss the hyperfine interaction, followed by a detailed derivation of the hyperfine tensor polarisabilities that allow us to calculate the ac-Stark shifts of a dipole-trapped atom. In general, the interaction between the nuclear and electron angular momenta can be expanded in a multipole series,
+In this section, we briefly discuss the hyperfine interaction to provide the necessary context for a detailed treatment of the ac-Stark effect in alkali atoms (see \autoref{acstark}). In general, the interaction between the nuclear and electron angular momenta can be expanded in a multipole series,
 \begin{equation}
 \hat{\mathcal{H}}_{\text{hfs}}=\sum_{k}T_\text{n}^{(k)} \cdot T_\text{e}^{(k)}
 \end{equation}
@@ -473,7 +473,7 @@ K = F(F+1)- I(I+1) - J(J+1) \,.
 \end{equation}
 \section{The ac-Stark effect for alkali atoms}
 \label{acstark}
-When considering the ac-Stark effect in the context of an atomic hyperfine structure, the two-level approximation no longer holds. In addition, the orientation of the atom with respect to the interacting field must be taken into account. To derive the ac-Stark effect in the context of the hyperfine structure, we need to go through a number of steps that will be outlined throughout the following sections.
+The analysis of the ac-Stark effect for atoms with hyperfine structure presents two principal challenges: A breakdown of the simple two-level approximation and secondly, the necessity to account for the atom's orientation relative to the optical field. The following sections develop this analysis systematically, culminating in the derivation of hyperfine tensor polarisabilities---a result that provides a straightforward method for calculating light-induced energy shifts in dipole-trapped alkali atoms.
 \subsection{Optical field}
 Let us consider a monochromatic optical field of the form
 \begin{equation}
@@ -698,6 +698,7 @@ where we have used \autoref{reducedmatrixelementonecomponent} to express $\langl
 \end{align}
 
 \section{Cavity quantum electrodynamics}
+\label{cqed}
 Throughout the preceding sections, we have treated the light-matter interaction in a predominantly semi-classical picture, in which the electric field is modelled as a sinusoidal perturbation. Although the semi-classical model offers significant insights into light-matter interactions, it fails to account for the full quantum nature of these couplings, which give rise to phenomena such as quantum coherence, entanglement, and hybrid light-matter states. A more comprehensive framework accounting for a fully quantised electromagnetic field is that of cavity quantum electrodynamics (CQED), which is the study of interactions between light and matter in a confined electromagnetic environment, typically an optical or microwave cavity. The simplest example is that of a two-level atom coupled to a single mode of the field inside an optical cavity.
 \subsection{Jaynes-Cummings Hamiltonian}
 In the second quantisation, the Hamiltonian of a two-level atom interacting with a single cavity mode can be written as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_I$, where $\hat{\mathcal{H}}_0$ represents the uncoupled part:
