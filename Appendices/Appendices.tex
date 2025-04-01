@@ -5,7 +5,10 @@
 \graphicspath{ {"Appendices/figs/"} }
 \pgfplotsset{table/search path={"Appendices/data/"}}
 
-\begin{appendices}
+\appendix
+\chapter*{\vspace{0.0em}\hspace*{\fill}\textcolor{gray75}{\rule{0.4\linewidth}{2pt}}\hspace*{\fill}\vspace{1em}\\Appendices}
+\addcontentsline{toc}{chapter}{Appendices}%
+\addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 
 \chapter{Stochastic cavity loading}
 \label{appendixA}
@@ -316,6 +319,5 @@ In this case, the transformed Hamiltonian acquires the following form:
 \hat{\mathcal{H}}'(t) = \hat{U}_0^{\dagger}(t, t_0) \hat{\mathcal{H}}_1(t) \hat{U}_0(t, t_0)\,,
 \end{align}
 which is also referred to as the Hamiltonian in the interaction picture.
-\end{appendices}
 
 \end{document}

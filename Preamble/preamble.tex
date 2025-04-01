@@ -21,6 +21,7 @@
 \usepackage{enumitem} % Used for custom labelling of lists
 \usepackage{textcomp} % access \textquotesingle
 
+
 % ************************* Algorithms and Pseudocode **************************
 
 %\usepackage{algpseudocode}
@@ -895,5 +896,23 @@ labelfont={small,bf}
 
 % --- Custom Table of Contents in small caps ---
 \renewcommand{\cftchapfont}{\color{markrood}\scshape}     % Small caps for chapter entries in TOC
-\renewcommand{\cftsecfont}{\scshape}      % Small caps for section entries in TOC
-\renewcommand{\cftsubsecfont}{\scshape}   % Small caps for subsection entries in TOC
+\renewcommand{\cftsecfont}{\scshape\footnotesize}      % Small caps for section entries in TOC
+\renewcommand{\cftsubsecfont}{\scshape\footnotesize}   % Small caps for subsection entries in TOC
+
+% Add Appendices page to separate from the rest of the thesis
+\renewcommand{\appendixpagename}{\sc Appendices}
+
+
+% Adjust page numbers to match section font size in table of contents
+
+% Chapters: Normal font
+\renewcommand{\cftchappagefont}{\normalfont}       
+
+% Sections: Footnotesize
+\renewcommand{\cftsecpagefont}{\footnotesize}      
+
+% Subsections: Even smaller (e.g., scriptsize)
+\renewcommand{\cftsubsecpagefont}{\footnotesize}     
+
+% (Optional) Sub-subsections (e.g., paragraphs)
+\renewcommand{\cftsubsubsecpagefont}{\footnotesize}     
