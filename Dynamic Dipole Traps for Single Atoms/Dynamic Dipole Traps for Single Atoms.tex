@@ -547,7 +547,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			title={\small$P=\SI{15}{\milli\watt}$},
 			title style={yshift=-0.24cm},
 			xmin=0, xmax=250,
-			ymin=-50/1000, ymax=650/1000,
+			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -562,12 +562,12 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			
 			\addplot[
 			color=markrood
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/1000/0.033]{TRACE19b.csv};
+			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/0.033/5.49]{TRACE19b.csv};
 			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xmin=-50/1000, xmax=650/1000,
+			xmin=-10, xmax=110,
 			%ymin=0, ymax=120,
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -589,14 +589,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			mark = *,
 			color=markgrijs,
 			opacity=0.5
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORhist19.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORhist19.csv};
 			
 			\addplot[
 			color=markrood,
 			style={thick}
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORFIThist19.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORFIThist19.csv};
 			
-			\node[anchor=north] (source) at (axis cs:1295*1.3062923961932331*9/1000/1000/0.033,0.0035){};
+			\node[anchor=north] (source) at (axis cs:1295*1.3062923961932331*9/1000/0.033/5.49,0.0035){};
 			\draw[->, color=markrood](source)--++(0cm, -0.5cm);
 			
 			\node[anchor=north east] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
@@ -633,14 +633,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist19.csv};
 			
-			\node at (1.25cm,2.2cm) {\footnotesize ${\tau}=0.38\pm0.04\,$s};
+			\node[markrood] at (1.2cm,2.2cm) {\footnotesize ${\tau}=0.38\pm0.1\,$s}; % error was 0.04
 			
 			\nextgroupplot
 			[
 			title={\small$P=\SI{20}{\milli\watt}$},
 			title style={yshift=-0.24cm},
 			xmin=0, xmax=250,
-			ymin=-50/1000, ymax=650/1000,
+			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -655,12 +655,12 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			
 			\addplot[
 			color=markrood
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/1000/0.033]{TRACE20b.csv};
+			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/0.033/5.49]{TRACE20b.csv};
 			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xmin=-50/1000, xmax=650/1000,
+			xmin=-10, xmax=110,
 			%ymin=0, ymax=120,
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -680,14 +680,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			mark = *,
 			color=markgrijs,
 			opacity=0.5
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORhist20.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORhist20.csv};
 			
 			\addplot[
 			color=markrood,
 			style={thick}
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORFIThist20.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORFIThist20.csv};
 			
-			\node[anchor=north] (source) at (axis cs:968*1.3062923961932331*9/1000/1000/0.033,0.004){};
+			\node[anchor=north] (source) at (axis cs:968*1.3062923961932331*9/1000/0.033/5.49,0.004){};
 			\draw[->, color=markrood](source)--++(0cm, -0.5cm);
 			
 			\node[anchor=north east] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
@@ -723,16 +723,16 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist20.csv};
 			
-			\node at (1.25cm,2.2cm) {\footnotesize ${\tau}=3.6\pm0.6\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=3.6\pm0.6\,$s};
 			
 			\nextgroupplot
 			[
 			title={\small$P=23\,$\si{\milli\watt}},
 			title style={yshift=-0.24cm},
-			ylabel={Fluorescence counts (\si{\mega\hertz})},
+			ylabel={Fluorescence counts (\si{\kilo\hertz})},
 			ylabel style={yshift=0.2cm},
 			xmin=0, xmax=250,
-			ymin=-50/1000, ymax=650/1000,
+			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -747,12 +747,12 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			
 			\addplot[
 			color=markrood
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/1000/0.033]{TRACE21b.csv};
+			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/0.033/5.49]{TRACE21b.csv};
 			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xmin=-50/1000, xmax=650/1000,
+			xmin=-10, xmax=110,
 			%ymin=0, ymax=120,
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -773,14 +773,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			mark = *,
 			color=markgrijs,
 			opacity=0.5
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORhist21.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORhist21.csv};
 			
 			\addplot[
 			color=markrood,
 			style={thick}
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORFIThist21.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORFIThist21.csv};
 			
-			\node[anchor=north] (source) at (axis cs:794*1.3062923961932331*9/1000/1000/0.033,0.0042){};
+			\node[anchor=north] (source) at (axis cs:794*1.3062923961932331*9/1000/0.033/5.49,0.0042){};
 			\draw[->, color=markrood](source)--++(0cm, -0.5cm);
 			
 			\node[anchor=north east] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
@@ -816,14 +816,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist21.csv};
 			
-			\node at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.6\pm1.0\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.6\pm1.0\,$s};
 			
 			\nextgroupplot
 			[
 			title={\small$P=\SI{24}{\milli\watt}$},
 			title style={yshift=-0.24cm},
 			xmin=0, xmax=250,
-			ymin=-50/1000, ymax=650/1000,
+			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -838,12 +838,12 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			
 			\addplot[
 			color=markrood
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/1000/0.033]{TRACE22b.csv};
+			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/0.033/5.49]{TRACE22b.csv};
 			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xmin=-50/1000, xmax=650/1000,
+			xmin=-10, xmax=110,
 			%ymin=0, ymax=120,
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -863,14 +863,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			mark = *,
 			color=markgrijs,
 			opacity=0.5
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORhist22.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORhist22.csv};
 			
 			\addplot[
 			color=markrood,
 			style={thick}
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORFIThist22.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORFIThist22.csv};
 			
-			\node[anchor=north] (source) at (axis cs:703*1.3062923961932331*9/1000/1000/0.033,0.0045){};
+			\node[anchor=north] (source) at (axis cs:703*1.3062923961932331*9/1000/0.033/5.49,0.0045){};
 			\draw[->, color=markrood](source)--++(0cm, -0.5cm);
 			
 			\node[anchor=north east] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
@@ -906,15 +906,15 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist22.csv};
 			
-			\node at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.3\pm1.0\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.3\pm1.0\,$s};
 	
 			\nextgroupplot
 			[
 			title={\small$P=\SI{29}{\milli\watt}$},
 			title style={yshift=-0.24cm},
-			xlabel={Time (s)},
+			xlabel={Time (\si{\second})},
 			xmin=0, xmax=250,
-			ymin=-50/1000, ymax=650/1000,
+			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
 			%legend pos=north west,
@@ -929,13 +929,13 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			
 			\addplot[
 			color=markrood
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/1000/0.033]{TRACE23b.csv};
+			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331*9/1000/0.033/5.49]{TRACE23b.csv};
 			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel = {Counts (\si{\mega\hertz})},
-			xmin=-50/1000, xmax=650/1000,
+			xlabel = {Counts (\si{\kilo\hertz})},
+			xmin=-10, xmax=110,
 			%ymin=0, ymax=1600,
 			%xtick={0,20,40,60,80,100},
 			%ytick={0,20,40,60,80,100,120},
@@ -957,14 +957,14 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			mark = *,
 			color=markgrijs,
 			opacity=0.5
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORhist23.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORhist23.csv};
 			
 			\addplot[
 			color=markrood,
 			style={thick}
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/1000/0.033, y index = 1]{FLUORFIThist23.csv};
+			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331*9/1000/0.033/5.49, y index = 1]{FLUORFIThist23.csv};
 			
-			\node[anchor=north] (source) at (axis cs:422*1.3062923961932331*9/1000/1000/0.033,0.005){};
+			\node[anchor=north] (source) at (axis cs:422*1.3062923961932331*9/1000/0.033/5.49,0.005){};
 			\draw[->, color=markrood](source)--++(0.0cm, -0.5cm);
 			
 			\node[anchor=north east] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
@@ -982,7 +982,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			grid style=dashed,
 			y label style={at={(axis description cs:0.30,.5)},anchor=south},
 			x tick label style={rotate=0},
-			xlabel = {Lifetime (s)},
+			xlabel = {Lifetime (\si{\second})},
 			x label style={at={(axis description cs:0.5,-.5)},anchor=south},
 			]
 			
@@ -1002,7 +1002,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist23.csv};
 			
-			\node at (1.25cm,2.2cm) {\footnotesize ${\tau}=6.1\pm0.6\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=6.1\pm0.6\,$s};
 			
 		\end{groupplot}
 		
@@ -1308,16 +1308,24 @@ where the second equality follows from the fact that the Poisson distribution ha
 	\caption[Comparison of measured atom number probability distributions with fitted Poisson distributions]{Comparison of measured atom number probability distributions (red) with fitted Poisson distributions (grey) for the five traps in \autoref{masterplot} with corresponding labels. The mean occupation numbers and Fano factors are listed for each trap.}
 	\label{fig:distributions}
 \end{figure}
-The occupation probabilities are compared to the Poisson distributions that feature an equal mean value $\bar{N}$. Apart from the shallowest trap, all traps exhibit sub-Poissonian occupation statistics, which is a key signature of the collisional blockade mechanism. In this case, multi-atom collisions become the dominant loss mechanism in the trap. Ignoring the single-body loss rate, the dark and bright segments of the fluorescence trace must, on average, be of equal length, since an arriving atom either occupies or evacuates the trap. If we consider such events realisations of a homogeneous Poisson process, the time differences between events (the durations of these segments) are exponentially distributed ($\sim\lambda \mathrm{e}^{-\lambda x}$) and feature a mean lifetime of $\tau=\sfrac{1}{\lambda}$. This data, the MLE fitted exponential distributions and extracted lifetimes are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning.
+The occupation probabilities are compared to the Poisson distributions that feature an equal mean value $\bar{N}$. Apart from the shallowest trap, all traps exhibit sub-Poissonian occupation statistics, which is a key signature of the collisional blockade mechanism. In this case, multi-atom collisions become the dominant loss mechanism in the trap. Ignoring the single-body loss rate, the dark and bright segments of the fluorescence trace must, on average, be of equal length, since an arriving atom either occupies or evacuates the trap. If we consider such events realisations of a homogeneous Poisson process with rate parameter $\lambda > 0$, the lengths of the segments $\{X_i\}$ are independent and identically distributed random variables with an exponential probability density function:
+\begin{align}
+f_X(x) = \lambda\mathrm{e}^{-\lambda x} \quad \text{for } x \geq 0\,.
+\end{align}
+The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$, which is the mean lifetime of the dipole trap. The intervals for which the trap is occupied by a single atom are measured and binned. The corresponding histograms and MLE-fitted exponential distributions are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning.
 \begin{wrapfigure}[15]{l}{0.5\textwidth}
 	\centering
+	\pgfdeclarelayer{background layer}
+	\pgfdeclarelayer{foreground layer}
+	\pgfsetlayers{background layer,main,foreground layer}
 	\begin{tikzpicture}
 	\begin{axis}
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	ylabel={Fluorescence counts (\si{\mega\hertz})},
+	ylabel={Fluorescence counts (\si{\kilo\hertz})},
 	xlabel={Dipole trap power (\si{\milli\watt})},
-	xmin=0, xmax=35,
+	xmin=-0, xmax=150,
+	ymin=0, ymax=100,
 	%ymin=0, ymax=120,
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
@@ -1330,29 +1338,50 @@ The occupation probabilities are compared to the Poisson distributions that feat
 	width=5.5cm,
 	name=mainplot,
 	ymajorgrids=true,
-	xmajorgrids=true
+	xmajorgrids=true,
+	clip mode=individual,
 	]
 	
 	
-	\draw[dashed,help lines] (axis cs:0,0) -- (axis cs:35,0);
-	
-	
+	\begin{pgfonlayer}{main}
 	\addplot[
 	only marks,
-	draw=markgrijs,
 	mark = *,
-	color=markgrijs,
-	opacity=1
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6, y error expr = \thisrowno{2}/1e6]{fluor.csv};
+	color=markdiepblauw,
+	opacity=1,
+	mark size=1pt,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e3, y error expr = \thisrowno{2}/1e3]{fluor.csv};
+	\end{pgfonlayer}
 	
-	
-	
-	
+	\begin{pgfonlayer}{background layer}
 	\addplot[
 	color=markrood,
 	style={thick},
-	name path=plot0
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit.csv};
+	name path=plot0,
+	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e3]{fluorfit.csv};
+	\end{pgfonlayer}
+	
+	\begin{pgfonlayer}{foreground layer}
+	\addplot[
+	color=markrood,
+	opacity=0.3,
+	style={thick},
+	name path=plot0,
+	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e3]{fluorfit.csv};
+	\end{pgfonlayer}
+	
+	\draw[markgrijs]       (axis cs:20, 82.5215) -- (axis cs:30, 82.5215) node[right, align=center, black] {\footnotesize\sc a};
+	\draw[markgrijs]       (axis cs:25, 61.76517) -- (axis cs:35, 61.76517) node[right, align=center, black] {\footnotesize\sc b};
+	\draw[markgrijs]       (axis cs:28, 50.667714) -- (axis cs:38, 50.667714) node[right, align=center, black] {\footnotesize\sc c};
+	\draw[markgrijs]       (axis cs:29, 44.063888) -- (axis cs:39, 41.063888) node[right, align=center, black, yshift=-0.1cm] {\footnotesize\sc d};
+	\draw[markgrijs]       (axis cs:34, 27.3966569) -- (axis cs:44, 27.3966569) node[right, align=center, black] {\footnotesize\sc e};
+	
+	
+	
+	\iffalse
 	
 	\addplot[
 	color=markrood,
@@ -1414,19 +1443,18 @@ The occupation probabilities are compared to the Poisson distributions that feat
 	of = plotmmm and plotmm,
 	]; 
 	
-	
+	\fi
 	\end{axis}
 	
 	\end{tikzpicture}
 	\caption[An example of a floating figure]{Fluorescence count rate versus optical dipole trap power. The red line is a fit based on the calculated scattering rate, which is corrected for the solid angle of light collection (\SI{10}{\percent} of $4\pi\,$sr) and reflectivity of the dichroic mirror (\SI{90}{\percent}, see \autoref{overviewsetup}). (Inset) Expansion of the shaded region. Bands around the central fit correspond to multiples of the standard deviation ($\pm2\sigma$, $\pm4\sigma$, $\pm6\sigma$) of the fit parameter $\alpha=\SI{0.6}{\percent}$.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
 	\label{starkfig} 
 \end{wrapfigure}
-For far detuned\footnote{Assuming a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ line: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$.}, linearly polarised light with intensity $I(\vec{r}\,)$, the ground state of \ce{^87Rb} is shifted in energy by
-\begin{equation}
-\label{starkequation}
-\Delta E_\text{g}(\vec{r}\,) = \frac{\pi c^2}{2}\left( \frac{2\Gamma_2}{\omega_{0,2}^3\Delta_2} + \frac{\Gamma_1}{\omega_{0,1}^3\Delta_1}\right) I(\vec{r}\,)	\,,
-\end{equation}
-where $\Gamma_i$, $\omega_{0,i}$ and $\Delta_i$ denote the properties of the $D_i$ line \cite{Grimm2000}. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane, given by $w_0=2M^2 \lambda f/\pi D$, which depends on the beam propagation faction $M^2=1.6$, lens focal length $f=30\,$mm and the $\sfrac{1}{\mathrm{e}^2}$ diameter $D=\SI{30}{\milli\meter}$ of the incident beam. With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.49}{\mega\hertz\per\milli\watt}$. The excited level \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{starkequation}: $\Delta E_e/\hbar P=2\pi\times \SI{0.97}{\mega\hertz\per\milli\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.47}{\mega\hertz\per\milli\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a detuning that is now adjusted for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition, ignoring scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition \cite{steck}. In addition, we ignore the magnetic field and assume that on average, the atoms are illuminated by all polarisations with a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single MOT beam. \autoref{starkfig} shows the measured fluorescence count rate versus dipole trap power extracted from \autoref{masterplot}. The fit is based on the calculated scattering rate and is corrected for the emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}). The only free parameter $\alpha\in[0,1]$ accounts for a reduced intensity of the cooling light ($6I_0\rightarrow6\alpha I_0$) at the position of the dipole trap, which is shifted with respect to the centre of the MOT. Note that in a trap with a reasonable lifetime (\autoref{masterplot}), the ac-Stark effect is responsible for a significant reduction of the fluorescence count rate with respect to the unperturbed atom ($P=0$).
+As outlined in \autoref{alkaligroundstateshift}, the ac-Stark shift of the \ce{^87Rb} ground state for sufficiently detuned, linearly polarised light is given by \autoref{groundstatestark}. This result is based on the assumption of a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ lines: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane (see \autoref{dipoleforce}). The waist is given by $w_0=2M^2 \lambda f/\pi D$, which depends on the wavelength $\lambda=\SI{1064}{\nano\meter}$, the beam propagation faction $M^2=1.6$, the focal length $f=\SI{30}{\milli\meter}$ of the lens and the incident beam diameter\footnote{Defined as twice the beam waist.} $D=\SI{30}{\milli\meter}$, yielding $w_0=\SI{1.1}{\micro\meter}$.
+
+
+
+With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.49}{\mega\hertz\per\milli\watt}$. The excited level \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{starkequation}: $\Delta E_e/\hbar P=2\pi\times \SI{0.97}{\mega\hertz\per\milli\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.47}{\mega\hertz\per\milli\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a detuning that is now adjusted for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition, ignoring scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition \cite{steck}. In addition, we ignore the magnetic field and assume that on average, the atoms are illuminated by all polarisations with a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single MOT beam. \autoref{starkfig} shows the measured fluorescence count rate versus dipole trap power extracted from \autoref{masterplot}. The fit is based on the calculated scattering rate and is corrected for the emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}). The only free parameter $\alpha\in[0,1]$ accounts for a reduced intensity of the cooling light ($6I_0\rightarrow6\alpha I_0$) at the position of the dipole trap, which is shifted with respect to the centre of the MOT. Note that in a trap with a reasonable lifetime (\autoref{masterplot}), the ac-Stark effect is responsible for a significant reduction of the fluorescence count rate with respect to the unperturbed atom ($P=0$).
 
 \subsection{Trap lifetime and filling fraction}
 \label{lifetimeandfilling}
