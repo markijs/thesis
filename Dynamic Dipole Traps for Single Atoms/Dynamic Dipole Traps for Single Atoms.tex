@@ -180,7 +180,7 @@ An overview of the experimental setup is shown in \autoref{overviewsetup}.
 	\caption[Optical setup for the generation of dipole traps and a MOT]{(Left) Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. (Right) Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. To achieve collimation and circular polarisation of the beams, we employ $f=\SI{30}{\milli\meter}$ lenses and pairs of quarter-wave plates, respectively. A pair of high-NA lenses focus and image the dipole trapping light.}
 	\label{overviewsetup} 
 \end{figure}
-In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nm}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nm}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nm} \leq \lambda \leq \SI{1100}{\nm}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nm} \leq \lambda \leq \SI{860}{\nm}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nm} and \SI{1064}{\nm}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{15}{\gauss\per\centi\meter} at the quadrupole centre (see \autoref{magneticfields}). The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kHz}) light at \SI{1064}{\nm}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nm} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nm} bandpass filter (Semrok \num{780}/\SI{12}{\nm} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nm}.
+In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nano\meter}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nano\meter}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nano\meter} \leq \lambda \leq \SI{1100}{\nano\meter}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nano\meter} \leq \lambda \leq \SI{860}{\nano\meter}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nano\meter} and \SI{1064}{\nano\meter}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{15}{\gauss\per\centi\meter} at the quadrupole centre (see \autoref{magneticfields}). The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kilo\hertz}) light at \SI{1064}{\nano\meter}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nano\meter} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nano\meter} bandpass filter (Semrok \num{780}/\SI{12}{\nano\meter} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nano\meter}.
 
 \subsection{Laser frequency stabilisation}
 The lasers that generate the cooling and repumping light for the MOT in this setup are both Toptica DL100 external cavity diode lasers (ECDL), the frequencies of which are locked using a configuration as shown in \autoref{lockingsetup}. The frequency of the cooling ECDL is stabilised by means of modulation transfer spectroscopy (MTS), which, as detailed in \cite{McCarron2008}, produces dispersive-like lineshapes with a flat, zero background. This results in the zero-crossings of the modulation transfer signal being precisely centred on atomic transitions. In contrast to saturation spectroscopy, the signal in MTS arises mainly from closed atomic transitions---those in which atoms return to the same ground state after excitation rather than decaying to different states.
@@ -1312,8 +1312,8 @@ The occupation probabilities are compared to the Poisson distributions that feat
 \begin{align}
 f_X(x) = \lambda\mathrm{e}^{-\lambda x} \quad \text{for } x \geq 0\,.
 \end{align}
-The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$, which is the mean lifetime of the dipole trap. The intervals for which the trap is occupied by a single atom are measured and binned. The corresponding histograms and MLE-fitted exponential distributions are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning.
-\begin{wrapfigure}[15]{l}{0.5\textwidth}
+The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$, which is the mean lifetime of the dipole trap. The intervals for which the trap is occupied by a single atom are measured and binned. The corresponding histograms and MLE-fitted exponential distributions are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning. As outlined in \autoref{alkaligroundstateshift}, the ac-Stark shift of the \ce{^87Rb} ground state for sufficiently detuned, linearly polarised light is given by \autoref{groundstatestark}. This result is based on the assumption of a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ lines: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane (see \autoref{dipoleforce}). The waist is given by $w_0=2M^2 \lambda f/\pi D$, which depends on the wavelength $\lambda=\SI{1064}{\nano\meter}$, the beam propagation faction $M^2=1.6$, the focal length $f=\SI{30}{\milli\meter}$ of the lens and the incident beam diameter\footnote{Defined as twice the beam waist.} $D=\SI{30}{\milli\meter}$, yielding $w_0=\SI{1.1}{\micro\meter}$. With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.72}{\giga\hertz\per\watt}$. The excited state \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{groundstatestark}: $\Delta E_e/\hbar P=2\pi\times \SI{1.12}{\giga\hertz\per\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.84}{\giga\hertz\per\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a effective detuning accounting for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition.
+\begin{wrapfigure}[14]{l}{0.5\textwidth}
 	\centering
 	\pgfdeclarelayer{background layer}
 	\pgfdeclarelayer{foreground layer}
@@ -1379,82 +1379,13 @@ The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$,
 	\draw[markgrijs]       (axis cs:29, 44.063888) -- (axis cs:39, 41.063888) node[right, align=center, black, yshift=-0.1cm] {\footnotesize\sc d};
 	\draw[markgrijs]       (axis cs:34, 27.3966569) -- (axis cs:44, 27.3966569) node[right, align=center, black] {\footnotesize\sc e};
 	
-	
-	
-	\iffalse
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotm
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit2m.csv};
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotmm
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit4m.csv};
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotmmm
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit6m.csv};	
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotp
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit2p.csv};	
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotpp
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit4p.csv};
-	
-	\addplot[
-	color=markrood,
-	style={ultra thin},
-	name path=plotppp
-	] table [col sep = comma, x index = 0, y expr = \thisrowno{1}/1e6]{fluorfit6p.csv};
-	
-	\addplot[markrood, opacity=0.05] fill between[
-	of = plotpp and plotppp,
-	]; 
-	
-	\addplot[markrood, opacity=0.2] fill between[
-	of = plotp and plotpp,
-	]; 
-	
-	\addplot[markrood, opacity=0.35] fill between[
-	of = plot0 and plotp,
-	]; 
-	
-	\addplot[markrood, opacity=0.35] fill between[
-	of = plotm and plot0,
-	]; 
-	
-	\addplot[markrood, opacity=0.2] fill between[
-	of = plotmm and plotm,
-	]; 
-	
-	\addplot[markrood, opacity=0.05] fill between[
-	of = plotmmm and plotmm,
-	]; 
-	
-	\fi
 	\end{axis}
 	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Fluorescence count rate versus optical dipole trap power. The red line is a fit based on the calculated scattering rate, which is corrected for the solid angle of light collection (\SI{10}{\percent} of $4\pi\,$sr) and reflectivity of the dichroic mirror (\SI{90}{\percent}, see \autoref{overviewsetup}). (Inset) Expansion of the shaded region. Bands around the central fit correspond to multiples of the standard deviation ($\pm2\sigma$, $\pm4\sigma$, $\pm6\sigma$) of the fit parameter $\alpha=\SI{0.6}{\percent}$.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Measured and calculated fluorescence count rate versus optical dipole trap power]{Measured fluorescence count rate versus optical dipole trap power. The solid line represents the calculated scattering rate from cooling light with a saturation parameter of $6I_0/I_\text{sat}=18.9$ and detuning of $\Delta=2.25\Gamma$ from the unperturbed cooling transition. The calculated rate accounts for an overall photon collection efficiency of \SI{9}{\percent}. Labels correspond to those in \autoref{masterplot} and \autoref{fig:distributions}.}
 	\label{starkfig} 
 \end{wrapfigure}
-As outlined in \autoref{alkaligroundstateshift}, the ac-Stark shift of the \ce{^87Rb} ground state for sufficiently detuned, linearly polarised light is given by \autoref{groundstatestark}. This result is based on the assumption of a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ lines: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane (see \autoref{dipoleforce}). The waist is given by $w_0=2M^2 \lambda f/\pi D$, which depends on the wavelength $\lambda=\SI{1064}{\nano\meter}$, the beam propagation faction $M^2=1.6$, the focal length $f=\SI{30}{\milli\meter}$ of the lens and the incident beam diameter\footnote{Defined as twice the beam waist.} $D=\SI{30}{\milli\meter}$, yielding $w_0=\SI{1.1}{\micro\meter}$.
-
-
-
-With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.49}{\mega\hertz\per\milli\watt}$. The excited level \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{starkequation}: $\Delta E_e/\hbar P=2\pi\times \SI{0.97}{\mega\hertz\per\milli\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.47}{\mega\hertz\per\milli\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a detuning that is now adjusted for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition, ignoring scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition \cite{steck}. In addition, we ignore the magnetic field and assume that on average, the atoms are illuminated by all polarisations with a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single MOT beam. \autoref{starkfig} shows the measured fluorescence count rate versus dipole trap power extracted from \autoref{masterplot}. The fit is based on the calculated scattering rate and is corrected for the emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}). The only free parameter $\alpha\in[0,1]$ accounts for a reduced intensity of the cooling light ($6I_0\rightarrow6\alpha I_0$) at the position of the dipole trap, which is shifted with respect to the centre of the MOT. Note that in a trap with a reasonable lifetime (\autoref{masterplot}), the ac-Stark effect is responsible for a significant reduction of the fluorescence count rate with respect to the unperturbed atom ($P=0$).
+We ignore scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition and assume that on average, the atoms are illuminated with all polarisations at a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single cooling beam, bringing the total saturation parameter to $6I_0/I_\text{sat}=18.9$. This light is red-detuned from the unperturbed cooling transition by $\Delta=2.25\Gamma$. \autoref{starkfig} shows the measured fluorescence count rate over an extended range of dipole trap powers. The solid curve corresponds to the calculated scattering rate of an atom positioned at the minimum of the trap potential. This rate accounts for the fractional emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}).
 
 \subsection{Trap lifetime and filling fraction}
 \label{lifetimeandfilling}
