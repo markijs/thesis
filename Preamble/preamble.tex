@@ -916,3 +916,24 @@ labelfont={small,bf}
 
 % (Optional) Sub-subsections (e.g., paragraphs)
 \renewcommand{\cftsubsubsecpagefont}{\footnotesize}
+
+\usetikzlibrary{patterns}
+\tikzset{
+	hatch distance/.store in=\hatchdistance,
+	hatch distance=10pt,
+	hatch thickness/.store in=\hatchthickness,
+	hatch thickness=2pt
+}
+
+\makeatletter
+\pgfdeclarepatternformonly[\hatchdistance,\hatchthickness]{flexible hatch}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+{\pgfpoint{\hatchdistance-3pt}{\hatchdistance-3pt}}%
+{
+	\pgfsetcolor{\tikz@pattern@color}
+	\pgfsetlinewidth{\hatchthickness}
+	\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+	\pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+	\pgfusepath{stroke}
+}

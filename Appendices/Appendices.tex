@@ -66,11 +66,11 @@ Note that in an experiment that involves stochastic cavity loading, which is the
 	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
 	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
 	
-	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {\small $n_y$};
-	\draw[thick, ->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {\small $n_x$};
+	\draw[->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {\small $n_y$};
+	\draw[->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {\small $n_x$};
 	
-	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {\small $n$};
-	\draw[thick, ->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {\small $l$};
+	\draw[->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {\small $n$};
+	\draw[->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {\small $l$};
 	
 	\node[align=center] at (-0.03, \step/2) {\small $5$};
 	\node[align=center] at (-0.03, 3*\step/2 + \gap) {\small $4$};
