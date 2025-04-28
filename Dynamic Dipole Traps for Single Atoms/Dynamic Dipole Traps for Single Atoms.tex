@@ -176,7 +176,7 @@ An overview of the experimental setup is shown in \autoref{overviewsetup}.
 	\end{scope}
 	
 	\end{tikzpicture}
-	\caption[Optical setup for the generation of dipole traps and a MOT]{(Left) Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. (Right) Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. To achieve collimation and circular polarisation of the beams, we employ $f=\SI{30}{\milli\meter}$ lenses and pairs of quarter-wave plates, respectively. A pair of high-NA lenses focus and image the dipole trapping light.}
+	\caption[Optical setup for the generation of dipole traps and a MOT]{\textsc{(left)} Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. \textsc{(right)} Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. To achieve collimation and circular polarisation of the beams, we employ $f=\SI{30}{\milli\meter}$ lenses and pairs of quarter-wave plates, respectively. A pair of high-NA lenses focus and image the dipole trapping light.}
 	\label{overviewsetup} 
 \end{figure}
 In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nano\meter}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nano\meter}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nano\meter} \leq \lambda \leq \SI{1100}{\nano\meter}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nano\meter} \leq \lambda \leq \SI{860}{\nano\meter}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nano\meter} and \SI{1064}{\nano\meter}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{15}{\gauss\per\centi\meter} at the quadrupole centre (see \autoref{magneticfields}). The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kilo\hertz}) light at \SI{1064}{\nano\meter}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nano\meter} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nano\meter} bandpass filter (Semrok \num{780}/\SI{12}{\nano\meter} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nano\meter}.
@@ -433,7 +433,7 @@ The field gradient required to spatially confine an optical molasses of neutral 
 	\node at (my plots c1r1.center) {};
 	
 	\end{tikzpicture}
-	\caption[Schematic representation of a pair of anti-Helmholtz coils and induced magnetic field]{(Left) Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration. (Right) The induced magnetic field $B_z(z)$ along the $z$-axis for $h=r=\SI{7.5}{\centi\meter}$ and $h=\frac{r\sqrt{3}}{2}$ with $r=\SI{7.5}{\centi\meter}$ ($N=159$ and $I=\SI{2.0}{\ampere}$). Dashed lines correspond to the fields generated by each coil separately.}
+	\caption[Schematic representation of a pair of anti-Helmholtz coils and induced magnetic field]{\textsc{(left)} Schematic representation of a pair of anti-Helmholtz coils of radius $r$, separated by a distance of $2h$. Indicated are the current direction ($I$) in each coil and the resulting quadrupole magnetic field ($\vec{B}$). The $z$-axis is chosen as the symmetry axis of the coil configuration. \textsc{(right)} The induced magnetic field $B_z(z)$ along the $z$-axis for $h=r=\SI{7.5}{\centi\meter}$ and $h=\frac{r\sqrt{3}}{2}$ with $r=\SI{7.5}{\centi\meter}$ ($N=159$ and $I=\SI{2.0}{\ampere}$). Dashed lines correspond to the fields generated by each coil separately.}
 	\label{coils}
 \end{figure}
 Along the symmetry axis, the magnetic field generated by pair of anti-Helmholtz coils can be expanded around $z=0$ as
@@ -1006,7 +1006,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 		\end{groupplot}
 		
 	\end{tikzpicture}
-	\caption[Fluorescence count rates, normalised histograms and lifetime fits for dipole traps with varying potential depths]{(Left column) Fluorescence count rate from five traps with varying potential depths corrected for background counts and EMCCD quantum efficiency. (Middle column) Normalised histogram and multimodal MLE fit of the fluorescence count rate acquired over a period of \SI{1667}{\second}. Arrows indicate the positions of the single-atom occupation peak. (Right column) Normalised histogram and exponential MLE fit of the trap occupation time. The extracted lifetimes are listed for each trap.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Fluorescence count rates, normalised histograms and lifetime fits for dipole traps with varying potential depths]{\textsc{(left)} Fluorescence count rate from five traps with varying potential depths corrected for background counts and EMCCD quantum efficiency. \textsc{(middle)} Normalised histogram and multimodal MLE fit of the fluorescence count rate acquired over a period of \SI{1667}{\second}. Arrows indicate the positions of the single-atom occupation peak. \textsc{(right)} Normalised histogram and exponential MLE fit of the trap occupation time. The extracted lifetimes are listed for each trap.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
 	\label{masterplot} 
 \end{figure}
 The count rates per frame are corrected for background counts and the EMCCD quantum efficiency ($44\%$). The histogram of binned count rates reveals the discrete fluorescence levels that correspond to the number of atoms $N$ occupying the trap. Except for the deepest trap in this series, for which we observe $N\le3$, all traces reveal two distinct peaks ($N\le1$). Whereas the first is associated with the background count rate, the second peak corresponds to the fluorescence rate of a single atom. Multimodal distributions are fitted to these histograms using maximum likelihood estimation (MLE). In the collisional blockade regime, a dominating two-body loss rate truncates the occupation distribution, leading to highly sub-Poissonian counting statistics. To quantify the deviation from a Poissonian distribution of atom number, we introduce the Fano factor $F_N$, which compares the observed variance of an integer-valued random variable $N$ to the variance expected for a Poisson distribution ($\sigma^2_{\text{P}}$). It is defined as  
@@ -1388,7 +1388,7 @@ The excited state \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by
 
 \subsection{Trap lifetime and time-averaged occupancy}
 \label{lifetimeandfilling}
-The time-averaged occupancy or filling fraction---defined as the fraction of time a single atom occupies the trap---is determined alongside the trap lifetime by analysing all trapping sites in \autoref{firstfluorfigure} with unambiguous single-atom fluorescence. For each site, we evaluate the occupancy over a period of \SI{5000}{\second}, fitting a bimodal distribution to the recorded fluorescence rates (see \autoref{masterplot}). From these fits, we define the threshold for a filled (bright) trap as the mean of the two bimodal peak positions, with count rates above this cut-off indicating reliable atom occupation. Using these threshold values, we compute both the average trap lifetime and the time-averaged occupancy. The data, presented in \autoref{fig:LTandFR}, reveal two key observations.
+The time-averaged occupancy or filling fraction---defined as the fraction of time a single atom occupies the trap---is determined alongside the trap lifetime by analysing all trapping sites in \autoref{firstfluorfigure} with unambiguous single-atom fluorescence. For each site, we evaluate the occupancy over a period of \SI{5000}{\second}, fitting a bimodal distribution to the recorded fluorescence rates (see \autoref{masterplot}). From these fits, we define the threshold for a filled (bright) trap as the mean of the two bimodal peak positions, with count rates above this cut-off indicating reliable atom occupation. Using these threshold values, we compute both the average trap lifetime and the time-averaged occupancy. The data, presented in \autoref{LTandFR}, reveal two key observations.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1464,10 +1464,10 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
+	\caption[An example of a floating figure]{Average trap lifetime \textsc{(left)} and filling fraction \textsc{(right)} versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\label{LTandFR} 
 \end{figure}
-First, the filling fraction stabilises near \SI{50}{\percent} for trap powers exceeding \SI{20}{\milli\watt}. This behaviour can be attributed to the collisional blockade regime, where two-body loss dominates, rendering single-body losses negligible. In this regime, the probabilities of loading and losing an atom balance each other, resulting in comparable durations for bright and dark intervals. At lower trap powers, however, the shallow potential makes atoms more susceptible to ejection due to heating and background gas collisions. This leads to shorter trap lifetimes and lower filling fractions, consistent with the trends visible in \autoref{fig:LTandFR}.
+First, the filling fraction stabilises near \SI{50}{\percent} for trap powers exceeding \SI{20}{\milli\watt}. This behaviour can be attributed to the collisional blockade regime, where two-body loss dominates, rendering single-body losses negligible. In this regime, the probabilities of loading and losing an atom balance each other, resulting in comparable durations for bright and dark intervals. At lower trap powers, however, the shallow potential makes atoms more susceptible to ejection due to heating and background gas collisions. This leads to shorter trap lifetimes and lower filling fractions, consistent with the trends visible in \autoref{LTandFR}.
 \iffalse
 \section{Dipole-trapping theory}
 
@@ -1561,7 +1561,8 @@ As outlined in the preceding sections, the time-averaged probability of trapping
 a fast loading regime to one featuring an extended trap lifetime. This overcomes the probabilistic loading barrier and can be used to enhance simultaneous trap occupation in tweezer arrays.
 
 \subsection{Overview}
-In order to achieve maximal trap occupation probability, we propose a feedback mechanism that alters the depth of a trap upon the detection of an atom. This method exploits the fast loading rate found in shallow traps (see \autoref{fig:LTandFR}) to minimise the wait for a loading event. Once an atom is captured, the trap depth is modified, thereby prolonging its lifetime. This mechanism is visualised in \autoref{fastload} and enhances simultaneous occupation of two separate dipole traps by increasing the effective filling fraction per trap.
+\label{overviewloading}
+In order to achieve maximal trap occupation probability, we propose a feedback mechanism that alters the depth of a trap upon the detection of an atom. This method exploits the fast loading rate found in shallow traps (see \autoref{LTandFR}) to minimise the wait for a loading event. Once an atom is captured, the trap depth is modified, thereby prolonging its lifetime. This mechanism is visualised in \autoref{fastload} and enhances simultaneous occupation of two separate dipole traps by increasing the effective filling fraction per trap.
 \begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}[xscale=0.17, yscale=1]
@@ -1637,6 +1638,1192 @@ The achievable filling fraction $\eta$ is given by the ratio
 in which $\tau_\mathrm{d}$ and $\tau$ represent the dark time and lifetime of the trap, respectively. Since $\eta$ does not depend on the filling fraction of the trap in either regime, a high efficiency can still be achieved despite traps exhibiting filling fractions significantly below \SI{50}{\percent} in the steady state.
 
 \subsection{Single trap lifetime and dark time}
+In order to make estimates of the achievable filling fraction $\eta$ as introduced in \autoref{overviewloading}, we extend the lifetime analysis from \autoref{lifetimeandfilling} to include the lifetime in the absence of two-body losses and the dark time $\tau_\text{d}$. To suppress the effect of the two-body loss rate on the lifetime, we perform an experiment in which all MOT beams are switched off for a fixed amount of time $\Delta t$ upon the detection of an atom. In this experiment, the survival of the atom (detection upon re-illumination) is considered a success and triggers an immediate restart of the sequence. Fluorescence traces for three different values of $\Delta t$ are shown in \autoref{fig:darktime}.
+\begin{figure}[!t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=1cm},xmin=0,ymin=0,height=5cm,width=5cm,no markers]
+	\nextgroupplot
+	[
+	ylabel={Fluorescence counts (a.u.)},
+	yticklabel style={
+		/pgf/number format/fixed,
+		/pgf/number format/precision=5,
+		/pgf/number format/fixed zerofill
+	},
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	%xlabel={Power in dipole trap (\si{\milli\watt})},
+	%ylabel={Fluorescence counts (a.u.)},
+	xmin=0, xmax=30,
+	ymin=0, ymax=150000,
+	yticklabel style={
+		/pgf/number format/fixed,
+		/pgf/number format/precision=5,
+		/pgf/number format/fixed zerofill
+	},
+	scaled y ticks=false,
+	%xticklabels={,,},
+	yticklabels={,,},
+	%xtick={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	mark size=1pt,
+	%only marks,
+	%mark = *,
+	name path=dtdatapoints,
+	color=markrood,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_1.csv};
+	
+	
+	\node[font=\footnotesize, color=markrood, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{0.5}{\s}$};
+	
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	%xlabel={Power in dipole trap (\si{\milli\watt})},
+	xlabel={Time (s)},
+	xmin=0, xmax=60,
+	ymin=0, ymax=150000,
+	yticklabel style={
+		/pgf/number format/fixed,
+		/pgf/number format/precision=5,
+		/pgf/number format/fixed zerofill
+	},
+	scaled y ticks=false,
+	%xticklabels={,,},
+	yticklabels={,,},
+	%xtick={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	mark size=1pt,
+	%only marks,
+	%mark = *,
+	name path=dtdatapoints,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_20.csv};
+	
+	
+	\node[font=\footnotesize, color=rainbow2of8, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{1}{\s}$};
+	
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	%ylabel={Fluorescence counts (a.u.)},
+	xmin=0, xmax=100,
+	yticklabel style={
+		/pgf/number format/fixed,
+		/pgf/number format/precision=5,
+		/pgf/number format/fixed zerofill
+	},
+	scaled y ticks=false,
+	yticklabels={,,},
+	ymin=0, ymax=150000,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	
+	\addplot[
+	%skip coords between index={0}{39},
+	name path=originaldt,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_39.csv};
+	
+	\node[font=\footnotesize, color=rainbow3of8, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{2}{\s}$};
+	
+	\iffalse
+	\draw[dashed,markrood] (10.606060606060607, 0) -- (10.606060606060607, 13);
+	\draw[dashed,markrood] (24.50757575757576, 0) -- (24.50757575757576, 13);
+	\draw[->,>=stealth,markgrijs] (10.606060606060607, 0.25) -- (24.50757575757576, 0.25);
+	\node[markgrijs] at (10.606060606060607-3,0.25) {$A$};
+	\node[markgrijs] at (24.50757575757576+3,0.25) {$B$};
+	\fi
+	
+	%\legend{CuSO$_4\cdot$5H$_2$O}
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Fluorescence traces for conditioned interruption of cooling light]{Fluorescence traces for conditioned interruption of cooling light. To measure the survival probability of an atom in the dark, the cooling light is interrupted for a period of $\Delta t$. Thereafter, the light is switched back on to check for the survival of the atom. This sequence is repeated until the atom is lost. The fluorescence traces are shown for three different values of $\Delta t$.}
+	\label{fig:darktime} 
+\end{figure}
+Based on the total number of trials and successes, we estimate the Wilson score intervals of the survival probabilities for a range of trap depths. The Wilson score interval \cite{wilson1927} adjusts for cases with an extreme success rate or a small sample size (see \autoref{wilsonscoreinterval} for further details). These intervals are then corrected for type I and type II detection errors, which is discussed in \autoref{erroranalysis}. Both sets of uncorrected and corrected intervals are shown in \autoref{SurvivalProbs}.
+\begin{figure}[!t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.5cm, vertical sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=7cm, clip marker paths=true, axis on top=true]
+	
+	
+	\nextgroupplot
+	[
+	%y dir=reverse,
+	xmode=log,
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={Power in dipole trap (\si{\milli\watt})},
+	x label style={xshift=7em},
+	ylabel={Survival probability},
+	%xmin=0, xmax=100,
+	ymin=0, ymax=2,
+	%xtick={0,20,40,60,80,100},
+	ytick={0,1,2},
+	minor ytick={0        ,  0.04575749,  0.09691001,  0.15490196,  0.22184875,
+		0.30103   ,  0.39794001,  0.52287875,  0.69897   ,  1.        ,
+		1.04575749,  1.09691001,  1.15490196,  1.22184875,  1.30103   ,
+		1.39794001,  1.52287875,  1.69897   ,  2.        }, % Set your desired y-tick positions
+	yticklabels={0, 0.9, 0.99},
+	legend pos={north east},
+	legend cell align={left},
+	legend style={draw=none,text opacity=1},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	mark size=1.2pt,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{shortwindow.csv};
+	
+	\addplot[
+	only marks,
+	mark = square*,
+	mark size=1pt,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{mediumwindow.csv};
+	
+	\addplot[
+	only marks,
+	mark = triangle*,
+	mark size=1.5pt,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{longwindow.csv};
+	
+	\addlegendentry{\footnotesize \hspace{0.3em}$\Delta t =\SI{0.5}{\second}$}
+	\addlegendentry{\footnotesize \hspace{0.3em}$\Delta t =\SI{1}{\second}$}
+	\addlegendentry{\footnotesize \hspace{0.3em}$\Delta t =\SI{2}{\second}$}
+	
+	\pgfplotsset{
+	after end axis/.append code={
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 9,2.15) {\tiny 0.7};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 10,2.15) {\tiny 0.8};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 20,2.15) {\tiny 1.7};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 30,2.15) {\tiny 2.5};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 40,2.15) {\tiny 3.3};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 50,2.15) {\tiny 4.1};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 60,2.15) {\tiny 5.0};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 70,2.15) {\tiny 5.8};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 80,2.15) {\tiny 6.6};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 90,2.15) {\tiny 7.4};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 100,2.15) {\tiny 8.3};
+		
+		\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small(\si{\milli\kelvin})};
+	}
+}
+	
+
+	
+
+	
+	
+	\nextgroupplot
+	[
+	%y dir=reverse,
+	xmode=log,
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={},
+	ylabel={},
+	%xmin=0, xmax=100,
+	ymin=0, ymax=2,
+	%xtick={0,20,40,60,80,100},
+	ytick={0,1,2},
+	minor ytick={0        ,  0.04575749,  0.09691001,  0.15490196,  0.22184875,
+		0.30103   ,  0.39794001,  0.52287875,  0.69897   ,  1.        ,
+		1.04575749,  1.09691001,  1.15490196,  1.22184875,  1.30103   ,
+		1.39794001,  1.52287875,  1.69897   ,  2.        }, % Set your desired y-tick positions
+	yticklabels={,,},
+	legend pos=north east,
+	legend cell align={left},
+	legend style={draw=none,fill=none,text opacity=1},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	clip=true
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	mark size=1.2pt,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{shortwindowc.csv};
+	
+	\addplot[
+	only marks,
+	mark = square*,
+	mark size=1pt,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{mediumwindowc.csv};
+	
+	\addplot[
+	only marks,
+	mark = triangle*,
+	mark size=1.5pt,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{longwindowc.csv};
+	
+	%\addlegendentry{\small \hspace{0.3em}\SI{0.5}{\s}}
+	%\addlegendentry{\small \hspace{0.3em}\SI{1}{\s}}
+	%\addlegendentry{\small \hspace{0.3em}\SI{2}{\s}}
+	
+	\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}]
+	(10,1.33) -- (35,1.33) node[midway,yshift=2.65em]{\footnotesize\sc a-j};
+	
+	\draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=4ex}]
+	(43,0.75) -- (55,0.75) node[midway,yshift=-2.7em]{\footnotesize\sc k-l};
+	
+	\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}]
+	(110,-0.1) -- (200,-0.1) node[midway,yshift=2.8em]{\footnotesize\sc m-o};
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 9,2.15) {\tiny 0.7};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 10,2.15) {\tiny 0.8};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 20,2.15) {\tiny 1.7};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 30,2.15) {\tiny 2.5};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 40,2.15) {\tiny 3.3};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 50,2.15) {\tiny 4.1};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 60,2.15) {\tiny 5.0};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 70,2.15) {\tiny 5.8};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 80,2.15) {\tiny 6.6};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 90,2.15) {\tiny 7.4};
+			\node[anchor=center, color=black, rotate=90] at (axis cs: 100,2.15) {\tiny 8.3};
+			
+			\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small(\si{\milli\kelvin})};
+		}
+	}
+	
+
+	
+	
+\end{groupplot}
+
+\end{tikzpicture}
+\caption[Measured atom survival probabilities as a function of trap depth for varying durations of cooling light extinction]{Measured atom survival probabilities as a function of trap depth for varying durations of cooling light extinction before \textsc{(left)} and after \textsc{(right)} adjusting for detection errors. Error bars represent Wilson score intervals (\SI{95}{\percent} confidence). The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+\label{SurvivalProbs} 
+\end{figure}
+Where sufficient data is available for a trap depth, the survival probabilities are shown as a function of $\Delta t$ in \autoref{SurvivalProbs2}.
+\begin{figure}[!t]
+	%\vspace{1em}
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2.5cm, vertical sep=1.5cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers]
+	
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={$\Delta t$ (\si{\second})},
+	ylabel={$P$},
+	xmin=0, xmax=2.5,
+	ymin=0, ymax=1,
+	%xtick={0,0.5,1,1.5,2},
+	%xtick={0,0.5,1,1.5,2},
+	legend pos=south west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_0.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_0.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=p0,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_0.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=m0,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_0.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = m0 and p0,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_1.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_1.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=p1,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_1.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=m1,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_1.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = m1 and p1,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_2.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_2.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	style={ultra thin},
+	name path=p2,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_2.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	style={ultra thin},
+	name path=m2,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_2.csv};
+	
+	\addplot[rainbow3of8, opacity=0.2] fill between[
+	of = m2 and p2,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_3.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_3.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	style={ultra thin},
+	name path=p3,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_3.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	style={ultra thin},
+	name path=m3,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_3.csv};
+	
+	\addplot[rainbow4of8, opacity=0.2] fill between[
+	of = m3 and p3,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_4.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_4.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	style={ultra thin},
+	name path=p4,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_4.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	style={ultra thin},
+	name path=m4,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_4.csv};
+	
+	\addplot[rainbow5of8, opacity=0.2] fill between[
+	of = m4 and p4,
+	];
+	
+	
+	\node[font=\footnotesize\sc] at (axis cs: 0.5, 0.1) {\textcolor{rainbow1of8}{a}\textcolor{rainbow2of8}{b}\textcolor{rainbow3of8}{c}\textcolor{rainbow4of8}{d}\textcolor{rainbow5of8}{e}};
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={$\Delta t$ (\si{\second})},
+	ylabel={$P$},
+	xmin=0, xmax=1.5,
+	ymin=0.9, ymax=1,
+	%xtick={0,0.5,1,1.5,2},
+	%xtick={0,0.5,1,1.5,2},
+	legend pos=south west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_5.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_5.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=p5,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_5.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=m5,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_5.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = m5 and p5,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_6.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_6.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=p6,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_6.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=m6,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_6.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = m6 and p6,
+	];
+	
+	
+	\node[font=\footnotesize\sc] at (axis cs: 0.2, 0.91) {\textcolor{rainbow1of8}{f}\textcolor{rainbow2of8}{g}};
+	
+	
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={$\Delta t$ (\si{\second})},
+	ylabel={$P$},
+	xmin=0, xmax=1.5,
+	ymin=0.9, ymax=1,
+	%xtick={0,0.5,1,1.5,2},
+	%xtick={0,0.5,1,1.5,2},
+	legend pos=south west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_7.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_7.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=p7,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_7.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=m7,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_7.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = m7 and p7,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_8.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_8.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=p8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_8.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=m8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_8.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = m8 and p8,
+	];
+	
+	\node[font=\footnotesize\sc] at (axis cs: 0.2, 0.91) {\textcolor{rainbow1of8}{h}\textcolor{rainbow2of8}{i}};
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={$\Delta t$ (\si{\second})},
+	ylabel={$P$},
+	xmin=0, xmax=1.5,
+	ymin=0, ymax=1,
+	%xtick={0,0.5,1,1.5,2},
+	%xtick={0,0.5,1,1.5,2},
+	legend pos=south west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_9.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_9.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=p9,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_9.csv};
+	
+	\addplot[
+	color=rainbow1of8,
+	style={ultra thin},
+	name path=m9,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_9.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = m9 and p9,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_11.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_11.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=p11,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_11.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	style={ultra thin},
+	name path=m11,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_11.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = m11 and p11,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_12.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_12.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	style={ultra thin},
+	name path=p12,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_12.csv};
+	
+	\addplot[
+	color=rainbow3of8,
+	style={ultra thin},
+	name path=m12,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_12.csv};
+	
+	\addplot[rainbow3of8, opacity=0.2] fill between[
+	of = m12 and p12,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_16.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_16.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	style={ultra thin},
+	name path=p16,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_16.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	style={ultra thin},
+	name path=m16,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_16.csv};
+	
+	\addplot[rainbow4of8, opacity=0.2] fill between[
+	of = m16 and p16,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_17.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_17.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	style={ultra thin},
+	name path=p17,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_17.csv};
+	
+	\addplot[
+	color=rainbow5of8,
+	style={ultra thin},
+	name path=m17,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_17.csv};
+	
+	\addplot[rainbow5of8, opacity=0.2] fill between[
+	of = m17 and p17,
+	];
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_18.csv};
+	
+	\addplot[
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_18.csv};
+	
+	\addplot[
+	color=rainbow6of8,
+	style={ultra thin},
+	name path=p18,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_18.csv};
+	
+	\addplot[
+	color=rainbow6of8,
+	style={ultra thin},
+	name path=m18,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_18.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = m18 and p18,
+	];
+	
+	\node[font=\footnotesize\sc] at (axis cs: 1, 0.5) {\textcolor{rainbow1of8}{j}\textcolor{rainbow2of8}{k}\textcolor{rainbow3of8}{l}\textcolor{rainbow4of8}{m}\textcolor{rainbow5of8}{n}\textcolor{rainbow6of8}{o}};
+	
+	
+	%\legend{CuSO$_4\cdot$5H$_2$O}
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Atom survival probabilities $P$ as a function of waiting time before re-illumination with cooling light]{Atom survival probabilities as a function of waiting time $\Delta t$ before re-illumination with cooling light. Exponential functions are fitted to each set of data points corresponding to the trap depth as equivalently labelled in \autoref{SurvivalProbs}.} 
+	\label{SurvivalProbs2} 
+\end{figure}
+For each trap depth, an exponential function is fitted to the survival rates to extract the average trap lifetime in the absence of cooling light. A summary of the extracted trap lifetimes is shown in \autoref{fig:lifetimesummary}, which shows the comparison with the trap lifetimes extracted under continuous illumination with \SI{780}{\nano\meter} cooling light.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.752cm},xmin=0,ymin=0,height=4.5cm,width=13.5cm, clip marker paths=true, axis on top=true]
+	\nextgroupplot
+	[
+	ylabel={Time (\si{\second})},
+	xmin=8, xmax=220,
+	ymin=0, ymax=11.2,
+	xticklabels={,,},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xmode=log,
+	clip=true
+	]
+	
+	\addplot[
+	mark size=1.2pt,
+	only marks,
+	mark = *,
+	name path=dtdatapoints,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalLT.csv};
+	
+	\addplot[
+	skip coords between index={0}{39},
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalLTfilteredspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={0}{39},
+	name path=asdf3,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{finalLTspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={0}{39},
+	name path=asdf4,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{finalLTspline.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = asdf3 and asdf4,
+	]; 
+	
+	\addplot[
+	only marks,
+	mark = square*,
+	mark size=1pt,
+	name path=dtdatapoints,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalDT.csv};
+	
+	
+	\addplot[
+	skip coords between index={0}{39},
+	name path=originaldt,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalDTfilteredspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={0}{39},
+	name path=asdf1,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{finalDTspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={0}{39},
+	name path=asdf2,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{finalDTspline.csv};
+	
+	\addplot[rainbow2of8, opacity=0.2] fill between[
+	of = asdf1 and asdf2,
+	]; 
+	
+	\fill [fill=black!60,opacity=.2] (100,0) -- (100,11.2) -- (220,11.2) -- (220,0) -- cycle;
+	
+	\node[font=\footnotesize, anchor=west, color=markgrijs] at (rel axis cs:0,0.85) {\sc cooling on};
+	%\node[anchor=west] at (rel axis cs:0.91,0.85) {\small (a)};
+	
+	\node[font=\footnotesize, anchor=center, color=rainbow2of8] at (rel axis cs:0.65,0.12) {Dark time};
+	
+	\node[font=\footnotesize, anchor=center, color=rainbow1of8] at (rel axis cs:0.57,0.57) {Lifetime};
+	
+	\pgfplotsset{
+	after end axis/.append code={
+		
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 9,-1.5) {\tiny 0.7};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 10,-1.5) {\tiny 0.8};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 20,-1.5) {\tiny 1.7};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 30,-1.5) {\tiny 2.5};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 40,-1.5) {\tiny 3.3};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 50,-1.5) {\tiny 4.1};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 60,-1.5) {\tiny 5.0};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 70,-1.5) {\tiny 5.8};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 80,-1.5) {\tiny 6.6};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 90,-1.5) {\tiny 7.4};
+		\node[anchor=center, color=black, rotate=90] at (axis cs: 100,-1.5) {\tiny 8.3};
+		
+		\node[anchor=center, color=black] at (axis description cs: 0.9,-0.145) {\small(\si{\milli\kelvin})};
+		
+		}
+	}
+	
+	
+	
+	
+	\nextgroupplot
+	[
+	ylabel={Time (\si{\second})},
+	xlabel={Power in dipole trap (\si{\milli\watt})},
+	xmin=8, xmax=220,
+	ymin=0, ymax=25,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xmode=log,
+	]
+	
+	\addplot[
+	mark size=1.2pt,
+	only marks,
+	mark = *,
+	name path=dtdatapoints,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalLTdark.csv};
+	
+	\addplot[
+	skip coords between index={220}{1000},
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{finalLTdarkspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={220}{1000},
+	name path=asdf3,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{finalLTdarkspline.csv};
+	
+	\addplot[
+	style={ultra thin},
+	skip coords between index={220}{1000},
+	name path=asdf4,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{finalLTdarkspline.csv};
+	
+	\addplot[rainbow1of8, opacity=0.2] fill between[
+	of = asdf3 and asdf4,
+	]; 
+	
+	\fill [fill=black!60,opacity=.2] (100,0) -- (100,25) -- (220,25) -- (220,0) -- cycle;
+	
+	\node[font=\footnotesize, anchor=west, color=markgrijs] at (rel axis cs:0,0.85) {\sc cooling off};
+	%\node[anchor=west] at (rel axis cs:0.91,0.85) {\small (b)};
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Effect of cooling light on the extracted trap lifetime and dark time as a function of trap depth]{\textsc{(top)} Extracted trap lifetime and dark time (unoccupied trap) as a function of trap depth under continuous illumination with \SI{780}{\nano\meter} cooling beams. \textsc{(bottom)} The extracted trap lifetimes as a function of trap depth in the case where all cooling beams are extinguished upon an atom entering the trap. Solid lines indicate moving averages and the shaded regions around the data points represent single standard deviation errors extracted from exponential fits. The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.}
+	\label{fig:lifetimesummary} 
+\end{figure}
 
 %%%%%%%%
 \autoref{masterplot} shows the estimated filling fraction $\eta$ for a variety of loading and holding depths of the trap.
@@ -1651,935 +2838,21 @@ but with a filling fraction of approximately $50\%$. A feedback mechanism will t
  To suppress the effect of the two-body loss rate on the lifetime, we perform an experiment in which all MOT beams are switched off for a fixed amount of time $\Delta t$ upon the detection of an atom. In this experiment, the survival of the atom (detection upon re-illumination) is considered a success and triggers an immediate restart of the sequence. Fluorescence traces for three different values of $\Delta t$ are shown in \autoref{Fluorfigure1}(d-f). Based on the total number of trials and successes, we calculate the survival probabilities for a range of trap depths (\autoref{SurvivalProbs}). The displayed \SI{95}{\percent} confidence interval is based on the Wilson score interval \cite{wilson1927}, which adjusts for cases with an extreme success rate or a small sample size.
 
 
-\begin{figure}[!t]
+
+
+
+
+
+
+
+
+
+
+\begin{wrapfigure}[10]{l}{0.5\textwidth}
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=3 by 1, horizontal sep=1cm},xmin=0,ymin=0,height=5cm,width=5cm,no markers]
-			\nextgroupplot
-			[
-			ylabel={Fluorescence counts (a.u.)},
-			yticklabel style={
-				/pgf/number format/fixed,
-				/pgf/number format/precision=5,
-				/pgf/number format/fixed zerofill
-			},
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			%xlabel={Power in dipole trap (\si{\milli\watt})},
-			%ylabel={Fluorescence counts (a.u.)},
-			xmin=0, xmax=30,
-			ymin=0, ymax=150000,
-			yticklabel style={
-				/pgf/number format/fixed,
-				/pgf/number format/precision=5,
-				/pgf/number format/fixed zerofill
-			},
-			scaled y ticks=false,
-			%xticklabels={,,},
-			yticklabels={,,},
-			%xtick={,,},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			%only marks,
-			%mark = *,
-			name path=dtdatapoints,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_1.csv};
-			
-			
-			\node[font=\footnotesize, color=markrood, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{0.5}{\s}$};
-			
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			%xlabel={Power in dipole trap (\si{\milli\watt})},
-			xlabel={Time (s)},
-			xmin=0, xmax=60,
-			ymin=0, ymax=150000,
-			yticklabel style={
-				/pgf/number format/fixed,
-				/pgf/number format/precision=5,
-				/pgf/number format/fixed zerofill
-			},
-			scaled y ticks=false,
-			%xticklabels={,,},
-			yticklabels={,,},
-			%xtick={,,},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			%only marks,
-			%mark = *,
-			name path=dtdatapoints,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_20.csv};
-			
-			
-			\node[font=\footnotesize, color=markrood, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{1}{\s}$};
-			
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			%ylabel={Fluorescence counts (a.u.)},
-			xmin=0, xmax=100,
-			yticklabel style={
-				/pgf/number format/fixed,
-				/pgf/number format/precision=5,
-				/pgf/number format/fixed zerofill
-			},
-			scaled y ticks=false,
-			yticklabels={,,},
-			ymin=0, ymax=150000,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			
-			\addplot[
-			%skip coords between index={0}{39},
-			name path=originaldt,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{tracesofdark_39.csv};
-			
-			\node[font=\footnotesize, color=markrood, anchor=south east] at (rel axis cs: 1, 0) {$\Delta t=\SI{2}{\s}$};
-			
-			\iffalse
-			\draw[dashed,markrood] (10.606060606060607, 0) -- (10.606060606060607, 13);
-			\draw[dashed,markrood] (24.50757575757576, 0) -- (24.50757575757576, 13);
-			\draw[->,>=stealth,markgrijs] (10.606060606060607, 0.25) -- (24.50757575757576, 0.25);
-			\node[markgrijs] at (10.606060606060607-3,0.25) {$A$};
-			\node[markgrijs] at (24.50757575757576+3,0.25) {$B$};
-			\fi
-			
-			%\legend{CuSO$_4\cdot$5H$_2$O}
-			
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[Fluorescence traces for conditioned interruption of cooling light]{Fluorescence traces for conditioned interruption of cooling light. To measure the survival probability of an atom in the dark, the cooling light is interrupted for a period of $\Delta t$. Thereafter, the light is switched back on to check for the survival of the atom. This sequence is repeated until the atom is lost. The fluorescence traces are shown for three different values of $\Delta t$.}
-	\label{fig:darktime} 
-\end{figure}
-
-
-
-
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=2 by 3,horizontal sep=2.5cm, vertical sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
-			
-			
-			\nextgroupplot
-			[
-			%y dir=reverse,
-			xmode=log,
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Power in dipole trap (\si{\milli\watt})},
-			ylabel={Survival probability},
-			%xmin=0, xmax=100,
-			ymin=0, ymax=2,
-			%xtick={0,20,40,60,80,100},
-			ytick={0,1,2},
-			minor ytick={0        ,  0.04575749,  0.09691001,  0.15490196,  0.22184875,
-				0.30103   ,  0.39794001,  0.52287875,  0.69897   ,  1.        ,
-				1.04575749,  1.09691001,  1.15490196,  1.22184875,  1.30103   ,
-				1.39794001,  1.52287875,  1.69897   ,  2.        }, % Set your desired y-tick positions
-			yticklabels={0, 0.9, 0.99},
-			legend pos=north east,
-			legend cell align={left},
-			legend style={draw=none,text opacity=1},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{shortwindow.csv};
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{mediumwindow.csv};
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{longwindow.csv};
-			
-			\addlegendentry{\footnotesize \hspace{0.3em}\SI{0.5}{\s}}
-			\addlegendentry{\footnotesize \hspace{0.3em}\SI{1}{\s}}
-			\addlegendentry{\footnotesize \hspace{0.3em}\SI{2}{\s}}
-			
-			
-			
-			\nextgroupplot
-			[
-			%y dir=reverse,
-			xmode=log,
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Power in dipole trap (\si{\milli\watt})},
-			ylabel={Survival probability},
-			%xmin=0, xmax=100,
-			ymin=0, ymax=2,
-			%xtick={0,20,40,60,80,100},
-			ytick={0,1,2},
-			minor ytick={0        ,  0.04575749,  0.09691001,  0.15490196,  0.22184875,
-				0.30103   ,  0.39794001,  0.52287875,  0.69897   ,  1.        ,
-				1.04575749,  1.09691001,  1.15490196,  1.22184875,  1.30103   ,
-				1.39794001,  1.52287875,  1.69897   ,  2.        }, % Set your desired y-tick positions
-			yticklabels={0, 0.9, 0.99},
-			legend pos=north east,
-			legend cell align={left},
-			legend style={draw=none,fill=none,text opacity=1},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{shortwindowc.csv};
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{mediumwindowc.csv};
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}, y error minus expr=\thisrowno{1}-\thisrowno{2}, y error plus expr=\thisrowno{3}-\thisrowno{1}]{longwindowc.csv};
-			
-			%\addlegendentry{\small \hspace{0.3em}\SI{0.5}{\s}}
-			%\addlegendentry{\small \hspace{0.3em}\SI{1}{\s}}
-			%\addlegendentry{\small \hspace{0.3em}\SI{2}{\s}}
-			
-			\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}]
-			(10,1.33) -- (35,1.33) node[midway,yshift=2.65em]{\footnotesize A-J};
-			
-			\draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=4ex}]
-			(43,0.75) -- (55,0.75) node[midway,yshift=-2.7em]{\footnotesize K-L};
-			
-			\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}]
-			(110,-0.1) -- (200,-0.1) node[midway,yshift=2.8em]{\footnotesize M-O};
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Set waiting time (s)},
-			ylabel={Elapsed time (s)},
-			xmin=0, xmax=2.5,
-			ymin=0, ymax=1,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			legend pos=south west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_0.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_0.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=p0,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_0.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=m0,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_0.csv};
-			
-			\addplot[rainbow1of8, opacity=0.2] fill between[
-			of = m0 and p0,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_1.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_1.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=p1,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_1.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=m1,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_1.csv};
-			
-			\addplot[rainbow2of8, opacity=0.2] fill between[
-			of = m1 and p1,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_2.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_2.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			style={ultra thin},
-			name path=p2,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_2.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			style={ultra thin},
-			name path=m2,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_2.csv};
-			
-			\addplot[rainbow3of8, opacity=0.2] fill between[
-			of = m2 and p2,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_3.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_3.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			style={ultra thin},
-			name path=p3,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_3.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			style={ultra thin},
-			name path=m3,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_3.csv};
-			
-			\addplot[rainbow4of8, opacity=0.2] fill between[
-			of = m3 and p3,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_4.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_4.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			style={ultra thin},
-			name path=p4,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_4.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			style={ultra thin},
-			name path=m4,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_4.csv};
-			
-			\addplot[rainbow5of8, opacity=0.2] fill between[
-			of = m4 and p4,
-			];
-			
-			
-			\node[font=\footnotesize] at (axis cs: 0.5, 0.1) {\textcolor{rainbow1of8}{A}\textcolor{rainbow2of8}{B}\textcolor{rainbow3of8}{C}\textcolor{rainbow4of8}{D}\textcolor{rainbow5of8}{E}};
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Set waiting time (s)},
-			ylabel={Elapsed time (s)},
-			xmin=0, xmax=1.5,
-			ymin=0.9, ymax=1,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			legend pos=south west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_5.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_5.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=p5,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_5.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=m5,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_5.csv};
-			
-			\addplot[rainbow1of8, opacity=0.2] fill between[
-			of = m5 and p5,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_6.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_6.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=p6,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_6.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=m6,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_6.csv};
-			
-			\addplot[rainbow2of8, opacity=0.2] fill between[
-			of = m6 and p6,
-			];
-			
-
-			\node[font=\footnotesize] at (axis cs: 0.2, 0.91) {\textcolor{rainbow1of8}{F}\textcolor{rainbow2of8}{G}};
-			
-
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Set waiting time (s)},
-			ylabel={Elapsed time (s)},
-			xmin=0, xmax=1.5,
-			ymin=0.9, ymax=1,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			legend pos=south west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_7.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_7.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=p7,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_7.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=m7,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_7.csv};
-			
-			\addplot[rainbow1of8, opacity=0.2] fill between[
-			of = m7 and p7,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_8.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_8.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=p8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_8.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=m8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_8.csv};
-			
-			\addplot[rainbow2of8, opacity=0.2] fill between[
-			of = m8 and p8,
-			];
-			
-			\node[font=\footnotesize] at (axis cs: 0.2, 0.91) {\textcolor{rainbow1of8}{H}\textcolor{rainbow2of8}{I}};
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Set waiting time (s)},
-			ylabel={Elapsed time (s)},
-			xmin=0, xmax=1.5,
-			ymin=0, ymax=1,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			legend pos=south west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_9.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_9.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=p9,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_9.csv};
-			
-			\addplot[
-			color=rainbow1of8,
-			style={ultra thin},
-			name path=m9,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_9.csv};
-			
-			\addplot[rainbow1of8, opacity=0.2] fill between[
-			of = m9 and p9,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_11.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_11.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=p11,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_11.csv};
-			
-			\addplot[
-			color=rainbow2of8,
-			style={ultra thin},
-			name path=m11,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_11.csv};
-			
-			\addplot[rainbow2of8, opacity=0.2] fill between[
-			of = m11 and p11,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_12.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_12.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			style={ultra thin},
-			name path=p12,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_12.csv};
-			
-			\addplot[
-			color=rainbow3of8,
-			style={ultra thin},
-			name path=m12,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_12.csv};
-			
-			\addplot[rainbow3of8, opacity=0.2] fill between[
-			of = m12 and p12,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_16.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_16.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			style={ultra thin},
-			name path=p16,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_16.csv};
-			
-			\addplot[
-			color=rainbow4of8,
-			style={ultra thin},
-			name path=m16,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_16.csv};
-			
-			\addplot[rainbow4of8, opacity=0.2] fill between[
-			of = m16 and p16,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_17.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_17.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			style={ultra thin},
-			name path=p17,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_17.csv};
-			
-			\addplot[
-			color=rainbow5of8,
-			style={ultra thin},
-			name path=m17,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_17.csv};
-			
-			\addplot[rainbow5of8, opacity=0.2] fill between[
-			of = m17 and p17,
-			];
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}]{exponentials_darktime_18.csv};
-			
-			\addplot[
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentials_fit_darktime_18.csv};
-			
-			\addplot[
-			color=rainbow6of8,
-			style={ultra thin},
-			name path=p18,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{exponentials_fit_darktime_18.csv};
-			
-			\addplot[
-			color=rainbow6of8,
-			style={ultra thin},
-			name path=m18,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{exponentials_fit_darktime_18.csv};
-			
-			\addplot[rainbow2of8, opacity=0.2] fill between[
-			of = m18 and p18,
-			];
-			
-			\node[font=\footnotesize] at (axis cs: 1, 0.5) {\textcolor{rainbow1of8}{J}\textcolor{rainbow2of8}{K}\textcolor{rainbow3of8}{L}\textcolor{rainbow4of8}{M}\textcolor{rainbow5of8}{N}\textcolor{rainbow6of8}{O}};
-
-			
-			%\legend{CuSO$_4\cdot$5H$_2$O}
-			
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Three standard deviations for uncertainty} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
-
-
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
+		\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
@@ -2617,216 +2890,12 @@ but with a filling fraction of approximately $50\%$. A feedback mechanism will t
 	\end{tikzpicture}
 	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
 	\label{fig:LTandFR} 
-\end{figure}
+\end{wrapfigure}
 
 
 
 asdfasdfasdf asdfa dsdf 
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=1 by 3, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			%xlabel={Power in dipole trap (\si{\milli\watt})},
-			ylabel={Average trap lifetime (s)},
-			xmin=0, xmax=220,
-			ymin=0, ymax=10,
-			xticklabels={,,},
-			%xtick={,,},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			name path=dtdatapoints,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalLT.csv};
-			
-			\addplot[
-			skip coords between index={0}{39},
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalLTspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={0}{39},
-			name path=asdf3,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{finalLTspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={0}{39},
-			name path=asdf4,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{finalLTspline.csv};
-			
-			\addplot[markrood, opacity=0.2] fill between[
-			of = asdf3 and asdf4,
-			]; 
-			
-			\node[font=\footnotesize] at (axis cs: 190, 8.8) {MOT beams on};
-			
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			%xlabel={Power in dipole trap (\si{\milli\watt})},
-			ylabel={Average trap lifetime (s)},
-			xmin=0, xmax=220,
-			ymin=0, ymax=25,
-			xticklabels={,,},
-			%xtick={,,},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			name path=dtdatapoints,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalLTdark.csv};
-			
-			\addplot[
-			skip coords between index={220}{1000},
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalLTdarkspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={220}{1000},
-			name path=asdf3,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{finalLTdarkspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={220}{1000},
-			name path=asdf4,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{finalLTdarkspline.csv};
-			
-			\addplot[markrood, opacity=0.2] fill between[
-			of = asdf3 and asdf4,
-			]; 
-			
-			\node[font=\footnotesize] at (axis cs: 190, 22) {MOT beams off};
-			
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			ylabel={Average trap dark time (s)},
-			xlabel={Power in dipole trap (\si{\milli\watt})},
-			xmin=0, xmax=220,
-			ymin=0, ymax=12,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			name path=dtdatapoints,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalDT.csv};
-			
-			
-			\addplot[
-			skip coords between index={0}{39},
-			name path=originaldt,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{finalDTspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={0}{39},
-			name path=asdf1,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{finalDTspline.csv};
-			
-			\addplot[
-			style={ultra thin},
-			skip coords between index={0}{39},
-			name path=asdf2,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{finalDTspline.csv};
-			
-			\addplot[markrood, opacity=0.2] fill between[
-			of = asdf1 and asdf2,
-			]; 
-			
-			
-			\iffalse
-			\draw[dashed,markrood] (10.606060606060607, 0) -- (10.606060606060607, 13);
-			\draw[dashed,markrood] (24.50757575757576, 0) -- (24.50757575757576, 13);
-			\draw[->,>=stealth,markgrijs] (10.606060606060607, 0.25) -- (24.50757575757576, 0.25);
-			\node[markgrijs] at (10.606060606060607-3,0.25) {$A$};
-			\node[markgrijs] at (24.50757575757576+3,0.25) {$B$};
-			\fi
-			
-			%\legend{CuSO$_4\cdot$5H$_2$O}
-			
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
+
 
 
 
@@ -3721,6 +3790,7 @@ y explicit,
 
 
 \section{Fluorescence data processing and error analysis}
+\label{erroranalysis}
 
 \subsection{Estimating lifetime under resonant illumination}
 

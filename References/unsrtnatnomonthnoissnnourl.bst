@@ -285,14 +285,14 @@ FUNCTION {format.issn}
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { new.block "URL \url{" url * "}" * }
+    { "\url{" url * "}" * }
   if$
 }
 
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { new.block "\doi{" doi * "}" * }
+    { "\url{https://doi.org/" doi * "}" * }
   if$
 }
 
@@ -688,6 +688,19 @@ FUNCTION {format.incoll.inproc.crossref}
     { "In " }
   if$
   " \citet{" * crossref * "}" *
+}
+
+FUNCTION {online}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  new.block
+  format.date "year" output.check
+  new.block
+  format.url output
+  fin.entry
 }
 
 FUNCTION {article}
