@@ -1398,8 +1398,9 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Power in dipole trap (\si{\milli\watt})},
+	xlabel={Optical power in dipole trap (\si{\milli\watt})},
 	ylabel={Average trap lifetime (s)},
+	x label style={xshift=7em},
 	%xmin=0, xmax=100,
 	%ymin=0, ymax=120,
 	%xtick={0,20,40,60,80,100},
@@ -1430,7 +1431,7 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Power in dipole trap (\si{\milli\watt})},
+	%xlabel={Power in dipole trap (\si{\milli\watt})},
 	ylabel={Filling fraction},
 	%xmin=0, xmax=100,
 	%ymin=0, ymax=120,
@@ -1633,6 +1634,7 @@ In order to achieve maximal trap occupation probability, we propose a feedback m
 \end{figure}
 The achievable filling fraction $\eta$ is given by the ratio
 \begin{equation}
+\label{achievablefilling}
 \eta = \frac{\tau}{\tau_\mathrm{d} + \tau},
 \end{equation}
 in which $\tau_\mathrm{d}$ and $\tau$ represent the dark time and lifetime of the trap, respectively. Since $\eta$ does not depend on the filling fraction of the trap in either regime, a high efficiency can still be achieved despite traps exhibiting filling fractions significantly below \SI{50}{\percent} in the steady state.
@@ -1774,7 +1776,7 @@ In order to make estimates of the achievable filling fraction $\eta$ as introduc
 	\caption[Fluorescence traces for conditioned interruption of cooling light]{Fluorescence traces for conditioned interruption of cooling light. To measure the survival probability of an atom in the dark, the cooling light is interrupted for a period of $\Delta t$. Thereafter, the light is switched back on to check for the survival of the atom. This sequence is repeated until the atom is lost. The fluorescence traces are shown for three different values of $\Delta t$.}
 	\label{fig:darktime} 
 \end{figure}
-Based on the total number of trials and successes, we estimate the Wilson score intervals of the survival probabilities for a range of trap depths. The Wilson score interval \cite{wilson1927} adjusts for cases with an extreme success rate or a small sample size (see \autoref{wilsonscoreinterval} for further details). These intervals are then corrected for type I and type II detection errors, which is discussed in \autoref{erroranalysis}. Both sets of uncorrected and corrected intervals are shown in \autoref{SurvivalProbs}.
+Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration is performed to determine the fluorescence threshold for atom detection. This threshold is obtained by analysing the brightest pixel value recorded on the EMCCD camera. Once established, it is used to conditionally extinguish the cooling light by controlling the corresponding AOM via a data acquisition card (ADLINK DAQ-2502). In \autoref{fig:darktime}, the effect of switching off the cooling light is observed as a drop in background counts, which arises from the reduction in scattered cooling light reaching the EMCCD. The number of consecutive trigger events corresponds to the number of successes in this Bernoulli process and is observed to decrease as the interval $\Delta t$ is increased. Based on the total number of trials and successes, we estimate the Wilson score intervals of the survival probabilities for a range of trap depths. The Wilson score interval \cite{wilson1927} adjusts for cases with an extreme success rate or a small sample size (see \autoref{wilsonscoreinterval} for further details). These intervals are then corrected for type I and type II detection errors, which is discussed in \autoref{erroranalysis}. Both sets of uncorrected and corrected intervals are shown in \autoref{SurvivalProbs}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1788,7 +1790,7 @@ Based on the total number of trials and successes, we estimate the Wilson score 
 	%y dir=reverse,
 	xmode=log,
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Power in dipole trap (\si{\milli\watt})},
+	xlabel={Optical power in dipole trap (\si{\milli\watt})},
 	x label style={xshift=7em},
 	ylabel={Survival probability},
 	%xmin=0, xmax=100,
@@ -1961,7 +1963,7 @@ Based on the total number of trials and successes, we estimate the Wilson score 
 \label{SurvivalProbs} 
 \end{figure}
 Where sufficient data is available for a trap depth, the survival probabilities are shown as a function of $\Delta t$ in \autoref{SurvivalProbs2}.
-\begin{figure}[!t]
+\begin{figure}[h]
 	%\vspace{1em}
 	\centering
 	\begin{tikzpicture}
@@ -1981,6 +1983,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
+	y label style={at={(axis description cs:-0.35,.5)}},
 	]
 	
 	\addplot[
@@ -2189,6 +2192,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
+	y label style={at={(axis description cs:-0.35,.5)}},
 	]
 	
 	\addplot[
@@ -2285,6 +2289,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
+	y label style={at={(axis description cs:-0.35,.5)}},
 	]
 	
 	\addplot[
@@ -2378,6 +2383,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
+	y label style={at={(axis description cs:-0.35,.5)}},
 	]
 	
 	\addplot[
@@ -2731,9 +2737,9 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\node[font=\footnotesize, anchor=west, color=markgrijs] at (rel axis cs:0,0.85) {\sc cooling on};
 	%\node[anchor=west] at (rel axis cs:0.91,0.85) {\small (a)};
 	
-	\node[font=\footnotesize, anchor=center, color=rainbow2of8] at (rel axis cs:0.65,0.12) {Dark time};
+	\node[font=\footnotesize, anchor=center, color=rainbow2of8] at (rel axis cs:0.65,0.12) {Dark time $\tau_\text{d}$};
 	
-	\node[font=\footnotesize, anchor=center, color=rainbow1of8] at (rel axis cs:0.57,0.57) {Lifetime};
+	\node[font=\footnotesize, anchor=center, color=rainbow1of8] at (rel axis cs:0.57,0.57) {Lifetime $\tau$};
 	
 	\pgfplotsset{
 	after end axis/.append code={
@@ -2761,7 +2767,7 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\nextgroupplot
 	[
 	ylabel={Time (\si{\second})},
-	xlabel={Power in dipole trap (\si{\milli\watt})},
+	xlabel={Optical power in dipole trap (\si{\milli\watt})},
 	xmin=8, xmax=220,
 	ymin=0, ymax=25,
 	ymajorgrids=true,
@@ -2824,11 +2830,197 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\caption[Effect of cooling light on the extracted trap lifetime and dark time as a function of trap depth]{\textsc{(top)} Extracted trap lifetime and dark time (unoccupied trap) as a function of trap depth under continuous illumination with \SI{780}{\nano\meter} cooling beams. \textsc{(bottom)} The extracted trap lifetimes as a function of trap depth in the case where all cooling beams are extinguished upon an atom entering the trap. Solid lines indicate moving averages and the shaded regions around the data points represent single standard deviation errors extracted from exponential fits. The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.}
 	\label{fig:lifetimesummary} 
 \end{figure}
+Note that suppressing the two-body loss rate by interrupting the cooling process yields a near-threefold increase in the trap lifetime. Additionally, the average time the trap is unoccupied (dark time) as a function of trap depth is shown as a blue trace in \autoref{fig:lifetimesummary}. In the intermediate depth regime, this curve overlaps with the lifetime trace in red, as expected from the time-averaged occupation probability of \SI{50}{\percent} in the collisional blockade regime. Note the discrepancy between the lifetime and the dark time for shallower traps caused by a loading inefficiency. In this region, the potential depth is small with respect to the average kinetic energy of the atom. Atoms with low initial energy may be only weakly confined and can escape more easily before reaching the centre as a consequence of background collisions or fluctuations in the laser intensity. If an atom reaches the centre of the trap and scatters sufficiently many photons to be detected, the measured lifetime is short ($<\SI{0.5}{\second}$). The importance of the dark time will become clear throughout the following section, where we discuss the objective of maximising the time-averaged occupation probability.
+\subsection{Trap occupancy enhancement through feedback}
+Based on the measured values of $\tau_\text{d}$ and $\tau$ in \autoref{fig:lifetimesummary}, we can calculate the achievable filling fraction $\eta$ using \autoref{achievablefilling}. \autoref{paperplot} shows the estimated values of $\eta$ for a variety of loading and holding depths of the trap.
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture} 
+	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.6cm, vertical sep=0.7cm},xmin=0,ymin=0,width=4cm]
+	
+	\iffalse
+	\nextgroupplot
+	[
+	enlargelimits=false,
+	axis on top,
+	ymin=0, ymax=0.01,
+	xmin=0, xmax=1,
+	width=0.55\textwidth,
+	height=0.2\textwidth,
+	ymajorticks=false,
+	%ytick={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+	%yticklabels={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+	yticklabels={,,},
+	xlabel=Estimated filling fraction $\eta$,
+	x label style={
+		at={(axis description cs:0.5,1)},
+		anchor=south,
+	}
+	]
+	
+	
+	\addplot graphics [xmin=0,xmax=1,ymin=0,ymax=0.01] {FRcalcCROPPEDUPPER.pdf};
+	\fi
+	
+	
+	\nextgroupplot
+	[
+	ylabel={Optical power for loading (\si{\milli\watt})},
+	xlabel={Optical power for holding (\si{\milli\watt})},
+	enlargelimits=false,
+	axis on top, axis equal image,
+	ymin=8, ymax=100,
+	xmin=8, xmax=100,
+	width=0.55\textwidth,
+	height=0.55\textwidth,
+	minor xtick={9,20,30,40,50,60,70,80,90},
+	xtick={10,100},
+	ytick={10,100},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	yminorgrids=true,
+	xminorgrids=true,
+	xmode=log,
+	ymode=log,
+	every y tick/.style={black},
+	every x tick/.style={black},
+	%y label style={at={(axis description cs:-0.08,.5)}},
+	x label style={at={(axis description cs:1.0,-0.12)}},
+	clip=false,
+	%colormap/jet,
+	%colorbar horizontal,
+	%colorbar style={
+	%	at={(0, 1.1)},
+	%	anchor=south west,
+	%	%ytick={0,1}, % Decimal equivalents
+	%	%yticklabels={0,1},
+	%	scaled ticks=false,
+	%	xticklabel pos=upper,
+	%	%x tick scale label style={yshift=-25pt, xshift=23pt},
+	%},
+	]
+	
+	\coordinate (top) at (rel axis cs:0,1);
+	
+	\addplot graphics [ymin=8,ymax=100,xmin=8,xmax=100] {FRCALCFILTER_rotated.pdf};
+	\draw[markrood, thick, dashed] (axis cs:47,8) -- (axis cs:47,100);
+	\node[anchor=north west, color=white, rotate=90] at (axis cs: 10.2,10.2) {\footnotesize\sc cooling on};
+	
+	\node[anchor=center, color=black] at (axis cs: 7.3,20) {\tiny 20};
+	\node[anchor=center, color=black] at (axis cs: 7.3,30) {\tiny 30};
+	\node[anchor=center, color=black] at (axis cs: 7.3,40) {\tiny 40};
+	\node[anchor=center, color=black] at (axis cs: 7.3,50) {\tiny 50};
+	\node[anchor=center, color=black] at (axis cs: 7.3,60) {\tiny 60};
+	\node[anchor=center, color=black] at (axis cs: 7.3,70) {\tiny 70};
+	\node[anchor=center, color=black] at (axis cs: 7.3,80) {\tiny 80};
+	
+	\node[anchor=center, color=black] at (axis cs: 20,7.5) {\tiny 20};
+	\node[anchor=center, color=black] at (axis cs: 30,7.5) {\tiny 30};
+	\node[anchor=center, color=black] at (axis cs: 40,7.5) {\tiny 40};
+	\node[anchor=center, color=black] at (axis cs: 50,7.5) {\tiny 50};
+	\node[anchor=center, color=black] at (axis cs: 60,7.5) {\tiny 60};
+	\node[anchor=center, color=black] at (axis cs: 70,7.5) {\tiny 70};
+	\node[anchor=center, color=black] at (axis cs: 80,7.5) {\tiny 80};
+	
+	\node[anchor=center, color=black] at (axis cs: 113.5,9) {\tiny 0.7};
+	\node[anchor=center, color=black] at (axis cs: 113.5,10) {\tiny 0.8};
+	\node[anchor=center, color=black] at (axis cs: 113.5,20) {\tiny 1.7};
+	\node[anchor=center, color=black] at (axis cs: 113.5,30) {\tiny 2.5};
+	\node[anchor=center, color=black] at (axis cs: 113.5,40) {\tiny 3.3};
+	\node[anchor=center, color=black] at (axis cs: 113.5,50) {\tiny 4.1};
+	\node[anchor=center, color=black] at (axis cs: 113.5,60) {\tiny 5.0};
+	\node[anchor=center, color=black] at (axis cs: 113.5,70) {\tiny 5.8};
+	\node[anchor=center, color=black] at (axis cs: 113.5,80) {\tiny 6.6};
+	\node[anchor=center, color=black] at (axis cs: 113.5,90) {\tiny 7.4};
+	\node[anchor=center, color=black] at (axis cs: 113.5,100) {\tiny 8.3};
+	
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 9,111) {\tiny 0.7};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 10,111) {\tiny 0.8};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 20,111) {\tiny 1.7};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 30,111) {\tiny 2.5};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 40,111) {\tiny 3.3};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 50,111) {\tiny 4.1};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 60,111) {\tiny 5.0};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 70,111) {\tiny 5.8};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 80,111) {\tiny 6.6};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 90,111) {\tiny 7.4};
+	
+	%\node[anchor=center, color=black, rotate=90] at (axis description cs: 1.13,0.5) {Holding depth (mK)};
+	\node[anchor=center, color=black] at (axis description cs: 1.0,1.15) {\small Equivalent trap depth (\si{\milli\kelvin})};
+	
+	\nextgroupplot
+	[
+	%ylabel={Loading depth (\si{\milli\watt})},
+	%xlabel={Holding depth (\si{\milli\watt})},
+	enlargelimits=false,
+	axis on top, axis equal image,
+	ymin=8, ymax=100,
+	xmin=8, xmax=47,
+	width=0.55\textwidth,
+	height=0.55\textwidth,
+	minor xtick={9,20,30,40,50},
+	yticklabels={,,},
+	xtick={10,100},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	yminorgrids=true,
+	xminorgrids=true,
+	xmode=log,
+	ymode=log,
+	every x tick/.style={black},
+	every y tick/.style={black},
+	%x label style={at={(axis description cs:-0.1,.5)}},
+	clip=false,
+	point meta min=0,
+	point meta max=1,
+	colormap/jet,
+	colorbar right,
+	colorbar style={
+		at={(1.1, 0)},
+		anchor=south west,
+		ticklabel style={rotate=90},
+	},
+	]
+	
+	\coordinate (bot) at (rel axis cs:1,0);
+	
+	\addplot graphics [ymin=8,ymax=100,xmin=8,xmax=47] {FRDARKCALCFILTER_rotated.pdf};
+	\draw[white] (axis cs:9,9) ;
+	\node[anchor=north west, color=white, rotate=90] at (axis cs: 10.2,10.2) {\footnotesize\sc cooling off};
+	
+	\node[anchor=center, color=black] at (axis cs: 20,7.5) {\tiny 20};
+	\node[anchor=center, color=black] at (axis cs: 30,7.5) {\tiny 30};
+	\node[anchor=center, color=black] at (axis cs: 40,7.5) {\tiny 40};
+	%\node[anchor=center, color=black] at (axis cs: 50,7.5) {\tiny 50};
+	%\node[anchor=center, color=black] at (axis cs: 60,7.5) {\tiny 60};
+	%\node[anchor=center, color=black] at (axis cs: 70,7.5) {\tiny 70};
+	%\node[anchor=center, color=black] at (axis cs: 80,7.5) {\tiny 80};
+	
+	%\node[anchor=center, color=black] at (axis cs: 7.3,20) {\tiny 20};
+	%\node[anchor=center, color=black] at (axis cs: 7.3,30) {\tiny 30};
+	%\node[anchor=center, color=black] at (axis cs: 7.3,40) {\tiny 40};
+	
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 9,111) {\tiny 0.7};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 10,111) {\tiny 0.8};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 20,111) {\tiny 1.7};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 30,111) {\tiny 2.5};
+	\node[anchor=center, color=black, rotate=90] at (axis cs: 40,111) {\tiny 3.3};
+	
 
-%%%%%%%%
-\autoref{masterplot} shows the estimated filling fraction $\eta$ for a variety of loading and holding depths of the trap.
-
-
+	
+	%\node[anchor=center, color=black, rotate=90] at (axis description cs: 1.13,0.5) {\small Loading depth (\si{\milli\kelvin})};
+	%\node[anchor=center, color=black] at (axis description cs: 0.5,1.13) {\small (\si{\milli\kelvin})};
+	
+	\node[anchor=center, color=black] at (axis description cs: 1.15,1.15) {\small $\eta$};
+	
+	\end{groupplot}
+	
+	
+	\end{tikzpicture}
+	\caption[Estimated filling fractions for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom]{Estimated filling fractions $\eta$ for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom. Estimates are calculated from measured trap dark times (loading time) and average lifetimes (holding time) in the presence \textsc{(left)} and absence \textsc{(right)} of cooling light once an atom has entered the trap. The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.} 
+	\label{paperplot} 
+\end{figure}
+asdf
 Based on our calculation of the power dependent differential frequency shift of the cooling transition, we expect the cooling light to be detuned by at least \SI{155}{\mega\hertz} for a dipole trap power of at least \SI{60}{\milli\watt}. In this regime, we expect the efficiency of cooling atoms into the conservative trap to be reduced\footnote{Even though the cooling efficiency can be significantly reduced in the centre of the trap, there is always a shell in which the intensity drops to a level where the ac-Stark effect does not affect the cooling process. However, the volume of this shell becomes smaller for deeper traps, which means the maximum capture velocity will decrease accordingly. Therefore, the trap will be accessible to a smaller fraction of atoms, considering their velocity distribution in the MOT.}, which limits the loading rate and thus increases the lifetime of the trap. If this can be shown experimentally, it enables a particular scheme for fast loading and synchronised trapping. The proposed sequence for two traps is shown in \autoref{fastload}. The idea is to start in regime $A$ where both traps operate with a relatively short lifetime 
 
 but with a filling fraction of approximately $50\%$. A feedback mechanism will then monitor the occupation in each trap and deepen it as soon as an atom is detected, initiating a long-lifetime period ($B$). Note that since the loading occurs on a short timescale, both traps will be filled quickly and shortly after each other.
@@ -2901,7 +3093,7 @@ asdfasdfasdf asdfa dsdf
 
 
 
-\subsection{Trap occupancy enhancement through feedback}
+
 The cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition and is frequency modulated between $-1.7\Gamma$ and $-2.7\Gamma$ from resonance at a modulation frequency of \SI{100}{\kHz}. This is done to eliminate the impact of interference fringes and thus achieve a homogeneously filled cloud of atoms from which to load the dipole traps.
 
 From the results shown in \cref{table:depthSweep} we may construct a surface plot of the expected filling ratio when switching between any two trap depths. We refer to a ``loading depth" - the trap depth we would start out with when the trap is empty - and a ``holding depth" - the depth we would switch to upon an atom entering the trap. 
@@ -2921,47 +3113,7 @@ The resulting filling ratio as a function of loading depth and holding depth is 
 
 We see a general trend that we obtain the best filling ratios for shallow loading depths and deep holding depths. This is in agreement with our expectations, seen that shallower traps load more quickly while deeper traps have longer lifetimes. 
 
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture} 
-		\begin{groupplot}[group style={group size=1 by 2,horizontal sep=0.65cm, vertical sep=0.5cm},xmin=0,ymin=0,width=15cm]
-			\nextgroupplot
-			[
-			ylabel={Holding depth (\si{\milli\watt})},
-			enlargelimits=false,
-			axis on top, axis equal image,
-			xmin=8, xmax=217,
-			ymin=8, ymax=217,
-			width=0.95\textwidth,
-			height=0.95\textwidth,
-			xticklabels={,,}
-			]
-			
-			\addplot graphics [xmin=8,xmax=217,ymin=8,ymax=217] {FRcalc.pdf};
-			\draw[markrood, thick, dashed] (axis cs:8,8) rectangle (axis cs:217,47);
-			\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:217,217);
-			
-			
-			
-			\nextgroupplot
-			[
-			xlabel={Loading depth (\si{\milli\watt})},
-			enlargelimits=false,
-			axis on top, axis equal image,
-			xmin=8, xmax=217,
-			ymin=8, ymax=47,
-			width=0.95\textwidth
-			]
-			\addplot graphics [xmin=8,xmax=217,ymin=8,ymax=47] {FRdarkcalc.pdf};
-			\draw[marklichtgrijs2, thick, dashed] (axis cs:8,8) -- (axis cs:47,47);
-			
-			
-		\end{groupplot}
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{(Left column) Fluorescence count rate from 5 traps of varying optical power corrected for background counts and EMCCD quantum efficiency. (Middle column) Normalised histogram and multimodal MLE fit of the fluorescence count rate acquired over a period of $1667\,$s. (Right column) Normalised histogram and exponential MLE fit of the trap lifetime.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{paperplot} 
-\end{figure}
+
 
 
 \subsection{Passive modulation of trap depth}
