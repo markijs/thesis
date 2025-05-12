@@ -179,7 +179,7 @@ An overview of the experimental setup is shown in \autoref{overviewsetup}.
 	\caption[Optical setup for the generation of dipole traps and a MOT]{\textsc{(left)} Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. \textsc{(right)} Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. To achieve collimation and circular polarisation of the beams, we employ $f=\SI{30}{\milli\meter}$ lenses and pairs of quarter-wave plates, respectively. A pair of high-NA lenses focus and image the dipole trapping light.}
 	\label{overviewsetup} 
 \end{figure}
-In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nano\meter}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nano\meter}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nano\meter} \leq \lambda \leq \SI{1100}{\nano\meter}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nano\meter} \leq \lambda \leq \SI{860}{\nano\meter}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nano\meter} and \SI{1064}{\nano\meter}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{15}{\gauss\per\centi\meter} at the quadrupole centre (see \autoref{magneticfields}). The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth (\SI{<700}{\kilo\hertz}) light at \SI{1064}{\nano\meter}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nano\meter} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nano\meter} bandpass filter (Semrok \num{780}/\SI{12}{\nano\meter} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nano\meter}.
+In this setup, \ce{^{87}Rb} atoms are cooled in a MOT on the $\mathrm{D}2$ transition ($\ce{5\!^2S_{\sfrac{1}{2}}} \, \leftrightarrow \, \ce{5\!^2P_{\sfrac{3}{2}}}$ at \SI{780.246}{\nano\meter}) and eventually loaded into optical dipole-force traps at a wavelength of \SI{1064}{\nano\meter}. The MOT is formed using $3$ retro-reflected, circularly polarised beams, each consisting of overlapping cooling and repump beams with a $\sfrac{1}{e^2}$ beam diameter of \SI{5}{\milli\meter} and optical powers of \SI{1.5}{\milli\watt} and \SI{0.5}{\milli\watt}, respectively. The two diagonal beams are oriented at angles of \ang{30} with respect to the horizontal axis. Depending on the experiment, the cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition by either a fixed or time-varying frequency. Any population that decays into the $\ket{F=1}$ ground state is repumped to $\ket{F=2}$ with light resonant to the $\ket{F=1}\leftrightarrow\ket{F'=2}$ transition. The MOT is positioned within a cuboid glass cell vacuum chamber (ColdQuanta) that is kept under ultra-high vacuum ($\sim\!\SI{1e-10}{\milli\bar}$). The cell walls are equipped with an anti reflective coating that is specified\footnote{For $\SI{650}{\nano\meter} \leq \lambda \leq \SI{1100}{\nano\meter}$, the reflectivity $R$ for this coating satisfies $R<\SI{0.2}{\percent}$ if $\theta \in [\SI{-10}{\degree}, \SI{10}{\degree}]$ (angle of incidence). For $\SI{760}{\nano\meter} \leq \lambda \leq \SI{860}{\nano\meter}$, $R<\SI{0.5}{\percent}$ if $\theta \in [\SI{-45}{\degree}, \SI{45}{\degree}]$.} for both \SI{780}{\nano\meter} and \SI{1064}{\nano\meter}. The magnetic field is generated using a pair of anti-Helmholtz coils which are oriented along the long axis of the glass cell and establish a field gradient of \SI{15}{\gauss\per\centi\meter} at the quadrupole centre (see \autoref{magneticfields}). The laser that generates the dipole traps is a continuous-wave fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth ($<\SI{700}{\kilo\hertz}$) light at \SI{1064}{\nano\meter}, featuring an $M^2$ beam quality factor of \num{1.6}. Through the use of a telescope, the trapping light is first sent through an acousto-optic modulator (AOM), which allows for fast modulation of the overall trapping power. Following a subsequent expansion of the beam, a computer-generated phase pattern is imposed via a $512\times512$ pixel liquid crystal SLM (Meadowlark ODPDM512-1064), positioned in a Fourier plane of the light path. This can be viewed as an artificial hologram that gives rise to an intensity pattern in the image plane. This pattern, which contains all dipole traps, can be identified as the Fourier transformed light field that passes the SLM. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites in combination with the mixed-region amplitude freedom (MRAF) algorithm \cite{Pasienski2008} to generate arbitrary phase patterns, we construct a tweezer grid in the focal plane with $\sfrac{1}{e^2}$ trap diameters of \SI{2.2}{\micro\meter}, allowing for parallel data acquisition from multiple traps. A pair of achromatic, compound lens systems ($\mathrm{NA} = 0.6$) focus and recollimate the trapping light after a second beam expansion, such that traps can be monitored using a CCD camera (Daheng Imaging MER-132-30UM/C). The numerical aperture of \num{0.6} equates to a \SI{10}{\percent} collection efficiency of the fluorescence light, which is directed towards an electron-multiplying CCD (EMCCD) camera (Princeton Instruments ProEM-HS: 512BX3) via a dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nano\meter} to block any trapping light from reaching the camera. In addition, a \SI{780}{\nano\meter} bandpass filter (Semrok \num{780}/\SI{12}{\nano\meter} BrightLine single-band) is placed directly in front of the EMCCD camera and eliminates any remaining light at \SI{1064}{\nano\meter}.
 
 \subsection{Laser frequency stabilisation}
 The lasers that generate the cooling and repumping light for the MOT in this setup are both Toptica DL100 external cavity diode lasers (ECDL), the frequencies of which are locked using a configuration as shown in \autoref{lockingsetup}. The frequency of the cooling ECDL is stabilised by means of modulation transfer spectroscopy (MTS), which, as detailed in \cite{McCarron2008}, produces dispersive-like lineshapes with a flat, zero background. This results in the zero-crossings of the modulation transfer signal being precisely centred on atomic transitions. In contrast to saturation spectroscopy, the signal in MTS arises mainly from closed atomic transitions---those in which atoms return to the same ground state after excitation rather than decaying to different states.
@@ -255,7 +255,7 @@ The lasers that generate the cooling and repumping light for the MOT in this set
 	\caption[Electro-optical setup for the frequency stabilisation of the cooling and repumping light]{Electro-optic setup for the frequency stabilisation of the cooling and repumping light required for the generation of the MOT as shown in \autoref{overviewsetup}. The lenses in this diagram all have focal lengths of \SI{150}{\milli\meter}. The fibre outputs at \textsc{b} and \textsc{c} lead directly to the MOT, whereas the outputs at \textsc{c} and \textsc{d} are combined on a photodiode to extract the beat note used in a frequency offset lock (not shown) for the repump ECDL. All fibres are polarisation maintaining.}
 	\label{lockingsetup} 
 \end{figure}
-This feature makes MTS particularly useful for isolating specific transitions in atomic spectra, especially when the spectrum includes several closely spaced transitions. For the implementation of MTS, a fraction of the cooling light is split using a half-wave plate and a polarising beam splitter (PBS) before it is frequency shifted by \SI{-206}{\mega\hertz} in a double-pass AOM configuration. Thereafter, the beam is divided into \SI{0.5}{\milli\watt} pump and probe beams, the former being phase-modulated with an electro-optic modulator (EOM) at a modulation frequency of $\omega_m=\SI{25}{\mega\hertz}$. The resulting light can be represented in terms of the carrier frequency $\omega_c$ and modulation index $\delta$ as $E(t)=E_0\sin(\omega_c t+\delta\sin(\omega_m t))$. The pump and probe beams propagate in opposite directions and are aligned to run collinearly through a \SI{5}{\centi\meter} long \ce{Rb} vapour cell at room temperature. A four-wave mixing process in the vapour cell involves the combination of the two frequency components of the pump beam with the probe beam as a result of the non-linearity of the absorption medium. The result is a fourth wave for each sideband of the pump beam that appears as a sideband on the probe beam. A photodetector extracts the corresponding beat signal $S_b$, which, for $\delta < 1$, can be approximated as \cite{Shirley1982}
+This feature makes MTS particularly useful for isolating specific transitions in atomic spectra, especially when the spectrum includes several closely spaced transitions. For the implementation of MTS, a fraction of the cooling light is split using a half-wave plate and a polarising beam splitter (PBS) before it is frequency shifted by \SI{-206}{\mega\hertz} in a double-pass AOM configuration. Thereafter, the beam is divided into \SI{0.5}{\milli\watt} pump and probe beams, the former being phase-modulated with an electro-optic modulator (EOM) at a modulation frequency of $\omega_m=\SI{25}{\mega\hertz}$. The resulting light can be represented in terms of the carrier frequency $\omega_c$ and modulation index $\delta$ as $E(t)=E_0\sin(\omega_c t+\delta\sin(\omega_m t))$. The pump and probe beams propagate in opposite directions and are aligned to run collinearly through a \SI{5}{\centi\meter} long rubidium vapour cell at room temperature. A four-wave mixing process in the vapour cell involves the combination of the two frequency components of the pump beam with the probe beam as a result of the non-linearity of the absorption medium. The result is a fourth wave for each sideband of the pump beam that appears as a sideband on the probe beam. A photodetector extracts the corresponding beat signal $S_b$, which, for $\delta < 1$, can be approximated as \cite{Shirley1982}
 \begin{align}
 \label{mtsbeatsignal}
 \begin{split}
@@ -456,7 +456,7 @@ The reliable operation of static holographic dipole traps forms the foundation f
 
 \subsection{Atom fluorescence and ac-Stark effect}
 \label{stark}
-In order to parallelise the trap analysis, we calculate the kinoform for a $6\times6$ grid of trapping sites with varying potential depths. For this experiment, we only consider a grid with a variety of traps for which individual and precise depth adjustment is unnecessary. Calculating the kinoform for a uniform grid of trapping sites, however, requires a more careful approach (see \autoref{dynamiccontrol}). The recorded intensity profile of the tweezer array in the focal plane is shown in \autoref{firstfluorfigure}.
+In order to parallelise the trap analysis, we calculate the kinoform for a $6\times6$ grid of trapping sites\footnote{When generating uniform holographic microtrap arrays, we observe inconsistent atom occupancy. The origin of this problem is that aberrations induced by the optics alter the shape and depth of the microtraps. This effect can be mitigated by using the SLM for aberration correction \cite{imr2010,Kim2019} and by using iterative feedback loops that correct each microtrap based on measurements of both the trapping and fluorescence light \cite{Tamura2016}.} with varying potential depths. For this experiment, we only consider a grid with a variety of traps for which individual and precise depth adjustment is unnecessary. Calculating the kinoform for a uniform grid of trapping sites, however, requires a more careful approach (see \autoref{dynamiccontrol}). The recorded intensity profile of the tweezer array in the focal plane is shown in \autoref{firstfluorfigure}.
 \begin{figure}[t]
 	\vspace{0em}
 	\centering
@@ -632,7 +632,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist19.csv};
 			
-			\node[markrood] at (1.2cm,2.2cm) {\footnotesize ${\tau}=0.38\pm0.1\,$s}; % error was 0.04
+			\node[markrood] at (1.2cm,2.2cm) {\footnotesize ${\tau}=0.38\pm\SI{0.1}{\second}$}; % error was 0.04
 			
 			\nextgroupplot
 			[
@@ -722,7 +722,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist20.csv};
 			
-			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=3.6\pm0.6\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=3.6\pm\SI{0.6}{\second}$};
 			
 			\nextgroupplot
 			[
@@ -815,7 +815,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist21.csv};
 			
-			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.6\pm1.0\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.6\pm\SI{1.0}{\second}$};
 			
 			\nextgroupplot
 			[
@@ -905,7 +905,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist22.csv};
 			
-			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.3\pm1.0\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=5.3\pm\SI{1.0}{\second}$};
 	
 			\nextgroupplot
 			[
@@ -1001,7 +1001,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			style={thick}
 			] table [col sep = comma, x expr=\thisrowno{0}/30, y index = 1]{LIFEFIThist23.csv};
 			
-			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=6.1\pm0.6\,$s};
+			\node[markrood] at (1.25cm,2.2cm) {\footnotesize ${\tau}=6.1\pm\SI{0.6}{\second}$};
 			
 		\end{groupplot}
 		
@@ -1311,7 +1311,7 @@ The occupation probabilities are compared to the Poisson distributions that feat
 \begin{align}
 f_X(x) = \lambda\mathrm{e}^{-\lambda x} \quad \text{for } x \geq 0\,.
 \end{align}
-The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$, which is the mean lifetime of the dipole trap. The intervals for which the trap is occupied by a single atom are measured and binned. The corresponding histograms and MLE-fitted exponential distributions are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning. As outlined in \autoref{alkaligroundstateshift}, the ac-Stark shift of the \ce{^87Rb} ground state for sufficiently detuned, linearly polarised light is given by \autoref{groundstatestark}. This result is based on the assumption of a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ lines: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane (see \autoref{dipoleforce}). The waist is given by $w_0=2M^2 \lambda f/\pi D$, which depends on the wavelength $\lambda=\SI{1064}{\nano\meter}$, the beam propagation faction $M^2=1.6$, the focal length $f=\SI{30}{\milli\meter}$ of the lens and the incident beam diameter\footnote{Defined as twice the beam waist.} $D=\SI{30}{\milli\meter}$, yielding $w_0=\SI{1.1}{\micro\meter}$. With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.72}{\giga\hertz\per\watt}$.
+The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$, which is the mean lifetime of the dipole trap. The intervals for which the trap is occupied by a single atom are measured and binned. The corresponding histograms and MLE-fitted exponential distributions are shown in the last column of \autoref{masterplot}. The extracted mean lifetimes shall be further discussed in \autoref{lifetimeandfilling} as part of a larger dataset. Returning to the analysis of fluorescence count rates, we observe that the single-atom count rate declines with deeper trapping potentials. This reduction occurs because the stronger optical fields cause the energy levels of the cooling transition to shift further out of resonance with the cooling light due to the ac-Stark effect. As a consequence, the scattering rate is suppressed due to the increased effective detuning. As outlined in \autoref{alkaligroundstateshift}, the ac-Stark shift of the \ce{^87Rb} ground state for sufficiently detuned, linearly polarised light is given by \autoref{groundstatestark}. This result is based on the assumption of a resolved fine-structure (spin-orbit coupling), but unresolved hyperfine structure (coupling to nuclear spin). The atom-field interaction is thus considered in terms of the electronic angular momentum configuration of the $\mathrm{D}1$ and $\mathrm{D}2$ lines: $J=\sfrac{1}{2} \rightarrow J' =\sfrac{1}{2},\sfrac{3}{2}$. The peak intensity of a trap can be calculated from the optical power $P$ and the trap waist $w_0$ in the focal plane (see \autoref{dipoleforce}). The waist is given by $w_0=2M^2 \lambda f/\pi D$, which depends on the wavelength $\lambda=\SI{1064}{\nano\meter}$, the beam propagation faction $M^2=1.6$, the focal length $f=\SI{30}{\milli\meter}$ of the lens and the incident beam
 \begin{wrapfigure}[14]{l}{0.5\textwidth}
 	\centering
 	\pgfdeclarelayer{background layer}
@@ -1384,7 +1384,7 @@ The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$,
 	\caption[Measured and calculated fluorescence count rate versus optical dipole trap power]{Measured fluorescence count rate versus optical dipole trap power. The solid line represents the calculated scattering rate from cooling light with a saturation parameter of $6I_0/I_\text{sat}=18.9$ and detuning of $\Delta=2.25\Gamma$ from the unperturbed cooling transition. The calculated rate accounts for an overall photon collection efficiency of \SI{9}{\percent}. Labels correspond to those in \autoref{masterplot} and \autoref{fig:distributions}.}
 	\label{starkfig} 
 \end{wrapfigure}
-The excited state \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{groundstatestark}: $\Delta E_e/\hbar P=2\pi\times \SI{1.12}{\giga\hertz\per\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.84}{\giga\hertz\per\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a effective detuning accounting for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition. We ignore scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition and assume that on average, the atoms are illuminated with all polarisations at a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single cooling beam, such that $s:=6I_0/I_\text{sat}=18.9$. This light is red-detuned from the unperturbed cooling transition by $\Delta=2.25\Gamma$. \autoref{starkfig} shows the measured fluorescence rate over an extended range of dipole trap powers. The solid curve represents the calculated scattering rate of an atom positioned at the minimum of the trap potential. This rate accounts for the fractional emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}).
+diameter\footnote{Defined as twice the beam waist.} $D=\SI{30}{\milli\meter}$, yielding $w_0=\SI{1.1}{\micro\meter}$. With this information, we obtain a maximum ground state shift of $\Delta E_g/\hbar P=-2\pi\times \SI{1.72}{\giga\hertz\per\watt}$. The excited state \ce{5\!^2P_{\sfrac{3}{2}}} shifts in the opposite direction by an amount that equals the corresponding term in \autoref{groundstatestark}: $\Delta E_e/\hbar P=2\pi\times \SI{1.12}{\giga\hertz\per\watt}$. The total differential light shift $\Delta E_\text{diff}=\Delta E_e-\Delta E_g$ of the cooling transition is thus given by $\Delta E_\text{diff}/\hbar P=2\pi\times \SI{2.84}{\giga\hertz\per\watt}$. In this case, the scattering rate is given by \autoref{scatter} with a effective detuning accounting for the ac-Stark effect and a saturation intensity $I_\text{sat}=\SI{3.58}{\milli\watt\per\square\centi\meter}$ that corresponds to an isotropic pump field driving the $\ket{F=2}\rightarrow\ket{F'=3}$ cycling transition. We ignore scattering from light tuned to the $\ket{F=1}\rightarrow\ket{F'=2}$ repump transition and assume that on average, the atoms are illuminated with all polarisations at a total intensity of $6I_0$, where $I_0=\SI{11.3}{\milli\watt\per\centi\meter^2}$ is the maximum intensity of a single cooling beam, such that $s:=6I_0/I_\text{sat}=18.9$. This light is red-detuned from the unperturbed cooling transition by $\Delta=2.25\Gamma$. \autoref{starkfig} shows the measured fluorescence rate over an extended range of dipole trap powers. The solid curve represents the calculated scattering rate of an atom positioned at the minimum of the trap potential. This rate accounts for the fractional emission into the solid angle of the lens (\SI{10}{\percent}) and reflectivity of the dichroic mirror (\SI{90}{\percent}).
 
 \subsection{Trap lifetime and time-averaged occupancy}
 \label{lifetimeandfilling}
@@ -1640,6 +1640,7 @@ The achievable filling fraction $\eta$ is given by the ratio
 in which $\tau_\mathrm{d}$ and $\tau$ represent the dark time and lifetime of the trap, respectively. Since $\eta$ does not depend on the filling fraction of the trap in either regime, a high efficiency can still be achieved despite traps exhibiting filling fractions significantly below \SI{50}{\percent} in the steady state.
 
 \subsection{Single trap lifetime and dark time}
+\label{sec:singletraplifetime}
 In order to make estimates of the achievable filling fraction $\eta$ as introduced in \autoref{overviewloading}, we extend the lifetime analysis from \autoref{lifetimeandfilling} to include the lifetime in the absence of two-body losses and the dark time $\tau_\text{d}$. To suppress the effect of the two-body loss rate on the lifetime, we perform an experiment in which all MOT beams are switched off for a fixed amount of time $\Delta t$ upon the detection of an atom. In this experiment, the survival of the atom (detection upon re-illumination) is considered a success and triggers an immediate restart of the sequence. Fluorescence traces for three different values of $\Delta t$ are shown in \autoref{fig:darktime}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
@@ -1649,7 +1650,7 @@ In order to make estimates of the achievable filling fraction $\eta$ as introduc
 	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=1cm},xmin=0,ymin=0,height=5cm,width=5cm,no markers]
 	\nextgroupplot
 	[
-	ylabel={Fluorescence counts (a.u.)},
+	ylabel={Fluorescence counts (a.\,u.)},
 	yticklabel style={
 		/pgf/number format/fixed,
 		/pgf/number format/precision=5,
@@ -2737,9 +2738,9 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\node[font=\footnotesize, anchor=west, color=markgrijs] at (rel axis cs:0,0.85) {\sc cooling on};
 	%\node[anchor=west] at (rel axis cs:0.91,0.85) {\small (a)};
 	
-	\node[font=\footnotesize, anchor=center, color=rainbow2of8] at (rel axis cs:0.65,0.12) {Dark time $\tau_\text{d}$};
+	\node[font=\footnotesize, anchor=center, color=rainbow2of8] at (rel axis cs:0.65,0.12) {dark time $\tau_\text{d}$};
 	
-	\node[font=\footnotesize, anchor=center, color=rainbow1of8] at (rel axis cs:0.57,0.57) {Lifetime $\tau$};
+	\node[font=\footnotesize, anchor=center, color=rainbow1of8] at (rel axis cs:0.57,0.57) {lifetime $\tau$};
 	
 	\pgfplotsset{
 	after end axis/.append code={
@@ -3017,348 +3018,113 @@ Based on the measured values of $\tau_\text{d}$ and $\tau$ in \autoref{fig:lifet
 	
 	
 	\end{tikzpicture}
-	\caption[Estimated filling fractions for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom]{Estimated filling fractions $\eta$ for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom. Estimates are calculated from measured trap dark times (loading time) and average lifetimes (holding time) in the presence \textsc{(left)} and absence \textsc{(right)} of cooling light once an atom has entered the trap. The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.} 
+	\caption[Estimated filling fractions for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom]{Estimated filling fraction $\eta$ for a feedback mechanism that switches a dipole trap from a loading to a holding depth upon detection of an atom. Estimates are calculated from measured trap dark times (loading time) and average lifetimes (holding time) in the presence \textsc{(left)} and absence \textsc{(right)} of cooling light once an atom has entered the trap. The trap depth corresponding to each optical power in the trap is displayed in \si{\milli\kelvin}.} 
 	\label{paperplot} 
 \end{figure}
-asdf
-Based on our calculation of the power dependent differential frequency shift of the cooling transition, we expect the cooling light to be detuned by at least \SI{155}{\mega\hertz} for a dipole trap power of at least \SI{60}{\milli\watt}. In this regime, we expect the efficiency of cooling atoms into the conservative trap to be reduced\footnote{Even though the cooling efficiency can be significantly reduced in the centre of the trap, there is always a shell in which the intensity drops to a level where the ac-Stark effect does not affect the cooling process. However, the volume of this shell becomes smaller for deeper traps, which means the maximum capture velocity will decrease accordingly. Therefore, the trap will be accessible to a smaller fraction of atoms, considering their velocity distribution in the MOT.}, which limits the loading rate and thus increases the lifetime of the trap. If this can be shown experimentally, it enables a particular scheme for fast loading and synchronised trapping. The proposed sequence for two traps is shown in \autoref{fastload}. The idea is to start in regime $A$ where both traps operate with a relatively short lifetime 
-
-but with a filling fraction of approximately $50\%$. A feedback mechanism will then monitor the occupation in each trap and deepen it as soon as an atom is detected, initiating a long-lifetime period ($B$). Note that since the loading occurs on a short timescale, both traps will be filled quickly and shortly after each other.
-
-%%%%%%%
-
- To suppress the effect of the two-body loss rate on the lifetime, we perform an experiment in which all MOT beams are switched off for a fixed amount of time $\Delta t$ upon the detection of an atom. In this experiment, the survival of the atom (detection upon re-illumination) is considered a success and triggers an immediate restart of the sequence. Fluorescence traces for three different values of $\Delta t$ are shown in \autoref{Fluorfigure1}(d-f). Based on the total number of trials and successes, we calculate the survival probabilities for a range of trap depths (\autoref{SurvivalProbs}). The displayed \SI{95}{\percent} confidence interval is based on the Wilson score interval \cite{wilson1927}, which adjusts for cases with an extreme success rate or a small sample size.
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{wrapfigure}[10]{l}{0.5\textwidth}
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Set waiting time (s)},
-			ylabel={Waiting time plus latency (s)},
-			xmin=0, xmax=2.25,
-			ymin=0, ymax=2.25,
-			xtick={0,0.5,1,1.5,2},
-			xtick={0,0.5,1,1.5,2},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}*3]{darktimecalibration.csv};
-			
-			\addplot[
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{darktimecalibrationfit.csv};
-			
-			\node[font=\footnotesize, color=markrood] at (axis cs: 1.2, 0.2) {$y=0.137 + x$};
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{wrapfigure}
-
-
-
-asdfasdfasdf asdfa dsdf 
-
-
-
-
-
-
-
-The cooling light is red-detuned from the $F=2 \, \leftrightarrow \, F'=3$ transition and is frequency modulated between $-1.7\Gamma$ and $-2.7\Gamma$ from resonance at a modulation frequency of \SI{100}{\kHz}. This is done to eliminate the impact of interference fringes and thus achieve a homogeneously filled cloud of atoms from which to load the dipole traps.
-
-From the results shown in \cref{table:depthSweep} we may construct a surface plot of the expected filling ratio when switching between any two trap depths. We refer to a ``loading depth" - the trap depth we would start out with when the trap is empty - and a ``holding depth" - the depth we would switch to upon an atom entering the trap. 
-
-For a loading depth $d_\mathrm{l}$ and a holding depth $d_\mathrm{h}$ the expected filling ratio is
-
-
-
-\begin{equation}
-	\mathrm{FR} = \frac{\tau(d_\mathrm{h})}{(1/R(d_\mathrm{l})) + \tau(d_\mathrm{h})},
-\end{equation}
-
-where $\tau$ denotes the trap lifetime and $R$ the trap loading rate.
-
-The resulting filling ratio as a function of loading depth and holding depth is shown in \cref{fig:switchPredict}.
-
-
-We see a general trend that we obtain the best filling ratios for shallow loading depths and deep holding depths. This is in agreement with our expectations, seen that shallower traps load more quickly while deeper traps have longer lifetimes. 
-
-
-
-
+For the calculation, we use the moving averages of the lifetimes measured in the presence and absence of cooling beams. In the former case, two local maxima are found for a loading depth of \SI{0.8}{\milli\kelvin} at \SI{10}{\milli\watt} optical power ($\eta=0.74$) and of \SI{3.4}{\milli\kelvin} at \SI{41}{\milli\watt} optical power ($\eta=0.77$), both for a holding depth around \SI{1.7}{\milli\kelvin} at \SI{21}{\milli\watt} optical power. It should be noted that for deeper traps, captured atoms experience cooling light that is further detuned from resonance due to the increased Stark shift. For a trap depth of \SI{8.3}{\milli\kelvin} at about \SI{100}{\milli\watt} of optical power, the peaks in the bimodal distribution of the fluorescence (\autoref{masterplot}) start overlapping. This reduced signal-to-noise ratio results in an enhanced rate of false detections of atoms entering or leaving the trap. As a consequence, the extracted dark time and lifetime are significantly shortened for deep traps (shaded area in \autoref{fig:lifetimesummary}). This data evaluation artefact limits the practical trap depth to \SI{8.3}{\milli\kelvin}. Returning to \autoref{paperplot}, we observe that the estimated filling fractions in the absence of cooling light are found to exceed $0.8$ over an extended range of loading and holding depths, with local maxima of $\eta=0.85$ and $\eta=0.88$ at positions equal to those for continuous cooling.
 \subsection{Passive modulation of trap depth}
-We use the same arrangement of \num{10} atom traps as previously and alternate between the two trap depths using the AOM in the dipole trapping light beam path; in this way we change the power in all traps in the grid in the same way.
-
-We switch power every \SI{30}{\s}. This value was chosen to be long compared to the average lifetime previously measured in the deeper trap (\SI{10.1}{\s}) so that we do not risk cutting short the life of an atom that was present when the trap was deepened, but short enough that we may collect a large amount of data in a reasonable timeframe. We acquire a total of \num{2} hours of data, which provides us with \num{120} instances in which the traps are switched from shallow to deep. Since we have \num{10} trapping sites, and the filling ratio in the shallow regime is expected to be approximately \num{0.5}, we anticipate finding roughly \num{600} instances in which an atom is present in a trap when the trap depth is increased.
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=1 by 1},xmin=0,ymin=0,height=4cm,width=13.5cm,no markers]
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Power in dipole trap (\si{\milli\watt})},
-			ylabel={Fluorescence counts (Hz)},
-			xmin=0, xmax=240,
-			ymin=-0.5e5, ymax=2.5e5,
-			xtick={0,30,60,90,120,150,180,210,240},
-			%ytick={0,20,40,60,80,100,120},
-			%legend pos=north west,
-			ymajorgrids=false,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			color=markrood,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331/0.250]{trace.csv};
-			
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
-
-We record the fluorescence data using the single-atom imaging camera with an exposure time of \SI{250}{\ms}. To analyse this data we take all instances where there was an atom present in a trap in the frame immediately before the depth was increased (we call the moment at which we increase the depth $t=0$). For each of these instances we measure the time span backwards from $t=0$ until we reach the moment where the atom enters the trap, and we measure forwards until the atom is lost. We then stack up the fluorescence traces for all such instances. In this way we can measure the lifetime in each of the two regimes\footnote{This is obvious when we look forwards in time; when looking backwards we keep in mind that we are post selecting on an atom being present at $t=0$ and are then looking at how long it lasted in order to get there.}. We also note that we previously measured a filling ratio of \num{0.46} at the deeper depth; provided we observe a similar filling ratio in this regime here then we may make the approximation that the lifetime in the shallow regime is equal to the average loading time. 
-
-
-We show an example of a segment of the fluorescence trace for one of the trapping sites in \autoref{fig:switchData}a. The times at which the power is switched are indicated. In the shallow regime we see a fast blinking trap, while in the deep regime we see a longer-lived trap. The heights during the two regimes are different since there is more fluorescence from an atom in a shallow trap than from an atom in a deep trap due to the different Stark shifts in each case.
-
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=1cm, vertical sep=2cm},xmin=0,ymin=0,height=5.0cm,width=5.0cm,no markers]
-\nextgroupplot
-[
-ybar,
-bar width=3pt,
-% (changed from `xtick`)
-xlabel=Atom number,
-xtick distance = 1,
-x label style={at={(axis description cs: 0.5, -0.32)},anchor=base},
-ylabel=Lifetime (s),
-% (changed to an absolute value)
-enlarge x limits={abs=0.5},
-% ---------------------------------------------------------------------
-% changes to get what you want
-% ---------------------------------------------------------------------
-ymin=0, ymax=12,
-xmin=1, xmax=8,
-xticklabel={\axisdefaultticklabel\vphantom{$10$}},
-%scaled ticks=false,
-% remove the `xticks`
-xtick pos=left,
-%xtick style={
-%	/pgfplots/major tick length=0pt,
-%},
-%        % `ybar interval` is not what you want here I guess, because then e.g.
-%        % the last bar is not drawn. To simulate that ...
-%        % ... add `extra x ticks` between the `xticks` ...
-%        extra x ticks={1.5,...,8.5},
-%        % ... without stating any label ...
-%        extra x tick labels={},
-%        % ... and show the major gridlines
-%        extra x tick style={
-%            xmajorgrids,
-%        },
-legend style={font=\footnotesize},
-legend columns = 2,
-]
-\addplot+ [
-markgrijs,
-fill=markgrijs!50!white,
-/pgfplots/error bars/.cd,
-y dir = both,
-y explicit,
-] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{summary_lifetimes_before_after.csv};
-
-\addplot+ [
-markrood,
-fill=markrood!50!white,
-/pgfplots/error bars/.cd,
-y dir = both,
-y explicit,
-] table [col sep = comma, x index = 0, y index = 3, y error index = 4]{summary_lifetimes_before_after.csv};
-
-\legend{
-	Before,
-	After,
-}
-
-\nextgroupplot
-[
-%xlabel={Time relative to switch (s)},
-xlabel={Fluorescence counts (MHz)},
-x label style={at={(axis description cs: 1.1, -0.32)},anchor=base},
-xmin=0.167, xmax=0.197,
-ymin=1.3, ymax=2.7,
-xticklabel={\axisdefaultticklabel\vphantom{$10$}},
-%xticklabels={,,},
-%yticklabels={0,\phantom{0.5},1},
-%y label style={at={(axis description cs:-0.2, -0.15)},anchor=south},
-%ymin=-0.1, ymax=1.1,
-%xtick={0,20,40,60,80,100},
-%ytick={0,0.5,1},
-%legend pos=north west,
-ymajorgrids=true,
-xmajorgrids=true,
-grid style=dashed,
-]
-
-\addplot[
-only marks,
-mark = *,
-%mark size=0.5pt,
-color=markrood,
-/pgfplots/error bars/.cd,
-y dir = both,
-y explicit,
-] table [col sep = comma, x expr = \thisrowno{0}/1000/1000*1.3062923961932331/0.250, y index = 1, y error index = 2]{lifetime_vs_fluor_shallow.csv};
-
-\nextgroupplot
-[
-%xlabel={Time relative to switch (s)},
-%xlabel={Fluorescence counts (MHz)},
-xmin=0.167, xmax=0.197,
-%xticklabels={,,},
-%yticklabels={0,\phantom{0.5},1},
-%y label style={at={(axis description cs:-0.2, -0.15)},anchor=south},
-ymin=5, ymax=9,
-%yticklabels={5,6,7,8,9},
-xticklabel={\axisdefaultticklabel\vphantom{$10$}},
-%ytick={0,0.5,1},
-%legend pos=north west,
-ymajorgrids=true,
-xmajorgrids=true,
-grid style=dashed,
-]
-
-\addplot[
-only marks,
-mark = *,
-%mark size=0.5pt,
-color=markrood,
-/pgfplots/error bars/.cd,
-y dir = both,
-y explicit,
-] table [col sep = comma, x expr = \thisrowno{0}/1000/1000*1.3062923961932331/0.250, y index = 1, y error index = 2]{lifetime_vs_fluor_deep.csv};
-%\legend{CuSO$_4\cdot$5H$_2$O}
-
-\end{groupplot}
-\end{tikzpicture}
-\caption[An example of a floating figure]{asdf} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-\label{fig:LTandFR} 
-\end{figure}
-
-
-
-
+To demonstrate the concept of maximising the filling fraction of traps experimentally by changing their depth, we alter the trap depth every \SI{30}{\second} with an AOM, alternating the beam power between \SI{10}{\milli \watt} and \SI{21}{\milli\watt}. We consider only those \SI{60}{\second} long time intervals centred around the switching from shallow to deep that have an atom present upon switching. A typical fluorescence trace (\autoref{fig:passiveswitchfluor}) exhibits two distinct count rates for single-atom occupation that correspond to different Stark shifts associated with the trap depths.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=2cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
-	\nextgroupplot
-	[
-	xlabel={Fluorescence counts (kHz)},
-	ylabel={Occurrence},
-	xmin=-10*1.3062923961932331/0.250, xmax=50*1.3062923961932331/0.250,
-	ymin=0, ymax=15e-5,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	]
-	
-	\addplot[thick, color=markrood, dashed] coordinates {((5.270)*1.3062923961932331/0.250,0)((5.270)*1.3062923961932331/0.250,12e-5)};
-	\node[align=left, color=markrood] at (20.500*1.3062923961932331/0.250,12e-5) {\footnotesize threshold};	
-	
-	\addplot[
-	ybar,
-	bar width=1.1pt,
-	bar shift=0.55pt,
-	fill=markgrijs,
-	draw=markgrijs,
-	mark = *,
-	color=markgrijs,
-	opacity=0.5
-	] table [col sep = comma, x expr=\thisrowno{0}/1000*1.3062923961932331/0.250, y index = 1]{fluorhist_shallow.csv};
+	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.6cm},xmin=0,ymin=0,height=4.5cm,width=2.5cm,no markers]
 	
 	\nextgroupplot
 	[
-	xlabel={Fluorescence counts (kHz)},
-	ylabel={Occurrence},
-	xmin=-10*1.3062923961932331/0.250, xmax=50*1.3062923961932331/0.250,
-	ymin=0, ymax=15e-5,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
+	xmin=0,
+	xmax=240,
+	ymin=-5,
+	ymax=50,
+	yticklabel=\empty,
+	width=10.5cm,
+	xlabel={Time (\si{\second})},
+	ylabel={Fluor. counts (a.\,u.)},
+	xtick={0,30,60,90,120,150,180,210,240},
+	ytick={0, 9.2, 37},
 	xmajorgrids=true,
+	ymajorgrids=true,
 	grid style=dashed,
+	x label style={at={(axis description cs:0.5, -0.45)},anchor=south},
+	]
+	\fill[rainbow4of8, opacity=0.3] (axis cs: 0,-10) rectangle (axis cs: 30,55);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 30,-10) rectangle (axis cs: 60,55);
+	\fill[rainbow4of8, opacity=0.3] (axis cs: 60,-10) rectangle (axis cs: 90,55);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 90,-10) rectangle (axis cs: 120,55);
+	\fill[rainbow4of8, opacity=0.3] (axis cs: 120,-10) rectangle (axis cs: 150,55);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 150,-10) rectangle (axis cs: 180,55);
+	\fill[rainbow4of8, opacity=0.3] (axis cs: 180,-10) rectangle (axis cs: 210,55);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 210,-10) rectangle (axis cs: 240,55);
+	
+	\addplot[color=markrood] table [col sep = comma, x index = 0, y expr=\thisrowno{1}]{trace.csv};
+	
+	\draw[thick, dashed, color=black]	(axis cs:0,4.5) -- (axis cs:240,4.5);
+	
+	\nextgroupplot
+	[
+	ymin=-5,
+	ymax=50,
+	xtick={0},
+	ytick={0, 9.2, 37},
+	xticklabel=\empty,
+	yticklabel=\empty,
+	ymajorgrids=true,
+	xmajorgrids=false,
+	grid style=dashed,
+	xlabel={Occurrence (a.\,u.)},
+	x label style={at={(axis description cs:1.25, -0.45)},anchor=south},
+	xtick scale label code/.code={},
 	]
 	
-	\addplot[thick, color=markrood, dashed] coordinates {((5.270)*1.3062923961932331/0.250,0)((5.270)*1.3062923961932331/0.250,12e-5)};
-	\node[align=left, color=markrood] at (20.500*1.3062923961932331/0.250,12e-5) {\footnotesize threshold};	
-	
 	\addplot[
-	ybar,
+	xbar,
 	bar width=1.1pt,
 	bar shift=0.55pt,
 	fill=markgrijs,
-	draw=markgrijs,
+	draw=rainbow4of8,
 	mark = *,
-	color=markgrijs,
-	opacity=0.5
-	] table [col sep = comma, x expr=\thisrowno{0}/1000*1.3062923961932331/0.250, y index = 1]{fluorhist_deep.csv};
+	color=rainbow4of8,
+	] table [col sep = comma, y expr=\thisrowno{0}, x index = 1]{fluorhist_shallow.csv};
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: 0,-10) rectangle (axis cs: 2e-4, 55);
+	
+	\draw[thick, dashed, color=black]	(axis cs:0,4.5) -- (axis cs:15e-5,4.5);
+	
+	\nextgroupplot
+	[
+	ymin=-5,
+	ymax=50,
+	xtick={0},
+	ytick={0, 9.2, 37},
+	xticklabel=\empty,
+	yticklabel=\empty,
+	ymajorgrids=true,
+	xmajorgrids=false,
+	grid style=dashed,
+	xtick scale label code/.code={},
+	]
+	
+	\addplot[
+	xbar,
+	bar width=1.1pt,
+	bar shift=0.55pt,
+	fill=markgrijs,
+	draw=rainbow2of8,
+	mark = *,
+	color=rainbow2of8,
+	] table [col sep = comma, y expr=\thisrowno{0}, x index = 1]{fluorhist_deep.csv};
+	
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-10) rectangle (axis cs: 2e-4, 55);
+	
+	\draw[thick, dashed, color=black]	(axis cs:0, 4.5) -- (axis cs:15e-5, 4.5);
 	
 	\end{groupplot}
 	\end{tikzpicture}
-\caption[An example of a floating figure]{asdf} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-\label{fig:LTandFR} 
+	\caption[Fluorescence trace for a periodic modulation of the trap depth, alternating between shallow and deep regimes]{\textsc{(left)} Fluorescence trace for a periodic (\SI{30}{\second}) modulation of the trap depth, alternating between shallow (orange) and deep (blue) regimes. \textsc{(right)} Histograms of the fluorescence counts accumulated across the respective zones. Horizontal dashed lines indicate the mean values of the individual Gaussian components of the multimode distribution (grey), as well as the fluorescence threshold used to determine trap occupation (black).}
+	\label{fig:passiveswitchfluor} 
 \end{figure}
-
-
+We collect \SI{120}{\minute} of fluorescence data with a time resolution of \SI{250}{\ms} for eight independent traps to enhance the data acquisition rate. The cooling light is frequency modulated between $\Delta=1.7\Gamma$ and $\Delta=2.7\Gamma$ from resonance at a modulation frequency of \SI{100}{\kHz}. This is done to eliminate the impact of interference fringes and thus achieve a homogeneously filled cloud of atoms from which to load the array of dipole traps. For each trap, we calculate the probability that an atom present at the instant of switching also occupied the trap at a particular time before or after the switch. Treating each point in time as a trial with a binary outcome (atom or no atom present), we then extract the occupation probabilities and the corresponding \SI{95}{\percent} Wilson confidence intervals for each point in time. The results per trap (labelled $1-8$) are shown in \autoref{fig:8exponentials}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -3395,6 +3161,9 @@ y explicit,
 	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_0.csv};
 	%\legend{CuSO$_4\cdot$5H$_2$O}
 	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
+	
 	\addplot[
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_0_fit_deep.csv};
@@ -3403,7 +3172,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_0_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=2.5\,$s \\ \footnotesize ${\tau_2}=5.2\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{2.5}{\second}$ \\ \footnotesize ${\tau_2}=\SI{5.2}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (1)};
 	
 	\nextgroupplot
 	[
@@ -3421,6 +3192,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3442,7 +3216,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_1_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=2.0\,$s \\ \footnotesize ${\tau_2}=7.9\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{2.0}{\second}$ \\ \footnotesize ${\tau_2}=\SI{7.9}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (2)};
 	
 	\nextgroupplot
 	[
@@ -3460,6 +3236,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3481,7 +3260,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_2_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=2.3\,$s \\ \footnotesize ${\tau_2}=6.2\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{2.3}{\second}$ \\ \footnotesize ${\tau_2}=\SI{6.2}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (3)};
 	
 	\nextgroupplot
 	[
@@ -3499,6 +3280,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3520,7 +3304,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_3_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=1.6\,$s \\ \footnotesize ${\tau_2}=8.5\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{1.6}{\second}$ \\ \footnotesize ${\tau_2}=\SI{8.5}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (4)};
 	
 	\nextgroupplot
 	[
@@ -3536,6 +3322,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3557,7 +3346,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_4_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=2.5\,$s \\ \footnotesize ${\tau_2}=5.4\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{2.5}{\second}$ \\ \footnotesize ${\tau_2}=\SI{5.4}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (5)};
 	
 	\nextgroupplot
 	[
@@ -3575,6 +3366,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3596,7 +3390,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_5_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=1.4\,$s \\ \footnotesize ${\tau_2}=7.1\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{1.4}{\second}$ \\ \footnotesize ${\tau_2}=\SI{7.1}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (6)};
 	
 	\nextgroupplot
 	[
@@ -3613,6 +3409,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3634,7 +3433,9 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_6_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=1.6\,$s \\ \footnotesize ${\tau_2}=5.5\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{1.6}{\second}$ \\ \footnotesize ${\tau_2}=\SI{5.5}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (7)};
 	
 	\nextgroupplot
 	[
@@ -3651,6 +3452,9 @@ y explicit,
 	xmajorgrids=true,
 	grid style=dashed,
 	]
+	
+	\fill[rainbow4of8, opacity=0.3] (axis cs: -10,-0.1) rectangle (axis cs: 0,1.1);
+	\fill[rainbow2of8, opacity=0.3] (axis cs: 0,-0.1) rectangle (axis cs: 30,1.1);
 	
 	\addplot[
 	only marks,
@@ -3672,281 +3476,591 @@ y explicit,
 	color=markrood,
 	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_trap_7_fit_shallow.csv};
 	
-	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=1.4\,$s \\ \footnotesize ${\tau_2}=7.4\,$s};
+	\node[align=left, color=markrood] at (2.9cm,2cm) {\footnotesize ${\tau_1}=\SI{1.4}{\second}$ \\ \footnotesize ${\tau_2}=\SI{7.4}{\second}$};
+	
+	\node[align=center, rotate=0, anchor=north west] at (-11.5,1.1) {\footnotesize\sc (8)};
 	
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{asdf} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
+	\caption[Trap occupation probability relative to the time of switching and conditional on an atom being present at $t=0$ shown on a linear scale for eight different traps]{Trap occupation probability relative to the time of switching and conditional on an atom being present at $t=0$ shown on a linear scale for eight different traps and fitted with corresponding exponential curves (the time constants $\tau_1$ and $\tau_2$ are indicated per trap). Error bars represent Wilson score intervals.} 
+	\label{fig:8exponentials} 
 \end{figure}
-
-
+The two fitted exponentials for each trace feature time constants $\tau_1$ and $\tau_2$ that correspond to the trap lifetimes in shallow and deep regime, respectively. For the second trap, we find $\tau_1=\SI{1.99\pm0.02}{\second}$ and $\tau_2=\SI{7.92\pm0.15}{\second}$. The measured time-averaged occupancy of \SI{49\pm3}{\percent} indicates that the lifetime in the shallow regime is nearly equal to the average wait time $\tau_\mathrm{d}$ for a loading event. We obtain $\tau_d=\SI{2.07\pm 0.25}{\second}$, which yields a maximum achievable filling fraction of $\eta=0.79 \pm 0.02$. This is close to our previous estimate of $\eta=0.74\pm0.03$ (see \autoref{paperplot}). Instead of analysing each trap independently, the data from all trapping sites can be treated collectively under the assumption that these are statistically equivalent realisations of the same system. In this case, we calculate the ensemble average and standard deviation of the occupation probabilities across the eight independent traps at each point in time, which is shown in \autoref{ensemblepassive} alongside the individual traces and time constants from \autoref{fig:8exponentials}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=2 by 2, horizontal sep=2.5cm, vertical sep=2cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Time relative to switch (s)},
-			ylabel={Survival probability},
-			xmin=-10, xmax=30,
-			ymin=-0.1, ymax=1.1,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			color=rainbow1of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_0.csv};
-			
-			\addplot[
-			color=rainbow2of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_1.csv};
-			
-			\addplot[
-			color=rainbow3of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_2.csv};
-			
-			\addplot[
-			color=rainbow4of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_3.csv};
-			
-			\addplot[
-			color=rainbow5of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_4.csv};
-			
-			\addplot[
-			color=rainbow6of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_5.csv};
-			
-			\addplot[
-			color=rainbow7of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_6.csv};
-			
-			\addplot[
-			color=rainbow8of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_7.csv};
-			
-			\nextgroupplot
-			[
-			ymode=log,
-			ymin=1e-2, ymax=1e0,
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Time relative to switch (s)},
-			ylabel={Survival probability},
-			xmin=-10, xmax=30,
-			%ymin=0, ymax=120,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			color=rainbow1of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_0.csv};
-			
-			\addplot[
-			color=rainbow2of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_1.csv};
-			
-			\addplot[
-			color=rainbow3of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_2.csv};
-			
-			\addplot[
-			color=rainbow4of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_3.csv};
-			
-			\addplot[
-			color=rainbow5of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_4.csv};
-			
-			\addplot[
-			color=rainbow6of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_5.csv};
-			
-			\addplot[
-			color=rainbow7of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_6.csv};
-			
-			\addplot[
-			color=rainbow8of8
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_7.csv};
-			
-			
-			\nextgroupplot
-			[
-			xlabel={Time relative to switch (s)},
-			ylabel={Survival probability},
-			xmin=-10, xmax=30,
-			ymin=-0.1, ymax=1.1,
-			%ymin=0, ymax=120,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			mark size=0.5pt,
-			color=markgrijs,
-			opacity=0.5,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_all.csv};
-			%\legend{CuSO$_4\cdot$5H$_2$O}
-			
-			\addplot[
-			color=markrood,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_deep.csv};
-			
-			\addplot[
-			color=markrood,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_shallow.csv};
-			
-			\node[align=left, color=markrood] at (4.4cm,3.3cm) {\footnotesize ${\tau_1}=2.0\pm0.1\,$s \\ \footnotesize ${\tau_2}=6.7\pm0.1\,$s};
-			
-			\nextgroupplot
-			[
-			ymode=log,
-			ymin=1e-2, ymax=1e0,
-			xlabel={Time relative to switch (s)},
-			ylabel={Survival probability},
-			xmin=-10, xmax=30,
-			%ymin=0, ymax=120,
-			%xtick={0,20,40,60,80,100},
-			%ytick={0,20,40,60,80,100,120},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			mark size=0.5pt,
-			color=markgrijs,
-			opacity=0.5,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_all.csv};
-			
-			\addplot[
-			color=markrood,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_deep.csv};
-			
-			\addplot[
-			color=markrood,
-			] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_shallow.csv};
-			
-			%\node[align=left] at (16,0.7) {\small $\eta = \SI[separate-uncertainty = true]{91(6)}{\percent}$};	
-			
-		\end{groupplot}
-		
-		
-		
+	
+	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.7cm, vertical sep=2cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers]
+	
+	\nextgroupplot
+	[
+	ybar,
+	bar width=3pt,
+	% (changed from `xtick`)
+	xlabel=Trapping site,
+	xtick distance = 1,
+	x label style={at={(axis description cs: 0.5, -0.35)},anchor=base},
+	ylabel=Lifetime (\si{\second}),
+	% (changed to an absolute value)
+	enlarge x limits={abs=0.5},
+	% ---------------------------------------------------------------------
+	% changes to get what you want
+	% ---------------------------------------------------------------------
+	ymin=0, ymax=12,
+	xmin=1, xmax=8,
+	xticklabel={\axisdefaultticklabel\vphantom{$10$}},
+	%scaled ticks=false,
+	% remove the `xticks`
+	xtick pos=left,
+	%xtick style={
+	%	/pgfplots/major tick length=0pt,
+	%},
+	%        % `ybar interval` is not what you want here I guess, because then e.g.
+	%        % the last bar is not drawn. To simulate that ...
+	%        % ... add `extra x ticks` between the `xticks` ...
+	%        extra x ticks={1.5,...,8.5},
+	%        % ... without stating any label ...
+	%        extra x tick labels={},
+	%        % ... and show the major gridlines
+	%        extra x tick style={
+	%            xmajorgrids,
+	%        },
+	legend style={font=\footnotesize, draw=none},
+	legend columns = 2,
+	]
+	\addplot+ [
+	markgrijs,
+	fill=markgrijs!50!white,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{summary_lifetimes_before_after.csv};
+	
+	\addplot+ [
+	markrood,
+	fill=markrood!50!white,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3, y error index = 4]{summary_lifetimes_before_after.csv};
+	
+	\legend{
+		$\tau_1$,
+		$\tau_2$,
+	}
+
+	\draw[thick, dashed, color=rainbow1of8]	(axis cs:0, 6.67) -- (axis cs:9, 6.67);
+	\draw[thick, dashed, color=rainbow8of8]	(axis cs:0, 2) -- (axis cs:9, 2);
+	
+	\nextgroupplot
+	[
+	xshift=4em,
+	ymode=log,
+	ymin=1e-2, ymax=1e0,
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={Time relative to switch (\si{\second})},
+	ylabel={Survival probability},
+	x label style={at={(axis description cs: 1.2, -0.35)},anchor=base},
+	xmin=-10, xmax=30,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=rainbow1of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_0.csv};
+	
+	\addplot[
+	color=rainbow2of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_1.csv};
+	
+	\addplot[
+	color=rainbow3of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_2.csv};
+	
+	\addplot[
+	color=rainbow4of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_3.csv};
+	
+	\addplot[
+	color=rainbow5of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_4.csv};
+	
+	\addplot[
+	color=rainbow6of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_5.csv};
+	
+	\addplot[
+	color=rainbow7of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_6.csv};
+	
+	\addplot[
+	color=rainbow8of8
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_trap_no_7.csv};
+	
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	ymin=1e-2, ymax=1e0,
+	%xlabel={Time relative to switch (s)},
+	%ylabel={Survival probability},
+	xmin=-10, xmax=30,
+	%ymin=0, ymax=120,
+	yticklabel=\empty,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	mark size=0.5pt,
+	color=markgrijs,
+	opacity=0.5,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error index = 2]{exponentialdecay_from_all.csv};
+	
+	\addplot[
+	color=markrood,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_deep.csv};
+	
+	\addplot[
+	color=markrood,
+	] table [col sep = comma, x index = 0, y index = 1]{exponentialdecay_from_all_fit_shallow.csv};
+	
+	\node[align=left, color=markrood] at (1cm,1cm) {\footnotesize ${\tau_1}=\SI{2.0\pm0.1}{\second}$ \\ \footnotesize ${\tau_2}=\SI{6.7\pm0.1}{\second}$};
+	
+	%\node[align=left] at (16,0.7) {\small $\eta = \SI[separate-uncertainty = true]{91(6)}{\percent}$};	
+	
+	\end{groupplot}
+	
+	
+	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{
-		Successful switch rate is 0.9124140006879945 with standard deviation of 0.056895060932698645 averaged over 6 different measurements
-		
-		lifetimes before and after switch are:
-		
-		mean 2.3629694102009218
-		std 0.12320826572428961
-		
-		mean 5.60197147836997
-		std 0.07022670848128611
-		
-		Results of increasing the trap depth from \SI{442}{\MHz} to \SI{833}{\MHz} when an atom is held in a dipole trap. a) An example fluorescence trace from a trapping site while the trap power is changed every \SI{30}{\s}. b) We normalise the average fluorescence from a single trapped atom to \num{1} and average this normalised fluorescence over all trapping sites occupied when the depth is increased. Plotting this both before and after the switch gives rise to an exponential on each side. The difference in the values of the fitted exponential curve at $t=0$ gives the fraction of atoms lost in the process of increasing the depth as \num{0.02}. c) By taking the natural logarithm on each side of $t=0$ we get straight lines from which we may extract the average lifetime of a shallow trap as \SI{3.1\pm0.1}{\s} and of a deep trap as \SI{8.2\pm0.3}{\s}.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
+	\caption[Exponential time constants per trapping site and ensemble survival probabilities associated with passive modulation of trap depth]{\textsc{(left)} Summary of exponential time constants per trapping site as labelled in \autoref{fig:8exponentials}. \textsc{(right)} Trap occupation probability relative to the time of switching and conditional on an atom being present at $t=0$ shown on a logarithmic scale for eight different traps alongside the ensemble averages and standard deviations fitted with exponentials. The extracted time constants are represented by the dashed lines on the left.}
+	\label{ensemblepassive} 
 \end{figure}
-
-
-\begin{figure}[t]
-	\vspace{0em}
-	\centering
-	\begin{subfigure}[b]{.32\linewidth}
-		\begin{tikzpicture}
-			\centering
-			\node[inner sep=0] (image) {\includegraphics[width=1.4in] {grid0blue.pdf}};;
-			\draw[white, fill=white] (0.65,1.1) rectangle (1.15,1.15);
-			\node[color=white] at (0.73,0.8) {\footnotesize \SI{20}{\micro\meter}};
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.32\linewidth}
-		\begin{tikzpicture}
-			\centering
-			\node[inner sep=0] (image) {\includegraphics[width=1.4in] {grid1blue.pdf}};;
-			
-			\node[anchor=south west, color=white] at (-49pt,-45pt) {\small $5.6$};
-			\node[anchor=south west, color=white] at (-23.667pt,-45pt) {\small $5.3$};
-			\node[anchor=south west, color=white] at (1.333pt,-45pt) {\small $5.6$};
-			\node[anchor=south west, color=white] at (27pt,-45pt) {\small $7.1$};
-			
-			\node[anchor=south west, color=white] at (-49pt, -20pt) {\small $5.3$};
-			\node[anchor=south west, color=white] at (-23.667pt, -20pt) {\small $5.5$};
-			\node[anchor=south west, color=white] at (1.333pt, -20pt) {\small $6.2$};
-			\node[anchor=south west, color=white] at (27pt, -20pt) {\small $7.5$};
-			
-			\node[anchor=south west, color=white] at (-49pt, 5pt) {\small $5.0$};
-			\node[anchor=south west, color=white] at (-23.667pt, 5pt) {\small $5.5$};
-			\node[anchor=south west, color=white] at (1.333pt, 5pt) {\small $5.5$};
-			\node[anchor=south west, color=white] at (27pt, 5pt) {\small $4.7$};
-			
-			\node[anchor=south west, color=white] at (-49pt, 30pt) {\small $4.2$};
-			\node[anchor=south west, color=white] at (-23.667pt, 30pt) {\small $5.1$};
-			\node[anchor=south west, color=white] at (1.333pt, 30pt) {\small $4.4$};
-			\node[anchor=south west, color=white] at (27pt, 30pt) {\small $4.9$};
-			
-			
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.32\linewidth}
-		\begin{tikzpicture}
-			\centering
-			\node[inner sep=0] (image) {\includegraphics[width=1.4in] {grid2blue.pdf}};;
-			\draw[white, fill=white] (0.65,1.1) rectangle (1.15,1.15);
-			\node[color=white] at (0.73,0.8) {\small $20\,\mu$m};
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in \si{\milli\watt}. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/\mathrm{e}^2$ diameter of the traps is $2.2\,\mu$m.}
-\end{figure}
-
-
+The exponential time constants for the ensemble average are $\tau_1=\SI{2.00\pm0.07}{\second}$ and $\tau_2=\SI{6.67\pm0.08}{\second}$, the latter of which differs substantially from the individual trap results. This discrepancy is likely due to the local variation in trap depth and shape, as well as the trap position with respect to the centre of the MOT.
 
 \section{Fluorescence data processing and error analysis}
 \label{erroranalysis}
+In this section, we describe the methods used to process fluorescence data from single-atom traps and analyse the associated errors that impact atom detection, measured survival probabilities and lifetimes.
+\subsection{Single-threshold atom detection and survival probability}
+A single-threshold detection scheme is used to trigger real-time operations during an experiment. In particular, this method underlies the determination of atom survival after periods where cooling light is switched off for a duration $\Delta t$, as previously outlined in \autoref{sec:singletraplifetime}. However, as we will discuss in this section, the raw survival probability requires a correction due to threshold-related detection errors. \autoref{fig:decisiontree} represents a probabilistic map of all possible outcomes in this measurement scheme, illustrating how each branch is weighted by a combination of detection fidelity and physical atom survival.
+\begin{figure}
+	\begin{tikzpicture}[grow=right, sloped]
+	
+	\node[bag, font=\small, text=rainbow1of8] (Root) {\textsc{no}}
+	child {
+		node[bag, font=\small, text=rainbow1of8] {\textsc{no},\\\textsc{reset}}
+		edge from parent 
+		node[above] {\tiny correct}
+		node[below, font=\small]  {$p$}
+	}
+	child {
+		node[bag, font=\small, text=rainbow3of8] (Root1) {\textsc{yes},\\\textsc{wait} $\Delta t$}        
+		child {
+			node[bag, font=\small, text=rainbow1of8] (Root2) {\textsc{no}}
+			child {
+				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$p$}
+			}
+			child {
+				node[bag, font=\small, text=rainbow3of8] (Root3) {\textsc{yes}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$1-p$}
+			}
+			edge from parent
+			node[above] {}
+			node[below, font=\small]  {$1$}
+		}
+		edge from parent         
+		node[above] {\tiny type I error}
+		node[below, font=\small]  {$1-p$}
+	};
+	
+	\node[bag, below= 4cm of Root, font=\small, text=rainbow3of8] {\textsc{yes}}
+	child {
+		node[bag, font=\small, text=rainbow1of8] {\textsc{no},\\\textsc{reset}}        
+		edge from parent 
+		node[above] {\tiny type II error}
+		node[below, font=\small]  {$1-p$}
+	}
+	child {
+		node[bag, font=\small, text=rainbow3of8] (Root1) {\textsc{yes}, \textsc{wait} $\Delta t$}        
+		child {
+			node[font=\small, text=rainbow1of8] (Root2) {\textsc{no}}
+			node[bag, font=\small, text=white] (Root2) {\textsc{yes}, \textsc{wait} $\Delta t$}
+			child {
+				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$p$}
+			}
+			child {
+				node[bag, font=\small, text=rainbow3of8] {\textsc{yes}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$1-p$}
+			}
+			edge from parent
+			node[above] {}
+			node[below, font=\small]  {$1-P$}
+		}
+		child {
+			node[font=\small, text=rainbow3of8] (Root2) {\textsc{yes}}
+			node[bag, font=\small, text=white] (Root2) {\textsc{yes}, \textsc{wait} $\Delta t$}
+			child {
+				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$1-p$}
+			}
+			child {
+				node[bag, font=\small, text=rainbow3of8] {\textsc{yes}}
+				edge from parent
+				node[above] {}
+				node[below, font=\small]  {$p$}
+			}
+			edge from parent
+			node[above] {}
+			node[below, font=\small]  {$P$}
+		}
+		edge from parent         
+		node[above] {\tiny correct}
+		node[below, font=\small]  {$p$}
+	};
+	
+	
+	\begin{scope}[every node/.style={text width=3cm, align=center, anchor=center, font=\small}]
+	\node[above= 0.5cm of Root3] (labels-level) {Measurement 2: Atom detected?};
+	\node[at =(labels-level-|Root2)] {Reality:\\ Atom survived?};
+	\node[at =(labels-level-|Root1)] {Measurement 1: Atom detected?};
+	\node[at =(labels-level-|Root)] {Reality:\\ Atom present?};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Decision tree representing the outcomes of a single-threshold fluorescence-based atom detection protocol in a survival probability measurement]{Decision tree representing the outcomes of a single-threshold fluorescence-based atom detection protocol in a survival probability measurement. The protocol proceeds only if an atom is detected in the initial measurement. This triggers a dark period of duration $\Delta t$, after which a second detection is used to infer whether the atom has survived in the absence of cooling light. The tree incorporates the probability $p$ of a correct readout, as well as the physical survival probability $P$, which can be expressed in terms of the former and the detected survival probability $P_\text{d}$.}
+	\label{fig:decisiontree} 
+\end{figure}
+During the first measurement, the atomic fluorescence exceeding a single threshold triggers a second measurement after a wait time of $\Delta t$. On both occasions, a correct detection occurs with a probability $p$, which depends on the achievable contrast of the detected signal as illustrated in \autoref{fig:singlethresholdcontrast}.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=2.5cm }, height=5.5cm, width=5.5cm, no markers]
+	
+	\nextgroupplot
+	[
+	no markers,
+	domain=0:10,
+	y domain=0:0.5,
+	ymin=0,
+	ymax=0.5,
+	samples=100,
+	axis lines*=left,
+	ylabel=Occurrence,
+	xlabel=Fluorescence counts,
+	%every axis y label/.style={at=(current axis.above origin),anchor=south},
+	%every axis x label/.style={at=(current axis.right of origin),anchor=west},
+	ytick={0.5},
+	yticklabels={},	
+	xtick={4,6},
+	xticklabels={$\mu_1$, $\mu_2$},
+	%ytick=\empty,
+	enlargelimits=false,
+	clip=false,
+	axis on top,
+	]
+	
+	\addplot [fill=rainbow4of8!20, draw=none, domain=0:5] {gauss(4,1)} \closedcycle;
+	\addplot [fill=rainbow2of8!20, draw=none, domain=5:10] {gauss(6,1)} \closedcycle;
+	\addplot [fill=rainbow2of8!80, draw=none, domain=0:5] {gauss(6,1)} \closedcycle;
+	\addplot [fill=rainbow4of8!80, draw=none, domain=5:10] {gauss(4,1)} \closedcycle;
+	\addplot [rainbow4of8, thick] {gauss(4,1)};
+	\addplot [rainbow2of8, thick] {gauss(6,1)};
+	
+	\addplot[color=markrood, dashed] coordinates {(5,0)(5,0.5)};
+	\node[align=left, color=markrood] at (2.5,0.45) {\footnotesize threshold};
+	
+	\node[align=left, color=rainbow2of8] at (6,0.25) {\footnotesize $p$};
+	\node[align=left, color=rainbow2of8] at (2.7,0.15) {\footnotesize $1-p$};
+	
+	\node[align=left, color=rainbow4of8] at (4,0.25) {\footnotesize $p$};
+	\node[align=left, color=rainbow4of8] at (7.3,0.15) {\footnotesize $1-p$};		
+	
+	\addplot[color=rainbow2of8] coordinates {(4,0.05)(2.7,0.12)};
+	\addplot[color=rainbow4of8] coordinates {(6,0.05)(7.3,0.12)};
+	
+	\nextgroupplot
+	[
+	ylabel=Occurrence,
+	xlabel=Fluorescence counts (a.\,u.),
+	axis on top,
+	enlargelimits=false,
+	]
+	
+	\addplot[
+	const plot, no marks,
+	draw=markrood,
+	color=markrood,
+	opacity=0.35
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam_rawdata.csv};
+	
+	\addplot[
+	color=rainbow4of8, thick, name path=blue
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam.csv};
+	
+	\addplot+[draw=none,name path=C, domain=4950*1.3062923961932331/0.1/1e6:0.2, mark=none] {0}; 
+	\addplot+[gray, fill=rainbow4of8!80] fill between[of=blue and C,soft clip={domain=4950*1.3062923961932331/0.1/1e6:0.2}];
+	
+	\addplot[
+	color=rainbow2of8, thick, name path=orange
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 2]{expgaussiansforparam.csv};
+	
+	\addplot[
+	color=rainbow3of8, thick
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 3]{expgaussiansforparam.csv};
+	
+	\addplot+[draw=none,name path=B, domain=-0.1:4950*1.3062923961932331/0.1/1e6, mark=none] {0}; 
+	\addplot+[gray, fill=rainbow2of8!80] fill between[of=orange and B,soft clip={domain=-0.1:4950*1.3062923961932331/0.1/1e6}];
+	
+	\addplot[color=markrood, dashed] coordinates {(4950*1.3062923961932331/0.1/1e6,0)(4950*1.3062923961932331/0.1/1e6,1.2e-4)};
+	\node[align=left, color=markrood] at (axis cs: 12500*1.3062923961932331/0.1/1e6, 1.1e-4) {\footnotesize threshold};
+	
+	\node[align=left, color=rainbow4of8] at (0.135,0.1e-4) {\footnotesize \SI{1}{\percent}};
+	
+	\node[align=left, color=rainbow2of8] at (0,0.1e-4) {\footnotesize \SI{4}{\percent}};
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption[Detection errors in a fluorescence count histogram for a single-atom trap]{Detection errors in a fluorescence count histogram for a single-atom trap. \textsc{(left)} Idealised illustration of two Gaussian-distributed count levels corresponding to occupied (right) and empty (left) trap states, with the probability of error $1-p$ indicated by the shaded areas beyond the threshold (dashed line). \textsc{(right)} Experimental histogram with fitted bimodal distribution and shaded misclassification errors---false positives (orange) and false negatives (blue). The asymmetry of the error areas reflects the choice of threshold relative to the actual peak positions. A naive threshold set at the local minimum between the peaks does not result in symmetric classification errors. In practice, the optimal threshold lies slightly to the left to balance false positives and false negatives.}
+	\label{fig:singlethresholdcontrast} 
+\end{figure}
+A type I error occurs when an atom is falsely detected despite not being present, while a type II error refers to failing to detect an atom that is actually in the trap. These errors distort the measured survival probability and must be accounted for to extract the true physical survival probability $P$. Following all paths in \autoref{fig:decisiontree} with two positive detections, the probability of detecting a survival $P_\text{d}$ can be expressed in terms of $p$ and $P$ as follows:
+\begin{equation}
+P_\text{d}=  (1-p)^2 + p\big(Pp + (1-P)(1-p) \big)\,,
+\end{equation}
+which can be inverted to find
+\begin{equation}
+P = \frac{P_\text{d}}{2p^2-p} + \frac{p-1}{2p^2-p},\hspace{1em} p > 0.5\,.
+\end{equation}
+In the limit of an ideal detector, we have $p\rightarrow 1$, which results in $P\rightarrow P_d$. The error $\Delta P$ in the survival probability $P$ can be expressed in terms of the error $\Delta P_\text{d}$ in the detected survival probability $P_\text{d}$ via first-order uncertainty propagation:
+\begin{equation}
+\Delta P = \Delta P_\text{d} \left| \diff{P}{P_\text{d}} \right|=\frac{1}{2p^2-p},\hspace{1em} p > 0.5\,.
+\end{equation}
+\autoref{fig:singlethresholderror} illustrates the dependence of $P_\text{d}$ on $P$ and $p$, showing that a lower state discrimination fidelity $p$ leads to increased uncertainty in the inferred survival probability.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=2.5cm }, height=5.5cm, width=5.5cm, no markers]
+	
+	\nextgroupplot
+	[
+	view={-60}{30},
+	colormap/viridis,
+	xlabel={$P$},
+	ylabel={$p$},
+	zlabel={$P_\text{d}$},
+	]
+	
+	\addplot3 [
+	surf,
+	domain=0:1,
+	y domain=0.5:1,
+	samples=20,
+	] {x*(2*y^2 - y) + 1 - y};
+	
+	\nextgroupplot
+	[
+	axis on top,
+	xlabel={$P$},
+	ylabel={$P_\text{d}$},
+	enlargelimits=false
+	]
+	
+	\plot[name path=f26,thick,opacity=0,samples=100,domain=0:1] {x*(0.75^2*2-0.75)+1-0.75};
+	\plot[name path=f25,thick,opacity=0,samples=100,domain=0:1] {0.4};
+	\plot[name path=f24,thick,opacity=0,samples=100,domain=0:1] {0.325};
+	
+	\addplot fill between[
+	of = f25 and f24,
+	soft clip={domain=0:0.2},
+	every even segment/.style  = {rainbow3of8!20}
+	];
+	
+	\addplot fill between[
+	of = f26 and f25,
+	soft clip={domain=0.2:0.4},
+	every even segment/.style  = {rainbow3of8!20}
+	];
+	
+	\addplot [fill=rainbow3of8!20, draw=none, domain=0.2:0.4] {x*(0.75^2*2-0.75)+1-0.75} \closedcycle;
+	
+	\addplot [
+	domain=0:1,
+	y domain=0:1,
+	samples=100,
+	thick,
+	color=rainbow1of8
+	] {x};
+	
+	\node[align=left, color=rainbow1of8, rotate=45] at (0.75,0.83) {\footnotesize $p=1$};
+	
+	\addplot [
+	domain=0:1,
+	y domain=0:1,
+	samples=100,
+	thick,
+	color=rainbow2of8
+	] {0.5};
+	
+	\node[align=left, color=rainbow2of8] at (0.2,0.555) {\footnotesize $p=0.5$};
+	
+	\addplot [
+	domain=0:1,
+	y domain=0:1,
+	samples=100,
+	thick,
+	color=rainbow3of8
+	] {x*(0.75^2*2-0.75)+1-0.75};
+	
+	\node[align=left, color=rainbow3of8, rotate=20.5560452] at (0.8,0.612) {\footnotesize $p=0.75$};
+	
+	\addplot [
+	domain=0:0.2,
+	y domain=0:1,
+	samples=100,
+	dashed,
+	color=rainbow3of8
+	] {0.325};
+	
+	\addplot [
+	domain=0:0.63,
+	y domain=0:1,
+	samples=100,
+	dashed,
+	color=rainbow3of8
+	] {0.4};
+	
+	\addplot [
+	domain=0:0.63,
+	y domain=0:1,
+	samples=100,
+	dashed,
+	color=rainbow3of8
+	] {0.3625};
+	
+	\draw[color=rainbow3of8, dashed] 
+	(axis cs:0.2, 0) -- (axis cs:0.2, 0.325);
+	
+	\draw[color=rainbow3of8, dashed] 
+	(axis cs:0.3, 0) -- (axis cs:0.3, 0.3625);
+	
+	\draw[color=rainbow3of8, dashed] 
+	(axis cs:0.4, 0) -- (axis cs:0.4, 0.4);
+	
+	\node[align=left, color=rainbow3of8] at (0.79,0.38) {\footnotesize $\Delta P_\text{d}$};
+	\node[align=left, color=rainbow3of8] at (0.53,0.2) {\footnotesize $\Delta P$};
+	
+	\draw[<->, rainbow3of8] (0.3,0.2) to (0.4, 0.2);
+	\draw[->, rainbow3of8] (0.65,0.3025) to (0.65, 0.3625);
+	\draw[->, rainbow3of8] (0.65,0.46) to (0.65, 0.4);
+	
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption[Detected survival probability as a function of the true atom survival probability and the state discrimination fidelity]{Detected survival probability $P_\text{d}$ as a function of the true atom survival probability $P$ and the state discrimination fidelity $p$. \textsc{(left)} Surface plot showing how $P_\text{d}$ depends on both $P$ and $p$. \textsc{(right)} Slices through the surface for fixed values of $p \in \{0.5, 0.75, 1 \}$, showing that $P_\text{d} \to P$ only in the ideal case $p \to 1$. For lower $p$, the slope $\mathrm{d}P/\mathrm{d}P_\text{d}$ grows, amplifying the uncertainty in the inferred survival probability $P$.}
+	\label{fig:singlethresholderror} 
+\end{figure}
 
-\subsection{Estimating lifetime under resonant illumination}
+\subsection{Double-threshold atom detection}
+asdf asdf asf asdf ewfwef ewf ewf ewf ewfewf
+awe fawe
+ fa ewfa
+  efeas f
+  asef aesf
+   aesf aef 
+   asef aes fae
+    f
+\subsection{Time filtering of fluorescence trace}
+\subsection{Atom detection latency}
 
-first discuss hysteresis method then show hann windows finally discuss
+
+
+When an atom is trapped in the dipole trap and illuminated with cooling light, its fluorescence signal provides a means of detecting its presence. However, various sources of noise and system latency affect the fidelity of this detection. 
+
+We begin by introducing 
+
+Next, we discuss a double-threshold (hysteresis-based) detection method, more appropriate for post-processing fluorescence traces. This approach reduces false transitions due to noise and improves state discrimination.
+
+In the third subsection, we introduce a time-filtering technique applied to fluorescence traces to suppress high-frequency noise, which can otherwise artificially reduce the apparent trap lifetime.
+
+Finally, we analyse the latency of the detection system, including the time taken for fluorescence signals to be read out, processed by software, and used to trigger experimental hardware.
+
+
+\begin{wrapfigure}[10]{l}{0.5\textwidth}
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={Set waiting time (s)},
+	ylabel={Waiting time plus latency (s)},
+	xmin=0, xmax=2.25,
+	ymin=0, ymax=2.25,
+	xtick={0,0.5,1,1.5,2},
+	xtick={0,0.5,1,1.5,2},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markrood,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1, y error expr=\thisrowno{2}*3]{darktimecalibration.csv};
+	
+	\addplot[
+	color=markrood,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{darktimecalibrationfit.csv};
+	
+	\node[font=\footnotesize, color=markrood] at (axis cs: 1.2, 0.2) {$y=0.137 + x$};
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\label{fig:LTandFR} 
+\end{wrapfigure}
+
+
+
+
 
 \begin{figure}[!t]
 	%\vspace{0.7em}
@@ -4037,7 +4151,34 @@ here, discuss the Hann windows:
 	\centering
 	\begin{tikzpicture}
 		
-		\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
+		\begin{groupplot}[group style={group size=1 by 2, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
+			
+			\nextgroupplot
+			[
+			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+			xlabel={Optical power in dipole trap (\si{\milli\watt})},
+			ylabel={Lifetime sample size},
+			xmin=0, xmax=180,
+			ymin=0, ymax=600,
+			%xtick={0,0.5,1,1.5,2},
+			%xtick={0,0.5,1,1.5,2},
+			%legend pos=north west,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			grid style=dashed,
+			]
+			
+			\addplot[
+			only marks,
+			mark = *,
+			color=markrood,
+			/pgfplots/error bars/.cd,
+			x dir = both,
+			x explicit,
+			] table [col sep = comma, x index = 0, y index = 1, x error expr=\thisrowno{2}]{samplesizesforerroranalysis.csv};
+			
+			
+			
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
@@ -4389,13 +4530,13 @@ here, discuss the Hann windows:
 			of = Hysttrace_m and Hysttrace_p,
 			]; 		
 			
-			\addlegendentry{\footnotesize \hspace{0.5em}No filter}
+			\addlegendentry{\footnotesize \hspace{0.5em}no filter}
 			\addlegendentry{\footnotesize \hspace{0.5em}\SI{400}{\ms}}
 			\addlegendentry{\footnotesize \hspace{0.5em}\SI{500}{\ms}}
 			\addlegendentry{\footnotesize \hspace{0.5em}\SI{600}{\ms}}
 			\addlegendentry{\footnotesize \hspace{0.5em}\SI{700}{\ms}}
 			\addlegendentry{\footnotesize \hspace{0.5em}\SI{800}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}Hysteresis}
+			\addlegendentry{\footnotesize \hspace{0.5em}hysteresis}
 				
 		\end{groupplot}
 		
@@ -4407,387 +4548,18 @@ here, discuss the Hann windows:
 
 how to combine datasets appendix formulas and sample sizes:
 
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Optical power in dipole trap (\si{\milli\watt})},
-			ylabel={Lifetime sample size},
-			xmin=0, xmax=180,
-			ymin=0, ymax=600,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			x dir = both,
-			x explicit,
-			] table [col sep = comma, x index = 0, y index = 1, x error expr=\thisrowno{2}]{samplesizesforerroranalysis.csv};
-			
-			\iffalse
-			\addplot[
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{darktimecalibrationfit.csv};
-			\fi
-			%\node[font=\small, color=markrood] at (axis cs: 1.2, 0.2) {$y=0.137 + x$};
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
 
 
 \subsection{Estimating dark lifetime}
 then discuss alpha stuff then 
 
-% Set the overall layout of the tree
-\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=2.4cm]
-\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=3cm]
-\tikzstyle{level 3}=[level distance=3.5cm, sibling distance=1.5cm]
-
-
-% Define styles for bags and leafs
-\tikzstyle{bag} = [text width=4em, text centered, font=\small]
-\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
-
-\begin{figure}
-\begin{tikzpicture}[grow=right, sloped]
-
-	\node[bag] (Root) {No}
-	child {
-		node[bag] {No,\\terminate}
-		edge from parent 
-		node[above] {\tiny correct}
-		node[below]  {$p$}
-	}
-	child {
-		node[bag] (Root1) {Yes,\\wait $\Delta t$}        
-		child {
-			node[bag] (Root2) {No}
-			child {
-				node[bag] {No}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$p$}
-			}
-			child {
-				node[bag] (Root3) {Yes}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$1-p$}
-			}
-			edge from parent
-			node[above] {}
-			node[below, font=\small]  {$1$}
-		}
-		edge from parent         
-		node[above] {\tiny type I error}
-		node[below, font=\small]  {$1-p$}
-	};
-	
-	\node[bag, below= 4cm of Root] {Yes}
-	child {
-		node[bag] {No,\\terminate}        
-		edge from parent 
-		node[above] {\tiny type II error}
-		node[below, font=\small]  {$1-p$}
-	}
-	child {
-		node[bag] {Yes, wait $\Delta t$}        
-		child {
-			node[bag] {No}
-			child {
-				node[bag] {No}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$p$}
-			}
-			child {
-				node[bag] {Yes}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$1-p$}
-			}
-			edge from parent
-			node[above] {}
-			node[below, font=\small]  {$1-P$}
-		}
-		child {
-			node[bag] {Yes}
-			child {
-				node[bag] {No}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$1-p$}
-			}
-			child {
-				node[bag] {Yes}
-				edge from parent
-				node[above] {}
-				node[below, font=\small]  {$p$}
-			}
-			edge from parent
-			node[above] {}
-			node[below, font=\small]  {$P$}
-		}
-		edge from parent         
-		node[above] {\tiny correct}
-		node[below, font=\small]  {$p$}
-	};
-	
-	
-	\begin{scope}[every node/.style={text width=3cm, align=center, anchor=center, font=\small}]
-		\node[above= 0.5cm of Root3] (labels-level) {Measurement 2: Atom detected?};
-		\node[at =(labels-level-|Root2)] {Reality:\\ Atom survived?};
-		\node[at =(labels-level-|Root1)] {Measurement 1: Atom detected?};
-		\node[at =(labels-level-|Root)] {Reality:\\ Atom present?};
-		
-	\end{scope}
-	
-\end{tikzpicture}
-	\caption[An example of a floating figure]{asdlfk sdfoiwe foijwe oifj weoifrj slkdjf 9wiejf oweijfwsljfr we9oijfwloeijf woeijf woejf woedijf weoifjmw eoifrj woeifj woefjw eoifj weoifj weojf } % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-\label{fig:LTandFR} 
-\end{figure}
 
 
 
 
-\begin{figure}
-\centering
-\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=2 by 2, horizontal sep=2.5cm, vertical sep=2.5cm }, height=5.5cm, width=5.5cm, no markers]
-	
-	\nextgroupplot
-	[
-	no markers,
-	domain=0:10,
-	y domain=0:0.5,
-	ymin=0,
-	ymax=0.5,
-	samples=100,
-	axis lines*=left,
-	ylabel=Occurrence,
-	xlabel=Fluorescence counts,
-	%every axis y label/.style={at=(current axis.above origin),anchor=south},
-	%every axis x label/.style={at=(current axis.right of origin),anchor=west},
-	ytick={0.5},
-	yticklabels={},	
-	xtick={4,6},
-	xticklabels={$\mu_1$, $\mu_2$},
-	%ytick=\empty,
-	enlargelimits=false,
-	clip=false,
-	axis on top,
-	]
-	
-	\addplot [fill=rainbow4of8!20, draw=none, domain=0:5] {gauss(4,1)} \closedcycle;
-	\addplot [fill=rainbow2of8!20, draw=none, domain=5:10] {gauss(6,1)} \closedcycle;
-	\addplot [fill=rainbow2of8!80, draw=none, domain=0:5] {gauss(6,1)} \closedcycle;
-	\addplot [fill=rainbow4of8!80, draw=none, domain=5:10] {gauss(4,1)} \closedcycle;
-	\addplot [rainbow4of8, thick] {gauss(4,1)};
-	\addplot [rainbow2of8, thick] {gauss(6,1)};
-	
-	\addplot[color=markrood, dashed] coordinates {(5,0)(5,0.5)};
-	\node[align=left, color=markrood] at (2.5,0.45) {\footnotesize threshold};
-	
-	\node[align=left, color=rainbow2of8] at (6,0.25) {\footnotesize $p$};
-	\node[align=left, color=rainbow2of8] at (2.7,0.15) {\footnotesize $1-p$};
-	
-	\node[align=left, color=rainbow4of8] at (4,0.25) {\footnotesize $p$};
-	\node[align=left, color=rainbow4of8] at (7.3,0.15) {\footnotesize $1-p$};		
-	
-	\addplot[color=rainbow2of8] coordinates {(4,0.05)(2.7,0.12)};
-	\addplot[color=rainbow4of8] coordinates {(6,0.05)(7.3,0.12)};
-	
-	\nextgroupplot
-	[
-	ylabel=Occurrence,
-	xlabel=Fluorescence counts (MHz),
-	axis on top,
-	enlargelimits=false
-	]
-	
-	\addplot[
-	const plot, no marks,
-	draw=markrood,
-	color=markrood,
-	opacity=0.35
-	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam_rawdata.csv};
-	
-	\addplot[
-	color=rainbow4of8, thick, name path=blue
-	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam.csv};
-	
-	\addplot+[draw=none,name path=C, domain=4950*1.3062923961932331/0.1/1e6:0.2, mark=none] {0}; 
-	\addplot+[gray, fill=rainbow4of8!80] fill between[of=blue and C,soft clip={domain=4950*1.3062923961932331/0.1/1e6:0.2}];
-	
-	\addplot[
-	color=rainbow2of8, thick, name path=orange
-	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 2]{expgaussiansforparam.csv};
-	
-	\addplot[
-	color=rainbow3of8, thick
-	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 3]{expgaussiansforparam.csv};
-	
-	\addplot+[draw=none,name path=B, domain=-0.1:4950*1.3062923961932331/0.1/1e6, mark=none] {0}; 
-	\addplot+[gray, fill=rainbow2of8!80] fill between[of=orange and B,soft clip={domain=-0.1:4950*1.3062923961932331/0.1/1e6}];
-	
-	\addplot[color=markrood, dashed] coordinates {(4950*1.3062923961932331/0.1/1e6,0)(4950*1.3062923961932331/0.1/1e6,1.2e-4)};
-	\node[align=left, color=markrood] at (axis cs: 12500*1.3062923961932331/0.1/1e6, 1.1e-4) {\footnotesize threshold};
-	
-	\node[align=left, color=rainbow4of8] at (0.135,0.1e-4) {\footnotesize \SI{1}{\percent}};
-	
-	\node[align=left, color=rainbow2of8] at (0,0.1e-4) {\footnotesize \SI{4}{\percent}};
-	
 
-	
 
-	
-	\nextgroupplot
-	[
-	view={-60}{30},
-	colormap/viridis,
-	xlabel={$P$},
-	ylabel={$p$},
-	zlabel={$P_\text{d}$},
-	]
-	
-	\addplot3 [
-	surf,
-	domain=0:1,
-	y domain=0.5:1,
-	samples=20,
-	] {x*(2*y^2 - y) + 1 - y};
-	
-	\nextgroupplot
-	[
-	axis on top,
-	xlabel={$P$},
-	ylabel={$P_\text{d}$},
-	enlargelimits=false
-	]
-	
-	\plot[name path=f26,thick,opacity=0,samples=100,domain=0:1] {x*(0.75^2*2-0.75)+1-0.75};
-	\plot[name path=f25,thick,opacity=0,samples=100,domain=0:1] {0.4};
-	\plot[name path=f24,thick,opacity=0,samples=100,domain=0:1] {0.325};
-	
-	\addplot fill between[
-	of = f25 and f24,
-	soft clip={domain=0:0.2},
-	every even segment/.style  = {rainbow3of8!20}
-	];
-	
-	\addplot fill between[
-	of = f26 and f25,
-	soft clip={domain=0.2:0.4},
-	every even segment/.style  = {rainbow3of8!20}
-	];
-	
-	\addplot [fill=rainbow3of8!20, draw=none, domain=0.2:0.4] {x*(0.75^2*2-0.75)+1-0.75} \closedcycle;
-	
-	\addplot [
-	domain=0:1,
-	y domain=0:1,
-	samples=100,
-	color=rainbow1of8
-	] {x};
-	
-	\node[align=left, color=rainbow1of8, rotate=45] at (0.75,0.83) {\footnotesize $p=1$};
-	
-	\addplot [
-	domain=0:1,
-	y domain=0:1,
-	samples=100,
-	color=rainbow2of8
-	] {0.5};
-	
-	\node[align=left, color=rainbow2of8] at (0.2,0.555) {\footnotesize $p=0.5$};
-	
-	\addplot [
-	domain=0:1,
-	y domain=0:1,
-	samples=100,
-	color=rainbow3of8
-	] {x*(0.75^2*2-0.75)+1-0.75};
-	
-	\node[align=left, color=rainbow3of8, rotate=20.5560452] at (0.8,0.612) {\footnotesize $p=0.75$};
-	
-	\addplot [
-	domain=0:0.2,
-	y domain=0:1,
-	samples=100,
-	dashed,
-	color=rainbow3of8
-	] {0.325};
-	
-	\addplot [
-	domain=0:0.63,
-	y domain=0:1,
-	samples=100,
-	dashed,
-	color=rainbow3of8
-	] {0.4};
-	
-	\addplot [
-	domain=0:0.63,
-	y domain=0:1,
-	samples=100,
-	dashed,
-	color=rainbow3of8
-	] {0.3625};
-	
-	\draw[color=rainbow3of8, dashed] 
-	(axis cs:0.2, 0) -- (axis cs:0.2, 0.325);
-	
-	\draw[color=rainbow3of8, dashed] 
-	(axis cs:0.3, 0) -- (axis cs:0.3, 0.3625);
-	
-	\draw[color=rainbow3of8, dashed] 
-	(axis cs:0.4, 0) -- (axis cs:0.4, 0.4);
-	
-	\node[align=left, color=rainbow3of8] at (0.79,0.38) {\footnotesize $\Delta P_\text{d}$};
-	\node[align=left, color=rainbow3of8] at (0.53,0.2) {\footnotesize $\Delta P$};
-	
-	\draw[<->, rainbow3of8] (0.3,0.2) to (0.4, 0.2);
-	\draw[->, rainbow3of8] (0.65,0.3025) to (0.65, 0.3625);
-	\draw[->, rainbow3of8] (0.65,0.46) to (0.65, 0.4);
-	
-	
-	\end{groupplot}
-\end{tikzpicture}
-	\caption[An example of a floating figure]{detected survival probability $P_d$ as a function of Distinguishability $p$ and atom survival probability $P$} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-\label{fig:LTandFR} 
-\end{figure}
 
-Probability of detecting a survival $P_\text{d}$, i.e. atom in measurement 1 and atom in measurement 2, in terms of actual survival probability $P$).
-\begin{equation}
-	P_\text{d}=  (1-p)^2 + p\left(Pp + (1-P)(1-p) \right)
-\end{equation}
-which can be inverted to find
-\begin{equation}
-	P = \frac{P_\text{d}}{2p^2-p} + \frac{p-1}{2p^2-p}
-\end{equation}
-limit $p\rightarrow 1$ gives $P\rightarrow P_d$ and worst case scenario $p\rightarrow 0.5$ gives $P\rightarrow \infty$, which also means infinity errors.
-\begin{equation}
-	\Delta P = \Delta P_\text{d} \left| \diff{P}{P_\text{d}} \right|=\frac{1}{2p^2-p},\hspace{1em} p > 0.5
-\end{equation}
 
 \subsection{Trap depth correction through ac-Stark shift}
 
@@ -4822,481 +4594,8 @@ limit $p\rightarrow 1$ gives $P\rightarrow P_d$ and worst case scenario $p\right
 \fi
 
 \section{Conclusion}
-We find that we are able to create single-atom dipole traps with a loading rate of \SI{0.32}{\per\second} using a shallow depth of \SI{442}{\mega\hertz}, and a lifetime of \SI{8.2}{\second} using a deeper depth of \SI{833}{\mega\hertz}. We also see that we are able to switch from a shallow trap to a deep one with \SI{98}{\percent} success in keeping the atom trapped in the process, demonstrating that increasing the depth of the trap does not disturb the atom significantly. 
+In conclusion, we have demonstrated that through modulation of the trap depth it is possible to push the average occupation probability of a dipole-force trap in the collisional blockade regime beyond the limited value of $0.5$. This method remains effective in the case of steady-state filling fractions below $0.5$, as long as there is a sufficiently large difference between the dark time and lifetime of the loading and holding regimes, respectively. Variations of the scheme involve either increasing or decreasing the trap from its loading depth upon the detection of an atom. Our proof of concept can be applied to simultaneous maximisation of filling fractions in tweezer arrays through the use of occupation-triggered holograms capable of modulating individual trapping sites on the fly. This scheme relies on an EMCCD camera continuously monitoring each trapping site, followed by an update of the hologram that increases the depth of those traps that acquired a single atom. Standard algorithms can be used to pre-compute such holograms for all required depth combinations. This scheme involves a number of operations equal to the size of the array to be filled, providing an efficient alternative to traditional filling schemes that rely on complex relocation operations.
 
-
-In an initial attempt to generate uniform holographic microtrap arrays, we observe inconsistent atom occupancy. The origin of this problem is that aberrations induced by the optics alter the shape and depth of the microtraps. This effect can be mitigated by using the SLM for aberration correction \cite{imr2010,Kim2019} and by using iterative feedback loops that correct each microtrap based on measurements of both the trapping and fluorescence light \cite{Tamura2016}.
-
-
-
-
-% - by this point will have defined the experimental setup fully and we're at the stage where we the reader knows we have a 1 micron (well 1.6 micron with M^2 factor) trap within a MOT. 
-% - have also made reference to the SLM and therefore know we have multiple identical traps (but that this isn't a big deal like, it just means faster data collection). 
-% - also have discussed what parameters will have an effect on trap behaviour (namely - trap depth and MOT detuning are the easily experimentally controllable things that will have an obvious effect... and they are closely linked)
-% - all of the parameters we actually use will have been detailed in the experimental setup section too (i.e. vacuum pressure, mot powers, trap size, mot detuning; will have also explained that we put a small sinusoidal oscillation on the MOT frequency to wash out interference fringes and give a more reliably constant local MOT density)
-\iffalse
-We systematically investigate the effects of the depth of the dipole-force trap on the average lifetime, loading rate and filling ratio of the trap. We vary the power per trap between \SI{18.5}{\milli\watt} and \SI{124.0}{\milli\watt} by changing the voltage sent to the AOM in the trapping light beam path. These powers were chosen as the minimum power at which we observe the traps ever being occupied and the maximum power at which single occupation of the trap can be reliably observed.
-
-%\subsection{Methods}
-
-For each chosen depth, we use the single-atom imaging camera to register the fluorescence emitted from all traps for $20$ minutes with a time resolution of \SI{250}{\ms}. In combination with a high EM gain of $800$, this allows us to clearly distinguish when there is an atom in a trap. Even for deep traps, where the large Stark shifts reduce the fluorescence rate drastically\footnote{We note that at these kinds of Stark shifts we wouldn't actually expect the cooling to work or to observe any significant fluorescence; we will come back to this in (reference ahead to the the modelling section)}, the signal-to-noise ratio is excellent. This process is carried out with the MOT running, so that we may observe fluorescence light.
-
-\fi
-
-%We take an acquisition using the single-atom imaging camera for each of the trap depths that we use; in each case the acquisition is \num{5000} frames long and each frame has an exposure time of \SI{250}{\ms} (i.e. approximately a \num{20} minute acquisition in total). This long exposure time is necessary, as is a high EM gain of \num{800}, in order to get a good enough signal-to-noise ratio to clearly distinguish when there is an atom in a trap. This is particularly the case for deep traps where we also have greater Stark shifts and hence less fluorescence from the trapped atoms\footnote{We note that at these kinds of Stark shifts we wouldn't actually expect the cooling to work or to observe any significant fluorescence; we will come back to this in (reference ahead to the the modelling section)}, making for a weaker signal. At the trapping light powers we use, enough scattered light gets through the \SI{780}{\nm} bandpass filter in front of the camera that we have a significant amount of background noise.
-
-\iffalse
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\textwidth]{singleAtomGraph_example.pdf}
-	\caption{A typical graph of observed fluorescence as a function of time for a single-atom dipole trap. The graph shows two distinct levels, corresponding to an empty trap (lower level) and a trap occupied by a single atom (upper level).}
-	\label{fig:singleAtomGraph}
-\end{figure}
-
-
-
-From the fluorescence data for each of the trapping sites we calculate an average lifetime, filling ratio, and loading rate for each combination of the parameters. An example single-atom fluorescence trace is shown in \cref{fig:singleAtomGraph}. We see that a single-atom trap exhibits two distinct levels of fluorescence. We say that a trap is occupied when its fluorescence exceeds a threshold value that is defined as half-way between the average lower level fluorescence and the average upper level fluorescence. The filling ratio of a trap is the fraction of the time that it is occupied, i.e. the percentage of data points in the trace that are above the threshold. To determine the lifetime we find, for each trap, every instance that it is occupied and measure the length of time it is occupied for. We bin the data to form a histogram and fit an exponential decay function from which we extract the average lifetime. We do the same with the sections for which the trap is empty to determine the average loading time, from which we obtain the loading rate as the reciprocal. We note that in the limit that light-assisted collisions totally dominate loss from the trap, the filling ratio tends to \num{0.5} and thus the average loading time and the average lifetime will be the same. 
-
-
-
-%\subsection{Results}
-
-The results of varying the trap depth are shown in \cref{table:depthSweep}. 
-
-\begin{table}[]
-	\centering
-	%\vspace{5mm}
-	\begin{tabular}{llllll} \toprule
-		Power (\si{\milli\watt}}{unit commands}) & Depth (\si{\mega\hertz}) & Lifetime (\si{\second}) & filling ratio & Load Rate (\si{\per\second}) \\ \midrule
-		18.5 & 160 & \num{0.3 \pm 0.2} & \num{0.02 \pm 0.01} & \num{0.07 \pm 0.003} \\ 
-		34.1 & 293 & \num{3.4 \pm 0.3} & \num{0.46 \pm 0.01} & \num{0.22 \pm 0.006} \\ 
-		51.3 & 442 & \num{6.6 \pm 0.4} & \num{0.49 \pm 0.02} & \num{0.15 \pm 0.006} \\ 
-		66.6 & 573 & \num{7.8 \pm 0.4} & \num{0.47 \pm 0.02} & \num{0.11 \pm 0.007} \\ 
-		81.0 & 697 & \num{9.8 \pm 0.5} & \num{0.43 \pm 0.02} & \num{0.08 \pm 0.007} \\ 
-		96.8 & 833 & \num{10.1 \pm 0.4} & \num{0.40 \pm 0.02} & \num{0.07 \pm 0.006} \\ 
-		109.8 & 945 & \num{9.5 \pm 0.4} & \num{0.39 \pm 0.02} & \num{0.07 \pm 0.008} \\ 
-		124.0 & 1069 & \num{9.8 \pm 0.5} & \num{0.36 \pm 0.02} & \num{0.06 \pm 0.006}  \\ \bottomrule
-	\end{tabular} \\
-	\caption{Results of varying the power per dipole trap, for \num{10} trapping sites that are identical up to the limits outlined in (REF the experimental setup section). The errors on the lifetime and loading rate are taken from the \SI{90}{\percent} confidence intervals of the exponential fits, while the error on the filling ratio is the standard deviation between the values observed at each of the \num{10} trapping sites.}
-	\label{table:depthSweep}
-\end{table}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\textwidth]{gridData.pdf}
-	\caption{Measured average lifetime, loading rate and filling ratio as a function of trap power.}
-	\label{fig:gridData}
-\end{figure}
-
-In \cref{fig:gridData} we plot the lifetime, loading rate and filling ratio as a function of trap power. We see that the lifetime increases as we put more power into the trap to make it deeper. Meanwhile after an initial rise, corresponding to the trap power reaching the required threshold to successfully trap an atom, we see the filling ratio and loading rate both drop as the power increases.
-
-Qualitatively speaking, we would expect shallower traps to capture atoms more readily - the Stark shift is lower and hence the MOT cooling is more effective, so a greater proportion of the surrounding atoms may be trapped. Meanwhile, it also makes sense that deeper traps would generally keep an atom held for longer, since only the colder atoms will be capable of being trapped in the first place and we would expect colder atoms to remain trapped for longer on average.
-
-
-\section{Getting the best of both worlds}
-
-We have seen that a shallower trap gives us a faster loading rate, while a deeper trap gives a longer lifetime. This result implies that one can use a fast-loading trap of shallow depth at first, and a deep trap of long lifetime once and atom is trapped. This would require starting out with a shallow trap and increasing the depth at the very moment that an atom enters it.
-
-We demonstrate this concept without actually implementing such an active feedback based upon the presence of an atom; rather, we switch the trap depth at fixed points in time using the AOM in the trapping light beam path and post-select on atoms that were present when the switch from a shallow trap to a deep trap is made. For each such atom we may then trace backwards in time to see at what point that atom entered the shallow trap, and forwards in time to see how long the atom remained in the deep trap.
-\fi
-
-
-
-
-Based on these results, we choose a loading depth of $d_\mathrm{l} = \SI{442}{\mega\hertz}$ (i.e. a power per trap of \SI{34.1}{\milli\watt}) and a holding depth of $d_\mathrm{h} = \SI{833}{\mega\hertz}$ (i.e. a power per trap of \SI{96.8}{\milli\watt}).
-
-
-
-
-
-
-\subsection{Methods}
-\label{subsec:switchMethod}
-
-
-
-
-
-
-
-
-
-\iffalse
-The result of stacking up the fluorescence traces for atoms present when the trap depth is increased, as described in \cref{subsec:switchMethod}, is displayed in \cref{fig:switchData}b. We have separately normalised the average fluorescence for a single atom to \num{1} for each of the two regimes. We find \num{623} instances where an atom was present at the time that the switch was made; this is in line with our expectation that we would see approximately \num{600} such occurrences. The data here is presented in units of counts per second and per trap (i.e. after stacking up normalised fluorescence traces we divide by \num{623} - the number of fluorescence traces making up the graph). We see an exponential decay either side of $t=0$. We plot the same data with a log-linear scale in \cite{fig:switchData}c. From the gradient $d\ln(\mathrm{count\,\,rate})/dt$ we extract average lifetimes for a shallow and a deep trap as \SI{3.1\pm0.1}{\s} and \SI{8.2\pm0.3}{\s} respectively. 
-
-For the shallow depth we measure an average filling ratio (across all \num{10} sites at all periods of low power) of \num{0.48}. The fact that this is so close to \num{0.5} means we can take the lifetime to be equivalent to the loading time. This gives us a loading rate of $1/3.1 = \SI{0.32}{\per\second}$ for the shallow trap. We have thus demonstrated that we can load atoms fast by using shallow traps, then keep these atoms trapped for longer by increasing the depth of the traps. 
-
-One important question remains: with what success do we keep the atom trapped while increasing the depth? In other words, do we ever lose the trapped atom as a result of changing the depth of the trap? We see in \cite{fig:switchData}a two instances at which the atom remains trapped while the depth is increased since the background-corrected fluorescence drops immediately to the new value for an occupied deep trap rather than falling to zero (we also see one instance where the trap is empty at the moment in time that the switch is made). But are we always this successful? We have this information in \cite{fig:switchData}b. The height of the left-hand exponential, i.e. the data for before the depth is increased, is \num{1} by definition of how the data is selected. The height of the right-hand exponential at $t=0$ tells us what fraction of the atoms are still trapped the instant after the depth is increased. We find that we successfully keep $98\%$ of the atoms.
-
-
-
-\fi
-%
-%
-%% 1. behaviour as a function of depth
-%% 2. methods for collecting depth change data
-%% 3. results of depth change data
-%
-%(maybe this needs a better name...? basically a section of how we do all the pre-requisite shit for the cool stuff to work)
-%
-%\begin{itemize}
-%  \item we generate holograms using an adaptive  algorithm which enables us to get grids of trap with high uniformity.. ie all the same depth (quote the coefficient of variation)
-%  \item we scan MOT detunings and trap powers to identify different regimes (fast loading vs long lifetime) ... i have graphs that can be included here
-%  \item we use a DAQ card to send triggers to change the total power via an AOM every 30 seconds to switch between these regimes and post-select on atoms that were present at the time a switch was made from shallow (fast loading) to deep (long lifetime) 
-%  \item include enough description of the post-selection process and how we count backwards/forwards until atom is lost, plus equivalence of lifetime and inverse of loading rate based on filling ratio of approx 50\%, to be convincing
-%  \item mention the process of normalising the fluorescence because the fluorescence detected is different in each regime due to the differing stark shifts 
-%  \item anything else key about our process that i've missed here?
-%\end{itemize}
-% 
-%\section{Results}
-% 
-%\begin{itemize}
-%  \item present the graphs from my thesis showing that we basically lose no atoms in the process of switching (98\% success) and that we have exponential decays with different timescales in the shallow vs deep regime
-%  \item quote the lifetimes in each regime and calculate an effective obtainable filling ratio (72\%) if we were able to use this concept to selectively deepen a trap when an atom enters it
-%\end{itemize}
-% 
-
-
-
-\subsection{Dynamic holograms for moving atoms}
-\label{exp3}
-Once it is possible to fill holographic static microtraps located inside the optical cavity (\autoref{exp4} and \autoref{exp5}), dynamic holograms are necessary to enable selective positioning of single atoms in the optical field mode. The main problem is caused by intensity fluctuations in the trapping potential which are the result of sudden phase changes of a liquid crystal SLM \cite{McGloin2003}. Before a potential solution can be implemented (phase induction for successive phase continuity \cite{Kim2019}), we need to quantify the extent to which the lifetimes are affected during the transport of atoms in this way.
-
-
-
-\section{Conclusion}
-
-
-These findings are backed up by our simulations... [more text needed once the simulation results are clear]
-
-%\begin{itemize}
-%  \item re-state the observed lifetimes in each regime and the fact that we were able to switch from shallow to deep with 98\% success in keeping an atom trapped
-%  \item re-iterate that we have demonstrated the capability to exceed the collisional blockade filling ratio limit by using dynamic trap parameters 
-%  \item all that is needed is the ability to selectively lower trap depths based on detection of an atom
-%  \item push the significance of this ability to create these kinds of traps
-%\end{itemize}
-
-
-\iffalse
-For a single dipole trap such an active feedback is straightforward to implement, using an AOM to change the trapping light power as has been done here. To selectively lower the depth of individual traps within a larger array presents a further challenge. In this case the approach would be to utilise an SLM to control the relative power at each trapping site independently. The standard iterative phase-retrieval algorithms are capable of creating multiple traps of differing depths, and a ``power dump" site could be used to fix the absolute powers of the traps. One hurdle to be overcome would be that these iterative algorithms exploit phase freedom in the plane in which the traps are formed. Phase jumps at the trapping site when lowering the trap depths would be expected to disturb the trapped single atoms and lead to higher loss rates on switching depths. 
-\fi
-
-
-%%% THOMAS BARRETT BELOW:
-
-\iffalse
-
-This chapter details the theory underpinning the single-photon source that has been built.
-
-\crefbf{sec:IntroductionToCavityQED} provides an introduction to the properties of optical resonators and how they couple to a single atom.  Simple two- and three-level atoms are considered and it is shown how coupling the latter as a $\Lambda$-system allows for population transfer between two ground levels, producing a photon.
-
-\crefbf{sec:SinglePhotonGeneration} expands on this system, describing how a V-STIRAP process can be used to produce a single photon in a well defined quantum state.  This process lies at the heart of the source and, after it is discussed in principle, a brief history of its practical applications in the lab is provided.  This context allows us to conclude by discussing the precise scheme we chose to implement.
-\pagebreak
-%----------------------------------------------------------------------------------------
-%	SECTION_: Introduction to cavity QED
-%----------------------------------------------------------------------------------------
-\section{Introduction to cavity QED}
-\label{sec:IntroductionToCavityQED}
-
-Cavity Quantum-Electrodynamics (cavity QED) studies the interaction of quantum emitters -- typically and in our case consisting of an individual atom -- with a single mode of the electromagnetic field.  A photon is the quantum of the electromagnetic field, the smallest possible excitation, and it follows that in the regime of single or few photons, their interaction with a single atom is correspondingly weak. Moreover, in free space the electromagnetic field is made up of a continuum of modes, supporting any and all frequencies of light.  An optical cavity surrounding the emitter can be used to effectively isolate a single mode and greatly enhance this interaction.
-%----------------------------------------------------------------------------------------
-%	SUBSECTION_: Fabry-Perot cavities
-%----------------------------------------------------------------------------------------
-\subsection{Fabry--P\'{e}rot cavities}
-\label{sec:FabryPerotCavities}
-
-\subsubsection*{Transmission and enhancement}
-
- A Fabry--P\'{e}rot cavity is an optical resonator consisting of two surfaces between which light is reflected back and forth many times.  For certain resonant frequencies this sets up a standing wave  where the power of light incident on the cavity is multiplied inside the cavity by a factor $\Fin$, the finesse. A simple cavity can be modelled as shown in \cref{fig:FPcavityTransmissionDerivation}, using mirrors with coefficients of reflection and transmission as $R_{i}$ and $T_{i}$ respectively, related by $R_{i} + T_{i} = 1$, separated by a distance $L\sub{cav}$.  For an incident light field $E\sub{0}$, the transmission can be found by summing the individual terms at the output mirror corresponding to the transmitted light after each round trip,
-\begin{equation}
-E\sub{T} = (T + T R \\mathrm{e}^{\ii \phi} + T R^2 \\mathrm{e}^{2\ii \phi} + \dots)E\sub{0} = \frac{T}{1-R \\mathrm{e}^{\ii \phi}}E\sub{0},
-\label{eq:FPtransmissionField}
-\end{equation} 
-where $R = \sqrt{R\sub{1}R\sub{2}}$, $T = \sqrt{T\sub{1}T\sub{2}}$ and $\phi = 2L\sub{cav} \frac{2\pi}{\lambda}$ is the round trip phase of the light with wavelength $\lambda$.
-
-\captionsetup[subfigure]{labelfont={normalfont,small}}
-\begin{figure}[t]
-\centering
-\begin{subfigure}{0.48\textwidth}
-  \centering
-  \includegraphics[clip,trim=0mm -1.6mm 0mm -1.7mm]{"FP cavity transmission derivation".pdf}
-  \caption{\label{fig:FPcavityTransmissionDerivation}}
-\end{subfigure}
-\begin{subfigure}{0.48\textwidth}
-  \centering
-   \includegraphics[width=\textwidth]{"FP cavity transmission".pdf}
-  \caption{\label{fig:FPcavityTransmission}}
-\end{subfigure}
-\label{fig:FPcavity}
-\caption[Transmission of light through a Fabry--P\'{e}rot cavity.]{(a) Transmission of an incident electric field after consecutive round trips of a Fabry--P\'{e}rot cavity made of mirrors with coefficients of reflectivity and transmission denoted $R_{i}$ and $T_{i}$ respectively.  (b) Transmission intensity through a Fabry--P\'{e}rot cavity as a function of the frequency of the incident light for different finesse values, $\Fin$.  The free spectral range, $\Delta\omega\sub{FSR}$, remains unchanged as the linewidth, $\Delta\omega\sub{FWHM}$, narrows for a higher finesse.}
-\end{figure}
-\clearcaptionsetup{subfigure}
-
-
-The intensity of the transmitted light is given by the square of the field~\cite{ismail16},
-\begin{equation}
-\begin{aligned}
-I\sub{T} &= \abs{\frac{T}{1-R \mathrm{e}^{i \phi}}E\sub{0}}^2 \\
-&= \frac{T^2}{(1-R)^2} \frac{1}{1+\frac{4R}{(1-R)^2}\sin(\frac{\phi}{2})^2}E_0^2.
-\label{eq:FPtransmissionIntensity}
-\end{aligned}
-\end{equation} 
-The dependence of transmitted intensity on $\phi$ corresponds to certain resonant wavelengths, $\lambda\sub{res}$, of light interfering constructively within the cavity. Maximal transmission occurs when
-\begin{equation}
-\begin{aligned}
-	\frac{\phi}{2} &= L\sub{cav} \frac{2\pi}{\lambda\sub{res}} = L\sub{cav} \frac{\omega\sub{res}}{c} = n\pi, \quad n \in \Z^+ \\
-	\implies \omega\sub{res} &= \frac{\pi c}{L\sub{cav}}n.
-\label{eq:FPtransmissionPeaks}
-\end{aligned}
-\end{equation} 
-with the resonant frequencies, $\omega\sub{res}$, separated by the free spectral range of the cavity,
-\begin{equation}
-	\Delta\omega\sub{FSR} = \frac{\pi c}{L\sub{cav}}.  
-\label{eq:FPtransmissionFSR}
-\end{equation} 
-This is shown in \cref{fig:FPcavityTransmission} where the spectral width of the transmission peaks is denoted by the cavity linewidth $\Delta\omega\sub{FWHM}$.  To find an analytical form for the linewidth we can solve \cref{eq:FPtransmissionIntensity} to find the frequencies corresponding to half the maximal transmission.  This gives \cite{ismail16,fox06},
-\begin{equation}
-	\Delta\omega\sub{FWHM} = \Delta\omega\sub{FSR} \frac{1-R}{\pi\sqrt{R}} = \frac{\Delta\omega\sub{FSR}}{\Fin},
-	\label{eq:FPtransmissionFWHM}
-\end{equation}
-where $\Fin = \frac{\pi \sqrt{R}}{1-R}$ is defined as the cavity finesse.  Physically the finesse is defined by the ratio of the free spectral range to the cavity linewidth, but it also characterises the enhancement of a resonant light field in the cavity.
-
-Consider the change in intensity associated with a single round trip of the cavity -- taking time $t\sub{trip}$,
-\begin{equation}
-\begin{aligned}
-	&I(t_0 + t\sub{trip}) = I(t_0)R_{1}R_{2}, \\
-	\implies &I(t_0 + t\sub{trip}) - I(t_0) = \Delta I = -I(t_0)(1-R^2).
-	\label{eq:FPcavityRoundTripIntChange}
-\end{aligned}	
-\end{equation}
-For mirrors with high reflectivities and a sufficiently short cavity we can then write
-\begin{equation}
-\begin{aligned}
-	\frac{\diffd I}{\diffd t} \approx \frac{\Delta I}{t\sub{trip}} &= -I_0\frac{1-R^2}{2L\sub{cav}/c}, \\
-	&= -I_0 \frac{1-R^2}{2\pi}\Delta\omega\sub{FSR}, \\
-	&= -I_0 \frac{\sqrt{R}(1+R)}{2}\Delta\omega\sub{FWHM}, \\
-	&\approx -I_0 \Delta\omega\sub{FWHM}.
-\end{aligned}	
-\end{equation}
-The decay of light out of the cavity is then
-\begin{equation}
-	I(t) = I_0 \\mathrm{e}^{-\Delta\omega\sub{FWHM}t},
-	\label{eq:FPcavityIntensityDecay}
-\end{equation}
-and it follows that the rate at which the field is emitted from the cavity is given by
-\begin{equation}
-	E(t) = E_0 \\mathrm{e}^{-\left(\Delta\omega\sub{FWHM}/2\right)t} = E_0 \\mathrm{e}^{-\kappa t},
-	\label{eq:FPcavityFieldDecay}
-\end{equation}
-where have defined $\kappa$, the cavity field decay rate, as\footnote{This definition of $\kappa$, by the rate at which the electric field leaks from the cavity, is widely used, however a note of caution -- some authors define $\kappa$ by the rate at which the intensity leaks from the cavity, leading to ambiguity over a factor of 2.}
-\begin{equation}
-	\kappa = \frac{\Delta\omega\sub{FWHM}}{2}.
-	\label{eq:FPcavityKappa}
-\end{equation}
-We can now see the physical interpretation of the finesse as the enhancement of resonant light in the cavity,
-\begin{equation}
-\begin{aligned}
-	\Fin &= \frac{\Delta\omega\sub{FSR}}{\Delta\omega\sub{FWHM}} = \frac{\pi c}{L\sub{cav}}	 \frac{1}{2 \kappa}, \\
-	&\approx \frac{\text{time for decay to $\sfrac{1}{\e}$ intensity}}{\text{time to travel length of cavity}}.
-	\label{eq:FPcavityFinessePhysicalInterpretation}
-\end{aligned}
-\end{equation}
-At a high level it can be considered as the average number of times a single photon will bounce between the mirrors before it is emitted and, as such, the number of times enhanced the field intensity is at the antinodes of the standing wave set up by resonant light    in the cavity.
-
-\subsubsection*{Mode structure}
-
-The electric field of the cavity mode forms a standing wave in the cavity, but the profile of this mode is given by the paraxial wave equation with boundary conditions defined by the mirror surfaces.  The general form of these solutions in elliptical coordinates is given by the Ince-Gaussian polynomials \cite{bandres04}.  In the limiting cases of cartesian or cylindrical coordinates these solutions are then expressed in terms of the Hermite-Gaussian and Laguerre-Gaussian polynomials.
-
-The fundamental Hermite-Gaussian \TEM{00} (transverse electro-magnetic) mode -- to which we interact with in this work -- propagating in the $z$-direction can be expressed as
-\begin{equation}
-\begin{split}
-	E_{00}(x,y,z)=&E_0 \frac{\omega_0}{\omega(z)}\exp \Bigg\{ -\frac{r^2}{\omega(z)^2} \\&+ \ii \left[ \frac{k r^2}{2(z + z\sub{R}^2/z)} - k(z - \frac{L\sub{cav}}{2}) - \Psi\sub{G}(z) \right] \Bigg\},
-\end{split}
-	\label{eq:tem00}
-\end{equation}
-where $r^2=x^2+y^2$.  The beam width at a distance $z$ from the waist, $\omega(z)$, and the Gouy phase, $\Psi\sub{G}$, can be expressed in terms of the cavity waist, $\omega_0$, and Rayleigh range, $z\sub{R}$, as \cite{svelto10}
-\begin{align}
-	\omega(z) &= \omega_0\sqrt{ 1+ \left( \frac{z}{z\sub{R}} \right)^2},
-	\label{eq:beamWaistZ}\\
-	\Psi\sub{G}(z) &= \arctan \left( \frac{z}{z\sub{R}} \right),
-	\label{eq:gouyPhase}
-\end{align}
-with
-\begin{align}
-	z\sub{R} &= \frac{\pi \omega_{0}^2}{\lambda},
-	\label{eq:rayleighRange}\\
-	\omega_{0}^2 &= \frac{\lambda}{\pi} \sqrt{ \frac{L\sub{cav}}{2} ( R\sub{cav} - \frac{L\sub{cav}}{2} ) },
-	\label{eq:beamWaist0}
-\end{align}
-where  $R\sub{cav}$ is the radius of curvature of the cavity mirrors. Physically the Rayleigh range is the distance over which the cross sectional area of the beam doubles.  The \TEM{00} Gaussian mode volume is given by\footnotemark{} \cite{barter16}
-\begin{equation}
-	V\sub{m} = \frac{\pi \omega_{0}^2}{2}L\sub{cav}.
-	\label{eq:cavModeVolume}
-\end{equation}
-Higher order modes, \TEM{lm}, pick up an additional phase $(l+m)\Psi\sub{G}$, thus the Guoy phase can be seen to lift the degeneracy of these modes.  The frequency spacing of subsequent higher order modes is then given by \cite{dong14}
-\begin{equation}
-	\Delta\omega\sub{trans} = \frac{\Delta\omega\sub{FSR}}{\pi}\arccos\left(1-\frac{L\sub{cav}}{R\sub{cav}}\right) = \frac{c}{L\sub{cav}}\arccos\left( 1-\frac{L\sub{cav}}{R\sub{cav}} \right).
-	\label{eq:transModeSpacing}	
-\end{equation}
-\footnotetext{Whilst this may appear to approximate the cavity mode as a cylinder of radius $\omega_{0}$ and length $L\sub{cav}$ these results are in fact valid for any shape of the fundamental \TEM{00} mode.}
-
-
-
-
-%----------------------------------------------------------------------------------------
-%	SECTION_: Single photon generation
-%----------------------------------------------------------------------------------------
-\section{Single photon generation}
-\label{sec:SinglePhotonGeneration}
-
-%----------------------------------------------------------------------------------------
-%	SUBSECTION_: Single photon generation
-%----------------------------------------------------------------------------------------
-\subsection{V-STIRAP}
-\label{sec:V-STIRAP}
-
-%----------------------------------------------------------------------------------------
-%	SUBSUBSECTION_: Process overview
-%----------------------------------------------------------------------------------------
-\subsubsection{Process overview}
-
-We can now consider a special case of the system described in \cref{sec:threeLevelAtom:LambdaSystems} where a three-level atom is coupled to the vacuum mode of the cavity.  Following our previous notation this is the case where $n=1$ and the coupled triplet of states is $\{\ket{u,0},\ket{e,0},\ket{g,1}\}$.  Recall that the `dark' eigenstate, $\ket{\phi^0_1}$, has the entire atomic population distributed across the two ground states by the relative strengths of the couplings between these states to the excited level (see \cref{eq:3lvlTripletStates,eq:3lvlTripletStatesMixingAngles}).
-
-Consider the atom initialised in state $\ket{u,0}$ whereon a driving laser, $\Omega(t)$, couples $\ket{u,0} \leftrightarrow \ket{e,0}$.  The coupling $\ket{g,1} \leftrightarrow \ket{e,0}$ is provided by the cavity and, on the timescales we will consider, has a constant strength.  A suitably chosen diving pulse can then coherently transfer the atomic population through the `dark' state to $\ket{g,1}$, producing a single photon.  This photon will be emitted from the cavity by the decay rate, $\kappa$, leaving the system in $\ket{g,0}$ -- decoupled from further evolution.  This system is shown in \cref{fig:3lvlSTIRAP} where our previous illustration of the atom-cavity $\Lambda$-system has been updated to include the decay channels as well as the final decoupled state $\ket{g,0}$.  Although the spontaneous decay from the excited level is shown, in the adiabatic limit of slowly changing coupling strengths we can approximate system at any time with the solutions of the time-independent Hamiltonian -- effectively eliminating the excited state and thus spontaneous emission.
-
-\begin{figure}[t]
-		\centerline{
-			\includegraphics{"3 level STIRAP".pdf}
-			}
-		\caption[Basic 3-level lambda system for V-STIRAP]{The three-level $\Lambda$-system for V-STIRAP with an additional level shown for photon decay from the cavity.}
-		\label{fig:3lvlSTIRAP} 
-\end{figure}
-
-This process, where one coupling is provided by the vacuum state of the cavity is mode is called V-STIRAP (Vacuum-induced STImulated Raman Adiabatic Passage) \cite{kuhn02, kuhn10, nisbet11, nisbet12, nisbet13, holleczek15, dilley12, barter16}.
-
-%----------------------------------------------------------------------------------------
-%	SUBSUBSECTION_: Controlling the photon wavepacket
-%----------------------------------------------------------------------------------------
-\subsubsection{Controlling the photon wavepacket}
-
-As the process is adiabatic, with the atomic populations following the slowly changing coupling strengths, it provides a high degree of control over the quantum state of the system and, it follows, the photon.  One such example is the arbitrary shaping of the emitted wavepacket.  Consider the triplet of coupled states, $\{\ket{u,0},\ket{e,0},\ket{g,1}\}$, and modify the interaction Hamiltonian described in \cref{eq:3lvlInteractionHamiltonian,eq:3lvlInteractionHamiltonian0,eq:3lvlInteractionHamiltonianC,eq:3lvlInteractionHamiltonianL} to include the previously discussed decays,
-\begin{equation}
-	\Ham\dash = \Ham - \ii\hbar \left( \kappa \creop\annop + \gamma \ketbra{e}{e} \right).
-	\label{eq:stirapInteractionHamiltonian}
-\end{equation}
-With the probability amplitude of state $i$ given by $c_i(t)$ such that the systems state evolves as $c_u(t)\ket{u,0} + c_e(t)\ket{e,0} + c_g(t)\ket{g,1}$ and assuming $\Delta\sub{L}=\Delta\sub{C}=0$ we can write the time-dependent Schr{\"o}dinger equation for the system as
-\begin{equation}
-	  \ii\hbar \frac{\diffd}{\diffd t} \mqty(c_u(t) \\ c_e(t) \\ c_g(t)) = -\frac{\hbar}{2} \mqty(0 & \Omega(t) & 0 \\ \Omega(t) & 2\ii\gamma & 2g_0 \\ 0 & 2g_0 & 2\ii\kappa) \mqty(c_u(t) \\ c_e(t) \\ c_g(t)),
-	\label{eq:stirapTDSE}
-\end{equation}
-giving the set of coupled equations
-\begin{align}
-	-\ii \dot{c_u}(t) &= \frac{1}{2} \Omega(t) c_e, \label{eq:stirapTDSEcu}\\
-	-\ii \dot{c_e}(t) &= \frac{1}{2}\Omega(t)c_u(t) + \ii\gamma c_e(t) + g_0 c_g(t), \label{eq:stirapTDSEce}\\
-	-\ii \dot{c_g}(t) &= g_0 c_e + \ii\kappa c_g(t). \label{eq:stirapTDSEcg}
-\end{align}
-We can now ask the question -- what shaped driving pulse, $\Omega(t)$, will emit a single photon with wavepacket
-\begin{equation}
-	\psi\sub{ph}(t) = \sqrt{\eta}\psi_0(t),
-	\label{eq:stirapTargetWavepacket}
-\end{equation}
-where $\psi_0(t)$ is the normalised wavepacket and $\eta$ is the efficiency with which the photon is emitted -- which we answer following the procedure from \cite{kuhn09}.  From \cref{eq:stirapTDSEcu} we have
-\begin{equation}
-	\Omega(t) = -2\ii \frac{\dot{c_u}(t)}{c_e(t)}.
-	\label{eq:stirapAnalyticalRabiFreq}
-\end{equation}
-From here we look to find analytical forms for $\dot{c_u}(t)$ and $c_e(t)$.  Formalising the assumption that there is a rapid decay from $\ket{g,1}$ to $\ket{g,0}$ we conclude that the photon wavepacket will follow the population in $\ket{g,1}$,
-\begin{equation}
-	c_g(t) = \frac{1}{\sqrt{2\kappa}} \psi\sub{ph}(t).
-	\label{eq:stirapAnalyticalCg}
-\end{equation}
-This gives the excited state amplitude evolution in terms of the photon wavepacket when combined with the rearranged form of \cref{eq:stirapTDSEcg},
-\begin{equation}
-	c_e(t) = -\frac{\ii}{g} \left[ \dot{c_g}(t) + \kappa c_g(t) \right].
-	\label{eq:stirapAnalyticalCe}
-\end{equation}
-
-A clear form for $c_u(t)$ cannot be inferred from the Hamiltonian and so we instead consider the population of the system.  The population of each state is given by the diagonal density matrix elements of the system, $\rho_{ii} = c_{i}c_{i}^{*}$, and with the system comprising only three states and two loss channels the population in $\ket{u,0}$ can be written as
-\begin{equation}
-	\rho_{uu}(t) = 1 - \rho_{ee}(t) - \rho_{gg}(t) - \int_0^t \left[ 2\gamma \rho_{ee}(t\dash) + 2\kappa\rho_{gg}(t\dash) \right] \diffd t\dash.
-	\label{eq:stirapAnalyticalRhoEE}
-\end{equation}
-We now choose that the photon wavepacket $\psi\sub{ph}(t)$ is real, and thus, by \cref{eq:stirapAnalyticalCg}, so is $c_g(t)$. Following this through the set of coupled equations it is seen, from \cref{eq:stirapTDSEcg}, that $c_e(t)$ is then purely imaginary, from which it follows, by \cref{eq:stirapTDSEce}, that $c_u(t)$ is real.  Finally this allows us to state that $c_u(t)=\sqrt{\rho_{uu}(t)}$ and so
-\begin{equation}
-	\dot{c_u}(t) = \frac{\dot{\rho_{uu}}(t)}{2\sqrt{\rho_{uu}(t)}}.
-	\label{eq:stirapAnalyticalCu}
-\end{equation}
-
-Substituting \cref{eq:stirapAnalyticalCe,eq:stirapAnalyticalCu} into \cref{eq:stirapAnalyticalRabiFreq} gives us the desired outcome, an analytical function for $\Omega(t)$ that gives the driving shape required to produce a desired photon wavepacket.  Whilst it does not simplify down to a neatly presentable form it is straightforward to calculate these driving shapes.
-
-\begin{figure}[t]
-	\center
-	\includegraphics[scale=0.5]{"STIRAP driving pulses".pdf}
-	\caption[Required driving pulses to produce a $\sin^{2}$ photon wavepacket with various efficiencies.]{The driving pulse, expressed as a Rabi frequency, to produce a \SI{1}{\us} photon with a $\sin^2$ wavepacket, inset, from a coupled atom-cavity system described by the coupling rates $\{g,\kappa,\gamma\}/2\pi = \{6,1.75,3\}\,\si{\MHz}$.  Each driving pulse is calculated for a different extraction efficiency, $\eta$, noted in the legend. The requested efficiency of $\eta=0.9$ exceeds the limit of on the maximum possible extraction imposed by the cooperativity of the cavity.}
-	\label{fig:stirapDrivingPulses} 
-\end{figure}
-
-The calculated driving pulses displayed in \cref{fig:stirapDrivingPulses} are for producing a \SI{1}{\us} long photon with a wavepacket $\psi\sub{ph}(t) \propto \sin^2(t)$ at various efficiencies that are noted in the legend.  The normalised photon wavepacket is displayed in the inset for reference.  The presumed coupling rates in the system are $\{g,\kappa,\gamma\}/2\pi = \{6,1.75,3\}\,\si{\MHz}$.  A straightforward observation is that the driving power required increases with the desired production efficiency -- given the time taken to extract the population from the initial state remain constant this is unsurprising.  It is also noteworthy that the pulses become increasingly asymmetric despite the emitted wavepacket remaining balanced.  As population is lost from the system, stronger driving is required to continue emitting the photon at the same rate -- this is analogous to the increased work required to squeeze the last bit of water from a sponge.
-
-What has not yet been discussed is the singular point of the waveform attempting to emit the photon with an efficiency of $\eta=0.9$.  Whilst one may expect, correctly, a similar behaviour if an unphysical efficiency of $\eta > 1$ was requested -- this suggests a lower limit on the maximum generation possible.  To find this, recall \cref{eq:cavCooperativity}, where the cooperativity of the coupled atom-cavity system, $C$, was defined and that $2C$ is the ratio of emission into the cavity to emission into free space.  Given these are the only two paths emission can take, we can define the maximum possible generation efficiency, as the total emission into the cavity if all of the excitation is lost from the system,
-\begin{equation}
-	\eta\sub{max} = \frac{2C}{2C+1}.
-	\label{eq:striapMaxEff}
-\end{equation}
-This is a fundamental upper bound to the efficiency, regardless of the requested wavepacket, which for the coupling parameters we have considered is $\eta\sub{max}=0.87$.  It is clear then, why requesting $\eta=0.9$ resulted in an unphysical driving pulse.
-
-It is worth noting that lower limits on the maximum generation efficiency can be found by imposing various physically based criteria on the system for a given wavepacket.  The interested reader can find details of these in \cite{kuhn09}.
-
-%----------------------------------------------------------------------------------------
-%	SUBSECTION_: Experimental realisation
-%----------------------------------------------------------------------------------------
-\subsection{Experimental realisation}
-\label{sec:experimentalRealisation}
-
-%----------------------------------------------------------------------------------------
-%	SUBSUBSECTION_: Review of the field
-%----------------------------------------------------------------------------------------
-\subsubsection{Review of the field}
-\label{sec:reviewOfTheField}
-
-With the principles of single-photon production from a three-level $\Lambda$-system covered, our attention can turn to how such a process can be practically implemented.  STIRAP processes, where both couplings to the Raman resonance are provided by laser fields, were proposed and preliminarily demonstrated by Gaubatz \etal{} \cite{gaubatz88,gaubatz90} between 1988 and 1990, initially as a tool of the Chemistry community suited to the state preparation and transfer of molecules.  It was not until 2000 that the process was modified to make use of a single $^{85}$Rb atom in an optical cavity when Hennrich \etal{} \cite{hennrich00} demonstrated stimulated Raman scattering of the pump laser into the cavity mode.  This was subsequently extended to a single-photon source using the V-STIRAP process already discussed by Kuhn \etal{} \cite{kuhn02} in 2002.  This source transferred the atomic population between two hyperfine ground levels, with a repumping stage between each driving cycle.  Using this source the quantum interference of these single-photons simultaneously arriving at a beam splitter (see \cref{sec:twoPhotonInterference}) was observed in 2004 by Legero \etal{} \cite{legero04}, and in the same year Kimble \etal{} demonstrated a deterministic single-photon source using a single Cs atom trapped in the cavity \cite{mckeever04}.  A modified system driving between magnetic sublevels of the atom which demonstrated control over the polarisation of the single-photons followed from Wilk \etal{} \cite{wilk07} in 2007.
-
-Since these early demonstrations of single-photon production progress towards increased control over the quantum state of the photons has been made. For example, the shaping of the wavepacket described in \cref{sec:V-STIRAP} was realised by Nisbet \etal{} \cite{nisbet11} in 2011. The long temporal profile of the photons allowed for partial measurement of an entangled two-photon state to be made whilst the production process was still ongoing. When combined with a deterministic feedback loop to the driving laser, this resulted in the dynamic control over the direction of the collapse of this wavefunction (Barter \etal{} \cite{barter16}, 2016).
-
-Progress towards the application of these sources towards quantum networking and computation has also been made.  This has included the demonstration of a single-atom, single-photon interface (Wilk \etal{} \cite{wilk07b}, 2007) -- a key building block of quantum networks utilising photonic qubits that interface with atomic nodes as proposed by Ritter \etal{} \cite{ritter12} in 2012.  Holleczek \etal{} \cite{holleczek15} used cavity-sourced photons interfaced with photonic chips to perform chip-based quantum logic operations, specifically a controlled-NOT gate, in 2015.
-
-The V-STIRAP process is not only limited to neutral atoms -- the high qubit fidelities and increased trap lifetimes of ions makes them a strong candidate for the realisation of a quantum network of emitter-cavity nodes.  The challenges of utilising a charged ion in the vicinity of dielectric cavity mirrors is the obvious downside, however single-photon sources from such systems have been realised (for examples see the work of Matthias Keller \cite{keller03, keller04,keller17} and Rainer Blatt \cite{blatt02, blatt09,blatt12}).
-
-%----------------------------------------------------------------------------------------
-%	SUBSUBSECTION_: Chosen single-photon production scheme
-%----------------------------------------------------------------------------------------
-\subsubsection{Chosen single-photon production scheme}
-
-For any application where $n$-photon states with $n>1$ are required, the single photons emitted in a stream from the cavity must be independently delayed such that the requisite number arrive simultaneously at the experiment.  This can be achieved by routing them down optical paths of different lengths where the propagation time difference compensates for the different emission times.  Practically this entails a PBS routing photons by there polarisation into different lengths of optical fibres (delay lines) \cite{nisbet13,dilley12,barter16,holleczek15,legero04}.
-
-With the exception of the work of Wilk \etal{} \cite{wilk07,wilk07b}, all of the advanced applications of single-photon sources we have enumerated used the same principle scheme, a V-STIRAP process in one direction between hyperfine ground levels of the atom.  Whilst this has proven successful, the degenerate magnetic sublevels of each of these ground states results in randomly polarised emitted photons and hence a random routing into the delay lines.  To generate two-photon states the first photon emitted must travel through the delay line whilst the second does not.  Trivially we can then see that for random routing each subsequently emitted pair of photons has a $\SI{25}{\%}$ chance of arriving simultaneously at an experiment. More generally $n$ subsequently emitted photons of random polarisation can be converted into a $n$ simultaneously delivered photons with an efficiency of $1/2^{n}$.
-
-\begin{figure}[t] 
-   \centering
-   \includegraphics{"Rb energy levels".pdf}
-   \caption[V-STIRAP process between sublevels of the \Rb{} $\mathrm{D}2${} line.]{The V-STIRAP process taking place between two Zeeman sublevels of the $\ket{F=1}$ ground state on the $^{87}$Rb $\mathrm{D}2${} line.  A magnetic field lifts the degeneracy of these levels, splitting them by $\Delta\sub{Z}$ and alternate driving pulses, $\Omega_{1}(t)$ and $\Omega_{2}(t)$, produce photons of alternating polarisation.}
-   \label{fig:STIRAPlevelsRb}
-\end{figure}
-
-The source constructed in this thesis follows the example of Wilk \etal{} and explores a V-STIRAP process between magnetic sublevels of the $\ket{F{=}1}$ ground level of the \Rb{} $\mathrm{D}2${} line.  A typical driving scheme is shown in \cref{fig:STIRAPlevelsRb} where magnetic field applied along the direction of the cavity axis is used to lift the degeneracy of these Zeeman sublevels by $\Delta\sub{Z}$.  This allows a cavity and driving laser of suitably narrow linewidth to select only the states with desired magnetic quantum numbers, $m_F$, to form a Raman resonance.  The polarisation of the emitted photon is determined by the atomic transition coupled by the cavity mode, in the case of the red-detuned V-STIRAP process, $\ket{m_F{=}{-}1} \rightarrow \ket{m_F{=}{+}1}$, this is a $\sigma^-$ photon.  Similarly the blue-detuned process produces the orthogonal $\sigma^+$ photon.
-
-It is worth noting that these two possible process are restricted to form Raman resonances detuned from each other by $2\Delta\sub{Z}$ as the resonance frequency of the cavity, \ie{} its length, cannot be  changed on the timescale between alternate driving processes of typically $< \SI{1}{us}$.  As the cavity resonance is fixed the driving lasers, $\Omega_{1}(t)$ and $\Omega_{2}(t)$, must be detuned by $\mp 2\Delta\sub{Z}$ from the cavity.
-
-\begin{figure}[t] 
-   \centering
-   \includegraphics[clip,trim=1.36cm 0cm 0.11cm 0cm,width=\textwidth]{"Photon routing diagram".pdf}
-   \caption[Deterministic routing of a stream of polarised photons]{The deterministic routing of a stream of alternately $\sigma^+$ and $\sigma^-$ photons.  A quarter-wave plate and PBS route these photons in the linear ${H,V}$-basis into different optical fibres. The path length difference is equal to the duty cycle of the photon production, resulting in pairs of simultaneous photons.}
-   \label{fig:PhotonRoutingDiagram}
-\end{figure}
-
-As well as producing photons of well defined polarisation this scheme also removes the need for the system to be repumped back to an initial state between subsequent shots as the final state of the atom for one process is the initial state for the other.  In this way a single atom can be produce a stream of alternately polarised single-photons which can be routed into the correct paths with unitary efficiency. This is illustrated in \cref{fig:PhotonRoutingDiagram} where photons are alternately routed using a quarter-wave plate and PBS into two optical fibres with a path length difference equal to the duty cycle of the production process.  Whilst this allows the preparation of two simultaneous photons, there are only two possible outcomes (paths) of the routing process and so $n>2$ state preparation would require dynamic control over the routing of photons of a single polarisation.  This could be achieved with a Pockels cell, utilising the Pockels effect where the birefringence of a medium changes with a voltage applied across it, acting as a voltage-controlled waveplate.  In this way one could imagine chains of Pockels cell-PBS pairs deterministically routing single-photons into any number of delay lines.
-
-\fi
 
 
 \end{document}

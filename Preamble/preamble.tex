@@ -937,3 +937,11 @@ labelfont={small,bf}
 	\pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
 	\pgfusepath{stroke}
 }
+
+\tikzset{
+	level 1/.style={level distance=3.5cm, sibling distance=2.4cm},
+	level 2/.style={level distance=3.5cm, sibling distance=3cm},
+	level 3/.style={level distance=3.5cm, sibling distance=1.5cm},
+	bag/.style={text width=4em, text centered, font=\small},
+	end/.style={circle, minimum width=3pt, fill, inner sep=0pt}
+}
