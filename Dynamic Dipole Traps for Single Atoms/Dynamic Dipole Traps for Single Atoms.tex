@@ -1465,96 +1465,10 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime \textsc{(left)} and filling fraction \textsc{(right)} versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Average trap lifetime and filling fraction versus dipole trap power]{Average trap lifetime \textsc{(left)} and filling fraction \textsc{(right)} versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} 
 	\label{LTandFR} 
 \end{figure}
 First, the filling fraction stabilises near \SI{50}{\percent} for trap powers exceeding \SI{20}{\milli\watt}. This behaviour can be attributed to the collisional blockade regime, where two-body loss dominates, rendering single-body losses negligible. In this regime, the probabilities of loading and losing an atom balance each other, resulting in comparable durations for bright and dark intervals. At lower trap powers, however, the shallow potential makes atoms more susceptible to ejection due to heating and background gas collisions. This leads to shorter trap lifetimes and lower filling fractions, consistent with the trends visible in \autoref{LTandFR}.
-\iffalse
-\section{Dipole-trapping theory}
-
-Our work relies on exploiting the dipole interaction between atoms and light in order to trap individual atoms at the intensity maximum of a focused red-detuned laser. Dipole-force traps are conservative, therefore to trap atoms in this way requires them to be pre-cooled; a Magneto-Optical Trap (MOT) is typically used from which to load atoms. 
-
-There are two mechanisms by which atoms are lost from such a dipole trap. The first is via a collision with a background atom that imparts sufficient kinetic energy for the atom's energy to exceed the depth of the trap. The second loss mechanism comes into play when there is more than one atom in the trap; this mechanism is a light-assisted collision between two trapped atoms \cite{fuhrmanek2012}, and it causes both of the atoms involved to be lost from the trap. The smaller the waist of a dipole trap, the more dominant the light-assisted loss channel becomes. 
-
-Under some critical trap volume (the value of which is determined experimentally, but typically corresponds to a trap waist of the order of \SI{1}{\micro\metre} \cite{fung2015a}) these light-assisted collisions dominate the loss as soon as there are two atoms in the trap \cite{schlosser2002a}. In this case it is guaranteed that the trap will contain either zero or one atoms at any given time. In the limit that this loss mechanism dominates entirely, the average atom number is locked to \num{0.5} and is insensitive to fluctuations in the trap loading rate. In practice, other loss mechanisms persist, so this \SI{50}{\percent} occupation actually serves as an upper bound.
-
-The potential experienced by an \ce{^87Rb} atom, cooled on the $\mathrm{D}2$ transition, held in a far-detuned optical dipole trap of intensity $I$ is given by
-\begin{equation}\label{eq:dipPot}
-U_{\mathrm{dip}} \approx \frac{\hbar\Gamma^2}{8\Delta}\frac{I}{I_{\mathrm{sat}}},
-\end{equation}
-where the assumption has been made that the detuning $\Delta$ of the trapping light is sufficiently large as to neglect the different detunings from the $\mathrm{D}1$ and $\mathrm{D}2$ lines. Here, $I_{\mathrm{sat}}$ is the saturation intensity and $\Gamma$ is the linewidth of the $\mathrm{D}2$ transition. It should be noted that for red detuning, $\Delta$ is negative and so the potential is attractive.  
-
-Thus the presence of the trapping light results in a Stark shift to the energy levels of a trapped atom, which affects its interaction with the light that is used to cool it in the MOT. As such, different depths of dipole traps and different detunings of the MOT cooling light from resonance will affect how a dipole trap behaves in terms of how readily single atoms are loaded into it and how quickly they are lost from it. For a given MOT detuning, a shallower trap will provide a smaller Stark shift and hence a higher scattering rate, leading to a higher loading rate and better cooling. A deeper trap will give a larger Stark shift and hence a lower scattering rate, resulting in a lower loss rate for atoms in the trap. 
-
-\fi
-
-
-\iffalse
-\section{Experimental arrangement}
-%put in vacuum pressure (at end of first para?)
-
-We use \ce{^{87}Rb} atoms, cooled on the $\mathrm{D}2$ transition (\SI{780.246}{\nm}). We dipole-trap single atoms using light at \SI{1064}{\nm}. This large red detuning helps to minimise scattering of the trapping light by the atom. The traps are formed with a waist of  \SI{1.6}{\um}, with depths of the order of hundreds of \SI{}{MHz}.
-
-The atoms are loaded into the traps from a MOT. The MOT is formed using $3$ retro-reflected cooling beams with total power \SI{8}{\milli\watt} and re-pumping light on the $\ce{^2S_{1/2}} (F=1) \, \rightarrow \, \ce{^2P_{3/2}} (F'=2)$ transition with approximately \SI{0.5}{\milli\watt} power. The magnetic field gradient is \SI{13}{\gauss\per\cm} at the quadrupole centre. The MOT lifetime is observed to be on the order of several seconds, and we measure its density as (insert density). From our operating parameters we estimate the temperature of the MOT as (insert temperature). A time-of-flight measurement for the temperature was not possible on account of the low density. In practice the MOT was then fine-tuned to optimise the loading of single-atom dipole traps; these quoted values therefore give a good indication of the operating parameters but cannot be taken as exact.
-
-Our MOT is formed within a glass cell vacuum chamber (ColdQuanta), with cell walls AR coated for both \SI{780}{\nm} and \SI{1064}{\nm} (\SI{< 0.2}{\percent} for $\SI{650}{\nm} \leq \lambda \leq \SI{1100}{\nm}$ and angle of incidence between \SI{\pm 10}{\degree}, \SI{< 0.5}{\percent} for $\SI{760}{\nm} \leq \lambda \leq \SI{860}{\nm}$ and angle of incidence between \SI{\pm 45}{\degree}). The cell is \SI{28}{\mm} in width and height (outside of wall to outside of opposite wall). One MOT cooling beam runs horizontally along the length of the cell while the other two are diagonal with and angle of \SI{60}{\degree} between them. We oscillate the cooling light detuning around its central value of \SI{13.5}{\MHz} to the red ($\approx 2.25 \Gamma$) with a peak-to-peak amplitude of \SI{7}{\MHz} (i.e. just over $\Gamma$), at a frequency of \SI{100}{\kHz}, in order to wash out observed interference fringes in our MOT and provide a stable cloud of atoms from which to load dipole traps.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{dipolePath_new.pdf}
-	\caption{Optics for the dipole trapping laser and the optics used for single-atom imaging. The trapping light beam path is shown in red. The path taken by the fluorescence light from the trapped atoms is shown in orange. All focal lengths are in millimetres. Each pair of lenses is separated by the sum of their focal lengths and each lens before a camera is one focal length away from the camera.}
-	\label{fig:exptSetup}
-\end{figure}
-
-The laser used to generate the dipole trapping light is a \SI{20}{\W} CW fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth ((\SI{<700}{\kHz}) light at \SI{1064}{\nm}, with an $M^2$ beam quality \num{\leq 1.6}. The beam path of this trapping light is illustrated in \cref{fig:exptSetup}.
-
-The light from the trapping laser is first sent through a computer-controlled acousto-optic modualtor (AOM), enabling fast amplitude modulation of the beam. The first order from the AOM is directed onto a spatial light modulator (SLM) in the Fourier plane, enabling the light to be focused to an arbitrary pattern in the image plane (i.e. the plane in which the dipole traps are formed). The purpose of this step is to form multiple dipole traps in arbitrary configurations \cite{Holland2018}. Here, we simply create many identical traps to speed up the process of data collection.
-
-The trapping light is focused to form single-atom dipole traps using a compound lens system, designed to perform the same at \SI{780}{\nm} and \SI{1064}{\nm} so that we may use it both to focus the light to form the traps and to collect the fluorescence light from the trapped atoms. It has an effective focal length (EFL) of \SI{30}{\mm} and the entrance pupil is \SI{36}{\mm}, giving a numerical aperture of $\mathrm{NA} = 0.6$. The working distance of the lens is \SI{15}{\mm} and the cell is \SI{28}{\mm} tall, so to focus a collimated beam in the centre of the cell requires placing the lens so that its front surface is \SI{1}{\mm} away from the edge of the cell. Placing a second high-NA lens \SI{1}{\mm} from the opposing face will then re-collimate the focussed beam so that the focal plane of the trapping light may then be imaged. The \SI{30}{\mm} EFL means that an incident beam of \SI{10}{\mm} radius results in a beam waist at the focus of \SI{1.6}{\um}, accounting for an $M^2$ factor of \num{1.6}. 
-
-The numerical aperture of \num{0.6} means that \SI{10}{\percent} of the fluorescence light emitted from the trapped atoms can be captured by it. A dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nm} is used to separate the collected fluorescence light from the light used to make the atom traps. The light is then imaged onto an EMCCD camera (Princeton Instruments ProEM-HS: 512BX3) using a \SI{250}{\mm} focal length lens. A \SI{780}{\nm} bandpass filter (Semrok \num{780}/\SI{12}{\nm} BrightLine single-band) is placed directly in front of the camera to filter out scattered \SI{1064}{\nm} light. Typical observed count rates from a single trapped atom are of the order of \SI{1000}{Hz} above background, making it easy to safely distinguish between empty traps and single trapped atoms.
-
-\fi
-
-%We dipole-trap single \ce{^{87}Rb} atoms from a MOT formed within a glass cell vacuum chamber (ColdQuanta). The cell walls are \SI{3.5}{\mm} thick, are made of borosilicate glass (Schott Borofloat 33), and are AR coated for both \SI{780}{\nm} and \SI{1064}{\nm} (\SI{< 0.2}{\percent} for $\SI{650}{\nm} \leq \lambda \leq \SI{1100}{\nm}$ and angle of incidence between \SI{\pm 10}{\degree}, \SI{< 0.5}{\percent} for $\SI{760}{\nm} \leq \lambda \leq \SI{860}{\nm}$ and angle of incidence between \SI{\pm 45}{\degree}). The cell is \SI{28}{\mm} in width and height (outside of wall to outside of opposite wall).
-
-%The MOT cools the atoms on the$\ce{^2S_{1/2}} (F=2) \, \rightarrow \, \ce{^2P_{3/2}} (F'=3)$ transition at \SI{780.246}{\nm} (\ce{D2} line), and is formed using three retro-reflected circularly polarised beams. The geometry of the glass cell prevents us from having three mutually orthogonal beams; instead we have one horizontal beam and two diagonal beams which are orthogonal to the horizontal and have an angle of \SI{60}{\degree} between them. We use \SI{8}{\mW} of power divided equally between the three MOT cooling beams and operate at a detuning of \SI{13.5}{\MHz} ($\approx 2.25 \Gamma$) to the red. We have a repump laser operating on the $\ce{^2S_{1/2}} (F=1) \, \rightarrow \, \ce{^2P_{3/2}} (F'=2)$ transition at \SI{780.233}{\nm}, with approximately \SI{0.5}{\mW} power. We note that we oscillate the cooling light detuning around its central value with a peak-to-peak amplitude of \SI{7}{\MHz} (i.e. just over $\Gamma$) at a frequency of \SI{100}{\kHz} in order to wash out observed interference fringes in our MOT and provide a stable cloud of atoms from which to load dipole traps. The magnetic field for the MOT is produced by a pair of anti-Helmholtz coils positioned such that the glass cell goes through their centre. Operating the coils at a current of \SI{2.0}{\A} gives a magnetic field gradient of \SI{13}{\gauss\per\cm} at the quadrupole centre. 
-
-
-
-%We form our dipole traps at a large red detuning in order to minimise scattering of the trapping light by the atoms. The laser used to generate this trapping light is a CW fibre laser (Quantel EYLSA), which outputs single mode, narrow linewidth ((\SI{<700}{\kHz}) light at \SI{1064}{\nm}, with an $M^2$ beam quality \num{\leq 1.6}. The beam path of this trapping light is illustrated in \cref{fig:exptSetup}.
-
-%The light from the trapping laser is first sent through a computer-controlled acousto-optic modulator (AOM), enabling fast amplitude modulation of the beam. The \plusOne{} order from the AOM is directed onto a spatial light modulator (SLM), which we use to divide the beam into multiple output beams. The purpose of this step is simply to be able to form multiple dipole traps that behave the same, so that we may speed up the process of data collection.
-
-%The trapping light is focused to form single-atom dipole traps using a compound lens system, designed to perform the same at \SI{780}{\nm} and \SI{1064}{\nm} so that we may use it both to focus the light to form the traps and to collect the fluorescence light from the trapped atoms. It has an effective focal length (EFL) of \SI{30}{\mm} and the entrance pupil is \SI{36}{\mm}, giving a numerical aperture of $\mathrm{NA} = 0.6$. The lens system is placed outside of the glass cell vacuum chamber, and accounts for the effect of the cell wall in its design. The working distance of the lens is \SI{15}{\mm} and the cell is \SI{28}{\mm} tall, so to focus a collimated beam in the centre of the cell requires placing the lens so that its front surface is \SI{1}{\mm} away from the edge of the cell. Placing a second high-NA lens \SI{1}{\mm} from the opposing face will then re-collimate the focussed beam so that the focal plane of the trapping light may then be imaged.
-
-%The \SI{30}{\mm} EFL means that for an incident beam size of \SI{10}{\mm} the beam waist at the focus is \SI{1.6}{\um}, accounting for an $M^2$ factor of \num{1.6}. 
-
-%The numerical aperture of \num{0.6} means that the high-NA lens subtends a fractional solid angle of \num{0.1} and hence \SI{10}{\percent} of the fluorescence light emitted from the trapped atoms should be captured by it. A dichroic mirror (Thorlabs DMLP950L) with a cut-off wavelength of \SI{950}{\nm} is used to separate the collected fluorescence light from the light used to make the atom traps. The light is then imaged onto an EMCCD camera (Princeton Instruments ProEM-HS: 512BX3) using a \SI{250}{\mm} focal length lens. A \SI{780}{\nm} bandpass filter (Semrok \num{780}/\SI{12}{\nm} BrightLine single-band) is placed directly in front of the camera to filter out scattered \SI{1064}{\nm} light. Typical observed count rates from a single trapped atom are of the order of \SI{1000}{Hz} above background, making it easy to safely distinguish when a given trap is filled with a single atom.
-
-\iffalse
-
-\subsection{Identical trapping sites}
-
-We use the SLM to generate a $4\times4$ grid of trapping sites. By using an iterative approach based on feedback from the measured intensity of the generated trapping sites, we can achieve a grid of highly similar traps (coefficient of variation of $0.054$). This grid of traps is shown in figure \cref{fig:trapGrid}a. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{trapGrid.pdf}
-	\caption{a) Grid of 16 highly similar trapping sites generated using an SLM. The coefficient of variation between the trap intensities is 0.054. b) The traps marked with an `X' were observed to be rarely filled when overlapped with a MOT, hence we do not use these trapping sites to acquire data.}
-	\label{fig:trapGrid}
-\end{figure}
-
-When we overlap this grid of traps with our MOT, we find that $10$ of the $16$ traps exhibit similar behaviour, while the remaining $6$ are rarely filled. We speculate that this may either be as a result of poor overlap with the MOT or it could be a result of aberrations affecting their shape in a manner which we cannot easily detect. We therefore only use the $10$ similar sites (shown in \cref{fig:trapGrid}b) for our work.
-
-\fi
-
-%something about 10 trapping sites, all the same depth, behave similarly. some brief justification that the MOT is way bigger than the spacing between the traps, so they all see the same local MOT density etc
-
-%Questions:
-%do we need to include proof in the paper that all the traps are actually the same? It's a short detour into SLM-land, but if we're justifying using all the trapping sites as identical for the key results in the paper, it might be worthwhile.
-
-
 
 \section{Dynamic control of dipole traps}
 \label{dynamiccontrol}
@@ -3849,7 +3763,7 @@ During the first measurement, the atomic fluorescence exceeding a single thresho
 	\node[align=left, color=rainbow2of8] at (0,0.1e-4) {\footnotesize \SI{4}{\percent}};
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption[Detection errors in a fluorescence count histogram for a single-atom trap]{Detection errors in a fluorescence count histogram for a single-atom trap. \textsc{(left)} Idealised illustration of two Gaussian-distributed count levels corresponding to occupied (right) and empty (left) trap states, with the probability of error $1-p$ indicated by the shaded areas beyond the threshold (dashed line). \textsc{(right)} Experimental histogram with fitted bimodal distribution and shaded misclassification errors---false positives (orange) and false negatives (blue). The asymmetry of the error areas reflects the choice of threshold relative to the actual peak positions. A naive threshold set at the local minimum between the peaks does not result in symmetric classification errors. In practice, the optimal threshold lies slightly to the left to balance false positives and false negatives.}
+	\caption[Detection errors in a fluorescence count histogram for a single-atom trap]{Detection errors in a fluorescence count histogram for a single-atom trap. \textsc{(left)} Idealised illustration of two Gaussian-distributed count levels corresponding to occupied (right) and empty (left) trap states, with the probability of error $1-p$ indicated by the shaded areas beyond the threshold (dashed line). \textsc{(right)} Experimental histogram with a fitted bimodal distribution and shaded misclassification errors---false positives (orange) and false negatives (blue). The asymmetry of the error areas reflects the choice of threshold relative to the actual peak positions. A naive threshold set at the local minimum between the peaks does not result in symmetric classification errors. In practice, the optimal threshold lies slightly to the left to balance false positives and false negatives.}
 	\label{fig:singlethresholdcontrast} 
 \end{figure}
 A type I error occurs when an atom is falsely detected despite not being present, while a type II error refers to failing to detect an atom that is actually in the trap. These errors distort the measured survival probability and must be accounted for to extract the true physical survival probability $P$. Following all paths in \autoref{fig:decisiontree} with two positive detections, the probability of detecting a survival $P_\text{d}$ can be expressed in terms of $p$ and $P$ as follows:
@@ -3990,31 +3904,492 @@ In the limit of an ideal detector, we have $p\rightarrow 1$, which results in $P
 \end{figure}
 
 \subsection{Double-threshold atom detection}
-asdf asdf asf asdf ewfwef ewf ewf ewf ewfewf
-awe fawe
- fa ewfa
-  efeas f
-  asef aesf
-   aesf aef 
-   asef aes fae
-    f
+In contrast to the single-threshold atom detection method, which can be susceptible to misclassification due to overlapping count distributions, \autoref{fig:doublethreshold} illustrates an improved approach that is based on two distinct thresholds to more reliably determine trap occupancy.
+\begin{figure}[!t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
+	\nextgroupplot
+	[
+	xlabel={Time (s)},
+	ylabel={Fluorescence counts (a.\,u.)},
+	xmin=0, xmax=200,
+	ymin=-0.1, ymax=0.3,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=markrood,
+	/pgfplots/error bars/.cd,
+	x dir = both,
+	x explicit,
+	] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331/0.100/1000/1000]{expgaussiansforparam_rawdata_trace.csv};
+	
+	\addplot[color=rainbow4of8, thick, name path=bottom] coordinates {(0,0)(200,0)};
+	\addplot+[draw=none,name path=bottomb, domain=0:200, mark=none] {-0.1}; 
+	\addplot+[gray, fill=rainbow4of8!80] fill between[of=bottom and bottomb,soft clip={domain=0:200}];
+	
+	\addplot[color=rainbow2of8, thick, name path=top] coordinates {(0,0.1)(200,0.1)};
+	\addplot+[draw=none,name path=topt, domain=0:200, mark=none] {0.3}; 
+	\addplot+[gray, fill=rainbow2of8!80] fill between[of=topt and top,soft clip={domain=0:200}];
+	
+	\nextgroupplot
+	[
+	ylabel=Occurrence,
+	xlabel=Fluorescence counts (a.\,u.),
+	axis on top,
+	enlargelimits=false
+	]
+	
+	\addplot[
+	const plot, no marks,
+	draw=markrood,
+	color=markrood,
+	opacity=0.35
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam_rawdata.csv};
+	
+	\addplot[
+	color=rainbow4of8, thick, name path=blue
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam.csv};
+	
+	\addplot[
+	color=rainbow2of8, thick, name path=orange
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 2]{expgaussiansforparam.csv};
+	
+	\addplot[
+	color=rainbow3of8, thick, name path=green
+	] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 3]{expgaussiansforparam.csv};
+	
+	\addplot+[draw=none,name path=D, domain=-0.1:0, mark=none] {0}; 
+	\addplot+[gray, fill=rainbow4of8!80] fill between[of=blue and D,soft clip={domain=-0.1:0}];
+	
+	\addplot+[draw=none,name path=E, domain=0.1:0.3, mark=none] {0}; 
+	\addplot+[gray, fill=rainbow2of8!80] fill between[of=orange and E,soft clip={domain=0.1:0.3}];
+	
+	\addplot[color=markrood, dashed] coordinates {(0,0)(0,1.2e-4)};
+	\addplot[color=markrood, dashed] coordinates {(0.1,0)(0.1,1.2e-4)};
+	\node[align=left, color=markrood] at (axis cs: 15500*1.3062923961932331/0.1/1e6, 1.1e-4) {\footnotesize thresholds};
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Double-threshold atom detection method in a fluorescence count histogram.]{Double-threshold atom detection method in a fluorescence count histogram. \textsc{(left)} Measured fluorescence counts as a function of time. \textsc{(right)} Corresponding count histogram with a fitted bimodal distribution and detection thresholds indicated by two vertical dashed lines. These effectively separate the two trap states and reduce the likelihood of misclassification when compared to the single threshold method as shown in \autoref{fig:singlethresholderror}.}
+	\label{fig:doublethreshold} 
+\end{figure}
+Above the upper threshold (blue shaded area), counts are confidently classified as indicating the presence of an atom in the trap. In contrast, counts below the lower threshold (orange shaded area) herald an empty trap. By setting both a lower and an upper bound, this method aims to exclude both low-level noise fluctuations that might be mistaken for an atom (reducing false positives) and unusually low signals from an atom that might be missed (reducing false negatives). While this method is aimed at reducing the probability of misclassification, setting the thresholds too wide sacrifices a significant amount of data, especially in the case of extensive overlap in the count distributions. The trade-off is between reducing simple misclassification errors and potentially losing information or introducing a greater sensitivity to the precise choice of the thresholds themselves.
+
 \subsection{Time filtering of fluorescence trace}
+In this section, we explore whether time-domain filtering of the fluorescence count trace can serve as an effective substitute for the double-threshold atom detection method. To this end, we perform a convolution of the fluorescence trace with a Hanning window of variable length, effectively smoothing the signal over time. This filtering is intended to suppress noise-induced fluctuations in the fluorescence counts, which are a major source of misclassification near threshold values. The comparison is presented in \autoref{fig:lifetime_filters}.
+\begin{figure}[!t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.5cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	height=3.5cm,
+	%xlabel={Optical power in dipole trap (\si{\milli\watt})},
+	ylabel={Sample size},
+	xmin=0, xmax=180,
+	ymin=0, ymax=600,
+	xticklabels={,,},
+	%xtick={0,0.5,1,1.5,2},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	y label style={at={(axis description cs: -0.085, 0.5)},anchor=base},
+	]
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	color=markrood,
+	/pgfplots/error bars/.cd,
+	x dir = both,
+	x explicit,
+	] table [col sep = comma, x index = 0, y index = 1, x error expr=\thisrowno{2}]{samplesizesforerroranalysis.csv};
+	
+	
+	
+	\nextgroupplot
+	[
+	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
+	xlabel={Optical power in dipole trap (\si{\milli\watt})},
+	ylabel={Average trap lifetime (s)},
+	xmin=0, xmax=180,
+	ymin=0, ymax=8,
+	%xticklabels={,,},
+	%xtick={,,},
+	legend pos=north east,
+	legend cell align={left},
+	legend style={draw=none, at={(0.98,0.94)},anchor=north east},
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	y label style={at={(axis description cs: -0.085, 0.5)},anchor=base},
+	]
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	name path=dtdatapoints,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{greattrace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{5},
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{greatspline.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{5},
+	name path=greatspline_p,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{greatspline.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{5},
+	name path=greatspline_m,
+	color=rainbow1of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{greatspline.csv};
+	
+	\addplot[forget plot, rainbow1of8, opacity=0.2] fill between[
+	of = greatspline_m and greatspline_p,
+	]; 
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hann400trace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{105},
+	name path=Hann400trace,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_400.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann400trace_p,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_400.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann400trace_m,
+	color=rainbow2of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_400.csv};
+	
+	\addplot[forget plot, rainbow2of8, opacity=0.2] fill between[
+	of = Hann400trace_m and Hann400trace_p,
+	];
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hann500trace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{105},
+	name path=Hann500trace,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_500.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann500trace_p,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_500.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann500trace_m,
+	color=rainbow3of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_500.csv};
+	
+	\addplot[forget plot, rainbow3of8, opacity=0.2] fill between[
+	of = Hann500trace_m and Hann500trace_p,
+	]; 		
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hann600trace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{105},
+	name path=Hann600trace,
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_600.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann600trace_p,
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_600.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann600trace_m,
+	color=rainbow4of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_600.csv};
+	
+	\addplot[forget plot, rainbow4of8, opacity=0.2] fill between[
+	of = Hann600trace_m and Hann600trace_p,
+	]; 		
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hann700trace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{105},
+	name path=Hann700trace,
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_700.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann700trace_p,
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_700.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann700trace_m,
+	color=rainbow5of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_700.csv};
+	
+	\addplot[forget plot, rainbow5of8, opacity=0.2] fill between[
+	of = Hann700trace_m and Hann700trace_p,
+	]; 	
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hann800trace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{105},
+	name path=Hann800trace,
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_800.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann800trace_p,
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_800.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{105},
+	name path=Hann800trace_m,
+	color=rainbow6of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_800.csv};
+	
+	\addplot[forget plot, rainbow6of8, opacity=0.2] fill between[
+	of = Hann800trace_m and Hann800trace_p,
+	];
+	
+	
+	\addplot[
+	mark size=1pt,
+	only marks,
+	mark = *,
+	skip coords between index={0}{1},
+	color=rainbow7of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hysttrace.csv};
+	
+	\addplot[
+	forget plot,
+	skip coords between index={0}{5},
+	name path=Hysttrace_p,
+	color=rainbow7of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 1]{Hystspline.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{5},
+	name path=Hysttrace_p,
+	color=rainbow7of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 2]{Hystspline.csv};
+	
+	\addplot[
+	forget plot,
+	style={ultra thin},
+	skip coords between index={0}{5},
+	name path=Hysttrace_m,
+	color=rainbow7of8,
+	/pgfplots/error bars/.cd,
+	y dir = both,
+	y explicit,
+	] table [col sep = comma, x index = 0, y index = 3]{Hystspline.csv};
+	
+	\addplot[forget plot, rainbow7of8, opacity=0.2] fill between[
+	of = Hysttrace_m and Hysttrace_p,
+	]; 		
+	
+	\addlegendentry{\footnotesize \hspace{0.5em}no filter}
+	\addlegendentry{\footnotesize \hspace{0.5em}\SI{400}{\ms}}
+	\addlegendentry{\footnotesize \hspace{0.5em}\SI{500}{\ms}}
+	\addlegendentry{\footnotesize \hspace{0.5em}\SI{600}{\ms}}
+	\addlegendentry{\footnotesize \hspace{0.5em}\SI{700}{\ms}}
+	\addlegendentry{\footnotesize \hspace{0.5em}\SI{800}{\ms}}
+	\addlegendentry{\footnotesize \hspace{0.5em}double thr.}
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Comparison of single-threshold, double-threshold and time-filtering detection methods for determining the atom lifetime in a dipole trap]{Comparison of single-threshold, double-threshold and time-filtering detection methods for determining the atom lifetime in a dipole trap. \textsc{(bottom)} Extracted average trap lifetime as a function of optical power in a dipole trap for different detection protocols. The traces are obtained using single- and double-threshold methods. For the former, traces are shown as a result of smoothing the time trace through convolution with a Hanning window of variable length. \textsc{(top)} Corresponding sample sizes for each data point. The sample size is inversely correlated with the single standard deviation errors (dashed areas around the interpolation splines).}
+	\label{fig:lifetime_filters} 
+\end{figure}
+We observe that increasing the Hanning window length leads to a closer resemblance to the results of the double-threshold method, indicating that temporal filtering can emulate the additional robustness provided by the latter. At low optical powers (shallow traps), all methods agree, since the fluorescence signal exhibits a clear contrast between occupied and unoccupied trap states. However, at higher optical powers (deeper traps), the pronounced Stark effect reduces the fluorescence brightness and consequently diminishes the state discrimination fidelity $p$. In this regime, false positives and negatives become more prevalent and the choice of filtering method significantly impacts the extracted lifetimes.
+
 \subsection{Atom detection latency}
-
-
-
-When an atom is trapped in the dipole trap and illuminated with cooling light, its fluorescence signal provides a means of detecting its presence. However, various sources of noise and system latency affect the fidelity of this detection. 
-
-We begin by introducing 
-
-Next, we discuss a double-threshold (hysteresis-based) detection method, more appropriate for post-processing fluorescence traces. This approach reduces false transitions due to noise and improves state discrimination.
-
-In the third subsection, we introduce a time-filtering technique applied to fluorescence traces to suppress high-frequency noise, which can otherwise artificially reduce the apparent trap lifetime.
-
-Finally, we analyse the latency of the detection system, including the time taken for fluorescence signals to be read out, processed by software, and used to trigger experimental hardware.
-
-
-\begin{wrapfigure}[10]{l}{0.5\textwidth}
+To determine the latency of the real-time atom detection and control system, we configure the experiment to trigger on the presence of an atom in the
+\begin{wrapfigure}[12]{l}{0.5\textwidth}
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
@@ -4022,8 +4397,8 @@ Finally, we analyse the latency of the detection system, including the time take
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Set waiting time (s)},
-	ylabel={Waiting time plus latency (s)},
+	xlabel={Set waiting time (\si{\second})},
+	ylabel={Measured time (\si{\second})},
 	xmin=0, xmax=2.25,
 	ymin=0, ymax=2.25,
 	xtick={0,0.5,1,1.5,2},
@@ -4054,544 +4429,10 @@ Finally, we analyse the latency of the detection system, including the time take
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
+	\caption[Measurement of the latency in real-time, fluorescence-based atom detection]{Measurement of the latency in real-time, fluorescence-based atom detection. The measured time consists of the set time and total detection latency in the system. A linear fit yields a fixed latency of \SI{137}{\milli\second}, extracted from the $y$-intercept.}
+	\label{fig:latency} 
 \end{wrapfigure}
-
-
-
-
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Time (s)},
-			ylabel={Fluorescence counts (MHz)},
-			xmin=0, xmax=200,
-			ymin=-0.1, ymax=0.3,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			x dir = both,
-			x explicit,
-			] table [col sep = comma, x index = 0, y expr=\thisrowno{1}*1.3062923961932331/0.100/1000/1000]{expgaussiansforparam_rawdata_trace.csv};
-			
-			\addplot[color=rainbow4of8, thick, name path=bottom] coordinates {(0,0)(200,0)};
-			\addplot+[draw=none,name path=bottomb, domain=0:200, mark=none] {-0.1}; 
-			\addplot+[gray, fill=rainbow4of8!80] fill between[of=bottom and bottomb,soft clip={domain=0:200}];
-			
-			\addplot[color=rainbow2of8, thick, name path=top] coordinates {(0,0.1)(200,0.1)};
-			\addplot+[draw=none,name path=topt, domain=0:200, mark=none] {0.3}; 
-			\addplot+[gray, fill=rainbow2of8!80] fill between[of=topt and top,soft clip={domain=0:200}];
-			
-			\nextgroupplot
-			[
-			ylabel=Occurrence,
-			xlabel=Fluorescence counts (MHz),
-			axis on top,
-			enlargelimits=false
-			]
-			
-			\addplot[
-			const plot, no marks,
-			draw=markrood,
-			color=markrood,
-			opacity=0.35
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam_rawdata.csv};
-			
-			\addplot[
-			color=rainbow4of8, thick, name path=blue
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 1]{expgaussiansforparam.csv};
-			
-			%\addplot+[draw=none,name path=C, domain=4950*1.3062923961932331/0.1/1e6:0.2, mark=none] {0}; 
-			%\addplot+[gray, fill=rainbow1of8!80] fill between[of=blue and C,soft clip={domain=4950*1.3062923961932331/0.1/1e6:0.2}];
-			
-			\addplot[
-			color=rainbow2of8, thick, name path=orange
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 2]{expgaussiansforparam.csv};
-			
-			\addplot[
-			color=rainbow3of8, thick, name path=green
-			] table [col sep = comma, x expr=\thisrowno{0}*1.3062923961932331/0.100/1000/1000, y index = 3]{expgaussiansforparam.csv};
-			
-			\addplot+[draw=none,name path=D, domain=-0.1:0, mark=none] {0}; 
-			\addplot+[gray, fill=rainbow4of8!80] fill between[of=blue and D,soft clip={domain=-0.1:0}];
-			
-			\addplot+[draw=none,name path=E, domain=0.1:0.3, mark=none] {0}; 
-			\addplot+[gray, fill=rainbow2of8!80] fill between[of=orange and E,soft clip={domain=0.1:0.3}];
-			
-			\addplot[color=markrood, dashed] coordinates {(0,0)(0,1.2e-4)};
-			\addplot[color=markrood, dashed] coordinates {(0.1,0)(0.1,1.2e-4)};
-			\node[align=left, color=markrood] at (axis cs: 15500*1.3062923961932331/0.1/1e6, 1.1e-4) {\footnotesize thresholds};
-			
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
-here, discuss the Hann windows:
-
-\begin{figure}[!t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-		
-		\begin{groupplot}[group style={group size=1 by 2, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Optical power in dipole trap (\si{\milli\watt})},
-			ylabel={Lifetime sample size},
-			xmin=0, xmax=180,
-			ymin=0, ymax=600,
-			%xtick={0,0.5,1,1.5,2},
-			%xtick={0,0.5,1,1.5,2},
-			%legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			only marks,
-			mark = *,
-			color=markrood,
-			/pgfplots/error bars/.cd,
-			x dir = both,
-			x explicit,
-			] table [col sep = comma, x index = 0, y index = 1, x error expr=\thisrowno{2}]{samplesizesforerroranalysis.csv};
-			
-			
-			
-			\nextgroupplot
-			[
-			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel={Optical power in dipole trap (\si{\milli\watt})},
-			ylabel={Average trap lifetime (s)},
-			xmin=0, xmax=180,
-			ymin=0, ymax=10,
-			%xticklabels={,,},
-			%xtick={,,},
-			legend pos=north east,
-			legend cell align={left},
-			legend style={draw=none, at={(0.98,0.94)},anchor=north east},
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-			]
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			name path=dtdatapoints,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{greattrace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{5},
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{greatspline.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{5},
-			name path=greatspline_p,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{greatspline.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{5},
-			name path=greatspline_m,
-			color=rainbow1of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{greatspline.csv};
-			
-			\addplot[forget plot, rainbow1of8, opacity=0.2] fill between[
-			of = greatspline_m and greatspline_p,
-			]; 
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hann400trace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{105},
-			name path=Hann400trace,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_400.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann400trace_p,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_400.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann400trace_m,
-			color=rainbow2of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_400.csv};
-			
-			\addplot[forget plot, rainbow2of8, opacity=0.2] fill between[
-			of = Hann400trace_m and Hann400trace_p,
-			];
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hann500trace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{105},
-			name path=Hann500trace,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_500.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann500trace_p,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_500.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann500trace_m,
-			color=rainbow3of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_500.csv};
-			
-			\addplot[forget plot, rainbow3of8, opacity=0.2] fill between[
-			of = Hann500trace_m and Hann500trace_p,
-			]; 		
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hann600trace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{105},
-			name path=Hann600trace,
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_600.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann600trace_p,
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_600.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann600trace_m,
-			color=rainbow4of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_600.csv};
-			
-			\addplot[forget plot, rainbow4of8, opacity=0.2] fill between[
-			of = Hann600trace_m and Hann600trace_p,
-			]; 		
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hann700trace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{105},
-			name path=Hann700trace,
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_700.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann700trace_p,
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_700.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann700trace_m,
-			color=rainbow5of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_700.csv};
-			
-			\addplot[forget plot, rainbow5of8, opacity=0.2] fill between[
-			of = Hann700trace_m and Hann700trace_p,
-			]; 	
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hann800trace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{105},
-			name path=Hann800trace,
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{hannseriesspline_800.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann800trace_p,
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{hannseriesspline_800.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{105},
-			name path=Hann800trace_m,
-			color=rainbow6of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{hannseriesspline_800.csv};
-			
-			\addplot[forget plot, rainbow6of8, opacity=0.2] fill between[
-			of = Hann800trace_m and Hann800trace_p,
-			];
-			
-			
-			\addplot[
-			mark size=1pt,
-			only marks,
-			mark = *,
-			skip coords between index={0}{1},
-			color=rainbow7of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hysttrace.csv};
-			
-			\addplot[
-			forget plot,
-			skip coords between index={0}{5},
-			name path=Hysttrace_p,
-			color=rainbow7of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 1]{Hystspline.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{5},
-			name path=Hysttrace_p,
-			color=rainbow7of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 2]{Hystspline.csv};
-			
-			\addplot[
-			forget plot,
-			style={ultra thin},
-			skip coords between index={0}{5},
-			name path=Hysttrace_m,
-			color=rainbow7of8,
-			/pgfplots/error bars/.cd,
-			y dir = both,
-			y explicit,
-			] table [col sep = comma, x index = 0, y index = 3]{Hystspline.csv};
-			
-			\addplot[forget plot, rainbow7of8, opacity=0.2] fill between[
-			of = Hysttrace_m and Hysttrace_p,
-			]; 		
-			
-			\addlegendentry{\footnotesize \hspace{0.5em}no filter}
-			\addlegendentry{\footnotesize \hspace{0.5em}\SI{400}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}\SI{500}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}\SI{600}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}\SI{700}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}\SI{800}{\ms}}
-			\addlegendentry{\footnotesize \hspace{0.5em}hysteresis}
-				
-		\end{groupplot}
-		
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
-
-how to combine datasets appendix formulas and sample sizes:
-
-
-
-\subsection{Estimating dark lifetime}
-then discuss alpha stuff then 
-
-
-
-
-
-
-
-
-
-\subsection{Trap depth correction through ac-Stark shift}
-
-\iffalse
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.8\textwidth]{summary.pdf}
-	\caption{}
-	\label{fig:singleAtomGraph}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=1\textwidth]{multifit.pdf}
-	\caption{}
-	\label{fig:singleAtomGraph}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.8\textwidth]{correctedLT.pdf}
-	\caption{}
-	\label{fig:singleAtomGraph}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.8\textwidth]{correctedFR.pdf}
-	\caption{}
-	\label{fig:singleAtomGraph}
-\end{figure}
-\fi
+dipole trap, starting a fixed interval during which the cooling light is extinguished, as outlined in \autoref{sec:singletraplifetime}. The fluorescence trace is recorded and used to determine how long the atom remains dark. This period includes the set waiting time, as well as the combined latency of the detection and control loop: camera readout, software processing and hardware response. As shown in \autoref{fig:latency}, a linear fit to the measured times yields an offset of \SI{137}{\milli\second}, corresponding to the total system latency. This value must be subtracted from the set waiting times to accurately configure the actual delay $\Delta t$ experienced by the atom.
 
 \section{Conclusion}
 In conclusion, we have demonstrated that through modulation of the trap depth it is possible to push the average occupation probability of a dipole-force trap in the collisional blockade regime beyond the limited value of $0.5$. This method remains effective in the case of steady-state filling fractions below $0.5$, as long as there is a sufficiently large difference between the dark time and lifetime of the loading and holding regimes, respectively. Variations of the scheme involve either increasing or decreasing the trap from its loading depth upon the detection of an atom. Our proof of concept can be applied to simultaneous maximisation of filling fractions in tweezer arrays through the use of occupation-triggered holograms capable of modulating individual trapping sites on the fly. This scheme relies on an EMCCD camera continuously monitoring each trapping site, followed by an update of the hologram that increases the depth of those traps that acquired a single atom. Standard algorithms can be used to pre-compute such holograms for all required depth combinations. This scheme involves a number of operations equal to the size of the array to be filled, providing an efficient alternative to traditional filling schemes that rely on complex relocation operations.

@@ -6,14 +6,16 @@
 \pgfplotsset{table/search path={"Hologram Generation with Spatial Light Modulators/data/"}}
 
 \chapter{Hologram Generation with Spatial Light Modulators}
-\addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}orizontal line to ToC
+\addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:HologramGenerationwithSpatialLightModulators}
 
+This chapter presents the numerical methods used to compute phase holograms, focusing on three key algorithms: Gerchberg-Saxton, mixed-region amplitude freedom and gradient descent. We evaluate their performance in generating high-fidelity optical potentials suitable for trapping atoms in reconfigurable arrays.
+
 \section{Introduction}
-blablba
+Spatial light modulators (SLMs) have become indispensable tools in modern cold atom experiments to generate tailored optical potentials. In particular, liquid crystal SLMs offer dynamic, programmable phase modulation. By imprinting a spatially varying phase pattern---referred to as a kinoform---onto an incident laser beam, these modulators can shape the resulting diffraction pattern in the far field. This approach offers a high degree of flexibility and reconfigurability in shaping optical potentials, making it particularly well-suited for experiments involving microtrap arrays for single atoms \cite{Bergamini2004,nogrette2014, Barredo2018,Schymik2020}, atom transport \cite{Kim2016,Kim2019}, the study of superfluidity in ultracold atoms \cite{Bruce2011a}, manipulation of Bose-Einstein condensates \cite{Boyer2006} and time-varying potentials for evaporative cooling \cite{Bruce2011b}. In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing three representative methods: Gerchberg-Saxton (GS), mixed-region amplitude freedom (MRAF) and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
 
 \section{Algorithms for hologram generation}
-As shown in \autoref{setup}, we use a liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter} \times\SI{7.68}{\milli\meter}$ to imprint a specific phase profile (kinoform) on the incident beam in order to generate the desired diffraction pattern in the trapping plane. Although analytic kinoform solutions exist for certain target intensity profiles \cite{Matsumoto2008,Moulder2012}, finding the optimal phase pattern is a non-trivial problem that often requires a numerical approach. The difficulty results from the incomplete a priori knowledge of the light field in both planes. Whilst the intensity is constrained to the target pattern in the trapping plane, the phase is not. Similarly, in the holographic plane at the SLM interface, the intensity is constrained to the Gaussian profile of the incident light, which leaves the phase as a variable to be optimised. Many iterative phase retrieval methods are based on an iterative Fourier transform algorithm (IFTA). These include the Gerchberg-Saxton (GS) algorithm \cite{GS} and many of its modifications: weighted-GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012} and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative methods include the Floyd-Steinberg error diffusion dithering algorithm \cite{floyd} and conjugate gradient minimisation \cite{Harte2014}. In the following sections, we outline the principles of GSW, MRAF and conjugate gradient minimisation, followed by a discussion on the performance of these algorithms in the context of generating optical potentials for single atom traps.
+As shown in \autoref{setup}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative phase retrieval algorithms, many of which are based on the iterative Fourier transform algorithm (IFTA). Prominent examples include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of three representative methods (GS, MRAF and gradient descent) in generating arrays of high-fidelity optical traps.
 
 \subsection{Gerchberg-Saxton}
 
@@ -45,19 +47,19 @@ A frequently employed method for the generation of holographic optical tweezers 
 	\node[align=center] at (0.43,0.33) {\small\textcolor{markrood}{$\mathcal{F}^{-1}$}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
-	anchor=base, very thick, draw=none, fill=none, align=right] at (0.01,0.5) {\small\textcolor{markgrijs}{Intensity}};
+	anchor=base, very thick, draw=none, fill=none, align=right] at (0.01,0.5) {\small\textcolor{markgrijs}{intensity}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
-	anchor=base, very thick, draw=none, fill=none, align=right] at (0.05,-0.08) {\small\textcolor{markgrijs}{Phase pattern}};
+	anchor=base, very thick, draw=none, fill=none, align=right] at (0.05,-0.08) {\small\textcolor{markgrijs}{phase pattern}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=30mm,
-	anchor=base, very thick, draw=none, fill=none, align=left] at (0.85,0.5) {\small\textcolor{markgrijs}{Approximation}};
+	anchor=base, very thick, draw=none, fill=none, align=left] at (0.85,0.5) {\small\textcolor{markgrijs}{approximation}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
-	anchor=base, very thick, draw=none, fill=none, align=left] at (0.844,-0.08) {\small\textcolor{markgrijs}{Target}};
+	anchor=base, very thick, draw=none, fill=none, align=left] at (0.844,-0.08) {\small\textcolor{markgrijs}{target}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
-	anchor=base, very thick, draw=none, fill=none, align=left] at (0.985,-0.08) {\small\textcolor{markgrijs}{Periphery}};
+	anchor=base, very thick, draw=none, fill=none, align=left] at (0.985,-0.08) {\small\textcolor{markgrijs}{periphery}};
 	
 	\end{scope}
 	
