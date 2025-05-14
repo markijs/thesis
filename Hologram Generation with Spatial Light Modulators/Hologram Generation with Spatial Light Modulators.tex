@@ -9,15 +9,46 @@
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:HologramGenerationwithSpatialLightModulators}
 
-This chapter presents the numerical methods used to compute phase holograms, focusing on three key algorithms: Gerchberg-Saxton, mixed-region amplitude freedom and gradient descent. We evaluate their performance in generating high-fidelity optical potentials suitable for trapping atoms in reconfigurable arrays.
+This chapter presents the numerical methods used to compute phase holograms, focusing on three key algorithms: Gerchberg-Saxton, mixed-region amplitude freedom and conjugate gradient minimisation. We evaluate their performance in generating high-fidelity optical potentials suitable for trapping atoms in reconfigurable arrays.
 
 \section{Introduction}
-Spatial light modulators (SLMs) have become indispensable tools in modern cold atom experiments to generate tailored optical potentials. In particular, liquid crystal SLMs offer dynamic, programmable phase modulation. By imprinting a spatially varying phase pattern---referred to as a kinoform---onto an incident laser beam, these modulators can shape the resulting diffraction pattern in the far field. This approach offers a high degree of flexibility and reconfigurability in shaping optical potentials, making it particularly well-suited for experiments involving microtrap arrays for single atoms \cite{Bergamini2004,nogrette2014, Barredo2018,Schymik2020}, atom transport \cite{Kim2016,Kim2019}, the study of superfluidity in ultracold atoms \cite{Bruce2011a}, manipulation of Bose-Einstein condensates \cite{Boyer2006} and time-varying potentials for evaporative cooling \cite{Bruce2011b}. In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing three representative methods: Gerchberg-Saxton (GS), mixed-region amplitude freedom (MRAF) and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
+Spatial light modulators (SLMs) have become indispensable tools in modern cold atom experiments to generate tailored optical potentials. In particular, liquid crystal SLMs offer dynamic, programmable phase modulation. By imprinting a spatially varying phase pattern---referred to as a kinoform---onto an incident laser beam, these modulators can shape the resulting diffraction pattern in the far field. This approach offers a high degree of flexibility and reconfigurability in shaping optical potentials, making it particularly well-suited for experiments involving microtrap arrays for single atoms \cite{Bergamini2004,nogrette2014, Barredo2018,Schymik2020}, atom transport \cite{Kim2016,Kim2019}, the study of superfluidity in ultracold atoms \cite{Bruce2011a}, manipulation of Bose-Einstein condensates \cite{Boyer2006} and time-varying potentials for evaporative cooling \cite{Bruce2011b}. In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing a number of iterative Fourier transform algorithms and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
 
 \section{Algorithms for hologram generation}
-As shown in \autoref{setup}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative phase retrieval algorithms, many of which are based on the iterative Fourier transform algorithm (IFTA). Prominent examples include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of three representative methods (GS, MRAF and gradient descent) in generating arrays of high-fidelity optical traps.
+As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (WGS) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, WGS, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
 
 \subsection{Gerchberg-Saxton}
+The Gerchberg-Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972 \cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration:
+\begin{equation}
+E_{\mathrm{i}}^{(1)} = A_{\mathrm{i}}^{(0)} \exp{i \phi_{\mathrm{i}}^{(0)}}\,,
+\end{equation}
+where $A_{\mathrm{i}}^{(0)}$ is the fixed amplitude profile of the incident laser beam (typically Gaussian) and $\phi_{\mathrm{i}}^{(0)}$ is an initial guess for the phase. This field is then propagated to the output plane via a forward Fourier transform:
+\begin{equation}
+E_{\mathrm{o}}^{(1)} = \mathcal{F}\left\{ E_{\mathrm{i}}^{(1)} \right\} = A_{\mathrm{o}}^{(1)} \exp\Bigl\{i \phi_{\mathrm{o}}^{(1)} \Bigr\} \,,
+\end{equation}
+where $A_{\mathrm{o}}^{(1)}$ and $\phi_{\mathrm{o}}^{(1)}$ denote the amplitude and phase in the output plane, respectively. At this stage, the computed output amplitude generally does not match the desired target amplitude $T(x,y)$. Therefore, $A_{\mathrm{o}}^{(1)} $ is replaced by the target amplitude, while the computed phase is retained:
+\begin{equation}
+G_{\mathrm{o}}^{(1)} = T \exp\Bigl\{i \phi_{\mathrm{o}}^{(1)}\Bigr\}\,,
+\end{equation}
+which defines the modified output field for the next step. An inverse Fourier transform is then applied to return to the input plane:
+\begin{equation}
+G_{\mathrm{i}}^{(1)} = \mathcal{F}^{-1}\Bigl\{G_{\mathrm{o}}^{(1)} \Bigr\} = A_{\mathrm{i}}^{(1)} \exp\Bigl\{ i \phi_{\mathrm{i}}^{(1)}\Bigr\}\,,
+\end{equation}
+where $A_{\mathrm{i}}^{(1)}$ is the resulting amplitude and $\phi_{\mathrm{i}}^{(1)}$ the updated phase at the input plane. To enforce consistency with the input beam profile, the amplitude is again replaced by the original $A_{\mathrm{i}}^{(0)}$, while the phase is retained:
+\begin{equation}
+E_{\mathrm{i}}^{(2)} = A_{\mathrm{i}}^{(0)} \exp\Bigl\{i \phi_{\mathrm{i}}^{(1)} \Bigr\}\,,
+\end{equation}
+which becomes the input for the next iteration. This cycle of forward and inverse Fourier transforms is repeated, alternating between imposing the correct amplitude in the input and output planes. The algorithm continues until a suitable convergence criterion is met, typically based on the root mean square error between the generated amplitude and the target profile:
+\begin{equation}
+\epsilon^{(n)} = \sqrt{ \frac{1}{N} \sum_{x,y} \left( A_{\mathrm{o}}^{(n)}(x,y) - T(x,y) \right)^2 }\,,
+\end{equation}
+where the sum runs over all $N$ pixels in the output plane. A common stopping condition is that the relative change in error falls below a set threshold:
+\begin{equation}
+\epsilon^{(n)} - \epsilon^{(n-1)} < 10^{-k}\,,
+\end{equation}
+for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns.
+
+\subsection{Weighted Gerchberg-Saxton}
 
 \subsection{Mixed-region amplitude freedom}
 A frequently employed method for the generation of holographic optical tweezers is the MRAF algorithm, which is schematically shown in \autoref{fig:mraf}.
@@ -72,9 +103,11 @@ The MRAF algorithm provides a good trade-off between accuracy and speed. For gen
 
 In addition, we have measured that MRAF is faster than conjugate gradient minimisation by a factor of at least $20$. In the first iteration, the algorithm computes the 2D Fourier transform of the incident intensity profile combined with an initial phase guess, which yields an approximate solution for the diffracted light in the trapping plane. The algorithm then extracts the phase from this image and recombines it with an intensity profile that consists of the target intensity in the region of interest and the approximated intensity outside this region (periphery). This gives the algorithm more freedom to converge with respect to the conventional GS algorithm. The final step consists of an inverse transformation from which the kinoform is extracted and recombined with the incident intensity profile prior to starting the next iteration. The algorithm is terminated if the difference between the target and approximation is sufficiently small or if the maximum number of iteration is reached.
 
+\subsection{Conjugate gradient minimisation}
+
 \section{Algorithm benchmarking}
 
-\subsection{Gerchberg-Saxton based algorithms}
+\subsection{Iterative Fourier transform algorithms}
 
 \subsubsection{Simulated trap intensity and homogeneity}
 
@@ -810,6 +843,7 @@ point meta max=0.05,
 
 \subsubsection{Algorithm convergence rate}
 
+
 \begin{figure}[t]
 	%\vspace{0.7em}
 	\centering
@@ -977,7 +1011,7 @@ point meta max=0.05,
 \end{figure}
 
 
-\subsection{Gradient descent}
+\subsection{Conjugate gradient minimisation}
 
 \begin{figure}[t]
 	\vspace{0em}
@@ -1113,10 +1147,10 @@ TO DO: GRADIENT DESCENT!!! and add vertical lines to show when convergence occur
 	MRAF $\SI{80}{\percent}$&$\SI{78.0}{\percent}$&$\num{1.27e-2}$& $\num{3.18e-3}$&$45$\\
 	MRAF $\SI{90}{\percent}$&$\SI{85.9}{\percent} $&$\num{4.02e-2}$&$\num{1.52e-3}$&$57$\\
 	MRAF $\SI{99}{\percent}$&$\SI{90.4}{\percent}$&$\num{2.00e-1}$&$\num{2.70e-3}$&$47$\\
-	Weighted-GS&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
-	MRAF $\SI{80}{\percent}$ \& Weighted-GS&$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
-	MRAF $\SI{90}{\percent}$ \& Weighted-GS&$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
-	MRAF $\SI{99}{\percent}$ \& Weighted-GS&$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
+	WGS&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
+	MRAF $\SI{80}{\percent}$ \& WGS&$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
+	MRAF $\SI{90}{\percent}$ \& WGS&$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
+	MRAF $\SI{99}{\percent}$ \& WGS&$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
 	GD&$\SI{81.3}{\percent} $&$\num{1.02e-1}$ &$\num{3.13e-3} $& $1470 $\\
 	\bottomrule
 \end{tabular}
