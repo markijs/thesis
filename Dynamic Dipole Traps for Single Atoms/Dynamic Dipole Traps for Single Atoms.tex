@@ -15,7 +15,7 @@ In this chapter, we investigate the effect of changing the depth of a static, op
 
 Single trapped atoms at temperatures near absolute zero constitute ideal information carriers in quantum computing and simulation. Recent advances in this field underpin the utility of using reconfigurable, optical tweezers to trap cold neutral atoms. This approach has enabled remarkable achievements in the context of quantum information science and many-body physics \cite{Labuhn2016, Endres2016, Bernien2017, Lienhard2018, Barredo2018}. Apart from being highly scalable \cite{Manetsch2024}, neutral atoms in reconfigurable microtraps exhibit long coherence times \cite{Norcia2019,Wu2019,Young2020} and allow for arbitrary qubit connectivity \cite{Beugnon2007,Bluvstein2022}. They furthermore enable fully programmable single-qubit rotations \cite{Ma2023} and are shown to yield a high readout and two-qubit gate fidelity \cite{Evered2023}. The combination of these characteristics fostered the development of a logical quantum processor based on reconfigurable atom arrays \cite{Bluvstein2023}. In the context of quantum repeaters and networks, arrays of individually controlled neutral atoms coupled to optical cavities are equally promising for generating efficient remote entanglement over a mesh of quantum nodes \cite{Wilk2007, rempe2012, Covey2023}. 
 
-Single-atom optical dipole traps have been implemented using a large range of different techniques with varying degrees of configurability: acousto-optic deflectors \cite{Endres2016, Bernien2017}, micro-lens arrays \cite{OhldeMello2019}, standing wave dipole traps \cite{Alt2003, Gallego2018}, digital mirror devices (DMD) \cite{Stuart2018} and liquid crystal spatial light modulators (SLM) \cite{Bergamini2004, Kim2016}. The use of a DMD or liquid crystal SLM for holographic beam shaping extends the range of trapping geometries beyond periodic lattices to arbitrary configurations in up to three dimensions \cite{Barredo2018}.
+Single-atom optical dipole traps have been implemented using a large range of different techniques with varying degrees of configurability: acousto-optic deflectors \cite{Endres2016, Bernien2017}, micro-lens arrays \cite{OhldeMello2019}, standing wave dipole traps \cite{Alt2003, Gallego2018}, digital mirror devices (DMDs) \cite{Stuart2018} and liquid crystal spatial light modulators (SLMs) \cite{Bergamini2004, Kim2016}. The use of a DMD or liquid crystal SLM for holographic beam shaping extends the range of trapping geometries beyond periodic lattices to arbitrary configurations in up to three dimensions \cite{Barredo2018}.
 
 With any of these trapping techniques, achieving consistent single-atom occupation across multiple trapping sites constitutes a challenging task, due to the fact that atoms enter the traps stochastically \cite{Grimm2000}. To be precise, in sufficiently tight dipole traps---those with a beam waist of around \SI{1}{\micro\meter}---single-atom loading is accomplished by virtue of light-assisted collisions, which cause a collisional blockade \cite{Schlosser2002}. This regime is characterised with a strong two-atom loss rate due to inelastic collisions, resulting in a negligible probability of finding a doubly occupied trap. When loading atoms directly from a magneto-optic trap (MOT) or optical molasses however, the time-averaged, single-atom occupation probability is limited to $0.5$. This implies that the likelihood of establishing fully occupied arrays of traps will decrease exponentially as the system size increases. The strategies to overcome this problem are to either increase the single-atom loading efficiency \cite{Fung2014} or to relocate ancillary atoms to vacant positions \cite{Vala2005}. Whilst this is typically accomplished with acousto-optic beam deflectors \cite{Barredo2018}, atom relocation has also been achieved through the use of dynamic holograms \cite{Kim2016,Kim2019}. When atoms are transported by means of dynamic holograms however, phase changes of a liquid crystal SLM or resettling oscillations of DMD micro-mirrors give rise to uncontrollable fluctuations in the trapping potential, causing a dramatic increase in the atom loss rate \cite{Stuart2018,McGloin2003}.
 
@@ -1395,7 +1395,7 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers]
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers, axis on top=true]
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
@@ -3578,25 +3578,25 @@ A single-threshold detection scheme is used to trigger real-time operations duri
 \begin{figure}
 	\begin{tikzpicture}[grow=right, sloped]
 	
-	\node[bag, font=\small, text=rainbow1of8] (Root) {\textsc{no}}
+	\node[bag, font=\small, text=black] (Root) {\textsc{no}}
 	child {
-		node[bag, font=\small, text=rainbow1of8] {\textsc{no},\\\textsc{reset}}
+		node[bag, font=\small, text=black] {\textsc{no},\\\textsc{reset}}
 		edge from parent 
 		node[above] {\tiny correct}
 		node[below, font=\small]  {$p$}
 	}
 	child {
-		node[bag, font=\small, text=rainbow3of8] (Root1) {\textsc{yes},\\\textsc{wait} $\Delta t$}        
+		node[bag, font=\small, text=black] (Root1) {\textsc{yes},\\\textsc{wait} $\Delta t$}        
 		child {
-			node[bag, font=\small, text=rainbow1of8] (Root2) {\textsc{no}}
+			node[bag, font=\small, text=black] (Root2) {\textsc{no}}
 			child {
-				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				node[bag, font=\small, text=black] {\textsc{no}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$p$}
 			}
 			child {
-				node[bag, font=\small, text=rainbow3of8] (Root3) {\textsc{yes}}
+				node[bag, font=\small, text=black] (Root3) {\textsc{yes}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$1-p$}
@@ -3610,26 +3610,26 @@ A single-threshold detection scheme is used to trigger real-time operations duri
 		node[below, font=\small]  {$1-p$}
 	};
 	
-	\node[bag, below= 4cm of Root, font=\small, text=rainbow3of8] {\textsc{yes}}
+	\node[bag, below= 4cm of Root, font=\small, text=black] {\textsc{yes}}
 	child {
-		node[bag, font=\small, text=rainbow1of8] {\textsc{no},\\\textsc{reset}}        
+		node[bag, font=\small, text=black] {\textsc{no},\\\textsc{reset}}        
 		edge from parent 
 		node[above] {\tiny type II error}
 		node[below, font=\small]  {$1-p$}
 	}
 	child {
-		node[bag, font=\small, text=rainbow3of8] (Root1) {\textsc{yes}, \textsc{wait} $\Delta t$}        
+		node[bag, font=\small, text=black] (Root1) {\textsc{yes}, \textsc{wait} $\Delta t$}        
 		child {
-			node[font=\small, text=rainbow1of8] (Root2) {\textsc{no}}
+			node[font=\small, text=black] (Root2) {\textsc{no}}
 			node[bag, font=\small, text=white] (Root2) {\textsc{yes}, \textsc{wait} $\Delta t$}
 			child {
-				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				node[bag, font=\small, text=black] {\textsc{no}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$p$}
 			}
 			child {
-				node[bag, font=\small, text=rainbow3of8] {\textsc{yes}}
+				node[bag, font=\small, text=black] {\textsc{yes}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$1-p$}
@@ -3639,16 +3639,16 @@ A single-threshold detection scheme is used to trigger real-time operations duri
 			node[below, font=\small]  {$1-P$}
 		}
 		child {
-			node[font=\small, text=rainbow3of8] (Root2) {\textsc{yes}}
+			node[font=\small, text=black] (Root2) {\textsc{yes}}
 			node[bag, font=\small, text=white] (Root2) {\textsc{yes}, \textsc{wait} $\Delta t$}
 			child {
-				node[bag, font=\small, text=rainbow1of8] {\textsc{no}}
+				node[bag, font=\small, text=black] {\textsc{no}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$1-p$}
 			}
 			child {
-				node[bag, font=\small, text=rainbow3of8] {\textsc{yes}}
+				node[bag, font=\small, text=black] {\textsc{yes}}
 				edge from parent
 				node[above] {}
 				node[below, font=\small]  {$p$}

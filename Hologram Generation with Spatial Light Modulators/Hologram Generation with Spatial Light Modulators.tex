@@ -15,62 +15,169 @@ This chapter presents the numerical methods used to compute phase holograms, foc
 Spatial light modulators (SLMs) have become indispensable tools in modern cold atom experiments to generate tailored optical potentials. In particular, liquid crystal SLMs offer dynamic, programmable phase modulation. By imprinting a spatially varying phase pattern---referred to as a kinoform---onto an incident laser beam, these modulators can shape the resulting diffraction pattern in the far field. This approach offers a high degree of flexibility and reconfigurability in shaping optical potentials, making it particularly well-suited for experiments involving microtrap arrays for single atoms \cite{Bergamini2004,nogrette2014, Barredo2018,Schymik2020}, atom transport \cite{Kim2016,Kim2019}, the study of superfluidity in ultracold atoms \cite{Bruce2011a}, manipulation of Bose-Einstein condensates \cite{Boyer2006} and time-varying potentials for evaporative cooling \cite{Bruce2011b}. In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing a number of iterative Fourier transform algorithms and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
 
 \section{Algorithms for hologram generation}
-As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (WGS) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, WGS, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
+As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, GSW, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
 
 \subsection{Gerchberg-Saxton}
 The Gerchberg-Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972 \cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration:
 \begin{equation}
-E_{\mathrm{i}}^{(1)} = A_{\mathrm{i}}^{(0)} \exp{i \phi_{\mathrm{i}}^{(0)}}\,,
+\label{initialein}
+E_{\mathrm{in}}^{(1)} = A_{\mathrm{in}}^{(0)} \exp{i \phi_{\mathrm{in}}^{(0)}}\,,
 \end{equation}
-where $A_{\mathrm{i}}^{(0)}$ is the fixed amplitude profile of the incident laser beam (typically Gaussian) and $\phi_{\mathrm{i}}^{(0)}$ is an initial guess for the phase. This field is then propagated to the output plane via a forward Fourier transform:
+where $A_{\mathrm{in}}^{(0)}$ is the fixed amplitude profile of the incident laser beam (typically Gaussian) and $\phi_{\mathrm{in}}^{(0)}$ is an initial guess for the phase. This field is then propagated to the output plane via a discrete Fourier transform:
+\begin{align}
+\label{forwardfourier}
+\begin{split}
+E_{\mathrm{out}}^{(1)}(x,y) &= \mathcal{F}\left\{ E_{\mathrm{in}}^{(1)} (p,q)\right\} \\&= \frac{1}{N}\sum_{p,q} E_\text{in}^{(1)}(p,q) \exp\Bigl\{-2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{out}}^{(1)} \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)} \Bigr\} \,,
+\end{split}
+\end{align}
+where $(p,q)$ and $(x,y)$ represent the pixel indices in the input and output planes (each consisting of $N$ pixels), respectively. The resulting amplitude and phase in the output plane are written as $A_{\mathrm{out}}^{(1)}$ and $\phi_{\mathrm{out}}^{(1)}$, respectively. At this stage, the computed output amplitude generally does not match the desired target amplitude $T(x,y)$. Therefore, $A_{\mathrm{out}}^{(1)} $ is replaced by the target amplitude, while the computed phase is retained:
 \begin{equation}
-E_{\mathrm{o}}^{(1)} = \mathcal{F}\left\{ E_{\mathrm{i}}^{(1)} \right\} = A_{\mathrm{o}}^{(1)} \exp\Bigl\{i \phi_{\mathrm{o}}^{(1)} \Bigr\} \,,
-\end{equation}
-where $A_{\mathrm{o}}^{(1)}$ and $\phi_{\mathrm{o}}^{(1)}$ denote the amplitude and phase in the output plane, respectively. At this stage, the computed output amplitude generally does not match the desired target amplitude $T(x,y)$. Therefore, $A_{\mathrm{o}}^{(1)} $ is replaced by the target amplitude, while the computed phase is retained:
-\begin{equation}
-G_{\mathrm{o}}^{(1)} = T \exp\Bigl\{i \phi_{\mathrm{o}}^{(1)}\Bigr\}\,,
+\label{Gout}
+G_{\mathrm{out}}^{(1)} = T \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)}\Bigr\}\,,
 \end{equation}
 which defines the modified output field for the next step. An inverse Fourier transform is then applied to return to the input plane:
+\begin{align}
+\begin{split}
+G_{\mathrm{in}}^{(1)}(p,q) &= \mathcal{F}^{-1}\Bigl\{G_{\mathrm{out}}^{(1)}(x,y) \Bigr\} \\&= \frac{1}{N}\sum_{x,y} G_{\mathrm{out}}^{(1)}(x,y) \exp\Bigl\{2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{in}}^{(1)} \exp\Bigl\{ i \phi_{\mathrm{in}}^{(1)}\Bigr\}\,,
+\end{split}
+\end{align}
+where $A_{\mathrm{in}}^{(1)}$ is the resulting amplitude and $\phi_{\mathrm{in}}^{(1)}$ the updated phase at the input plane. To enforce consistency with the input beam profile, the amplitude is again replaced by the original $A_{\mathrm{in}}^{(0)}$, while the phase is retained:
 \begin{equation}
-G_{\mathrm{i}}^{(1)} = \mathcal{F}^{-1}\Bigl\{G_{\mathrm{o}}^{(1)} \Bigr\} = A_{\mathrm{i}}^{(1)} \exp\Bigl\{ i \phi_{\mathrm{i}}^{(1)}\Bigr\}\,,
+E_{\mathrm{in}}^{(2)} = A_{\mathrm{in}}^{(0)} \exp\Bigl\{i \phi_{\mathrm{in}}^{(1)} \Bigr\}\,,
 \end{equation}
-where $A_{\mathrm{i}}^{(1)}$ is the resulting amplitude and $\phi_{\mathrm{i}}^{(1)}$ the updated phase at the input plane. To enforce consistency with the input beam profile, the amplitude is again replaced by the original $A_{\mathrm{i}}^{(0)}$, while the phase is retained:
+which becomes the input for the next iteration. This cycle of forward and inverse Fourier transforms is repeated, alternating between imposing the correct amplitude in the input and output planes. The algorithm continues until a suitable convergence criterion is met, which is based on the following error between the generated and target intensity profile:
 \begin{equation}
-E_{\mathrm{i}}^{(2)} = A_{\mathrm{i}}^{(0)} \exp\Bigl\{i \phi_{\mathrm{i}}^{(1)} \Bigr\}\,,
+\label{costfunction}
+\epsilon^{(n)} =  \sum_{x,y} \left( [A_{\mathrm{out}}^{(n)}(x,y) ]^2 - [T(x,y) ]^2 \right)^2 \,.
 \end{equation}
-which becomes the input for the next iteration. This cycle of forward and inverse Fourier transforms is repeated, alternating between imposing the correct amplitude in the input and output planes. The algorithm continues until a suitable convergence criterion is met, typically based on the root mean square error between the generated amplitude and the target profile:
+A common stopping condition is that the relative change in error falls below a set threshold:
 \begin{equation}
-\epsilon^{(n)} = \sqrt{ \frac{1}{N} \sum_{x,y} \left( A_{\mathrm{o}}^{(n)}(x,y) - T(x,y) \right)^2 }\,,
-\end{equation}
-where the sum runs over all $N$ pixels in the output plane. A common stopping condition is that the relative change in error falls below a set threshold:
-\begin{equation}
+\label{convergence}
 \epsilon^{(n)} - \epsilon^{(n-1)} < 10^{-k}\,,
 \end{equation}
-for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns.
+for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns. A summary of the Gerchberg-Saxton algorithm is shown in \autoref{fig:GS_flowchart}.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}[
+	box/.style={
+		draw,
+		minimum width=3cm,
+		minimum height=1.5cm,
+		align=center
+	},
+	arrow/.style={-{latex}, thick},
+	node distance=1.5cm and 2.5cm
+	]
+	
+	% Matrix of nodes for alignment
+	\matrix[column sep=0.8cm, row sep=0.5cm, ampersand replacement=\&] {
+		% Row 1
+		\node[box, minimum width=3.9cm] (input1) {\footnotesize\sc initial field \\[0.5em]\footnotesize\sc $E_{\mathrm{in}}^{(1)} = A_{\mathrm{in}}^{(0)} \mathrm{e}^{i\phi_{\mathrm{in}}^{(0)}}$}; \&
+		\node[box, minimum width=3.9cm] (fft) {\footnotesize\sc forward FT \\[0.5em]\footnotesize\sc $\mathcal{F}\bigl\{E_{\mathrm{in}}^{(n)}\bigr\}$}; \&
+		\node[box, minimum width=3.9cm] (output1) {\footnotesize\sc output field \\[0.5em]\footnotesize\sc $E_{\mathrm{out}}^{(n)} = A_{\mathrm{out}}^{(n)} \mathrm{e}^{i\phi_{\mathrm{out}}^{(n)}}$}; \\
+		
+		% Row 2
+		\node[box, minimum width=3.9cm] (input2) {\footnotesize\sc updated input field \\[0.5em]\footnotesize\sc $G_{\mathrm{in}}^{(n)} = A_{\mathrm{in}}^{(n)} \mathrm{e}^{i\phi_{\mathrm{in}}^{(n)}}$}; \&
+		\node[box, minimum width=3.9cm] (ifft) {\footnotesize\sc inverse FT \\[0.5em]\footnotesize\sc $\mathcal{F}^{-1}\bigl\{G_{\mathrm{out}}^{(n)} \bigr\}$}; \&
+		\node[box, minimum width=3.9cm] (replace_out) {\footnotesize\sc replace amplitude \\[0.5em]\footnotesize\sc $A_{\mathrm{out}}^{(n)} \rightarrow T$}; \\
+		
+		% Row 3
+		\node[box, minimum width=3.9cm] (replace_in) {\footnotesize\sc replace amplitude \\[0.5em]\footnotesize\sc $A_{\mathrm{in}}^{(n)} \rightarrow A_{\mathrm{in}}^{(0)}$}; \&
+		\node[box, minimum width=3.9cm] (check) {\footnotesize\sc convergence? \\[0.5em]\footnotesize\sc $\epsilon^{(n)} - \epsilon^{(n-1)} < 10^{-k}$}; \&
+		\node[box, minimum width=3.9cm] (terminate) {\footnotesize\sc terminate}; \\
+	};
+	
+	% Arrows between boxes
+	\draw[arrow] (input1) -- (fft);
+	\draw[arrow] (fft) -- (output1);
+	\draw[arrow] (output1) -- (replace_out);
+	\draw[arrow] (replace_out) -- (ifft);
+	\draw[arrow] (ifft) -- (input2);
+	\draw[arrow] (input2) -- (replace_in);
+	\draw[arrow] (replace_in) -- (check);
+	\draw[arrow] (check) -- node[below, yshift=-3pt] {\footnotesize\sc yes} (terminate);
+	
+	% Long right-angled "No" arrow around the diagram
+	\draw[thick]
+	(check.south) -- ++(0,-0.5)
+	node[pos=0.5, right] {\footnotesize\sc no}% down
+	-- ++(-2.35,0)                    % left
+	-- ($(check.center)-(2.35,0.15)$);                     
+	
+	\draw[thick]
+	($(check.center)-(2.35,-0.15)$) -- ($(ifft.center)-(2.35,0.15)$);
+	
+	\draw[thick]
+	($(ifft.center)-(2.35,-0.15)$) -- ($(fft.center)-(2.35,0.15)$);
+	
+	\draw[arrow]
+	($(fft.center)-(2.35,-0.15)$) -- ($(fft.north)-(2.35,-0.5)$)
+	-- ($(fft.north)-(0,-0.5)$)
+	-- (fft.north);
+	
+	\end{tikzpicture}
+	\caption[Flowchart of the Gerchberg-Saxton algorithm]{Flowchart of the Gerchberg-Saxton algorithm. Amplitudes are enforced in alternating planes while the phase evolves iteratively.}
+	\label{fig:GS_flowchart}
+\end{figure}
 
 \subsection{Weighted Gerchberg-Saxton}
+The weighted Gerchberg–Saxton algorithm is an extension of the standard GS method, designed to simultaneously optimise the diffraction efficiency and uniformity of holographically generated optical trap arrays. This is achieved by introducing a spatially varying weight function that is iteratively updated to correct non-uniformities. Instead of applying the standard update rule given by \autoref{Gout} at the $n^{\text{th}}$ iteration, the output field is modified as
+\begin{equation}
+\label{Gout2}
+G_{\mathrm{out}}^{(n)} = T^{(n)} \exp\Bigl\{i \phi_{\mathrm{out}}^{(n)}\Bigr\}\,,
+\end{equation}
+where the target amplitude $T^{(n)}$ evolves according to
+\begin{align}
+T^{(n)} =
+\begin{cases}
+T & \text{if } n=1\,, \\
+w^{(n)} T^{(n-1)} & \text{if } n>1\,.
+\end{cases}
+\end{align}
+The weights $w^{(n)}(x,y)$ are defined by
+\begin{equation}
+w^{(n)}(x,y) = 
+\begin{cases}
+\sqrt{ \dfrac{\big\langle [A_{\mathrm{out}}^{(n)}(x,y)]^2 \big\rangle_\Omega}{[A_{\mathrm{out}}^{(n)}(x,y)]^2} } & \text{if } (x,y) \in \Omega\,, \\
+1 & \text{otherwise}\,,
+\end{cases}
+\end{equation}
+with the average intensity taken over the region $\Omega$ associated with the traps:
+\begin{equation}
+\big\langle [A_{\mathrm{out}}^{(n)}(x,y)]^2 \big\rangle_\Omega = \frac{1}{N_\Omega} \sum_{(x, y)\in\Omega} [A_{\mathrm{out}}^{(n)}(x, y)]^2\,,
+\end{equation}
+where $N_\Omega$ denotes the number of pixels used for the trapping sites.
 
 \subsection{Mixed-region amplitude freedom}
-A frequently employed method for the generation of holographic optical tweezers is the MRAF algorithm, which is schematically shown in \autoref{fig:mraf}.
+A widely used method for generating holographic optical tweezers is the mixed region amplitude freedom algorithm, originally introduced in 2008 \cite{Pasienski2008}. It is an iterative Fourier transform algorithm that extends the conventional GS approach by introducing partial amplitude freedom in the output plane. This allows it to achieve improved accuracy and smoother intensity profiles, especially for complex target patterns. The key idea behind the MRAF algorithm is to divide the output plane into two regions: a signal region $\Omega_\text{s}$ and a noise region $\Omega_\text{n}$. The signal region contains the target intensity pattern along with a low-intensity buffer zone in which the amplitude is constrained to match the target while the phase remains free. Outside the signal region lies the noise region, where both amplitude and phase are left unconstrained, allowing light to be redistributed freely to improve convergence and reduce artefacts. Similar to the GSW approach, the MRAF algorithm modifies the output field update step in \autoref{Gout} by introducing an adaptive target $T^{(n)}$, as in \autoref{Gout2}. Via its definition in MRAF, however, it mixes the target amplitude in the signal region with the unconstrained field in the noise region:
+\begin{equation}
+T^{(n)}(x, y) =
+\begin{cases}
+\sqrt{\frac{\alpha}{c_T}} T(x, y) & \text{if } (x, y) \in \Omega_\text{s}\,, \\
+\sqrt{\frac{1-\alpha}{c_{A,n}}}A^{(n)}_{\mathrm{out}}(x, y) & \text{if } (x, y) \in \Omega_\text{n}\,,
+\end{cases}
+\end{equation}
+where $\alpha$ is the mixing parameter that represents the fraction of optical power assigned to the signal region. The constants $c_T$ and $c_{A,n}$ ensure normalisation of the total intensity and are defined as:
+\begin{align}
+\begin{split}
+c_T &= \sum_{(x,y)\in\Omega_\text{s}} [T(x,y)]^2\,,\\
+c_{A,n} &= \sum_{(x,y)\in\Omega_\text{n}} [A^{(n)}_{\mathrm{out}}(x,y)]^2\,.
+\end{split}
+\end{align}
+Figure \autoref{fig:mraf} shows a schematic representation of the MRAF algorithm. The phase pattern is iteratively updated in the hologram and then propagated through the Fourier transform to yield an intensity distribution that matches the target profile in the signal region. The periphery (noise region) is deliberately left unconstrained to absorb the light that does not contribute to the desired pattern.
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
 	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.85\textwidth]{MRAF.pdf}};
 	\begin{scope}[x={(image.south east)},y={(image.north west)}]
 	
-	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
-	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
-	
 	\node[] at (0.235,0.71) {\small\textcolor{white}{$\phi$}};
 	\node[] at (0.235,0.86) {\small\textcolor{white}{$I$}};
-	
 	\node[] at (0.605,0.71) {\small\textcolor{white}{$\phi$}};
 	\node[] at (0.605,0.86) {\small\textcolor{white}{$I$}};
 	
 	\node[] at (0.235,0.135) {\small\textcolor{white}{$I$}};
 	\node[] at (0.235,0.285) {\small\textcolor{white}{$\phi$}};
-	
 	\node[] at (0.605,0.135) {\small\textcolor{white}{$I$}};
 	\node[] at (0.605,0.285) {\small\textcolor{white}{$\phi$}};
 	
@@ -79,33 +186,164 @@ A frequently employed method for the generation of holographic optical tweezers 
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
 	anchor=base, very thick, draw=none, fill=none, align=right] at (0.01,0.5) {\small\textcolor{markgrijs}{intensity}};
-	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
 	anchor=base, very thick, draw=none, fill=none, align=right] at (0.05,-0.08) {\small\textcolor{markgrijs}{phase pattern}};
-	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=30mm,
 	anchor=base, very thick, draw=none, fill=none, align=left] at (0.85,0.5) {\small\textcolor{markgrijs}{approximation}};
-	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
 	anchor=base, very thick, draw=none, fill=none, align=left] at (0.844,-0.08) {\small\textcolor{markgrijs}{target}};
-	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=25mm,
 	anchor=base, very thick, draw=none, fill=none, align=left] at (0.985,-0.08) {\small\textcolor{markgrijs}{periphery}};
 	
 	\end{scope}
-	
-	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Diagram of the iterative mixed-region amplitude freedom algorithm used for calculating the phase pattern in the holographic plane (left hand side) that corresponds to the target intensity profile in the trapping plane (right hand side).} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Diagram of the iterative mixed-region amplitude freedom algorithm]{Diagram of the iterative mixed region amplitude freedom algorithm used to calculate the phase pattern in the holographic plane \textsc{(left)} that corresponds to the desired target intensity profile in the trapping plane \textsc{(right)}. Amplitude freedom in the periphery improves convergence.} 
 	\label{fig:mraf} 
 \end{figure}
-The MRAF algorithm provides a good trade-off between accuracy and speed. For generating large grids, it is more accurate than error diffusion dithering \cite{Holland2018}. 
-
-In addition, we have measured that MRAF is faster than conjugate gradient minimisation by a factor of at least $20$. In the first iteration, the algorithm computes the 2D Fourier transform of the incident intensity profile combined with an initial phase guess, which yields an approximate solution for the diffracted light in the trapping plane. The algorithm then extracts the phase from this image and recombines it with an intensity profile that consists of the target intensity in the region of interest and the approximated intensity outside this region (periphery). This gives the algorithm more freedom to converge with respect to the conventional GS algorithm. The final step consists of an inverse transformation from which the kinoform is extracted and recombined with the incident intensity profile prior to starting the next iteration. The algorithm is terminated if the difference between the target and approximation is sufficiently small or if the maximum number of iteration is reached.
+The MRAF algorithm provides a strong balance between computational speed and accuracy. Compared to error-diffusion-based methods, MRAF achieves superior fidelity for large arrays \cite{Holland2018}. Furthermore, we have observed that MRAF is at least $20$ times faster than conjugate gradient minimisation, making it highly suitable for real-time or large-scale implementations.
 
 \subsection{Conjugate gradient minimisation}
+As previously discussed, iterative Fourier transform algorithms are not true minimisation methods. In contrast, genuine minimisation approaches, such as direct search \cite{Clark1996} or genetic algorithms \cite{michalewicz1999genetic}, employ an explicit cost function to guide the optimisation process. However, these methods are computationally demanding, with longer runtimes and higher memory requirements. In the direct search method, the phase of each pixel is adjusted sequentially. After each modification, the cost function is evaluated and the change is accepted if the cost decreases. Although straightforward, this method is extremely slow, particularly when multiple phase levels are permitted. Genetic algorithms provide a more global optimisation strategy, operating on a population of phase patterns that evolve through selection and recombination, again guided by a cost function. These algorithms can be effective for simple binary-phase targets, but extending them to multi-level phase patterns drastically increases both memory usage and runtime. A more efficient alternative is gradient-based optimisation. The most straightforward example is the steepest descent method, which follows the local gradient of the cost function and progresses iteratively towards a minimum. While intuitive, it can perform poorly when the cost function landscape is ill-conditioned, causing the optimisation to take small, inefficient steps and converge slowly. The conjugate gradient (CG) method, which is most effective when the cost function is approximately quadratic near its optimum, addresses this problem by choosing directions that are conjugate with respect to the curvature of the cost function. Specifically, directions $ \vec{u} $ and $ \vec{v} $ are said to be mutually conjugate with respect to a symmetric positive-definite matrix $ A $ if $\vec{u}^\top A \vec{v} = 0$. In the context of minimising a quadratic cost function
+\begin{equation}
+f(\vec{x}) = \tfrac{1}{2} \vec{x}^\top A \vec{x} + \vec{b}^{\,\top} \vec{x} + c\,,
+\end{equation}
+the matrix $ A $ represents the Hessian of the cost function, which characterises its local curvature and anisotropy. In isotropic cases, all directions are equally steep, but in stretched landscapes such as $ f(x, y) = x^2 + 8y^2 $, efficient descent must account for this curvature. Importantly, the conjugate gradient method does not require explicit evaluation or storage of the Hessian matrix. Instead, it relies solely on gradient computations and recursively constructs conjugate search directions $\vec{p}_n$, making it more computationally efficient than methods requiring second derivatives. Starting with the initial steepest descent direction $\vec{g}_0$, we set $\vec{p}_0 = \vec{g}_0$. Subsequent directions are computed via
+\begin{equation}
+\vec{p}_{n} = \vec{g}_{n} + \beta_{n} \vec{p}_{n-1}\,,
+\end{equation}
+with the update factor
+\begin{equation}
+\beta_{n} = \frac{\vec{g}_{n}^\top \vec{g}_{n}}{\vec{g}_{n-1}^\top \vec{g}_{n-1}}\,,
+\end{equation}
+where $\vec{g}_n$ denotes the gradient of the cost function at step $n$. The update factor $\beta_n$, often referred to as the Fletcher-Reeves coefficient, retains a form of memory by scaling the influence of the previous search direction based on the relative steepness of the cost function. If the new gradient $\vec{g}_n$ is relatively small in magnitude, $\beta_n$ reduces the contribution of the previous direction, effectively favouring steepest descent near convergence. The difference in efficiency between the steepest descent and conjugate gradient methods is illustrated in \autoref{fig:conjugategradient}.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis on top=true,
+	x=1.1,
+	y=1.1,
+	xlabel={$x$},
+	ylabel={$y$},
+	axis equal image,
+	xmin=-0.1, xmax=6.1,
+	ymin=-0.4, ymax=2.4,
+	enlargelimits=true,
+	clip=true,
+	colormap/jet,
+	colorbar right,
+	colorbar style={
+		at={(1.1, 0)},
+		anchor=south west,
+		ytick={0,0.2,0.4,0.6,0.8,1},
+		yticklabels={0,20,40,60,80,100},
+		title={$f$},
+	},
+	cycle list={[colors of colormap={0,50,...,1100}]}]
+	]
+	
+	% Contour lines
+	\foreach \f in {5, 10, ..., 100} {
+		\addplot+[domain=0:360, samples=200, no marks, thick]
+		({sqrt(\f)*cos(x)/sqrt(1)}, {sqrt(\f)*sin(x)/sqrt(8)});
+	}
+	
+	% Points (no labels)
+	\addplot[only marks, mark=*, mark size=1pt, color=black] coordinates {(6,2)};
+	\addplot[only marks, mark=*, mark size=1pt, color=black] coordinates {(5.16,-0.24)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(2.37,0.80)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(2.039,-0.093)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(0.922,0.314)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(0.794,-0.036)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(0.356,0.123)};
+	\addplot[only marks, mark=*, mark size=1pt, color=markrood] coordinates {(0.306,-0.014)};
+	\addplot[only marks, mark=*, mark size=1pt, color=black] coordinates {(0.007,-0.009)};
+	
+
+	
+	% First steepest descent step
+	\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:5.33,0.91) {$\vec{g}_0$};
+	
+	% Second steepest descent step
+	\addplot[->, thick, markrood] coordinates {(5.16,-0.24) (2.37,0.80)};
+	\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:3.76,0.3) {$\vec{g}_1$};
+	
+	% Third steepest descent step
+	\addplot[->, thick, markrood] coordinates {(2.37,0.80) (2.039,-0.093)};
+	\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:2.2,0.35) {$\vec{g}_2$};
+	
+	% Fourth steepest descent step
+	\addplot[->, thick, markrood] coordinates {(2.039,-0.093) (0.922,0.314)};
+	\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:1.5,0.2) {$\vec{g}_3$};
+	
+	% Fifth steepest descent step
+	\addplot[->, thick, markrood] coordinates {(0.922,0.314) (0.794,-0.036)};
+	%\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:0.85,0.13) {$\vec{g}_4$};
+	
+	% Sixth steepest descent step
+	\addplot[->, thick, markrood] coordinates {(0.794,-0.036) (0.356,0.123)};
+	%\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:0.58,0.06) {$\vec{g}_5$};
+	
+	% Seventh steepest descent step
+	\addplot[->, thick, markrood] coordinates {(0.356,0.123) (0.306,-0.014)};
+	%\node[markrood, fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:0.33,0.06) {$\vec{g}_6$};
+	
+	% Conjugate gradient step d_0
+	\addplot[->, thick, black] coordinates {(5.16,-0.24) (0.007,-0.009)};
+	\node[fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:5.81,0.48) { \textcolor{white}{y} };
+	\node[fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:5.755,0.58) {$\vec{p}_0$};
+	
+	% Conjugate gradient step d_1
+	\addplot[->, thick, black] coordinates {(5.16,-0.24) (0.007,-0.009)};
+	\node[fill=white, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:2.63,-0.12) {$\,\vec{p}_1$};
+	
+	% first step on top
+	\addplot[->, thick, black] coordinates {(6,2) (5.16,-0.24)};
+	\addplot[->, thick, dashed, markrood] coordinates {(6,2) (5.16,-0.24)};
+	
+	\node[anchor=north, font=\footnotesize] at (axis cs: 0,-0.05) {\sc min.};
+	
+	\pgfplotsset{
+		after end axis/.append code={
+				% Label at starting point
+			\node[fill=none, inner sep=1pt, font=\footnotesize, rounded corners] at (axis cs:6,3) {$(x_0, y_0)$};
+			\draw[dashed, thin] (axis cs: 6,2) -- (axis cs: 6,2.5);
+		}
+	}
+	
+	\end{axis}
+	\end{tikzpicture}
+	\caption[Comparison of steepest descent and conjugate gradient minimisation]{Comparison of steepest descent (in red, labelled $\vec{g}_i$) and conjugate gradient (in black, labelled $\vec{p}_i$) methods on the cost function $ f(x, y) = x^2 + 8y^2 $. The background shows the elliptical contour lines of $ f $. Both methods start at $ (x_0, y_0) = (6, 2) $. The steepest descent method follows the local gradient, resulting in inefficient, oscillatory paths. In contrast, the conjugate gradient method avoids redundant directions and converges to the minimum at $(0, 0)$ more rapidly.}
+	\label{fig:conjugategradient}
+\end{figure}
+The steepest descent method follows the local gradient direction at each step, which results in oscillatory and inefficient progress on anisotropic landscapes. In contrast, the conjugate gradient method selects search directions that account for the curvature and converges to the exact minimum in at most $ n $ iterations for a quadratic cost function in an $ n $-dimensional space. This is not the case for non-quadratic cost functions, where convergence typically requires more than $n$ steps.
+
+In our implementation for phase holography, the goal is to optimise the output intensity pattern to match a desired target. The controllable variable in this optimisation is the input phase pattern, while the input amplitude is kept fixed. To iteratively update the input phase $\phi_\text{in}^{(n)}(p,q)$, we evaluate the gradient of the cost function $\epsilon^{(n+1)}$ (\autoref{costfunction}), which depends on the resulting output amplitude $A_\text{out}^{(n+1)}(x,y)$ (see \autoref{forwardfourier}):
+\begin{align}
+\label{gradientdef}
+\begin{split}
+\frac{\partial \epsilon^{(n+1)}}{\partial \phi_\text{in}^{(n)}(p,q)} = 4\Re {i \left(E_\text{in}^{(n+1)}(p,q)\right)^{\!*} X(p,q) } \,,
+\end{split}
+\end{align}
+where
+\begin{equation}
+X(p,q):= \mathcal{F}^{-1}\Bigl\{ \left( E_\text{out}^{(n+1)} (x,y)\right)^{\!*} \left( [T(x,y)]^2 - \big\lvert  E_\text{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
+\end{equation}
+For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\text{in}^{(n)}(p,q) \rightarrow \phi_\text{in}^{(n+1)}(p,q)$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
 
 \section{Algorithm benchmarking}
+
+\paragraph{Quantifying trap uniformity.} To evaluate the effectiveness of this optimisation, we define the standard deviation of trap intensities as
+\begin{equation}
+c_v = \frac{1}{\langle I_n \rangle} \sqrt{ \frac{1}{N} \sum_{n=1}^{N} \left( I_n - \langle I_n \rangle \right)^2 }\,,
+\end{equation}
+where $N$ is the number of traps and $\langle I_n \rangle$ is the mean trap intensity.
+
+Finally, we report the trap homogeneity using the \emph{coefficient of variation},
+\begin{equation}
+\mathrm{CV} = \frac{\sigma_{\mathrm{int}}}{\langle I_n \rangle},
+\end{equation}
+which quantifies the relative variation across the trap array. Smaller values of $\mathrm{CV}$ indicate improved uniformity.
 
 \subsection{Iterative Fourier transform algorithms}
 
@@ -1147,11 +1385,11 @@ TO DO: GRADIENT DESCENT!!! and add vertical lines to show when convergence occur
 	MRAF $\SI{80}{\percent}$&$\SI{78.0}{\percent}$&$\num{1.27e-2}$& $\num{3.18e-3}$&$45$\\
 	MRAF $\SI{90}{\percent}$&$\SI{85.9}{\percent} $&$\num{4.02e-2}$&$\num{1.52e-3}$&$57$\\
 	MRAF $\SI{99}{\percent}$&$\SI{90.4}{\percent}$&$\num{2.00e-1}$&$\num{2.70e-3}$&$47$\\
-	WGS&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
-	MRAF $\SI{80}{\percent}$ \& WGS&$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
-	MRAF $\SI{90}{\percent}$ \& WGS&$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
-	MRAF $\SI{99}{\percent}$ \& WGS&$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
-	GD&$\SI{81.3}{\percent} $&$\num{1.02e-1}$ &$\num{3.13e-3} $& $1470 $\\
+	GSW&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
+	MRAF $\SI{80}{\percent}$ \& GSW&$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
+	MRAF $\SI{90}{\percent}$ \& GSW&$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
+	MRAF $\SI{99}{\percent}$ \& GSW&$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
+	CG&$\SI{81.3}{\percent} $&$\num{1.02e-1}$ &$\num{3.13e-3} $& $1470 $\\
 	\bottomrule
 \end{tabular}
 \caption[Performance metrics of various hologram generation methods]{\textnormal{Performance of various hologram generation methods. The target pattern is a $4\times4$ array of equally spaced dipole traps. The performance metrics are: }\sc{(a)} \textnormal{The fraction of total optical power in traps. }\sc{(b)} \textnormal{The trap depth coefficient of variation ($\sfrac{\sigma}{\mu}$). }\sc{(c)} \textnormal{The hologram error. }\sc{(d)} \textnormal{The number of iterations required to reach the minimal error threshold.}}
