@@ -9,16 +9,16 @@
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:HologramGenerationwithSpatialLightModulators}
 
-This chapter presents the numerical methods used to compute phase holograms, focusing on three key algorithms: Gerchberg-Saxton, mixed-region amplitude freedom and conjugate gradient minimisation. We evaluate their performance in generating high-fidelity optical potentials suitable for trapping atoms in reconfigurable arrays.
+This chapter presents the numerical methods used to compute phase holograms, focusing on three key algorithms: Gerchberg--Saxton, mixed-region amplitude freedom and conjugate gradient minimisation. We evaluate their performance in generating high-fidelity optical potentials suitable for trapping atoms in reconfigurable arrays.
 
 \section{Introduction}
 Spatial light modulators (SLMs) have become indispensable tools in modern cold atom experiments to generate tailored optical potentials. In particular, liquid crystal SLMs offer dynamic, programmable phase modulation. By imprinting a spatially varying phase pattern---referred to as a kinoform---onto an incident laser beam, these modulators can shape the resulting diffraction pattern in the far field. This approach offers a high degree of flexibility and reconfigurability in shaping optical potentials, making it particularly well-suited for experiments involving microtrap arrays for single atoms \cite{Bergamini2004,nogrette2014, Barredo2018,Schymik2020}, atom transport \cite{Kim2016,Kim2019}, the study of superfluidity in ultracold atoms \cite{Bruce2011a}, manipulation of Bose-Einstein condensates \cite{Boyer2006} and time-varying potentials for evaporative cooling \cite{Bruce2011b}. In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing a number of iterative Fourier transform algorithms and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
 
 \section{Algorithms for hologram generation}
-As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg-Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, GSW, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
+As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles \cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised. This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg--Saxton (GS) algorithm \cite{GS} and its numerous refinements, such as weighted GS (GSW) \cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF) \cite{Pasienski2008}, offset-MRAF (OMRAF) \cite{Gaunt2012}, and softness-OMRAF (SOMRAF) \cite{somraf}. Alternative approaches include the Floyd–Steinberg error diffusion dithering algorithm \cite{floyd} and optimisation-based methods such as conjugate gradient minimisation \cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, GSW, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
 
-\subsection{Gerchberg-Saxton}
-The Gerchberg-Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972 \cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration:
+\subsection{Gerchberg--Saxton}
+The Gerchberg--Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972 \cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration:
 \begin{equation}
 \label{initialein}
 E_{\mathrm{in}}^{(1)} = A_{\mathrm{in}}^{(0)} \exp{i \phi_{\mathrm{in}}^{(0)}}\,,
@@ -55,7 +55,7 @@ A common stopping condition is that the relative change in error falls below a s
 \label{convergence}
 \epsilon^{(n)} - \epsilon^{(n-1)} < 10^{-k}\,,
 \end{equation}
-for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns. A summary of the Gerchberg-Saxton algorithm is shown in \autoref{fig:GS_flowchart}.
+for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns. A summary of the Gerchberg--Saxton algorithm is shown in \autoref{fig:GS_flowchart}.
 \begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}[
@@ -116,12 +116,12 @@ for some chosen $k$. The GS algorithm is straightforward to implement and perfor
 	-- (fft.north);
 	
 	\end{tikzpicture}
-	\caption[Flowchart of the Gerchberg-Saxton algorithm]{Flowchart of the Gerchberg-Saxton algorithm. Amplitudes are enforced in alternating planes while the phase evolves iteratively.}
+	\caption[Flowchart of the Gerchberg--Saxton algorithm]{Flowchart of the Gerchberg--Saxton algorithm. Amplitudes are enforced in alternating planes while the phase evolves iteratively.}
 	\label{fig:GS_flowchart}
 \end{figure}
 
-\subsection{Weighted Gerchberg-Saxton}
-The weighted Gerchberg–Saxton algorithm is an extension of the standard GS method, designed to simultaneously optimise the diffraction efficiency and uniformity of holographically generated optical trap arrays. This is achieved by introducing a spatially varying weight function that is iteratively updated to correct non-uniformities. Instead of applying the standard update rule given by \autoref{Gout} at the $n^{\text{th}}$ iteration, the output field is modified as
+\subsection{Weighted Gerchberg--Saxton}
+The weighted Gerchberg--Saxton algorithm is an extension of the standard GS method, designed to simultaneously optimise the diffraction efficiency and uniformity of holographically generated optical trap arrays. This is achieved by introducing a spatially varying weight function that is iteratively updated to correct non-uniformities. Instead of applying the standard update rule given by \autoref{Gout} at the $n^{\text{th}}$ iteration, the output field is modified as
 \begin{equation}
 \label{Gout2}
 G_{\mathrm{out}}^{(n)} = T^{(n)} \exp\Bigl\{i \phi_{\mathrm{out}}^{(n)}\Bigr\}\,,
@@ -151,6 +151,7 @@ where $N_\Omega$ denotes the number of pixels used for the trapping sites.
 \subsection{Mixed-region amplitude freedom}
 A widely used method for generating holographic optical tweezers is the mixed region amplitude freedom algorithm, originally introduced in 2008 \cite{Pasienski2008}. It is an iterative Fourier transform algorithm that extends the conventional GS approach by introducing partial amplitude freedom in the output plane. This allows it to achieve improved accuracy and smoother intensity profiles, especially for complex target patterns. The key idea behind the MRAF algorithm is to divide the output plane into two regions: a signal region $\Omega_\text{s}$ and a noise region $\Omega_\text{n}$. The signal region contains the target intensity pattern along with a low-intensity buffer zone in which the amplitude is constrained to match the target while the phase remains free. Outside the signal region lies the noise region, where both amplitude and phase are left unconstrained, allowing light to be redistributed freely to improve convergence and reduce artefacts. Similar to the GSW approach, the MRAF algorithm modifies the output field update step in \autoref{Gout} by introducing an adaptive target $T^{(n)}$, as in \autoref{Gout2}. Via its definition in MRAF, however, it mixes the target amplitude in the signal region with the unconstrained field in the noise region:
 \begin{equation}
+\label{mrafmixing}
 T^{(n)}(x, y) =
 \begin{cases}
 \sqrt{\frac{\alpha}{c_T}} T(x, y) & \text{if } (x, y) \in \Omega_\text{s}\,, \\
@@ -331,24 +332,15 @@ X(p,q):= \mathcal{F}^{-1}\Bigl\{ \left( E_\text{out}^{(n+1)} (x,y)\right)^{\!*} 
 \end{equation}
 For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\text{in}^{(n)}(p,q) \rightarrow \phi_\text{in}^{(n+1)}(p,q)$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
 
-\section{Algorithm benchmarking}
-
-\paragraph{Quantifying trap uniformity.} To evaluate the effectiveness of this optimisation, we define the standard deviation of trap intensities as
+\section{Benchmarking iterative Fourier transform algorithms}
+In this section, we analyse the performance of various iterative Fourier transform algorithms to generate uniform optical trap arrays with high efficiency and fast convergence. We focus on a fixed $4 \times 4$ trap array and assess each algorithm according to three key criteria: the total optical power delivered to the traps (to ensure efficient use of optical power), the uniformity of trap intensities and the convergence rate of the algorithm. To quantify trap uniformity, we use the coefficient of variation
 \begin{equation}
 c_v = \frac{1}{\langle I_n \rangle} \sqrt{ \frac{1}{N} \sum_{n=1}^{N} \left( I_n - \langle I_n \rangle \right)^2 }\,,
 \end{equation}
-where $N$ is the number of traps and $\langle I_n \rangle$ is the mean trap intensity.
+where $N$ is the number of traps, $I_n$ is the intensity in trap number $n$ and $\langle I_n \rangle$ denotes the mean trap intensity across the array. This metric is the standard deviation normalised by the mean, with lower values indicating better uniformity. We benchmark eight variants within the IFTA-class, including the standard GS, the MRAF algorithm with different trapping-region power constraints ($\alpha\in\{ 0.8,0.9,0.99\}$ as mixing parameters in \autoref{mrafmixing}), GSW and a hybrid GSW--MRAF method, where GSW weighting is applied prior to the MRAF update step with the same respective power constraints.
 
-Finally, we report the trap homogeneity using the \emph{coefficient of variation},
-\begin{equation}
-\mathrm{CV} = \frac{\sigma_{\mathrm{int}}}{\langle I_n \rangle},
-\end{equation}
-which quantifies the relative variation across the trap array. Smaller values of $\mathrm{CV}$ indicate improved uniformity.
-
-\subsection{Iterative Fourier transform algorithms}
-
-\subsubsection{Simulated trap intensity and homogeneity}
-
+\subsection{Simulated trap intensity and homogeneity}
+hello 
 \begin{figure}[t]
 	\vspace{0em}
 \hspace{-0.4em}
@@ -373,6 +365,7 @@ xticklabels={,,},
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_GS.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
 \nextgroupplot
 [
 width=4cm,
@@ -393,6 +386,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
 
 \nextgroupplot
 [
@@ -414,6 +408,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
             \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF90.csv};
+            	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
          
 \nextgroupplot
 [
@@ -436,6 +431,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
 
 \nextgroupplot
 [
@@ -456,6 +452,7 @@ point meta max=0.085,
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_AD.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
 
 \nextgroupplot
 [
@@ -477,6 +474,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
 
 \nextgroupplot
 [
@@ -497,6 +495,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
 
 \nextgroupplot
 [
@@ -518,6 +517,7 @@ yticklabels={,,}
 ]
 %            \addplot [matrix plot] table [meta=funceval] {
 \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
 
 \end{groupplot}
 \end{tikzpicture}
@@ -635,6 +635,8 @@ yticklabels={,,}
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_GS.csv};
 	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	
 	\nextgroupplot
 	[
 	xmin=10, xmax=75,
@@ -659,6 +661,8 @@ yticklabels={,,}
 	color=markdiepblauw,
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF80.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
 	
 	\nextgroupplot
 	[
@@ -685,6 +689,8 @@ yticklabels={,,}
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF90.csv};
 	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	
 	\nextgroupplot
 	[
 	xmin=10, xmax=75,
@@ -709,6 +715,8 @@ yticklabels={,,}
 	color=markdiepblauw,
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF99.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
 	
 	\nextgroupplot
 	[
@@ -735,6 +743,8 @@ yticklabels={,,}
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_AD.csv};
 	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	
 	\nextgroupplot
 	[
 	xlabel={\hspace{8em}Pixel number},
@@ -760,6 +770,8 @@ yticklabels={,,}
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF80.csv};
 	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	
 	\nextgroupplot
 	[
 	%xlabel={Pixel number},
@@ -784,6 +796,8 @@ yticklabels={,,}
 	color=markdiepblauw,
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF90.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
 	
 	\nextgroupplot
 	[
@@ -811,15 +825,17 @@ yticklabels={,,}
 	mark size=0.8pt
 	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF99.csv};
 	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} 
 	\label{fig:LTandFR} 
 \end{figure}
 
 
-\subsubsection{Measured trap intensity and homogeneity}
+\subsection{Measured trap intensity and homogeneity}
 
 
 \begin{figure}[t]
@@ -927,6 +943,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_GS.csv};
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
 	\nextgroupplot
 	[
 	width=4cm,
@@ -947,6 +964,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF80.csv};
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
 	
 	\nextgroupplot
 	[
@@ -968,6 +986,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
 	
 	\nextgroupplot
 	[
@@ -990,6 +1009,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
 	
 	\nextgroupplot
 	[
@@ -1011,6 +1031,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_AD.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
 	
 	\nextgroupplot
 	[
@@ -1032,6 +1053,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
 	
 	\nextgroupplot
 	[
@@ -1052,6 +1074,7 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
 	
 	\nextgroupplot
 	[
@@ -1073,13 +1096,14 @@ point meta max=0.05,
 	]
 	%            \addplot [matrix plot] table [meta=funceval] {
 	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
 	
 	\end{groupplot}
 	\end{tikzpicture}
 	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $\sfrac{1}{e^2}$ diameter of the traps is \SI{2.2}{\micro\meter}.}
 \end{figure}
 
-\subsubsection{Algorithm convergence rate}
+\subsection{Algorithm convergence rate}
 
 
 \begin{figure}[t]
@@ -1107,6 +1131,9 @@ point meta max=0.05,
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_GS.csv};
 	
+	\fill [fill=black!60,opacity=.2] (21,1e-4) -- (21,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	
 	\nextgroupplot
 	[
 	ymode=log,
@@ -1126,6 +1153,9 @@ point meta max=0.05,
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_MRAF80.csv};
 	
+	\fill [fill=black!60,opacity=.2] (45,1e-4) -- (45,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	
 	\nextgroupplot
 	[
 	ymode=log,
@@ -1144,6 +1174,9 @@ point meta max=0.05,
 	\addplot[
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_MRAF90.csv};
+	
+	\fill [fill=black!60,opacity=.2] (57,1e-4) -- (57,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
 
 	\nextgroupplot
 	[
@@ -1164,6 +1197,9 @@ point meta max=0.05,
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_MRAF99.csv};
 	
+	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	
 	\nextgroupplot
 	[
 	ymode=log,
@@ -1182,6 +1218,9 @@ point meta max=0.05,
 	\addplot[
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_AD.csv};
+	
+	\fill [fill=black!60,opacity=.2] (14,1e-4) -- (14,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
 	
 	\nextgroupplot
 	[
@@ -1202,6 +1241,9 @@ point meta max=0.05,
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_ADMRAF80.csv};
 	
+	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	
 	\nextgroupplot
 	[
 	ymode=log,
@@ -1220,6 +1262,9 @@ point meta max=0.05,
 	\addplot[
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_ADMRAF90.csv};
+	
+	\fill [fill=black!60,opacity=.2] (33,1e-4) -- (33,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
 	
 	\nextgroupplot
 	[
@@ -1241,6 +1286,9 @@ point meta max=0.05,
 	color=markrood,
 	] table [x index = 0, y index = 1]{costfunction_ADMRAF99.csv};
 	
+	\fill [fill=black!60,opacity=.2] (19,1e-4) -- (19,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	
 	\end{groupplot}
 	
 	\end{tikzpicture}
@@ -1249,7 +1297,7 @@ point meta max=0.05,
 \end{figure}
 
 
-\subsection{Conjugate gradient minimisation}
+\section{Benchmarking conjugate gradient minimisation}
 
 \begin{figure}[t]
 	\vspace{0em}
@@ -1361,18 +1409,17 @@ point meta max=0.05,
 		color=markrood,
 		] table [x index = 0, y index = 1]{costfunction_GD.csv};
 		
+		\fill [fill=black!60,opacity=.2] (1470,1e-4) -- (1470,1) -- (2000,1) -- (2000,1e-4) -- cycle;
+		
 		\end{groupplot}
 		\end{tikzpicture}
 
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)  threshold for convergence is thres is when the next iteration is less than 0.0001 better than the previous one in terms of the cost function  cost function Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $\sfrac{1}{e^2}$ diameter of the traps is \SI{2.2}{\micro\meter}.}
+	\caption{(a) what is plotted is the log(10e-9 plus intensity)  threshold for convergence is thres is when the next iteration is less than 0.0001 better so basically $k=4$ in \autoref{convergence}than the previous one in terms of the cost function  cost function Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $\sfrac{1}{e^2}$ diameter of the traps is \SI{2.2}{\micro\meter}.}
 \end{figure}
 
-\begin{equation}
-	C(t,I)=\sum_{x,y} \left(t_{xy}-I_{xy}\right)^2
-\end{equation}
 
 
-\subsection{Summary}
+\section{Summary}
 
 TO DO: GRADIENT DESCENT!!! and add vertical lines to show when convergence occurs
 \begin{table}[h]
@@ -1386,13 +1433,13 @@ TO DO: GRADIENT DESCENT!!! and add vertical lines to show when convergence occur
 	MRAF $\SI{90}{\percent}$&$\SI{85.9}{\percent} $&$\num{4.02e-2}$&$\num{1.52e-3}$&$57$\\
 	MRAF $\SI{99}{\percent}$&$\SI{90.4}{\percent}$&$\num{2.00e-1}$&$\num{2.70e-3}$&$47$\\
 	GSW&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
-	MRAF $\SI{80}{\percent}$ \& GSW&$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
-	MRAF $\SI{90}{\percent}$ \& GSW&$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
-	MRAF $\SI{99}{\percent}$ \& GSW&$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
+	GSW--MRAF $\SI{80}{\percent}$ &$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
+	GSW--MRAF $\SI{90}{\percent}$ &$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
+	GSW--MRAF $\SI{99}{\percent}$ &$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
 	CG&$\SI{81.3}{\percent} $&$\num{1.02e-1}$ &$\num{3.13e-3} $& $1470 $\\
 	\bottomrule
 \end{tabular}
-\caption[Performance metrics of various hologram generation methods]{\textnormal{Performance of various hologram generation methods. The target pattern is a $4\times4$ array of equally spaced dipole traps. The performance metrics are: }\sc{(a)} \textnormal{The fraction of total optical power in traps. }\sc{(b)} \textnormal{The trap depth coefficient of variation ($\sfrac{\sigma}{\mu}$). }\sc{(c)} \textnormal{The hologram error. }\sc{(d)} \textnormal{The number of iterations required to reach the minimal error threshold.}}
+\caption[Performance metrics of various hologram generation methods]{\textnormal{Performance of various hologram generation methods. The target pattern is a $4\times4$ array of equally spaced dipole traps. The performance metrics are: }\sc{(a)} \textnormal{The fraction of total optical power in traps. }\sc{(b)} \textnormal{The trap depth coefficient of variation ($\sfrac{\sigma}{\mu}$). }\sc{(c)} \textnormal{The hologram error. }\sc{(d)} \textnormal{The number of iterations required to reach the convergence criterion ($k=4$ in \autoref{convergence}).}}
 \label{tab:truthTables}   
 \end{table}
 
