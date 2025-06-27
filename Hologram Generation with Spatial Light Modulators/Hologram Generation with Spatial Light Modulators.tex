@@ -216,7 +216,15 @@ with the update factor
 \begin{equation}
 \beta_{n} = \frac{\vec{g}_{n}^\top \vec{g}_{n}}{\vec{g}_{n-1}^\top \vec{g}_{n-1}}\,,
 \end{equation}
-where $\vec{g}_n$ denotes the gradient of the cost function at step $n$. The update factor $\beta_n$, often referred to as the Fletcher-Reeves coefficient, retains a form of memory by scaling the influence of the previous search direction based on the relative steepness of the cost function. If the new gradient $\vec{g}_n$ is relatively small in magnitude, $\beta_n$ reduces the contribution of the previous direction, effectively favouring steepest descent near convergence. The difference in efficiency between the steepest descent and conjugate gradient methods is illustrated in \autoref{fig:conjugategradient}.
+where $\vec{g}_n$ denotes the gradient of the cost function at step $n$. This update factor $\beta_n$, often referred to as the Fletcher--Reeves coefficient \cite{Fletcher1964}, retains a form of memory by scaling the influence of the previous search direction based on the relative steepness of the cost function. If the new gradient $\vec{g}_n$ is relatively small in magnitude, $\beta_n$ reduces the contribution of the previous direction, effectively favouring steepest descent near convergence. An alternative to the Fletcher--Reeves update is the Polak--Ribière--Polyak (PRP) method, where the update factor is given by
+\begin{equation}
+\beta_n = \frac{(\vec{g}_n - \vec{g}_{n-1})^{\!\top} \vec{g}_n}{\vec{g}_{n-1}^\top \vec{g}_{n-1}}\,.
+\end{equation}
+This expression allows the search direction to adapt more flexibly to the local curvature of the cost function, often improving practical performance in non-quadratic landscapes \cite{Polyak1969,M2AN_1969__3_1_35_0}. However, the PRP method can suffer from poor convergence, potentially cycling indefinitely even when exact line searches are used \cite{Powell1984}. To overcome this issue, Powell proposed a modified version known as the PRP$^+$ method \cite{Powell1984}, which enforces a non-negativity constraint on the update factor:
+\begin{equation}
+\beta_n = \max\Bigg\{0, \frac{(\vec{g}_n - \vec{g}_{n-1})^{\!\top} \vec{g}_n}{\vec{g}_{n-1}^{\top} \vec{g}_{n-1}} \Bigg\}\,,
+\end{equation}
+thereby enhancing the method's global convergence behaviour. In modern applications with non-linear optimisation problems, some of the most effective conjugate gradient algorithms adaptively select the update formula for $\beta_n$ during the optimisation process to improve convergence properties \cite{hager2006survey}. In practice, we find that performing a few initial steps of steepest descent before switching to a conjugate gradient direction further enhances convergence. The difference in efficiency between the steepest descent and conjugate gradient methods is illustrated in \autoref{fig:conjugategradient}, where we have applied the Fletcher--Reeves update rule.
 \begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}
@@ -328,982 +336,26 @@ In our implementation for phase holography, the goal is to optimise the output i
 \end{align}
 where
 \begin{equation}
-X(p,q):= \mathcal{F}^{-1}\Bigl\{ \left( E_\text{out}^{(n+1)} (x,y)\right)^{\!*} \left( [T(x,y)]^2 - \big\lvert  E_\text{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
+X(p,q):= \mathcal{F}^{-1}\Bigl\{  E_\text{out}^{(n+1)} (x,y) \left( [T(x,y)]^2 - \big\lvert  E_\text{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
 \end{equation}
 For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\text{in}^{(n)}(p,q) \rightarrow \phi_\text{in}^{(n+1)}(p,q)$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
 
 \section{Benchmarking iterative Fourier transform algorithms}
-In this section, we analyse the performance of various iterative Fourier transform algorithms to generate uniform optical trap arrays with high efficiency and fast convergence. We focus on a fixed $4 \times 4$ trap array and assess each algorithm according to three key criteria: the total optical power delivered to the traps (to ensure efficient use of optical power), the uniformity of trap intensities and the convergence rate of the algorithm. To quantify trap uniformity, we use the coefficient of variation
+In this section, we analyse the simulated and measured performance of various iterative Fourier transform algorithms to generate uniform optical trap arrays with high efficiency and fast convergence. We focus on a fixed $4 \times 4$ trap array and assess each algorithm according to three key criteria: the total optical power delivered to the traps (to ensure efficient use of optical power), the uniformity of trap intensities and the convergence rate of the algorithm. To quantify trap uniformity, we use the coefficient of variation
 \begin{equation}
-c_v = \frac{1}{\langle I_n \rangle} \sqrt{ \frac{1}{N} \sum_{n=1}^{N} \left( I_n - \langle I_n \rangle \right)^2 }\,,
+\label{coeffofvariation}
+c_\text{v} = \frac{1}{\langle I_n \rangle} \sqrt{ \frac{1}{N} \sum_{n=1}^{N} \left( I_n - \langle I_n \rangle \right)^2 }\,,
 \end{equation}
 where $N$ is the number of traps, $I_n$ is the intensity in trap number $n$ and $\langle I_n \rangle$ denotes the mean trap intensity across the array. This metric is the standard deviation normalised by the mean, with lower values indicating better uniformity. We benchmark eight variants within the IFTA-class, including the standard GS, the MRAF algorithm with different trapping-region power constraints ($\alpha\in\{ 0.8,0.9,0.99\}$ as mixing parameters in \autoref{mrafmixing}), GSW and a hybrid GSW--MRAF method, where GSW weighting is applied prior to the MRAF update step with the same respective power constraints.
 
-\subsection{Simulated trap intensity and homogeneity}
-hello 
-\begin{figure}[t]
-	\vspace{0em}
-\hspace{-0.4em}
-\begin{tikzpicture}
-\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-xticklabels={,,},
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_GS.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-xticklabels={,,},
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF80.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
-
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-xticklabels={,,},
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-            \addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF90.csv};
-            	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
-         
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-colorbar,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-xticklabels={,,},
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF99.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
-
-\nextgroupplot
-[
-ylabel={\hspace{8em}$y$},
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_AD.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
-
-\nextgroupplot
-[
-xlabel={\hspace{8em}$x$},
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF80.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
-
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF90.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
-
-\nextgroupplot
-[
-width=4cm,
-enlargelimits=false,
-axis on top,    % <-- (use with `matrix plot*')
-colormap/viridis,
-colorbar,
-point meta=explicit,
-% change me to adjust ``end point'' values used for the colormap
-point meta min=0.045,
-point meta max=0.085,
-yticklabels={,,}
-% change min and max values to just show that interval in the colorbar
-%            colorbar style={
-%                ymin=0.5e7,
-%                ymax=2.5e7,
-%            },
-]
-%            \addplot [matrix plot] table [meta=funceval] {
-\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF99.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
-
-\end{groupplot}
-\end{tikzpicture}
-	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-\end{figure}
-
+\subsection{Calculated trap intensity and homogeneity}
+\autoref{calculated4by4} shows the calculated intensity distributions in the trapping plane for a $4 \times 4$ square array, comparing the aforementioned kinoform generation algorithms.
 \begin{figure}[t]
 	\vspace{0em}
 	\centering
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_GS.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_MRAF80.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_MRAF90.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_MRAF99.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-\\
-\vspace{0.2em}
-	\begin{subfigure}[b]{.23\linewidth}
 	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_AD.pdf}};;
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{a}
-\end{subfigure}
-\begin{subfigure}[b]{.23\linewidth}
-	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_ADMRAF80.pdf}};;
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{b}
-\end{subfigure}
-\begin{subfigure}[b]{.23\linewidth}
-	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_ADMRAF90.pdf}};;
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{c}
-\end{subfigure}
-\begin{subfigure}[b]{.23\linewidth}
-	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=3cm] {approxint_ADMRAF99.pdf}};;
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{c}
-\end{subfigure}
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-\end{figure}
-
-
-\begin{figure}[t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=4 by 2, horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers, scaled ticks = false, clip marker paths=true]
 	
-	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
-	\nextgroupplot
-	[
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_GS.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_GS.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
-	
-	\nextgroupplot
-	[
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_MRAF80.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF80.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
-	
-	\nextgroupplot
-	[
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_MRAF90.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF90.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
-	
-	\nextgroupplot
-	[
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_MRAF99.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_MRAF99.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
-	
-	\nextgroupplot
-	[
-	%xlabel={Pixel number},
-	ylabel={\hspace{8em}$\sfrac{I}{I_\text{tot}}$},
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_AD.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_AD.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
-	
-	\nextgroupplot
-	[
-	xlabel={\hspace{8em}Pixel number},
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_ADMRAF80.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF80.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
-	
-	\nextgroupplot
-	[
-	%xlabel={Pixel number},
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_ADMRAF90.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF90.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
-	
-	\nextgroupplot
-	[
-	%xlabel={Pixel number},
-	xmin=10, xmax=75,
-	ymin=-0.005, ymax=0.085,
-	%ymin=0, ymax=120,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{crosssection_targetint0_ADMRAF99.csv};
-	
-	\addplot[
-	only marks,
-	mark = *,
-	color=markdiepblauw,
-	mark size=0.8pt
-	] table [x index = 0, y index = 1]{crosssection_approxint_ADMRAF99.csv};
-	
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
-	
-	\end{groupplot}
-	
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} 
-	\label{fig:LTandFR} 
-\end{figure}
-
-
-\subsection{Measured trap intensity and homogeneity}
-
-
-\begin{figure}[t]
-	\vspace{0em}
-	\centering
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_GS.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_MRAF80.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_MRAF90.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_MRAF99.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\\
-	\vspace{0.2em}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_AD.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_ADMRAF80.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_ADMRAF90.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\begin{subfigure}[b]{.23\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=3cm] {actualtraps_ADMRAF99.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{c}
-	\end{subfigure}
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-\end{figure}
-
-\begin{figure}[t]
-	\vspace{0em}
-	%\centering
-	\hspace{-0.4em}
-	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	xticklabels={,,},
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_GS.csv};
-		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	xticklabels={,,},
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF80.csv};
-		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
-	
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-	point meta max=0.05,
-	xticklabels={,,},
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF90.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
-	
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	colorbar,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	xticklabels={,,},
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF99.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
-	
-	\nextgroupplot
-	[
-	width=4cm,
-	ylabel={\hspace{8em}$y$},
-	ylabel shift = 0em,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_AD.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
-	
-	\nextgroupplot
-	[
-	xlabel={\hspace{8em}$x$},
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF80.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
-	
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF90.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
-	
-	\nextgroupplot
-	[
-	width=4cm,
-	enlargelimits=false,
-	axis on top,    % <-- (use with `matrix plot*')
-	colormap/viridis,
-	colorbar,
-	point meta=explicit,
-	% change me to adjust ``end point'' values used for the colormap
-	point meta min=0.01,
-point meta max=0.05,
-	yticklabels={,,}
-	% change min and max values to just show that interval in the colorbar
-	%            colorbar style={
-	%                ymin=0.5e7,
-	%                ymax=2.5e7,
-	%            },
-	]
-	%            \addplot [matrix plot] table [meta=funceval] {
-	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF99.csv};
-	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
-	
-	\end{groupplot}
-	\end{tikzpicture}
-	\caption{(a) Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $\sfrac{1}{e^2}$ diameter of the traps is \SI{2.2}{\micro\meter}.}
-\end{figure}
-
-\subsection{Algorithm convergence rate}
-
-
-\begin{figure}[t]
-	%\vspace{0.7em}
-	\centering
-	\begin{tikzpicture}
-	
-	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
-	\nextgroupplot
-	[
-	ymode=log,
-	ylabel shift = -3cm,
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_GS.csv};
-	
-	\fill [fill=black!60,opacity=.2] (21,1e-4) -- (21,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_MRAF80.csv};
-	
-	\fill [fill=black!60,opacity=.2] (45,1e-4) -- (45,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_MRAF90.csv};
-	
-	\fill [fill=black!60,opacity=.2] (57,1e-4) -- (57,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
-
-	\nextgroupplot
-	[
-	ymode=log,
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	xticklabels={,,},
-	yticklabels={,,}
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_MRAF99.csv};
-	
-	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	%xlabel={Iteration number},
-	ylabel={\hspace{8em}Hologram error},
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_AD.csv};
-	
-	\fill [fill=black!60,opacity=.2] (14,1e-4) -- (14,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	xlabel={\hspace{8em}Iteration number},
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_ADMRAF80.csv};
-	
-	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	%xlabel={Iteration number},
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_ADMRAF90.csv};
-	
-	\fill [fill=black!60,opacity=.2] (33,1e-4) -- (33,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
-	
-	\nextgroupplot
-	[
-	ymode=log,
-	%xlabel={Iteration number},
-	xmin=0, xmax=60,
-	ymin=0.2e-3, ymax=1e-0,
-	%ymin=0, ymax=120,
-	%xtick={0,20,40,60,80,100},
-	%ytick={0,20,40,60,80,100,120},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	yticklabels={,,},
-	]
-	
-	\addplot[
-	color=markrood,
-	] table [x index = 0, y index = 1]{costfunction_ADMRAF99.csv};
-	
-	\fill [fill=black!60,opacity=.2] (19,1e-4) -- (19,1) -- (60,1) -- (60,1e-4) -- cycle;
-	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
-	
-	\end{groupplot}
-	
-	\end{tikzpicture}
-	\caption[An example of a floating figure]{Average trap lifetime (left) and filling fraction (right) versus dipole trap power. Error bars represent the standard error of the mean based on up to three measurements of the fluorescence count rate ($50\,000$ frames) per trapping site.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-	\label{fig:LTandFR} 
-\end{figure}
-
-
-\section{Benchmarking conjugate gradient minimisation}
-
-\begin{figure}[t]
-	\vspace{0em}
-\centering
-	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2.5cm, vertical sep=1.5cm},height=4cm,width=4cm,no markers]
 	\nextgroupplot
 	[
 	ylabel={},
@@ -1327,130 +379,1397 @@ point meta max=0.05,
 	\addplot graphics [
 	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
 	ymin=0, ymax=1    % Stretch to fit the y-axis limits
-	] {approxint_GD_cropped.pdf};
+	] {approxint_GS.pdf};
 	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
 	
-		\nextgroupplot
-		[
-		ylabel={$\sfrac{I}{I_\text{tot}}$},
-		xmin=10, xmax=75,
-		ymin=-0.005, ymax=0.085,
-		%xtick={0,20,40,60,80,100},
-		%ytick={0,20,40,60,80,100,120},
-		%legend pos=north west,
-		ymajorgrids=true,
-		xmajorgrids=true,
-		grid style=dashed,
-		xlabel={Pixel number},
-		]
-		
-		\addplot[
-		color=markrood,
-		] table [x index = 0, y index = 1]{crosssection_targetint0_GD.csv};
-		
-		\addplot[
-		only marks,
-		mark = *,
-		color=markdiepblauw,
-		mark size=0.8pt
-		] table [x index = 0, y index = 1]{crosssection_approxint_GD.csv};;
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_MRAF80.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_MRAF90.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_MRAF99.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_AD.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_ADMRAF80.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_ADMRAF90.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+	
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_ADMRAF99.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	
+	\caption[Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods]{Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. For a calculated intensity distribution $I(x,y)$, the brightness in these images corresponds to the quantity $\log_{10}(10^{-9} + I(x,y))$, to enhance low-intensity background features and reveal artefacts more clearly.}
+	\label{calculated4by4}
+\end{figure}
+Across all methods, a repeating structure of ghost traps is clearly visible at regular spacings, extending well beyond the signal region. These artefacts are particularly pronounced in symmetric trap arrangements and likely originate from the Fourier relationship between hologram and image domain \cite{Hesseling2011}. The GS algorithm recovers the correct array layout but exhibits prominent ghost traps and a noisy speckle background across the full field. In comparison, the MRAF algorithm redistributes optical power to improve trap fidelity in the signal region. As $\alpha$ is decreased, more light is deliberately dumped outside the trapping area, leading to an increasingly bright peripheral region, as is visible in the distribution images. The weighted variants of the aforementioned algorithms produce near-identical intensity maps to their unweighted counterparts. At this stage, there is no obvious visual distinction between weighted and unweighted methods based solely on the two-dimensional intensity distributions. Likewise, any variation in trap uniformity is not yet evident in these images and will be quantified in subsequent figures using cross-sections and the coefficient of variation $c_\text{v}$.
 
-		\nextgroupplot
-		[
-		xlabel={$x$},
-		ylabel={$y$},
-		width=4cm,
-		enlargelimits=false,
-		xmin=0.5,
-		xmax=4.5,
-		ymin=0.5,
-		ymax=4.5,
-		axis on top,    % <-- (use with `matrix plot*')
-		view={0}{90},
-		colormap/viridis,
-		colorbar horizontal,
-		colorbar style={
-			at={(0,1.3)},
-			anchor=north west,
-			xticklabel pos=upper,
-			x tick scale label style={yshift=-25pt, xshift=23pt},
-		},
-		point meta=explicit,
-		point meta min=0.045,
-		point meta max=0.085,
-		xtick={1,2,3,4},
-		ytick={1,2,3,4},
-		xticklabels={1,2,3,4},
-		yticklabels={1,2,3,4},
-		]
-		%            \addplot [matrix plot] table [meta=funceval] {
-		\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_GD.csv};
+\autoref{crosssections} shows horizontal cross-sections through the second row from below of the calculated intensity distributions in \autoref{calculated4by4}.
+\begin{figure}[t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers, scaled ticks = false, clip marker paths=true]
+	\nextgroupplot
+	[
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_GS.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_GS.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	
+	\nextgroupplot
+	[
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_MRAF80.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_MRAF80.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	
+	\nextgroupplot
+	[
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_MRAF90.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_MRAF90.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	
+	\nextgroupplot
+	[
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_MRAF99.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_MRAF99.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	
+	\nextgroupplot
+	[
+	%xlabel={Pixel number},
+	ylabel={\hspace{8em}$\sfrac{I}{I_\text{tot}}$ (\si{\percent})},
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_AD.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_AD.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	
+	\nextgroupplot
+	[
+	xlabel={\hspace{8em}Pixel number},
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_ADMRAF80.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_ADMRAF80.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	
+	\nextgroupplot
+	[
+	%xlabel={Pixel number},
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_ADMRAF90.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_ADMRAF90.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+	
+	\nextgroupplot
+	[
+	%xlabel={Pixel number},
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_ADMRAF99.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_ADMRAF99.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Horizontal cross-sections of the calculated intensity distributions for different kinoform generation methods]{Horizontal cross-sections of the calculated intensity distributions in \autoref{calculated4by4} along the second row from below of the $4 \times 4$ trapping grid for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. The vertical axis shows the normalised intensity $ \sfrac{I}{I_\text{tot}}$. Shown are the target profile (red) and calculated cross-section (blue).}
+	\label{crosssections} 
+\end{figure}
+These plots allow for a direct comparison between the desired intensity profile (red) and the computed result (blue) for each kinoform generation method. Despite the fact that the unweighted algorithms exhibit noticeable deviations in trap intensity, the (linear) regions directly surrounding the traps are near zero intensity, indicating effective suppression of speckle and ghost traps---unexpected spots of light that do not correspond to any designed trapping site---close to the intended sites. For the MRAF algorithm, the agreement between calculated and target profiles improves as the mixing parameter $\alpha$ decreases. The weighted algorithms---GSW and the hybrid GSW--MRAF methods---show a clear improvement in uniformity compared to the unweighted approaches (GS and MRAF). As expected, lower values of $\alpha$ result in less power allocated to the traps themselves, leading to slightly reduced peak heights. However, the trap intensities across the array are so similar in the weighted cases that a quantitative measure such as the coefficient of variation is required to meaningfully compare performance.
+
+\autoref{calculated4by4grid} illustrates the spatial uniformity of the generated traps through a heatmap of the normalised intensities at each of the \num{16} target sites, revealing several notable trends.
+\begin{figure}[t]
+	\vspace{0em}
+	\hspace{-0.4em}
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	xticklabels={,,},
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_GS.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{4.58e-2}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.27e-2}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{4.02e-2}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	colorbar,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_MRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{2.00e-1}$};
+	
+	\nextgroupplot
+	[
+	ylabel={\hspace{8em}$y$},
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_AD.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{4.23e-7}$};
+	
+	\nextgroupplot
+	[
+	xlabel={\hspace{8em}$x$},
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.24e-4}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{7.99e-5}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,
+	colormap/viridis,
+	colorbar,
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	yticklabels={,,}
+	]
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_ADMRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{8.36e-3}$};
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption[Heatmap of the calculated optical intensities at each trapping site in a $4\times4$ grid for different kinoform generation methods]{Heatmap of the calculated optical intensities at each trapping site in a $4\times4$ grid, as fractions of the total incident intensity. Each figure corresponds to a different kinoform generation method: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha\in\{ 0.8,0.9,0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. The colour scale is consistent across figures, highlighting variations in site-to-site intensity uniformity for each approach. The trap depth coefficient of variation $c_\text{v}$ (\autoref{coeffofvariation}) is shown in the bottom left corner.}
+	\label{calculated4by4grid}
+\end{figure}
+The GS algorithm produces a moderately homogeneous intensity distribution, with a mid-range coefficient of variation. Introducing the MRAF algorithm with a high mixing parameter of $\alpha = 0.99$ results in a dramatic degradation of uniformity, as evident from both the heatmap and the significantly increased value of  $c_v$. This indicates that, without weighting, MRAF at high $\alpha$ is counterproductive for producing uniform trap arrays. Reducing $\alpha$ to more moderate values substantially improves uniformity. The weighted approach using GSW performs exceptionally well, as it yields the most homogeneous distribution with the lowest coefficient of variation across all methods, while still preserving a high total intensity---making it a highly favourable option. The hybrid GSW--MRAF method further demonstrates marked improvements over unweighted MRAF. Across all mixing parameters, the hybrid approach reduces the coefficient of variation by \num{2}--\num{3} orders of magnitude. In particular, even in the case of $\alpha = 0.99$, this method becomes a viable candidate, achieving the highest total intensity among the weighted MRAF variants while maintaining acceptable uniformity.
+
+In summary, GSW offers the best overall performance, combining excellent uniformity with high trap intensity. The hybrid GSW--MRAF variants offer flexible alternatives with improved robustness over pure MRAF.
+
+\subsection{Measured trap intensity and homogeneity}
+To evaluate the measured trap intensities, we image the optical potential in the trapping plane using a CCD camera. The resulting intensity distributions for each kinoform generation method are shown in \autoref{measured4by4}.
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{tikzpicture}
+			\begin{groupplot}[group style={group size=4 by 2, horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers, scaled ticks = false, clip marker paths=true]
 		
 		\nextgroupplot
 		[
-		ymode=log,
-		ylabel={Hologram error},
-		%ytick pos=right,
-		xlabel={Iteration number},
-		xmin=0, xmax=2000,
-		ymin=1e-3, ymax=1e-1,
-		%ymin=0, ymax=120,
-		xtick={0,500,1000,1500,2000},
-		xticklabels={0,\phantom{1},1000,\phantom{1},2000},
-		%ytick={0,20,40,60,80,100,120},
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
 		%legend pos=north west,
 		ymajorgrids=true,
 		xmajorgrids=true,
 		grid style=dashed,
-		%yticklabels={,,},
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
 		]
 		
-		\addplot[
-		color=markrood,
-		] table [x index = 0, y index = 1]{costfunction_GD.csv};
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_GS.pdf};
 		
-		\fill [fill=black!60,opacity=.2] (1470,1e-4) -- (1470,1) -- (2000,1) -- (2000,1e-4) -- cycle;
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_MRAF80.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_MRAF90.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_MRAF99.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_AD.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_ADMRAF80.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_ADMRAF90.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+		
+		\nextgroupplot
+		[
+		ylabel={},
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		xticklabels={,\textcolor{white}{0},},
+		yticklabels={,,},
+		%legend pos=north west,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		grid style=dashed,
+		%axis lines=none,        % No axis lines
+		%tick style=none,        % No ticks
+		%xtick=\empty,           % No x-axis ticks
+		%ytick=\empty,           % No y-axis ticks
+		xlabel={},              % No x-axis label
+		ylabel={},              % No y-axis label
+		%enlargelimits=true,     % Keeps the plot within the bounds
+		]
+		
+		\addplot graphics [
+		xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+		ymin=0, ymax=1    % Stretch to fit the y-axis limits
+		] {actualtraps_ADMRAF99.pdf};
+		
+		\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
 		
 		\end{groupplot}
-		\end{tikzpicture}
-
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)  threshold for convergence is thres is when the next iteration is less than 0.0001 better so basically $k=4$ in \autoref{convergence}than the previous one in terms of the cost function  cost function Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $\sfrac{1}{e^2}$ diameter of the traps is \SI{2.2}{\micro\meter}.}
+	\end{tikzpicture}
+	\caption[Measured intensity distributions of a $4\times4$ trapping grid for different kinoform generation methods]{CCD images showing the measured intensity distributions of a $4\times4$ trapping grid for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$.}
+	\label{measured4by4}
 \end{figure}
+These images provide a qualitative assessment of the uniformity and brightness of the resulting trap arrays. All methods produce the intended $4 \times 4$ grid of traps, but also exhibit some ghost traps which are not located at the positions of the calculated artefacts in \autoref{calculated4by4}. Instead, they appear shifted relative to the main trapping grid, which is consistent with additional diffraction orders introduced by the SLM. Because the SLM is composed of an array of discrete pixels, its phase modulation acts like a sampled aperture, leading to the formation of multiple diffraction orders in the far field, which are effectively shifted replicas of the original pattern \cite{Agour2009}. Furthermore, the inactive areas between pixels leave a fraction of the reflected light unmodulated, giving rise to a prominent central bright spot---known as the zero-order or DC term. To avoid interference, the trapping grid is positioned clear of the zero-order diffraction spot, allowing the latter to be masked if necessary.
 
+\autoref{measured4by4grid} shows heatmaps of the measured optical intensities at each site in the $4\times 4$ trapping grid for all kinoform generation methods, normalised to the total incident intensity.
+\begin{figure}[t]
+	\vspace{0em}
+	%\centering
+	\hspace{-0.4em}
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	xticklabels={,,},
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_GS.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.43e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	xticklabels={,,},
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.49e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	xticklabels={,,},
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.65e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	colorbar,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	xticklabels={,,},
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_MRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{2.63e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	ylabel={\hspace{8em}$y$},
+	ylabel shift = 0em,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_AD.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.21e-01}$};
+	
+	\nextgroupplot
+	[
+	xlabel={\hspace{8em}$x$},
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF80.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.46e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF90.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.07e-01}$};
+	
+	\nextgroupplot
+	[
+	width=4cm,
+	enlargelimits=false,
+	axis on top,    % <-- (use with `matrix plot*')
+	colormap/viridis,
+	colorbar,
+	point meta=explicit,
+	% change me to adjust ``end point'' values used for the colormap
+	point meta min=0.01,
+	point meta max=0.05,
+	yticklabels={,,}
+	% change min and max values to just show that interval in the colorbar
+	%            colorbar style={
+	%                ymin=0.5e7,
+	%                ymax=2.5e7,
+	%            },
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {measuredgrid_m_ADMRAF99.csv};
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.41e-01}$};
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption[Heatmap of the measured optical intensities at each trapping site in a $4\times4$ grid for different kinoform generation methods]{Heatmap of the measured optical intensities at each trapping site in a $4\times4$ grid, extracted from data in \autoref{measured4by4}, normalised to the total incident intensity. Each figure corresponds to a different kinoform generation method: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha\in\{ 0.8,0.9,0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. The colour scale is consistent across figures, highlighting variations in site-to-site intensity uniformity for each approach.}
+	\label{measured4by4grid}
+\end{figure}
+Across all methods, the measured coefficients of variation are significantly larger than those obtained from the calculated hologram intensity distributions, but consistently remain within the same order of magnitude. This reduced uniformity arises primarily from experimental imperfections such as optical aberrations introduced by the SLM and other components in the beam path. For most methods, a consistent trend is visible, where lower intensity values are found in the bottom rows of the grid, corresponding to traps positioned further from the optical centre. This drop-off is in agreement with previous observations that showed traps located away from the centre required more optical power to achieve comparable trapping efficiency \cite{Schymik2022}. The underlying cause is attributed to optical aberrations and the finite diffraction-limited field of view of the aspheric lenses used in high-NA imaging systems. Importantly, this non-uniformity does not impose a fundamental limit. It can be compensated for by incorporating aberration correction directly onto the SLM phase pattern \cite{imr2010,Kim2019} and by using iterative feedback techniques based on site-resolved intensity or fluorescence measurements \cite{Tamura2016,Schymik2022}. Thus, while choosing the right kinoform generation method is important, optical imperfections ultimately dominate in the absence of feedback correction. This is especially evident when comparing the calculated and measured performance. The relative improvements from the unweighted methods to their weighted counterparts are still discernible in \autoref{measured4by4grid}, though diminished in scale when compared to those in \autoref{calculated4by4grid}. Of all tested methods, the GSW and hybrid GSW--MRAF algorithm with $\alpha = 0.9$ provide the best measured trade-off between site-to-site uniformity and efficient light delivery to the traps.
 
+\subsection{Algorithm convergence rate}
+\autoref{convergenceplot} shows the convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for each kinoform generation algorithm.
+\begin{figure}[t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.65cm, vertical sep=0.65cm},height=4cm,width=4cm,no markers]
+	\nextgroupplot
+	[
+	ymode=log,
+	ylabel shift = -3cm,
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_GS.csv};
+	
+	\fill [fill=black!60,opacity=.2] (21,1e-4) -- (21,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_MRAF80.csv};
+	
+	\fill [fill=black!60,opacity=.2] (45,1e-4) -- (45,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_MRAF90.csv};
+	
+	\fill [fill=black!60,opacity=.2] (57,1e-4) -- (57,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xticklabels={,,},
+	yticklabels={,,}
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_MRAF99.csv};
+	
+	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%xlabel={Iteration number},
+	ylabel={\hspace{8em}Cost function $\epsilon_n$},
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_AD.csv};
+	
+	\fill [fill=black!60,opacity=.2] (14,1e-4) -- (14,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (e)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	xlabel={\hspace{8em}Iteration number $n$},
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_ADMRAF80.csv};
+	
+	\fill [fill=black!60,opacity=.2] (47,1e-4) -- (47,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (f)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%xlabel={Iteration number},
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_ADMRAF90.csv};
+	
+	\fill [fill=black!60,opacity=.2] (33,1e-4) -- (33,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (g)};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%xlabel={Iteration number},
+	xmin=0, xmax=60,
+	ymin=0.2e-3, ymax=1e-0,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	yticklabels={,,},
+	]
+	
+	\addplot[
+	color=markrood, thick
+	] table [x index = 0, y index = 1]{costfunction_ADMRAF99.csv};
+	
+	\fill [fill=black!60,opacity=.2] (19,1e-4) -- (19,1) -- (60,1) -- (60,1e-4) -- cycle;
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (h)};
+	
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for different kinoform generation methods]{Convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. The shaded regions indicate iterations for which the convergence criterion has been satisfied ($k=4$ as defined in \autoref{convergence}).}
+	\label{convergenceplot} 
+\end{figure}
+With the exception of GSW--MRAF at $\alpha = 0.8$, all weighted methods exhibit a distinct convergence pattern. After an initial transient regime---typically within the first \num{10} iterations---during which the cost function may increase sharply, the weighted algorithms converge rapidly. This behaviour contrasts with the more gradual but monotonic descent observed in their unweighted counterparts. Of all methods, GSW and GSW--MRAF with $\alpha = 0.99$ achieve the fastest convergence, requiring \num{14} and \num{19} iterations respectively to meet the convergence criterion defined in \autoref{convergence}. Their final cost function values are among the lowest of all tested methods, despite the initial oscillations during the early iterations. Thus, the addition of the GSW update step improves convergence speed without sacrificing overall fidelity. In contrast, the unweighted GS algorithm shows steady but slower convergence, requiring \num{21} iterations while still reaching a lower final cost function value than GSW. However, as discussed earlier, GSW produces significantly more homogeneous trap intensities, indicating a trade-off between global fidelity (as measured by the cost function) and local uniformity.
+
+\section{Benchmarking conjugate gradient minimisation}
+In this section, we benchmark the performance of CG minimisation algorithms for kinoform generation. In contrast to the IFTA-based approaches discussed previously, the CG methods follow a purely optimisation-based strategy and do not rely on back-and-forth propagation. We focus on the CG variants with the FR and PRP$^+$ update factors and compare these to steepest gradient descent. The results are shown in \autoref{conjugategradient}, where all spatial plots are based on the PRP$^+$ method, which achieves the lowest final cost function value among the tested variants and thus serves as the representative case.
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2.5cm, vertical sep=1.5cm},height=4cm,width=4cm,no markers, clip marker paths=true]
+	\nextgroupplot
+	[
+	ylabel={},
+	xmin=0, xmax=1,
+	ymin=0, ymax=1,
+	xticklabels={,\textcolor{white}{0},},
+	yticklabels={,,},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	%axis lines=none,        % No axis lines
+	%tick style=none,        % No ticks
+	%xtick=\empty,           % No x-axis ticks
+	%ytick=\empty,           % No y-axis ticks
+	xlabel={},              % No x-axis label
+	ylabel={},              % No y-axis label
+	%enlargelimits=true,     % Keeps the plot within the bounds
+	]
+	
+	\addplot graphics [
+	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
+	ymin=0, ymax=1    % Stretch to fit the y-axis limits
+	] {approxint_GD_prp_cropped.pdf};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (a)};
+	
+	
+	\nextgroupplot
+	[
+	ylabel={$\sfrac{I}{I_\text{tot}}$ (\si{\percent})},
+	xmin=10, xmax=75,
+	ymin=-0.5, ymax=8.5,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	xlabel={Pixel number},
+	scaled ticks=false,
+	]
+	
+	\addplot[
+	color=markrood,
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_targetint0_GD_prp.csv};
+	
+	\addplot[
+	only marks,
+	mark = *,
+	color=markdiepblauw,
+	mark size=0.8pt
+	] table [x index = 0, y expr = \thisrowno{1} * 100]{crosssection_approxint_GD_prp.csv};
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (b)};
+	
+	\nextgroupplot
+	[
+	xlabel={$x$},
+	ylabel={$y$},
+	width=4cm,
+	enlargelimits=false,
+	xmin=0.5,
+	xmax=4.5,
+	ymin=0.5,
+	ymax=4.5,
+	axis on top,    % <-- (use with `matrix plot*')
+	view={0}{90},
+	colormap/viridis,
+	colorbar horizontal,
+	colorbar style={
+		at={(0,1.3)},
+		anchor=north west,
+		xticklabel pos=upper,
+		x tick scale label style={yshift=-25pt, xshift=23pt},
+	},
+	point meta=explicit,
+	point meta min=0.045,
+	point meta max=0.085,
+	xtick={1,2,3,4},
+	ytick={1,2,3,4},
+	xticklabels={1,2,3,4},
+	yticklabels={1,2,3,4},
+	]
+	%            \addplot [matrix plot] table [meta=funceval] {
+	\addplot [matrix plot*] table [meta expr=\thisrowno{2}] {grid_GD_prp.csv};
+	
+	\node[anchor=north east, text=white] at (rel axis cs: 1, 1) {\footnotesize \sc (c)};
+	\node[anchor=south west, text=white] at (rel axis cs: 0, 0) {\footnotesize $\num{1.56e-02}$};
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	ylabel={$\log_{10}(\epsilon_n)$},
+	%ytick pos=right,
+	xlabel={$n$},
+	xmin=0, xmax=130,
+	ymin={10^(-3.2)}, ymax={10^(-2.3)},
+	%ymin=0, ymax=120,
+	ytick={1e-3,10^(-2.5)},
+	yticklabels={-3,-2.5},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=rainbow1of8, thick
+	] table [x index = 0, y index = 1]{costfunction_GD_sd.csv};
+	
+	\addplot[
+	color=rainbow2of8, thick
+	] table [x index = 0, y index = 1]{costfunction_GD.csv};
+	
+	\addplot[
+	color=rainbow3of8, thick
+	] table [x index = 0, y index = 1]{costfunction_GD_prp.csv};
+	
+	
+	\node[
+	anchor=north east,
+	rotate=90,
+	font=\footnotesize,
+	% text width=2cm,       % Alternative: Force line breaks at a fixed width
+	xshift=1pt, yshift=1 pt,
+	] at (axis cs:21,0.00501187233) {
+		\textcolor{rainbow2of8}{FR}
+	};
+	
+	\node[
+	anchor=north east,
+	rotate=90,
+	font=\footnotesize,
+	% text width=2cm,       % Alternative: Force line breaks at a fixed width
+	xshift=1pt, yshift=1 pt,
+	] at (axis cs:50,0.00446683592) {
+		\textcolor{rainbow1of8}{SD}
+	};
+	
+	\node[
+	anchor=north east,
+	rotate=90,
+	font=\footnotesize,
+	% text width=2cm,       % Alternative: Force line breaks at a fixed width
+	xshift=-3pt, yshift=1 pt,
+	] at (axis cs:100,0.0039810717) {
+		\textcolor{rainbow3of8}{PRP$^+$}
+	};
+	
+	\fill [fill=rainbow2of8,opacity=.2] (21,1e-4) -- (21,1) -- (50,1) -- (50,1e-4) -- cycle;
+	\fill [fill=rainbow2of8,opacity=.2] (50,0.00446683592) -- (200,0.00446683592) -- (200,1) -- (50,1) -- cycle;
+	\fill [fill=rainbow1of8,opacity=.2] (50,1e-4) -- (50,0.00446683592) -- (100,0.00446683592) -- (100,1e-4) -- cycle;
+	\fill [fill=rainbow1of8,opacity=.2] (100,0.0039810717) -- (200,0.0039810717) -- (200,0.00446683592) -- (100,0.00446683592) -- cycle;
+	\fill [fill=rainbow3of8,opacity=.2] (100,1e-4) -- (100,0.0039810717) -- (200,0.0039810717) -- (200,1e-4) -- cycle;
+	
+	\node[anchor=north east, text=black] at (rel axis cs: 1, 1) {\footnotesize \sc (d)};
+	
+	\end{groupplot}
+	\end{tikzpicture}
+	
+	\caption[Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation]{Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation. \textsc{(a)} Representation of the calculated intensity distribution $I(x,y)$ in the trapping plane for a conjugate gradient minimisation method (PRP$^+$) of kinoform generation. As in \autoref{calculated4by4}, the brightness corresponds to the quantity $\log_{10}(10^{-9} + I(x,y))$. \textsc{(b)} Horizontal cross-section of $I(x,y)$ along the second row from below of the $4 \times 4$ trapping grid. Shown are the target profile (red) and calculated cross-section (blue). \textsc{(c)} Heatmap of the calculated optical intensities at each trapping site in the $4\times4$ grid, normalised to the total incident intensity. \textsc{(d)} Convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for gradient-based kinoform generation methods: steepest descent (red) and conjugate gradient minimisation (FR in blue, PRP$^+$ in green). The shaded regions in the corresponding colours indicate iterations for which the convergence criterion has been satisfied ($k=4$ as defined in \autoref{convergence}).}
+	\label{conjugategradient}
+\end{figure}
+The calculated intensity distribution in the trapping plane for the PRP$^+$ method exhibits similar artefacts to those seen in the IFTA-generated distributions. The traps are sharply defined and located as intended. However, as the cross-section and heatmap reveal, the relative intensities across the array are far from uniform. While the overall power in the traps is high---\SI{89.9}{\percent} of the total incident light, which is on par with the best IFTA results---the calculated intensity homogeneity remains limited, with $c_v = \num{1.56e-2}$. This is comparable to the values observed for unweighted IFTA methods and significantly worse than those achieved with weighted approaches. The convergence plot in \autoref{conjugategradient} provides further insight into the behaviour of different CG strategies. The PRP$^+$ method achieves the lowest cost function value at convergence, $ \epsilon_n = \num{8.13e-4}$, outperforming all IFTA methods except GS. However, this improvement comes at the cost of convergence speed, given that PRP$^+$ requires \num{100} iterations to meet the convergence criterion. The trajectory shows the characteristic behaviour of PRP-type methods---initial descent, followed by plateaus and renewed progress as new conjugate directions are found. In contrast to this slow convergence, the FR method converges after only \num{21} iterations and steepest descent after \num{50}, though both ultimately settle at slightly higher cost function values than PRP$^+$. Their calculated grid homogeneity and power efficiency metrics are of similar order. Taken together, these results suggest that CG minimisation can produce trapping potentials with excellent global fidelity. However, it does not offer practical advantages over weighted IFTA methods for several reasons. Although the number of iterations to convergence can be low (as with FR), direct calculation of the gradient requires extra computation time. As a result, the overall convergence time exceeds that of IFTA methods by about an order of magnitude. Moreover, the final homogeneity across trapping sites does not outperform even unweighted IFTA methods. When factoring in the increased computational complexity and slower convergence of CG minimisation, the theoretical improvements in cost function value are not sufficient to justify its use in practice.
 
 \section{Summary}
-
-TO DO: GRADIENT DESCENT!!! and add vertical lines to show when convergence occurs
+In this chapter, we have explored numerical methods for generating phase-only kinoforms to create high-fidelity optical trapping arrays, focusing on the performance of GS, MRAF, GSW-based methods and gradient-based minimisation approaches (SD and CG). The results, summarised in \autoref{tab:truthTables}, provide a comparative view based on power efficiency, trap uniformity, overall fidelity, convergence rate and computation time.
 \begin{table}[h]
 	\centering
-\begin{tabular}{ccccc}  
-	\toprule
-	    Method & \sc{(a)} & \sc{(b)} &  \sc{(c)} & \sc{(d)}\\
-	\midrule
-	GS&$\SI{94.6}{\percent}$&$\num{4.58e-2}$&$\num{3.16e-4}$&$21$\\
-	MRAF $\SI{80}{\percent}$&$\SI{78.0}{\percent}$&$\num{1.27e-2}$& $\num{3.18e-3}$&$45$\\
-	MRAF $\SI{90}{\percent}$&$\SI{85.9}{\percent} $&$\num{4.02e-2}$&$\num{1.52e-3}$&$57$\\
-	MRAF $\SI{99}{\percent}$&$\SI{90.4}{\percent}$&$\num{2.00e-1}$&$\num{2.70e-3}$&$47$\\
-	GSW&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$\\
-	GSW--MRAF $\SI{80}{\percent}$ &$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$\\
-	GSW--MRAF $\SI{90}{\percent}$ &$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$ \\
-	GSW--MRAF $\SI{99}{\percent}$ &$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $\\
-	CG&$\SI{81.3}{\percent} $&$\num{1.02e-1}$ &$\num{3.13e-3} $& $1470 $\\
-	\bottomrule
-\end{tabular}
-\caption[Performance metrics of various hologram generation methods]{\textnormal{Performance of various hologram generation methods. The target pattern is a $4\times4$ array of equally spaced dipole traps. The performance metrics are: }\sc{(a)} \textnormal{The fraction of total optical power in traps. }\sc{(b)} \textnormal{The trap depth coefficient of variation ($\sfrac{\sigma}{\mu}$). }\sc{(c)} \textnormal{The hologram error. }\sc{(d)} \textnormal{The number of iterations required to reach the convergence criterion ($k=4$ in \autoref{convergence}).}}
-\label{tab:truthTables}   
+	\begin{tabular}{cccccc}  
+		\toprule
+		Method & \sc{(a)} & \sc{(b)} &  \sc{(c)} & \sc{(d)} & \sc{(e)}\\
+		\midrule
+		GS&$\SI{94.6}{\percent}$&$\num{4.58e-2}$&$\num{3.16e-4}$&$21$&$1.13$\\
+		MRAF $\SI{80}{\percent}$&$\SI{78.0}{\percent}$&$\num{1.27e-2}$& $\num{3.18e-3}$&$45$&$2.57$\\
+		MRAF $\SI{90}{\percent}$&$\SI{85.9}{\percent} $&$\num{4.02e-2}$&$\num{1.52e-3}$&$57$&$3.26$\\
+		MRAF $\SI{99}{\percent}$&$\SI{90.4}{\percent}$&$\num{2.00e-1}$&$\num{2.70e-3}$&$47$&$2.66$\\
+		GSW&$\SI{90.3}{\percent}$& $\num{4.23e-7}$&$\num{6.89e-4}$&$14$&$0.795$\\
+		GSW--MRAF $\SI{80}{\percent}$ &$\SI{78.6}{\percent} $&$\num{1.24e-4}$&$\num{3.01e-3}$&$47$&$2.73$\\
+		GSW--MRAF $\SI{90}{\percent}$ &$\SI{85.4}{\percent} $&$\num{7.99e-5}$&$\num{1.63e-3}$&$33$&$1.88$ \\
+		GSW--MRAF $\SI{99}{\percent}$ &$\SI{88.4}{\percent} $&$\num{8.36e-3}$ &$\num{9.88e-4} $& $19 $&$1.08$\\
+		SD&$\SI{88.2}{\percent} $&$\num{1.52e-2}$ &$\num{1.10e-3} $& $50 $&$19.4$\\
+		CG (FR)&$\SI{88.2}{\percent} $&$\num{1.92e-2}$ &$\num{1.08e-3} $& $21 $&$8.66$\\
+		CG (PRP$^+$)&$\SI{89.9}{\percent} $&$\num{1.56e-2}$ &$\num{8.13e-4} $& $100 $&$40.6$\\
+		\bottomrule
+	\end{tabular}
+	\caption[Performance metrics of various kinoform generation methods]{Performance of various kinoform generation methods. The target pattern is a $4\times4$ array of equally spaced dipole traps. The performance metrics are: \textsc{(a)} The fraction of total optical power in the trapping sites. \textsc{(b)} The trap depth coefficient of variation $c_\text{v}$ (\autoref{coeffofvariation}). \textsc{(c)} The final value of the cost function $\epsilon_n$ (\autoref{costfunction}). \textsc{(d)} The number of iterations required to reach the convergence criterion ($k=4$ in \autoref{convergence}). \textsc{(d)} The convergence time in seconds.}
+	\label{tab:truthTables}   
 \end{table}
-
-\iffalse
-focusingopticsinputplaneinputfieldoutputplanedFig. 1. Schematic geometry for an IFTA. The optical field that propagates from the inputto the output plane through a focusing objective is shown in green. The field is discretizedusing coordinates(x,y)in the input plane and(x,y)in the output plane. The dashed linesrepresent the clear aperture of the focusing optics. The matrix used to computationallyrepresent the input field must be enlarged beyond this region and filled with zero intensitypoints (dark gray) to fully resolve the output plane. The physical size of the matrix used torepresent the input plane isd.the Gerchburg-Saxton (GS) and Adaptive-Additive (AA) algorithms [11, 22, 23, 24, 25, 26].In this paper, we present a new IFTA that we call the “mixed-region amplitude freedom”(MRAF) algorithm. The MRAF algorithm typically improves by one order of magnitude onaccuracy and and two orders of magnitude on roughness compared with the GS and AA algo-rithms for continuous target profiles. To our knowledge, no algorithm for creating CGHs with acomparable level of computational complexity surpasses the MRAF algorithm in measures ofaccuracy and roughness. The MRAF algorithm controls intensity in a bounded two-dimensionalsubset of the focal plane and achieves accuracy at the percent level at typically the cost of afactor of three in efficiency (compared with the GS and AA algorithms). Because the MRAFalgorithm controls the intensity profile in a single plane, this method can only be applied tocreating two-dimensional arbitrary optical traps. Atoms must therefore be confined to the fo-cal plane of the focusing objective to ensure interaction with light only in that plane; this canbe accomplished using an additional tightly focused sheet of light. In section 2 of this manu-script the MRAF algorithm is explained in detail, and in section 3 we report on the algorithmperformance for six target intensity profiles.
-\fi
-
-
-
-
-
-
-
+GS achieves the highest power efficiency (\SI{94.6}{\percent}), the lowest final cost function ($\num{3.16e-4}$), and converges quickly (\SI{1.13}{\second}), but shows poor trap uniformity ($c_\text{v} = \num{4.58e-2}$). MRAF allows tuning of performance via $\alpha$: lower $\alpha$ slightly improves homogeneity, but at the expense of power efficiency. MRAF methods are not especially fast in iteration count or runtime. GSW maintains strong power efficiency (\SI{90.3}{\percent}), but dramatically improves uniformity ($c_\text{v} = \num{4.23e-7}$) whilst maintaining an excellent overall fidelity. It is also the fastest to converge overall (\SI{0.795}{\second}). Hybrid GSW--MRAF methods combine the homogeneity benefits of GSW with the tunability offered by MRAF. These weighted methods outperform pure MRAF in terms of $c_\text{v}$ while maintaining comparable efficiency and convergence time. Gradient-based methods (SD and CG) offer moderate efficiency (\SIrange{88}{90}{\percent}) and homogeneity similar to GS and MRAF. CG with the PRP$^+$ update factor yields an excellent overall fidelity ($\num{8.13e-4}$) and good power efficiency, but takes over \SI{40}{\second} to converge. The FR variant completes the optimisation in just \SI{8.66}{\second}, making it more than twice as fast as steepest descent (\SI{19.4}{\second}). This improved efficiency reflects FR's ability to better align with the underlying gradient structure, avoiding the inefficient search paths that hinder SD. While conjugate gradient methods offer flexibility through customisable cost functions, their comparatively longer runtimes and limited improvements in trap homogeneity or power efficiency make them less compelling for practical implementation in dipole trap array generation. In contrast, GSW-based approaches offer a better balance between speed, efficiency and uniformity. Finally, it is important to note that in experiments, trap uniformity is ultimately limited by optical aberrations and other imperfections. These must be corrected using feedback based on in-situ measurements to realise the theoretical performance observed in simulation.
 \end{document}

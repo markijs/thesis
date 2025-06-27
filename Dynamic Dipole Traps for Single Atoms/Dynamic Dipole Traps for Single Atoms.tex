@@ -1395,7 +1395,7 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers, axis on top=true]
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=5.5cm,no markers, axis on top=true, clip marker paths=true, axis on top=false]
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
@@ -1698,7 +1698,7 @@ Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration 
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.5cm, vertical sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=7cm, clip marker paths=true, axis on top=true]
+	\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.5cm, vertical sep=2.5cm},xmin=0,ymin=0,height=5.5cm,width=7cm, clip marker paths=true, axis on top=false]
 	
 	
 	\nextgroupplot
@@ -1883,7 +1883,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	%\vspace{1em}
 	\centering
 	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2.5cm, vertical sep=1.5cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers]
+	\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2.5cm, vertical sep=1.5cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers, clip marker paths=true, axis on top=false]
 	
 	
 	\nextgroupplot
@@ -2546,7 +2546,7 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.752cm},xmin=0,ymin=0,height=4.5cm,width=13.5cm, clip marker paths=true, axis on top=true]
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.752cm},xmin=0,ymin=0,height=4.5cm,width=13.5cm, clip marker paths=true, axis on top=false]
 	\nextgroupplot
 	[
 	ylabel={Time (\si{\second})},
@@ -3045,7 +3045,7 @@ We collect \SI{120}{\minute} of fluorescence data with a time resolution of \SI{
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=4 by 2, horizontal sep=0.6cm, vertical sep=0.6cm},xmin=0,ymin=0,height=4.1cm,width=4.1cm,no markers]
+	\begin{groupplot}[group style={group size=4 by 2, horizontal sep=0.6cm, vertical sep=0.6cm},xmin=0,ymin=0,height=4.1cm,width=4.1cm,no markers, clip marker paths=true]
 	
 	\nextgroupplot
 	[
@@ -3406,7 +3406,7 @@ The two fitted exponentials for each trace feature time constants $\tau_1$ and $
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.7cm, vertical sep=2cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers]
+	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.7cm, vertical sep=2cm},xmin=0,ymin=0,height=4.5cm,width=4.5cm,no markers, clip marker paths=true]
 	
 	\nextgroupplot
 	[
@@ -3679,7 +3679,7 @@ During the first measurement, the atomic fluorescence exceeding a single thresho
 \begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=2.5cm }, height=5.5cm, width=5.5cm, no markers]
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=2.5cm }, height=5.5cm, width=5.5cm, no markers, clip marker paths=true]
 	
 	\nextgroupplot
 	[
