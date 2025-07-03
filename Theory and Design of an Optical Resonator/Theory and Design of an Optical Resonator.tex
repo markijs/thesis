@@ -1030,133 +1030,18 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 \label{resonatordesign} 
 \end{figure}
 
-\section{Assembly and alignment}
-
-\subsection{Cavity module}
-
 \begin{figure}[t]
-\hspace{-0.8cm}
-\begin{tikzpicture}[remember picture]
-\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module"}.pdf}};
-
-% left four
-\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.11,0.15) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.6,0.15) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.5,0.85) {\footnotesize\sc (c)};
-	
-\end{scope}
-
-\end{tikzpicture}
-\vspace{-1cm}
-\caption[Cavity module design and assembly]{Cavity module design and assembly. \textsc{(a)} An exploded view of the cavity module reveals its key components, including the conical and pyramidal mirrors, piezoelectric plates, a lens for mode-matching, and a structured support frame that maintains mechanical stability while allowing optical access for the dipole trapping beam. The support frame consists of a stainless steel base plate and cage structure. \textsc{(b)} The assembled module integrates these components into a compact structure, optimised for vacuum compatibility. \textsc{(c)} A bottom-up view highlights the screw holes for mounting and channels that guide the piezo wires, ensuring they remain secured and routed away from the optical paths.}
-\label{moduledesign}
-\end{figure}
-
-\begin{figure}[t]
-\hspace{-0.2cm}
-\begin{tikzpicture}[remember picture]
-\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount"}.pdf}};
-
-% left four
-\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}fibre coupler};
-	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}support structure};
-	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{af}claw};
-	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}beam splitter};
-	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}mode-matching lens};
-	
-	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, markgrijs] {\footnotesize NanoMax};
-	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, markgrijs] {\footnotesize microscope};
-	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, markgrijs] {\footnotesize translation stage};
-	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, markgrijs] {\footnotesize gantry};
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.03,0.91) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.03,0.45) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.56,0.91) {\footnotesize\sc (c)};
-	
-\end{scope}
-
-\end{tikzpicture}
-\caption[Cavity alignment tools and setup]{Cavity alignment tools and setup. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. Reference markers for positioning the resonator centre consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, indicated by red dashed lines, marks the intended trapping region for atoms. \textsc{(b)} The U-bench, supported by a 3D-printed structure, facilitates precise cavity alignment. Fibre couplers on either side enable probe beam injection and signal detection, while kinematic XY-mounted lenses ensure the beam matches the cavity mode. A beam splitter, temporarily placed on the base plate, allows side imaging of the cavity mode using a microscope. The resonator mirrors, as well as the collimation lens, are held in custom-made PEEK claws, individually designed for each component to ensure an optimal fit. \textsc{(c)} The gantry alignment system enables controlled placement of these components. The claws can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage, allowing precise retraction for epoxy injection before glueing. Once roughly positioned, the mirror remains fixed in its clamp while fine alignment is performed with the NanoMax by translating the entire U-bench along with the alignment mount. This method reduces susceptibility to mechanical vibrations, ensuring stable and reproducible cavity alignment.}
-\label{ubenchgantry}
-\end{figure}
-
-\begin{figure}[t]
-\hspace{-0.35cm}
-\begin{tikzpicture}[remember picture]
-\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
-
-% left four
-\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.04,0.02+1.0-0.03) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.03) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.03) {\footnotesize\sc (c)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.247-0.03) {\footnotesize\sc (d)};
-	
-	\draw[markgrijs]       (0.22, 0.055) -- +(-0.02, 0) node[left] {\footnotesize\sc side view};
-	\draw[markgrijs]       (0.345, 0.47+0.248) -- +(0.02, 0.015) node[right, yshift=0.1cm]     {\footnotesize microscope};
-	\draw[markgrijs]       (0.5-0.03, 0.93) -- +(-0.095, 0.03) node[left, yshift=0.1cm, xshift=-0.05cm]     {\footnotesize lenses};
-	\draw[markgrijs]       (0.5-0.34+0.03, 0.93) -- +(0.095, 0.03) node[right]     {\footnotesize };
-	
-	\draw[markrood, ->]       (0.552, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	\draw[markrood, ->]       (0.12, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	\draw[markrood, ->]       (0.552-0.02, 0.93-0.247-0.12) -- +(0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize $635,\SI{780}{\nano\meter}$};
-	%\draw[markrood, ->]       (0.552, 0.93-0.245-0.12-0.245) -- +(-0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize \SI{635}{\nano\meter}};
-	
-	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	
-\end{scope}
-
-\end{tikzpicture}
-\caption[Cavity mirror alignment procedure]{Cavity mirror alignment performed with a U-bench (left), which supports the mirror alignment mount (right) that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a 90:10 beam splitter.}
-\label{alignmentprocedure}
-\end{figure}
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[
-fill between/on layer={
-	%            axis background    % grid and ticks will be above filled area
-	axis grid           % only ticks will be above filled area
-	%            axis ticks         % grid and ticks will be below filled area
-	%            pre main           % <-- initial value
-},]
-\vspace{0em}
-\centering
-\begin{groupplot}[
+	\centering
+	\begin{tikzpicture}[
+	fill between/on layer={
+		%            axis background    % grid and ticks will be above filled area
+		axis grid           % only ticks will be above filled area
+		%            axis ticks         % grid and ticks will be below filled area
+		%            pre main           % <-- initial value
+	},]
+	\vspace{0em}
+	\centering
+	\begin{groupplot}[
 	group style={group size=2 by 1, horizontal sep=2.5cm, vertical sep=0.cm},
 	%xmin=-27.697, xmax=18.735,
 	%ymin=-5.5, ymax=5.5,
@@ -1259,9 +1144,9 @@ fill between/on layer={
 	\filldraw[cavityyellow!50] (axis cs: 0,-20) -- (axis cs: 0,20) -- (axis cs: 150,20) -- (axis cs: 150,-20) -- cycle;
 	\draw[cavityyellow, thick] (axis cs: 0, -20) -- (axis cs: 0, 20);
 	
-\end{groupplot}
-
-\begin{groupplot}[
+	\end{groupplot}
+	
+	\begin{groupplot}[
 	group style={group size=2 by 1, horizontal sep=1cm, vertical sep=0.cm},
 	%xmin=-27.697, xmax=18.735,
 	%ymin=-5.5, ymax=5.5,
@@ -1330,76 +1215,243 @@ fill between/on layer={
 	
 	
 	
-\end{groupplot}
-
-\end{tikzpicture}
-\caption[Simulated transverse extent of the cavity mode]{Simulated transverse extent of the cavity mode, showing the expansion of the mode waist $w(z)$ beyond the resonator mirrors \textsc{(left)} and inside the resonator \textsc{(right)}. The lines are separated by twice the beam waist and are plotted as a function of the position $z$. The zero point defined at the planar mirror interface, where the waist reaches its minimum.}
-\label{modeexpansion} 
+	\end{groupplot}
+	
+	\end{tikzpicture}
+	\caption[Simulated transverse extent of the cavity mode]{Simulated transverse extent of the cavity mode, showing the expansion of the mode waist $w(z)$ beyond the resonator mirrors \textsc{(left)} and inside the resonator \textsc{(right)}. The lines are separated by twice the beam waist and are plotted as a function of the position $z$. The zero point defined at the planar mirror interface, where the waist reaches its minimum.}
+	\label{modeexpansion} 
 \end{figure}
 
+\section{Assembly and alignment}
 
-
-
-
+\subsection{Cavity module}
 
 \begin{figure}[t]
-\vspace{0em}
-\centering
-\begin{subfigure}[b]{.49\linewidth}
-\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity5.png}};;
+\hspace{-0.8cm}
+\begin{tikzpicture}[remember picture]
+\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module"}.pdf}};
+
+% left four
+\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.11,0.15) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.6,0.15) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.5,0.85) {\footnotesize\sc (c)};
+	
+\end{scope}
+
 \end{tikzpicture}
-\centering
-\caption{}
-\label{a}
-\end{subfigure}
-\begin{subfigure}[b]{.49\linewidth}
-\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
-\end{tikzpicture}
-\centering
-\caption{}
-\label{b}
-\end{subfigure}
-\\
-\vspace{0.3em}
-\begin{subfigure}[b]{.49\linewidth}
-\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=6cm] {glue.pdf}};;
-\end{tikzpicture}
-\centering
-\caption{}
-\label{b}
-\end{subfigure}
-\begin{subfigure}[b]{.49\linewidth}
-\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
-\end{tikzpicture}
-\centering
-\caption{}
-\label{b}
-\end{subfigure}
-\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-\label{asdf}
+\vspace{-1cm}
+\caption[Cavity module design and assembly]{Cavity module design and assembly. \textsc{(a)} An exploded view of the cavity module reveals its key components, including the conical and pyramidal mirrors, piezoelectric plates, a lens for mode-matching, and a structured support frame that maintains mechanical stability while allowing optical access for the dipole trapping beam. The support frame consists of a stainless steel base plate and cage structure. \textsc{(b)} The assembled module integrates these components into a compact structure, optimised for vacuum compatibility. \textsc{(c)} A bottom-up view highlights the screw holes for mounting and channels that guide the piezo wires, ensuring they remain secured and routed away from the optical paths.}
+\label{moduledesign}
 \end{figure}
+
+
+
+
 
 
 \subsection{Mirror alignment}
 
+\begin{figure}[t]
+	\hspace{-0.2cm}
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}fibre coupler};
+	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}support structure};
+	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{af}claw};
+	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}beam splitter};
+	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}mode-matching lens};
+	
+	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, markgrijs] {\footnotesize NanoMax};
+	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, markgrijs] {\footnotesize microscope};
+	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, markgrijs] {\footnotesize translation stage};
+	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, markgrijs] {\footnotesize gantry};
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.03,0.91) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.03,0.45) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.56,0.91) {\footnotesize\sc (c)};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Cavity alignment tools and setup]{Cavity alignment tools and setup. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. Reference markers for positioning the resonator centre consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, indicated by red dashed lines, marks the intended trapping region for atoms. \textsc{(b)} The U-bench, supported by a 3D-printed structure, facilitates precise cavity alignment. Fibre couplers on either side enable probe beam injection and signal detection, while kinematic XY-mounted lenses ensure the beam matches the cavity mode. A beam splitter, temporarily placed on the base plate, allows side imaging of the cavity mode using a microscope. The resonator mirrors, as well as the collimation lens, are held in custom-made PEEK claws, individually designed for each component to ensure an optimal fit. \textsc{(c)} The gantry alignment system enables controlled placement of these components. The claws can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage, allowing precise retraction for epoxy injection before glueing. Once roughly positioned, the mirror remains fixed in its clamp while fine alignment is performed with the NanoMax by translating the entire U-bench along with the alignment mount. This method reduces susceptibility to mechanical vibrations, ensuring stable and reproducible cavity alignment.}
+	\label{ubenchgantry}
+\end{figure}
+
+\begin{figure}[t]
+	\hspace{-0.35cm}
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.04,0.02+1.0-0.03) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.03) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.03) {\footnotesize\sc (c)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.247-0.03) {\footnotesize\sc (d)};
+	
+	\draw[markgrijs]       (0.22, 0.055) -- +(-0.02, 0) node[left] {\footnotesize\sc side view};
+	\draw[markgrijs]       (0.345, 0.47+0.248) -- +(0.02, 0.015) node[right, yshift=0.1cm]     {\footnotesize microscope};
+	\draw[markgrijs]       (0.5-0.03, 0.93) -- +(-0.095, 0.03) node[left, yshift=0.1cm, xshift=-0.05cm]     {\footnotesize lenses};
+	\draw[markgrijs]       (0.5-0.34+0.03, 0.93) -- +(0.095, 0.03) node[right]     {\footnotesize };
+	
+	\draw[markrood, ->]       (0.552, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	\draw[markrood, ->]       (0.12, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	\draw[markrood, ->]       (0.552-0.02, 0.93-0.247-0.12) -- +(0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize $635,\SI{780}{\nano\meter}$};
+	%\draw[markrood, ->]       (0.552, 0.93-0.245-0.12-0.245) -- +(-0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize \SI{635}{\nano\meter}};
+	
+	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Cavity mirror alignment procedure]{Cavity mirror alignment performed with a U-bench \textsc{(left)}, which supports the mirror alignment mount \textsc{(right)} that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a 90:10 beam splitter.}
+	\label{alignmentprocedure}
+\end{figure}
+
+
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+
+
+\section{Characterisation}
+asdf asdfa sdfas dfasdf asdf asdf asf asdf as
+\subsection{Overview}
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity5.png}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{a}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\\
+	\vspace{0.3em}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {glue.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
+	\label{asdf}
+\end{figure}
+
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+\begin{wrapfigure}[8]{l}{0.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+	ylabel={Transmission (a.\,u.)},
+	xlabel={Relative frequency (MHz)},
+	xmin=-50, xmax=50,
+	ymin=0, ymax=1,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	height=5.5cm,
+	width=5.5cm,
+	name=mainplot,
+	clip mode=individual,
+	]
+	
+	% Raw data
+	\addplot[smooth, rainbow5of8, thin] table [col sep = comma, x index = 0, y index = 1] {cavity_rawtrace.csv};
+	\addlegendentry{Raw data}
+	
+	% Smoothed data
+	\addplot[smooth, rainbow2of8, thin] table [col sep = comma, x index = 0, y index = 1] {cavity_smoothtrace.csv};
+	\addlegendentry{Smoothed}
+	
+	% Fit
+	\addplot[rainbow1of8, dashed, thick] table [col sep = comma, x index = 0, y index = 1] {cavity_fit.csv};
+	\addlegendentry{Fit}
+	
+	% Optional: Add vertical lines at ±25 MHz
+	\addplot[densely dotted, gray] coordinates {(25,0) (25,100)};
+	\addplot[densely dotted, gray] coordinates {(-25,0) (-25,100)};
+	
+	\end{axis}
+	\end{tikzpicture}
+	\caption[Transmission spectrum of the cavity]{Measured transmission spectrum of the cavity with Lorentzian fit. The sidebands appear at $\pm \SI{25}{\mega\hertz}$ relative to the main peak.}
+	\label{cavitytrace}
+\end{wrapfigure}
+
+
+
+\subsection{Transverse modes}
 
 
 \begin{figure}[t]
-\centering
-\begin{tikzpicture}
-\newcommand\step{0.157491}
-\newcommand\gap{0.0110096}
-
-\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.85\textwidth]{{"all"}.pdf}};
-\begin{scope}[x={(image.south east)},y={(image.north west)}]
+	\centering
+	\begin{tikzpicture}
+	\newcommand\step{0.157491}
+	\newcommand\gap{0.0110096}
+	
+	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.85\textwidth]{{"all"}.pdf}};
+	\begin{scope}[x={(image.south east)},y={(image.north west)}]
 	
 	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
 	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
@@ -1430,18 +1482,11 @@ fill between/on layer={
 	\node[align=center] at (0.661+0.012 + \step/2, 1-0.661+0.023) {\small $0$};
 	\node[align=center] at (0.661+0.012 + 3*\step/2 + \gap, 1-0.661+0.023) {\small $1$};
 	
-\end{scope}
-\end{tikzpicture}
-\caption[Optical setup for generation of dipole traps and MOT.]{(Left) Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. (Right) Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. A pair of high-NA lenses focus and image the dipole trapping light.}
-\label{cavitymodes} 
+	\end{scope}
+	\end{tikzpicture}
+	\caption[Optical setup for generation of dipole traps and MOT.]{\textsc{(left)} Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. \textsc{(right)} Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. A pair of high-NA lenses focus and image the dipole trapping light.}
+	\label{cavitymodes} 
 \end{figure}
-
-
-\section{Characterisation}
-
-\subsection{Overview}
-
-\subsection{Transverse modes}
 
 
 
