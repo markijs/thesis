@@ -399,7 +399,7 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 			\nextgroupplot
 			[
 			%xlabel={$\sfrac{d}{\lvert R \rvert}$},
-			ylabel={Rayleigh length $z_0$},
+			ylabel={Rayleigh length $z_\mathrm{R}$},
 			ylabel style={markgrijs},
 			yticklabel style=markgrijs,
 			every y tick/.style={markgrijs},
@@ -486,7 +486,7 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 			%\draw[markrood, dashed] ({\mirrorsep/2+0.3}, {-1*\wbeam(-\mirrorsep/2)}) -- (\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)});
 			
 			% Rayleigh range label
-			%\draw[<->, markrood] (0, 0) -- (\z0, 0) node[midway, below] {\footnotesize $z_0$};
+			%\draw[<->, markrood] (0, 0) -- (\z0, 0) node[midway, below] {\footnotesize $z_\mathrm{R}$};
 			
 			% cavity length
 			\draw[<->, markgrijs] (-\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)-0.7}) -- (\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)-0.7}) node[midway, below] {\footnotesize $d$};
@@ -516,9 +516,9 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 			
 			% Dashed lines for mirror radius
 			\draw[->, dashed, markgrijs] (-\mirrorsep/2,0) -- ({-\mirrorsep/2+\R*cos(\angledeg)}, {\R*sin(\angledeg)})
-			node[pos=0.85, anchor=south east, align=center] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
+			node[pos=0.85, anchor=south east, align=center, xshift=2mm] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
 			\draw[->, dashed, markgrijs] (\mirrorsep/2,0) -- ({\mirrorsep/2+\R*cos(\angledeg+180)}, {-\R*sin(\angledeg+180)})
-			node[pos=0.85, anchor=south west, align=center] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
+			node[pos=0.85, anchor=south west, align=center, xshift=-2mm] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
 			
 			\node[align=center, anchor=center] at (0, -1.0471975512) {\footnotesize $\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1$};
 			
@@ -560,7 +560,7 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 			\draw[markrood, dashed] ({\mirrorsep/2+0.3}, {-1*\wbeam(-\mirrorsep/2)}) -- (\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)});
 			
 			% Rayleigh range label
-			\draw[<->, markrood] (0, 0) -- (\z0, 0) node[midway, below] {\footnotesize $z_0$};
+			\draw[<->, markrood] (0, 0) -- (\z0, 0) node[midway, below] {\footnotesize $z_\mathrm{R}$};
 			
 			% cavity length
 			\draw[<->, markgrijs] (-\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)-0.7}) -- (\mirrorsep/2, {-1*\wbeam(-\mirrorsep/2)-0.7}) node[midway, below] {\footnotesize $d$};
@@ -599,9 +599,9 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 	
 	% Dashed lines for mirror radius
 	\draw[->, dashed, markgrijs] (-\diffRandd,0) -- ({-\diffRandd+\R*cos(\angledeg)}, {\R*sin(\angledeg)})
-	node[pos=0.7, anchor=south east, align=center] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
+	node[pos=0.7, anchor=south east, align=center, xshift=2mm] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
 	\draw[->, dashed, markgrijs] (\diffRandd,0) -- ({\diffRandd+\R*cos(\angledeg+180)}, {-\R*sin(\angledeg+180)})
-	node[pos=0.7, anchor=south west, align=center] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
+	node[pos=0.7, anchor=south west, align=center, xshift=-2mm] {\footnotesize $\lvert R_\mathrm{c} \rvert$};
 	
 	\node[align=center, anchor=center] at (0, -1.0471975512) {\footnotesize $\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1.9$};
 	
@@ -647,7 +647,7 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 	
 	% Rayleigh range label
 	\draw[dashed, markrood] (\z0, -0.5) -- (\z0, 0);
-	\draw[<->, markrood] (0, -0.5) -- (\z0, -0.5) node[midway, below] {\footnotesize $z_0$};
+	\draw[<->, markrood] (0, -0.5) -- (\z0, -0.5) node[midway, below, xshift=0.5mm] {\footnotesize $z_\mathrm{R}$};
 	
 	% cavity length
 	\draw[<->, markgrijs] (-\mirrorsep/2, {-1*\oldwbeam(-\mirrorsep/2)-0.7}) -- (\mirrorsep/2, {-1*\oldwbeam(-\mirrorsep/2)-0.7}) node[midway, below] {\footnotesize $d$};
@@ -659,10 +659,10 @@ To avoid unconfined solutions to the paraxial Helmholtz equation, which is to pr
 
 
 \end{tikzpicture}
-\caption[Beam radius and optical confinement in symmetric spherical-mirror resonators]{Beam radius and optical confinement in symmetric spherical-mirror resonators. The illustrations depict the behaviour of the beam radius $w(z)$ for different values of the ratio $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$. \textsc{(top left)} A plane-parallel optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0$) for which all beam radii diverge as $\lvert R_\mathrm{c} \vert \rightarrow \infty$. \textsc{(top right)} A confocal optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 1$) for which the beam radii at the mirror positions attain their minimum value. \textsc{(bottom left)} A near-concentric optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 1.9$) for which the beam waist is tightly focused near the cavity centre, while the beam expands rapidly as it approaches the mirrors. \textsc{(bottom right)} Beam radii ($w_0$, $w_1$ and $w_2$) and Rayleigh length ($z_0$) as functions of $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$. Note the various divergences as $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$ approaches the limits of optical confinement.}
+\caption[Beam radius and optical confinement in symmetric spherical-mirror resonators]{Beam radius and optical confinement in symmetric spherical-mirror resonators. The illustrations depict the behaviour of the beam radius $w(z)$ for different values of the ratio $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$. \textsc{(top left)} A plane-parallel optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0$) for which all beam radii diverge as $\lvert R_\mathrm{c} \vert \rightarrow \infty$. \textsc{(top right)} A confocal optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 1$) for which the beam radii at the mirror positions attain their minimum value. \textsc{(bottom left)} A near-concentric optical resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 1.9$) for which the beam waist is tightly focused near the cavity centre, while the beam expands rapidly as it approaches the mirrors. \textsc{(bottom right)} Beam radii ($w_0$, $w_1$ and $w_2$) and Rayleigh length ($z_\mathrm{R}$) as functions of $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$. Note the various divergences as $\sfrac{d}{\lvert R_\mathrm{c} \rvert}$ approaches the limits of optical confinement.}
 \label{beamradiusincavity} 
 \end{figure}
-The beam radii at the mirror positions diverge for the plane-parallel resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=0$) and concentric resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=2$). A special case is the confocal resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=1$), for which $w_1$ and $w_2$ attain their minimum values and the Rayleigh length equals half the mirror separation ($z_0=\sfrac{d}{2}$).
+The beam radii at the mirror positions diverge for the plane-parallel resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=0$) and concentric resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=2$). A special case is the confocal resonator ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}=1$), for which $w_1$ and $w_2$ attain their minimum values and the Rayleigh length equals half the mirror separation ($z_\mathrm{R}=\sfrac{d}{2}$).
 
 \subsection{Higher-order modes}
 \label{higerordermodesection}
@@ -842,7 +842,7 @@ which now depend on the longitudinal mode index $q$ and the transverse mode indi
 \def\piValue{3.14159} % Value of pi
 \def\eValue{2.71828182845904523536}
 
-\def\dv{0.37352904193}
+\def\dv{0.372766620141905}
 
 \def\xzero{0} % Center x_0
 \def\xone{\dv} % Center x_0
@@ -953,7 +953,7 @@ which now depend on the longitudinal mode index $q$ and the transverse mode indi
 
 \end{tikzpicture}
 \caption[Simulated transverse mode spectrum for a Fabry--Pérot resonator]{
-Simulated transverse mode spectrum for a Fabry--Pérot resonator with  \(\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.613\), corresponding to a Rayleigh length of \(z_\mathrm{R} = 0.752 d\). This configuration results in a Gouy phase shift of \(\Delta \Psi = 0.374\pi\) and thus a transverse mode spacing of $\Delta\nu_\perp=0.374\Delta\nu_\mathrm{FSR}$. The plot shows normalised transmission as a function of the normalised frequency detuning \((\nu - \nu_0)/\Delta \nu_\mathrm{FSR}\). Each resonance is labelled with the longitudinal mode index \(q\) followed by a number $n$, which represents the sum of the transverse mode indices for Hermite--Gaussian modes: \(n = n_x + n_y\) (resonances are shown up to $n=10$). The fundamental mode (\(q_0, 0\)) is associated with a frequency $\nu_0$. The suppressed transmission of higher-order modes, which is due to their larger spatial extent and greater leakage from the resonator, is modelled using an exponential factor $\mathrm{e}^{-\alpha n}$ with $\alpha=0.1$.
+Simulated transverse mode spectrum for a Fabry--Pérot resonator with  \(\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.611\), corresponding to a Rayleigh length of \(z_\mathrm{R} = 0.754 d\). This configuration results in a Gouy phase shift of \(\Delta \Psi = 0.373\pi\) and thus a transverse mode spacing of $\Delta\nu_\perp=0.373\Delta\nu_\mathrm{FSR}$. The plot shows normalised transmission as a function of the normalised frequency detuning \((\nu - \nu_0)/\Delta \nu_\mathrm{FSR}\). Each resonance is labelled with the longitudinal mode index \(q\) followed by a number $n$, which represents the sum of the transverse mode indices for Hermite--Gaussian modes: \(n = n_x + n_y\) (resonances are shown up to $n=10$). The fundamental mode (\(q_0, 0\)) is associated with a frequency $\nu_0$. The suppressed transmission of higher-order modes, which is due to their larger spatial extent and greater leakage from the resonator, is modelled using an exponential factor $\mathrm{e}^{-\alpha n}$ with $\alpha=0.1$.
 }
 \label{transversemodespacing}
 \end{figure}
@@ -991,7 +991,7 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	\node[markgrijs, anchor=west] at (0.48,0.975) {\footnotesize $R_{\mathrm{c},x}=\SI{1419}{\micro\meter}$};
 	\node[markgrijs, anchor=west] at (0.48,0.925) {\footnotesize $R_{\mathrm{c},y}=\SI{1698}{\micro\meter}$};
 	\node[markgrijs, anchor=west] at (0.51,0.63) {\footnotesize $T=\SI{1.74}{ppm}$};
-	\node[markgrijs, anchor=west] at (0.51,0.58) {\footnotesize $\mathcal{L}=\SI{40.8}{ppm}$};
+	\node[markgrijs, anchor=west] at (0.51,0.58) {\footnotesize $\mathcal{L}=\SI{41.6}{ppm}$};
 	
 	%top left
 	\node[markgrijs, anchor=west] at (0.15,0.925) {\footnotesize $R_{\mathrm{c}}=\SI{50}{\milli\meter}$};
@@ -1093,7 +1093,7 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	ytick={-20,-10,0,10,20},
 	yticklabels={$-20$,\phantom{$-10$},$0$,\phantom{$10$},$20$},
 	xlabel = {$z$ (\si{\micro\meter})},
-	ylabel = {$w(z)$ (\si{\micro\meter})},
+	ylabel = {$\pm w(z)$ (\si{\micro\meter})},
 	xmin = -600, %0.2538231361 total to match aspect ratio
 	xmax = 100,
 	ymin = -20,
@@ -1398,16 +1398,16 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf a
 	\label{asdf}
 \end{figure}
 
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$
 \begin{wrapfigure}[8]{l}{0.5\textwidth}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
 	[
 	ylabel={Transmission (a.\,u.)},
-	xlabel={Relative frequency (MHz)},
-	xmin=-50, xmax=50,
-	ymin=0, ymax=1,
+	xlabel={$\nu - \nu_0$ (\si{\mega\hertz})},
+	xmin=-40, xmax=40,
+	ymin=-0.02, ymax=0.82,
 	ymajorgrids=true,
 	xmajorgrids=true,
 	grid style=dashed,
@@ -1415,27 +1415,41 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf a
 	width=5.5cm,
 	name=mainplot,
 	clip mode=individual,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none
+	}
 	]
 	
 	% Raw data
-	\addplot[smooth, rainbow5of8, thin] table [col sep = comma, x index = 0, y index = 1] {cavity_rawtrace.csv};
-	\addlegendentry{Raw data}
+	\addplot[smooth, rainbow5of8, thin] table [col sep = comma, x index = 0, y index = 1, each nth point=5, filter discard warning=false, unbounded coords=discard ] {cavity_smoothtrace.csv};
+	\addlegendentry{data}
 	
 	% Smoothed data
-	\addplot[smooth, rainbow2of8, thin] table [col sep = comma, x index = 0, y index = 1] {cavity_smoothtrace.csv};
-	\addlegendentry{Smoothed}
+	%\addplot[smooth, rainbow2of8, thin] table [col sep = comma, x index = 0, y index = 1, every nth point=10] {cavity_smoothtrace.csv};
+	%\addlegendentry{Smoothed}
 	
 	% Fit
-	\addplot[rainbow1of8, dashed, thick] table [col sep = comma, x index = 0, y index = 1] {cavity_fit.csv};
-	\addlegendentry{Fit}
+	\addplot[markrood, densely dotted, thick] table [col sep = comma, x index = 0, y index = 1, each nth point=1, filter discard warning=false, unbounded coords=discard ] {cavity_fit.csv};
+	\addlegendentry{fit}
 	
 	% Optional: Add vertical lines at ±25 MHz
-	\addplot[densely dotted, gray] coordinates {(25,0) (25,100)};
-	\addplot[densely dotted, gray] coordinates {(-25,0) (-25,100)};
+	\addplot[densely dotted, markgrijs, thick] coordinates {(25,-1) (25,0.2)};
+	\addplot[densely dotted, markgrijs, thick] coordinates {(0,-1) (0,0.2)};
+	\draw[<->, markgrijs] (axis cs: 0, 0.2) -- (axis cs: 25, 0.2) node[pos=0.7, above] {\footnotesize $\SI{25}{\mega\hertz}$};;	
+	
+	%\addplot[densely dotted, markgrijs, thick] coordinates {(-25,0) (-25,100)};
+	
+	\draw[->, markrood] (axis cs: 10, 0.375) -- (axis cs: 2.09816205, 0.375) ;
+	
+	\draw[->, markrood] (axis cs: -10, 0.375) -- (axis cs: -2.09816205, 0.375) node[pos=0, above, xshift=-4.5mm] {\footnotesize $\SI{4.20}{\mega\hertz}$};
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption[Transmission spectrum of the cavity]{Measured transmission spectrum of the cavity with Lorentzian fit. The sidebands appear at $\pm \SI{25}{\mega\hertz}$ relative to the main peak.}
+	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. The laser is frequency-modulated at \SI{25}{\mega\hertz}, generating sidebands at $\pm \SI{25}{\mega\hertz}$ that appear symmetrically around the main peak. These sidebands serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
 

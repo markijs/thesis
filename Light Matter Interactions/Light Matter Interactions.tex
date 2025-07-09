@@ -706,29 +706,37 @@ Throughout the preceding sections, we have treated the light-matter interaction 
 In the second quantisation, the Hamiltonian of a two-level atom interacting with a single cavity mode can be written as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_I$, where $\hat{\mathcal{H}}_0$ represents the uncoupled part:
 \begin{align}
 \label{uncoupledham}
-\hat{\mathcal{H}}_0=\hbar \omega_0 \vert e \rangle \langle e \vert + \hbar \omega \left( \hat{a}^\dagger \hat{a} + \sfrac{1}{2} \right)\,,
+\hat{\mathcal{H}}_0=\hbar \omega_0 \vert e \rangle \langle e \vert + \hbar \omega \left( \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \sfrac{1}{2} \right)\,,
 \end{align}
-where we have set the atomic ground state energy to zero to express the Hamiltonian in terms of the atomic transition frequency $\omega_0$. The cavity resonance frequency is denoted by $\omega$ and the field creation and annihilation operators are $\hat{a}^\dagger$ and $\hat{a}$, respectively. Similar to the interaction Hamiltonian as discussed under \autoref{systemhamiltonian}, we have $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}$, now written in terms of the quantised electric field, which for a single mode with unit polarisation vector $\hat{\epsilon}$ can be written in the Schr\"{o}dinger picture as
+where we have set the atomic ground state energy to zero to express the Hamiltonian in terms of the atomic transition frequency $\omega_0$. The cavity resonance frequency is denoted by $\omega$, while $\hat{a}^\dagger_{\vec{k},\hat{\epsilon}}$ and $\hat{a}_{\vec{k},\hat{\epsilon}}$ respectively represent the field creation and annihilation operators for a mode with wave vector $\vec{k}$ and unit polarisation $\hat{\epsilon}$. Similar to the interaction Hamiltonian as discussed under \autoref{systemhamiltonian}, we have $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}$, now written in terms of the quantised electric field, which can be written in the Schr\"{o}dinger picture as
 \begin{align}
-\hat{\vec{E}}(\vec{r}\,) = \sqrt{\frac{\hbar \omega}{2 \epsilon_0 V}} \left( \hat{a} \hat{\epsilon} \mathrm{e}^{i\vec{k}\cdot\vec{r}} + \hat{a}^\dagger \hat{\epsilon}^* \mathrm{e}^{-i\vec{k}\cdot \vec{r}} \right)\,.
+\label{electricfieldoperator}
+\hat{\vec{E}}(\vec{r}\,) = \sqrt{\frac{\hbar \omega}{2 \epsilon_0}} \left(\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}_{\vec{k},\hat{\epsilon}}  + \vec{f}^*_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \right)\,,
 \end{align}
-This expression includes the quantisation volume $V$ of the cavity and the wavevector $\vec{k}$. In the electric dipole approximation, the electromagnetic field is assumed to be uniform over the size of the atom. This reduces the electric dipole interaction to $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}(\vec{0}\,)$. In the interaction picture, $\hat{\mathcal{H}}_I$ can therefore be written as:
+written in terms of the normalised\footnote{The mode functions are assumed to normalised such that $\int \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\rvert^2 \, \mathrm{d}^3 \vec{r}=1$.} mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which contains all spatial dependence of the field.
+\iffalse
+This expression includes the quantisation volume\footnote{For a given spatial mode of the electric field $\vec{E}(\vec{r}\,)$ in vacuum, we define this volume as $V = \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} / \max_{\vec{r}} |\vec{E}(\vec{r}\,)|^2$. This definition captures how concentrated the field energy is in space. By equating the energy stored in the electric field to half the zero-point energy, $ \frac{1}{2} \epsilon_0 \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} = \frac{1}{4} \hbar \omega $, we can express the maximum electric field amplitude in terms of $\omega$ and $V$: $\max_{\vec{r}} |\vec{E}(\vec{r}\,)| = \sqrt{ \hbar \omega / (2 \varepsilon_0 V) }$, which is precisely the prefactor that appears in the electric field operator (\autoref{electricfieldoperator}).} $V$ of the cavity and the wavevector $\vec{k}$.
+\fi
+\iffalse
+In the electric dipole approximation, the electromagnetic field is assumed to be uniform over the size of the atom. This reduces the electric dipole interaction to $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}(\vec{0}\,)$.
+\fi
+In the interaction picture, $\hat{\mathcal{H}}_I$ reads:
 \begin{align}
 \label{interactionhamiltonianallterms}
 \begin{split}
-\hat{\mathcal{H}}_I(t) &= \mathrm{e}^{i\hat{\mathcal{H}}_0 t/\hbar}\hat{\mathcal{H}}_I \mathrm{e}^{-i \hat{\mathcal{H}}_0 t/\hbar} \\&= \hbar \Big( g \hat{\sigma}_+ \hat{a} \mathrm{e}^{i(\omega_0-\omega)t} + g^* \hat{\sigma}_- \hat{a}^\dagger \mathrm{e}^{-i(\omega_0-\omega)t} \\ &\hspace{4em}+ g \hat{\sigma}_+ \hat{a}^\dagger \mathrm{e}^{i(\omega_0+\omega)t} + g^* \hat{\sigma}_- \hat{a} \mathrm{e}^{-i(\omega_0+\omega)t}     \Big)\,,
+\hat{\mathcal{H}}_I(t) &= \mathrm{e}^{i\hat{\mathcal{H}}_0 t/\hbar}\hat{\mathcal{H}}_I \mathrm{e}^{-i \hat{\mathcal{H}}_0 t/\hbar} \\&= \hbar \Big( g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0-\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0-\omega)t} \\ &\hspace{4em}+ g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0+\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0+\omega)t}     \Big)\,,
 \end{split}
 \end{align}
-where the atom-cavity coupling rate $g$ is defined as
+where the atom-cavity coupling rate $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ is defined as
 \begin{align}
-g = -\sqrt{\frac{\omega}{2\epsilon_0\hbar V}} \langle e \vert \hat{\vec{d}} \, \vert g \rangle \cdot \hat{\epsilon}\,.
+g_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = -\sqrt{\frac{\omega}{2\epsilon_0\hbar}} \langle e \vert \hat{\vec{d}} \, \vert g \rangle \cdot \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\,.
 \end{align}
 If the resonance frequency of the cavity is sufficiently close to the atomic transition frequency, which is to say $\vert \omega_0-\omega\vert \ll \omega_0 + \omega$, we see that the first two terms in \autoref{interactionhamiltonianallterms} are nearly resonant, whereas the remaining terms oscillate at a frequency of roughly $2\omega$. In this so-called rotating wave approximation, these latter two average to zero over timescales that correspond to the resonant dynamics. Transforming this interaction Hamiltonian back to the Schr\"{o}dinger picture and ignoring the zero-point energy of the field in \autoref{uncoupledham} that does not contribute to the system dynamics, the full Hamiltonian\footnote{This is referred to as the Jaynes--Cummings Hamiltonian.} can be written as
 \begin{align}
 \label{JC}
-\hat{\mathcal{H}}=\hbar\omega_0 \vert e \rangle \langle e \vert + \hbar \omega \hat{a}^\dagger \hat{a} + \hbar g(\hat{\sigma}_+\hat{a} + \hat{\sigma}_-\hat{a}^\dagger)\,,
+\hat{\mathcal{H}}=\hbar\omega_0 \vert e \rangle \langle e \vert + \hbar \omega \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \hbar g_{\vec{k},\hat{\epsilon}}(\hat{\sigma}_+\hat{a}_{\vec{k},\hat{\epsilon}} + \hat{\sigma}_-\hat{a}^\dagger_{\vec{k},\hat{\epsilon}})\,,
 \end{align}
-where we have assumed $g=g^*$ for simplicity.
+where we have assumed $g_{\vec{k},\hat{\epsilon}}=g^*_{\vec{k},\hat{\epsilon}}$, hereafter denoted $g$.
 \subsection{Dressed states}
 The Hamiltonian in \autoref{JC} is an example of one of the few exactly solvable models in quantum optics. Note that it takes on a block diagonal structure, coupling pairs of atom-field states $\{|e,n-1\rangle, |g, n\rangle\}$. Each $2\times2$ block $\hat{\mathcal{H}}_n$ can be represented as follows:
 \begin{align}
@@ -1085,11 +1093,11 @@ In addition to the strong coupling regime, we consider the dynamics in bad-cavit
 \end{align}
 which includes the Hermitian Hamiltonian $\hat{\mathcal{H}}_1$ as defined in \autoref{hamiltonianHn} and two additional terms that describe the cavity field decay and spontaneous emission. Assuming that $\Delta_L=\Delta_C=0$ and that the initial state is $\vert u, 0\rangle$, one can find an adiabatic solution as long as $\Omega(t)\ll \sfrac{g^2}{\kappa}$. This condition implies that the rate of spontaneous emission into the cavity is sufficiently fast to ensure that the populations in $\vert e,0\rangle$ and $\vert g, 1 \rangle$ are nearly time independent ($\dot{c}_e(t)\approx 0 $ and $\dot{c}_g(t)\approx 0$). Solving for $c_g(t)$, we obtain
 \begin{align}
-	c_g(t)\approx-\frac{g}{2\kappa} \alpha \Omega(t) \exp{-\frac{\alpha}{4} \int_{0}^{t} \Omega^2(\tau) \mathrm{d}\tau}\,,
+	c_g(t)\approx-\frac{g}{2\kappa} \alpha \Omega(t) \exp{-\frac{\alpha}{4} \int_{0}^{t} \Omega^2(\tau) \,\mathrm{d}\tau}\,,
 \end{align} 
 where the constant $\alpha$ is defined as $\alpha=\frac{1}{\gamma+\sfrac{g^2}{\kappa}}$. This implies that the photon emission from the cavity occurs at a rate of $2\kappa \vert c_g(t)\vert^2$, since $\vert g, 1 \rangle$ is the only state from which the system can decay to $\vert g, 0 \rangle$ via the emission of a photon. The total photon emission probability $\eta$ therefore equals
 \begin{align}
- \eta = \int 2\kappa \vert c_g(t)\vert^2 \mathrm{d}t=\frac{g^2}{\kappa}\alpha \left( 1 -  \exp{-\frac{\alpha}{2} \int \Omega^2(t) \mathrm{d}t} \right)\,.
+ \eta = \int 2\kappa \vert c_g(t)\vert^2 \,\mathrm{d}t=\frac{g^2}{\kappa}\alpha \left( 1 -  \exp{-\frac{\alpha}{2} \int \Omega^2(t) \,\mathrm{d}t} \right)\,.
 \end{align}
 Note that the exponential term vanishes for a sufficiently large pulse area, which leads to a simplified emission probability of
 \begin{align}
