@@ -828,8 +828,8 @@ which yields the same mode spacing of $\Delta\nu_\mathrm{FSR}$ as obtained earli
 \label{resfreqsHG}
 \nu_{q,n_x,n_y} = \left(q + \left(n_x+n_y+1\right)\frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
 \end{align}
-which now depend on the longitudinal mode index $q$ and the transverse mode indices $n_x$ and $n_y$. Note that transverse modes are degenerate if their sum of the indices $n_x+n_y$ is the same. It is also worth noting that the mirror radius of curvature enters \autoref{resfreqsHG} via its effect on the Rayleigh length $z_\mathrm{R}$. In the limit of strongly curved, concentric mirrors ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}\rightarrow 2$) the Rayleigh length vanishes (see \autoref{beamradiusincavity}), such that $\Delta\Psi\rightarrow\pi$, in which case the transverse and longitudinal modes become degenerate. A similar phenomenon occurs in confocal resonators ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1$), for which $z_\mathrm{R}=\sfrac{d}{2}$ and thus $\Delta\Psi=\sfrac{\pi}{2}$. In contrast to the previous case, this imposes the condition $n_x+n_y = 0 \pmod 2$ for degeneracy to occur. The Fabry--Pérot resonator fabricated as part of this thesis, however, features a ratio of $\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 0.613$ (average\footnote{Since the fabricated mirrors are slightly elliptical, the mirror radii of curvature along the horizontal and vertical axes are slightly different. In this context, we consider the average of these two values.}), placing it between a plane-parallel and a confocal cavity. This results in a tighter spacing of higher-order transverse modes, which is visualised in \autoref{transversemodespacing}.
-\begin{figure}[t]
+which now depend on the longitudinal mode index $q$ and the transverse mode indices $n_x$ and $n_y$. Note that transverse modes are degenerate if their sum of the indices $n_x+n_y$ is the same. It is also worth noting that the mirror radius of curvature enters \autoref{resfreqsHG} via its effect on the Rayleigh length $z_\mathrm{R}$. In the limit of strongly curved, concentric mirrors ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}\rightarrow 2$) the Rayleigh length vanishes (see \autoref{beamradiusincavity}), such that $\Delta\Psi\rightarrow\pi$, in which case the transverse and longitudinal modes become degenerate. A similar phenomenon occurs in confocal resonators ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1$), for which $z_\mathrm{R}=\sfrac{d}{2}$ and thus $\Delta\Psi=\sfrac{\pi}{2}$. In contrast to the previous case, this imposes the condition $n_x+n_y = 0 \pmod 2$ for degeneracy to occur. The Fabry--Pérot resonator fabricated as part of this thesis is an asymmetric cavity consisting of one planar and one curved mirror. To allow meaningful comparison with standard symmetric resonator geometries such as confocal or plane-parallel cavities, we conceptually extend the cavity beyond the planar mirror by mirroring it, effectively forming a symmetric configuration of length $d = 2L$, where $L$ is the physical cavity length\footnote{Throughout the remainder of this chapter, $L$ refers to the actual physical length of the asymmetric cavity.}. In this extended picture, the relevant geometry parameter becomes $\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.613$ (average\footnote{Since the fabricated mirrors are slightly elliptical, the mirror radii of curvature along the horizontal and vertical axes are slightly different. In this context, we consider the average of these two values.}), placing the design between a plane-parallel and a confocal configuration. This results in a tighter spacing of higher-order transverse modes, which is visualised in \autoref{transversemodespacing}.
+\begin{figure}[t!]
 \vspace{0em}
 \centering
 \begin{tikzpicture}[scale=1]
@@ -962,6 +962,34 @@ In the context of coupling a single atom to a resonator mode, the fundamental Ga
 To isolate the Gaussian mode from higher-order transverse modes, the free spectral range and transverse mode spacing must not coincide. Since both parameters depend on the geometry of the cavity, certain configurations may result in the atom simultaneously coupling to multiple modes. However, a higher-order transverse mode exhibits a larger transverse mode area at the position of the atom, a quantity that is inversely proportional to the cooperativity of a Fabry--Pérot resonator \cite{TanjiSuzuki2011}. This weakens the coupling strength between the atom and the (higher-order) mode. Consequently, in most practical applications, it is usually sufficient to focus on the positions of only a few of the lowest-order modes.
 
 \section{Mirror design}
+To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
+\begin{equation}
+u(r, z) = \frac{w_0}{w(z)} \exp\left( \frac{-r^2}{w^2(z)} \right) \sin(kz)\,,
+\end{equation}
+with wavenumber $k = q\pi / L$ for some longitudinal mode index $q$. The full (vector-valued) mode function is then given by
+\begin{equation}
+\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = A\, u(r, z)\, \hat{\epsilon}\,,
+\end{equation}
+where $A$ is a normalisation constant to be determined. The separation into a scalar mode envelope $u(r, z)$ and a constant polarisation vector $\hat{\epsilon}$ is valid in the paraxial approximation, where the field predominantly propagates along the $z$-axis and the wavefront curvature is small. The normalisation condition for $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which ensures correct field quantisation, implies
+\begin{equation}
+\lvert A \rvert^2 \int \lvert u(r, z) \rvert^2\, \mathrm{d}^3 r = 1\,.
+\end{equation}
+Evaluating the integral using $\int_0^L \sin^2(kz)\, \mathrm{d}z = \sfrac{L}{2}$ for integer $q$ yields the normalisation constant
+\begin{equation}
+\lvert A \rvert = \sqrt{\frac{4}{\pi w_0^2 L}}\,.
+\end{equation}
+To estimate the maximum coupling strength inside the resonator, we examine the mode function, which reaches its maximum amplitude $\lvert \vec{f}_{\mathrm{max}} \rvert$ on the cavity axis ($r=0$) at the first antinode ($z = \sfrac{L}{2q}$, where $\sin(kz) = 1$): 
+\begin{equation}
+\lvert \vec{f}_{\mathrm{max}} \rvert = \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(r=0, z=\sfrac{L}{2q}) \rvert = \lvert A \rvert \cdot \frac{w_0}{w(\sfrac{L}{2q})} \approx  \lvert A \rvert \,.
+\end{equation}
+The approximation holds when the first antinode lies well within the Rayleigh range: $\sfrac{L}{2q} \ll z_{\mathrm{R}}$. In our resonator, $L=\SI{476}{\micro\meter}$ and $q\sim 10^3$, which yield $\sfrac{L}{2q}\sim \SI{0.2}{\micro\meter} \ll \SI{718}{\micro\meter} = z_\mathrm{R}$.
+Since $L \ll z_\mathrm{R}$, the approximation $w(z) \approx w_0$ holds across the entire cavity length. Thus, the coupling strength is maximised regardless of longitudinal position, provided the atom is placed at an antinode and the polarisation $\hat{\epsilon}$ is aligned with the transition dipole moment $\langle e \vert \hat{\vec{d}}\, \vert g \rangle$. Under these conditions, the maximally achievable single-photon coupling strength $g_{\mathrm{max}}$ can be written as
+\begin{equation}
+g_{\mathrm{max}} \approx \lvert A \rvert \sqrt{\frac{\omega}{2\epsilon_0 \hbar}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert =  \sqrt{\frac{2\omega}{\pi\epsilon_0 \hbar w_0^2 L}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \,.
+\label{eq:gmax}
+\end{equation}
+
+
 
 \begin{figure}[t]
 \centering
