@@ -962,32 +962,7 @@ In the context of coupling a single atom to a resonator mode, the fundamental Ga
 To isolate the Gaussian mode from higher-order transverse modes, the free spectral range and transverse mode spacing must not coincide. Since both parameters depend on the geometry of the cavity, certain configurations may result in the atom simultaneously coupling to multiple modes. However, a higher-order transverse mode exhibits a larger transverse mode area at the position of the atom, a quantity that is inversely proportional to the cooperativity of a Fabry--Pérot resonator \cite{TanjiSuzuki2011}. This weakens the coupling strength between the atom and the (higher-order) mode. Consequently, in most practical applications, it is usually sufficient to focus on the positions of only a few of the lowest-order modes.
 
 \section{Mirror design}
-To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
-\begin{equation}
-u(r, z) = \frac{w_0}{w(z)} \exp\left( \frac{-r^2}{w^2(z)} \right) \sin(kz)\,,
-\end{equation}
-with wavenumber $k = q\pi / L$ for some longitudinal mode index $q$. The full (vector-valued) mode function is then given by
-\begin{equation}
-\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = A\, u(r, z)\, \hat{\epsilon}\,,
-\end{equation}
-where $A$ is a normalisation constant to be determined. The separation into a scalar mode envelope $u(r, z)$ and a constant polarisation vector $\hat{\epsilon}$ is valid in the paraxial approximation, where the field predominantly propagates along the $z$-axis and the wavefront curvature is small. The normalisation condition for $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which ensures correct field quantisation, implies
-\begin{equation}
-\lvert A \rvert^2 \int \lvert u(r, z) \rvert^2\, \mathrm{d}^3 r = 1\,.
-\end{equation}
-Evaluating the integral using $\int_0^L \sin^2(kz)\, \mathrm{d}z = \sfrac{L}{2}$ for integer $q$ yields the normalisation constant
-\begin{equation}
-\lvert A \rvert = \sqrt{\frac{4}{\pi w_0^2 L}}\,.
-\end{equation}
-To estimate the maximum coupling strength inside the resonator, we examine the mode function, which reaches its maximum amplitude $\lvert \vec{f}_{\mathrm{max}} \rvert$ on the cavity axis ($r=0$) at the first antinode ($z = \sfrac{L}{2q}$, where $\sin(kz) = 1$): 
-\begin{equation}
-\lvert \vec{f}_{\mathrm{max}} \rvert = \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(r=0, z=\sfrac{L}{2q}) \rvert = \lvert A \rvert \cdot \frac{w_0}{w(\sfrac{L}{2q})} \approx  \lvert A \rvert \,.
-\end{equation}
-The approximation holds when the first antinode lies well within the Rayleigh range: $\sfrac{L}{2q} \ll z_{\mathrm{R}}$. In our resonator, $L=\SI{476}{\micro\meter}$ and $q\sim 10^3$, which yield $\sfrac{L}{2q}\sim \SI{0.2}{\micro\meter} \ll \SI{718}{\micro\meter} = z_\mathrm{R}$.
-Since $L \ll z_\mathrm{R}$, the approximation $w(z) \approx w_0$ holds across the entire cavity length. Thus, the coupling strength is maximised regardless of longitudinal position, provided the atom is placed at an antinode and the polarisation $\hat{\epsilon}$ is aligned with the transition dipole moment $\langle e \vert \hat{\vec{d}}\, \vert g \rangle$. Under these conditions, the maximally achievable single-photon coupling strength $g_{\mathrm{max}}$ can be written as
-\begin{equation}
-g_{\mathrm{max}} \approx \lvert A \rvert \sqrt{\frac{\omega}{2\epsilon_0 \hbar}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert =  \sqrt{\frac{2\omega}{\pi\epsilon_0 \hbar w_0^2 L}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \,.
-\label{eq:gmax}
-\end{equation}
+
 
 
 
@@ -1426,8 +1401,11 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf a
 	\label{asdf}
 \end{figure}
 
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$
-\begin{wrapfigure}[8]{l}{0.5\textwidth}
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+
+\subsection{Linewidth}
+The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity length using the two piezoelectric actuators to which the mirrors are glued. The resulting transmission spectrum---measured on a Thorlabs
+\begin{wrapfigure}[13]{l}{0.5\textwidth}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
@@ -1477,14 +1455,49 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf a
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. The laser is frequency-modulated at \SI{25}{\mega\hertz}, generating sidebands at $\pm \SI{25}{\mega\hertz}$ that appear symmetrically around the main peak. These sidebands serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
+	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
+APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$.
 
+\subsection{Coupling strength}
+To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
+\begin{equation}
+u(r, z) = \frac{w_0}{w(z)} \exp\left( \frac{-r^2}{w^2(z)} \right) \sin(kz)\,,
+\end{equation}
+with wavenumber $k = q\pi / L$ for some longitudinal mode index $q$. The full (vector-valued) mode function is then given by
+\begin{equation}
+\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = A\, u(r, z)\, \hat{\epsilon}\,,
+\end{equation}
+where $A$ is a normalisation constant to be determined. The separation into a scalar mode envelope $u(r, z)$ and a constant polarisation vector $\hat{\epsilon}$ is valid in the paraxial approximation, where the field predominantly propagates along the $z$-axis and the wavefront curvature is small. The normalisation condition for $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which ensures correct field quantisation, implies
+\begin{equation}
+\lvert A \rvert^2 \int \lvert u(r, z) \rvert^2\, \mathrm{d}^3 r = 1\,.
+\end{equation}
+Evaluating the integral using $\int_0^L \sin^2(kz)\, \mathrm{d}z = \sfrac{L}{2}$ for integer $q$ yields the normalisation constant
+\begin{equation}
+\lvert A \rvert = \sqrt{\frac{4}{\pi w_0^2 L}}\,.
+\end{equation}
+To estimate the maximum coupling strength inside the resonator, we examine the mode function, which reaches its maximum amplitude $\lvert \vec{f}_{\mathrm{max}} \rvert$ on the cavity axis ($r=0$) at the first antinode ($z = \sfrac{L}{2q}$, where $\sin(kz) = 1$): 
+\begin{equation}
+\lvert \vec{f}_{\mathrm{max}} \rvert = \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(r=0, z=\sfrac{L}{2q}) \rvert = \lvert A \rvert \cdot \frac{w_0}{w(\sfrac{L}{2q})} \approx  \lvert A \rvert \,.
+\end{equation}
+The approximation holds when the first antinode lies well within the Rayleigh range: $\sfrac{L}{2q} \ll z_{\mathrm{R}}$. In our resonator, $L=\SI{476}{\micro\meter}$ and $q\sim 10^3$, which yield $\sfrac{L}{2q}\sim \SI{0.2}{\micro\meter} \ll \SI{718}{\micro\meter} = z_\mathrm{R}$.
+Since $L \ll z_\mathrm{R}$, the approximation $w(z) \approx w_0$ holds across the entire cavity length. Thus, the coupling strength is maximised regardless of longitudinal position, provided the atom is placed at an antinode and the polarisation $\hat{\epsilon}$ is aligned with the transition dipole moment $\langle e \vert \hat{\vec{d}}\, \vert g \rangle$. Under these conditions, the maximally achievable single-photon coupling strength $g_{\mathrm{max}}$ can be written as
+\begin{equation}
+g_{\mathrm{max}} \approx \lvert A \rvert \sqrt{\frac{\omega}{2\epsilon_0 \hbar}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert =  \sqrt{\frac{2\omega}{\pi\epsilon_0 \hbar w_0^2 L}} \, \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert \,.
+\label{eq:gmax}
+\end{equation}
+To estimate the value of $g_\mathrm{max}$, we must consider a suitable choice for $\vert g \rangle$ and $\vert e \rangle$ in the context of cavity-mediated population transfer for the extraction and shaping of single photons from  \ce{^87Rb} atoms (see \autoref{vstirap}). The V-STIRAP protocol can be executed in a $\Lambda$-like three level system (\autoref{fig:3lvlLambdaSystem}) with, for instance, $\vert g \rangle= \lvert F = 1, m_F = -1 \rangle$, $ \lvert e \rangle = \lvert F' = 1, m_F' = 0 \rangle $ and $\lvert u \rangle = \lvert F=2, m_F = 0 \rangle $. Considering the relevant Clebsch--Gordan coefficient, we thus obtain
+\begin{equation}
+ \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert = \sqrt{\sfrac{5}{24}} \times \lvert \langle J = \sfrac{1}{2} \| \hat{\vec{d}}\, \| J' = \sfrac{3}{2} \rangle \rvert= \SI{1.636e-29}{\coulomb\meter}\,.
+\end{equation}
+With a mode waist $ w_0 = \SI{13.4}{\micro\meter} $ and resonator length $ L = \SI{476}{\micro\meter}$, \autoref{eq:gmax} yields a maximum atom-cavity coupling strength of
+\begin{equation}
+g_{\mathrm{max}} \approx 2\pi\times\SI{11.5}{\mega\hertz}\,.
+\end{equation}
 
 
 \subsection{Transverse modes}
-
 
 \begin{figure}[t]
 	\centering
