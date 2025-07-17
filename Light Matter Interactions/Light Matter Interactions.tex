@@ -411,10 +411,10 @@ A magneto-optical trap (MOT) combines laser cooling of neutral atoms with a spat
 	%\node at (my plots c2r1.east) {\usebox{\mynewbox}};
 	
 	\end{tikzpicture}
-	\caption[Working principle of a magneto-optical trap]{\textsc{(left)} Schematic representation of the six orthogonal, circularly polarised\footnoteref{note1} laser beams (red) and quadrupole magnetic field (blue) in a magneto-optical trap. \textsc{(right)} Energy level diagram for a $F=0\leftrightarrow F'=1$ transition and a positive Landé $g$-factor in the presence of a magnetic field gradient (blue) along the $z$-axis. The Zeeman shifted $m_F'$ sublevels (red) result in position-dependent detunings $\delta_-$ and $\delta_+$ with respect to the forward- and backward-propagating beams, respectively.}
+	\caption[Working principle of a magneto-optical trap]{\textsc{(left)} Schematic representation of the six orthogonal, circularly polarised\footnoteref{note1} laser beams (red) and quadrupole magnetic field (blue) in a magneto-optical trap. \textsc{(right)} Energy level diagram for a $\ket{F=0}\leftrightarrow \ket{F'=1}$ transition and a positive Landé $g$-factor in the presence of a magnetic field gradient (blue) along the $z$-axis. The Zeeman shifted $m_F'$ sublevels (red) result in position-dependent detunings $\delta_-$ and $\delta_+$ with respect to the forward- and backward-propagating beams, respectively.}
 	\label{mot}
 \end{figure}
-In a transition between the hyperfine levels $F=0$ (ground state) and $F'=1$ (excited state), the quadrupole field leads to a position-dependent Zeeman shift of the $2F+1$ magnetic sublevels, lifting the degeneracy of the excited state. For a sublevel with quantum number $m_F$ and a magnetic field of magnitude $B$ that points along the quantisation axis, this energy shift (to first order) is given by
+In a transition between the hyperfine levels $\ket{F=0}$ (ground state) and $\ket{F'=1}$ (excited state), the quadrupole field leads to a position-dependent Zeeman shift of the $2F+1$ magnetic sublevels, lifting the degeneracy of the excited state. For a sublevel with quantum number $m_F$ and a magnetic field of magnitude $B$ that points along the quantisation axis, this energy shift (to first order) is given by
 \begin{align}
 	\Delta E = g_F\mu_B m_F B\,
 \end{align}
@@ -441,7 +441,12 @@ which is only non-zero if there is a spatial intensity variation of the light. T
 \label{laser}
 I(r,z)=\frac{2P}{\pi w^2(z)}\exp{-2\frac{r^2}{w^2(z)}}\,,
 \end{equation}
-where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R}})^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius in terms of the waist radius $w_0$ and the Rayleigh length $z_\mathrm{R}=\pi w^2_0/\lambda$. The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are drawn towards the region of highest intensity, where the optical potential reaches its minimum. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
+where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R}})^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius in terms of the waist radius $w_0$ and the Rayleigh length
+\begin{equation}
+\label{rayleigh}
+z_\mathrm{R}:=\frac{\pi w^2_0}{\lambda}\,.
+\end{equation}
+The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are drawn towards the region of highest intensity, where the optical potential reaches its minimum. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
 
 \section{The hyperfine interaction}
 \label{hyperfineinteraction}
@@ -916,7 +921,7 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\caption[Coupling and decay channels in an atom-cavity system]{\textsc{(left)} The atom-cavity system is characterised by the coupling strength $g$, the field decay rate from the cavity $\kappa$ and the amplitude decay rate of the atomic state $\gamma$. \textsc{(right)} The energy level diagram of the two-level atom showing the ground and excited states $\vert{g}\rangle$ and $\vert{e}\rangle$, respectively. The angular frequency corresponding to this energy difference is $\omega_{0}$. The cavity, which operates at a frequency $\omega$, is detuned from the atomic resonance by $\Delta$.}
 	\label{fig:JCFPcavity}
 \end{figure}
-The atom-cavity system is characterised by three key parameters: $g$, $\kappa$, and $\gamma$, which represent the atom-cavity coupling strength, the field decay rate from the cavity and the transverse polarisation decay rate\footnote{In the radiative limit, the transverse polarisation decay rate (loss of coherence or dephasing) equals half the population relaxation rate: $\gamma=\sfrac{\Gamma}{2}$. In general, $\gamma=\sfrac{\Gamma}{2}+\gamma_\phi$, where $\gamma_\phi$ is the pure dephasing rate, which describes the loss of coherence due to environmental interactions, without population transfer occurring between states.} of the atom, respectively. The interaction between the atom and the radiation field intensifies if the cavity is resonant with the atomic transition ($\Delta=0$), a condition that is achieved by adjusting the cavity length so that the frequency $\omega$ of the cavity mode matches $\omega_0$. The photon decay rate $\kappa$ depends on the properties of the cavity and is related to its quality factor $Q$ via the relation
+The atom-cavity system is characterised by three key parameters: $g$, $\kappa$, and $\gamma$, which represent the atom-cavity coupling strength, the field decay rate from the cavity and the transverse polarisation decay rate\footnote{In the radiative limit, the transverse polarisation decay rate (loss of coherence or dephasing) equals half the population relaxation rate: $\gamma=\sfrac{\Gamma}{2}$. In general, $\gamma=\sfrac{\Gamma}{2}+\gamma_\phi$, where $\gamma_\phi$ is the pure dephasing rate, which describes the loss of coherence due to environmental interactions, without population transfer occurring between states.} of the atom, respectively. The interaction between the atom and the radiation field intensifies if the cavity is resonant with the atomic transition ($\Delta=0$), a condition that is achieved by adjusting the cavity length so that the frequency $\omega$ of the cavity mode matches the atomic transition frequency $\omega_0$. The photon decay rate $\kappa$ depends on the properties of the cavity and is related to its quality factor $Q$ via the relation
 \begin{align}
 \label{qfactor}
 	Q = \frac{\omega}{2\kappa}\,.
@@ -1001,6 +1006,7 @@ Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored
 \subsection{Strong coupling regime}
 Different coupling regimes exist for the atom-cavity system, the first being the strong coupling regime, in which $g \gg \max \{\kappa,\gamma\}$. In the strong coupling regime, the atom-photon interaction occurs more rapidly than the irreversible processes caused by photon loss from the cavity mode. This makes the emission of the photon a reversible process, where the photon is reabsorbed by the atom before it escapes the cavity, resulting in vacuum Rabi oscillations. Another way in which this regime can be characterised is via the cooperativity $C$, which is defined as
 \begin{align}
+\label{cooperativity}
 	C=\frac{g^2}{2\kappa\gamma}\,.
 \end{align} 
 Strong coupling in the atom-cavity system is achieved when $C$ is maximised, a criterion that can be understood in the context of the Purcell factor $F=2C$, which equals the ratio of emission into the cavity ($\sfrac{g^2}{\kappa}$) to the spontaneous emission probability into free space ($\gamma$). Experimentally, strong coupling typically occurs in cavities with a small mode volume $V$ and minimal losses (high $Q$). Early demonstrations of the strong coupling limit in CQED were based on a variety of physical systems. These include alkali atoms in an optical Fabry--P\'{e}rot cavity \cite{Thompson1992}, Rydberg atoms in a microwave cavity \cite{Brune1996}, superconducting qubits coupled to on-chip microwave resonators \cite{Wallraff2004} or superconducting quantum interference devices \cite{Chiorescu2004}, and semiconductor quantum dots coupled to photonic crystals \cite{Yoshie2004} or micropillar resonators \cite{Reithmaier2004}.

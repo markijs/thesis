@@ -818,7 +818,12 @@ For higher-order transverse modes, the resonance frequencies are shifted with re
 \begin{align}
 \phi=kd-\Delta\Psi\,.
 \end{align}
-The phase retardation $\Delta\Psi$ relative to a plane wave is defined in terms of the Gouy phase as $\Delta\Psi:=\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})$. Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by
+The phase retardation $\Delta\Psi$ relative to a plane wave is given by the difference in Gouy phase across the cavity:
+\begin{align}
+\label{deltapsi}
+\Delta\Psi:=\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})\,.
+\end{align}
+Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by
 \begin{align}
 \label{resfreqsG}
 \nu_q = \left(q + \frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
@@ -957,6 +962,7 @@ Simulated transverse mode spectrum for a Fabry--Pérot resonator with  \(\sfrac{
 }
 \label{transversemodespacing}
 \end{figure}
+
 In the context of coupling a single atom to a resonator mode, the fundamental Gaussian mode is often preferred due to its symmetric spatial profile and compatibility with single-mode optic fibres. In contrast, photons propagating through a multimode fibre suffer from mode mixing and modal interference, which distort the spatial coherence, especially over longer distances \cite{Shekel2023}. This coherence is necessary to ensure photon indistinguishability for interference and entanglement protocols. A second complication associated with the use of higher-order modes is that they often lack intensity along the cavity axis, where atoms are typically trapped. In addition, higher-order modes are naturally suppressed due to their greater spatial extent. This means that on each pass inside the cavity, a larger fraction of optical power is lost due to the finite extent of the resonator mirrors.
 
 To isolate the Gaussian mode from higher-order transverse modes, the free spectral range and transverse mode spacing must not coincide. Since both parameters depend on the geometry of the cavity, certain configurations may result in the atom simultaneously coupling to multiple modes. However, a higher-order transverse mode exhibits a larger transverse mode area at the position of the atom, a quantity that is inversely proportional to the cooperativity of a Fabry--Pérot resonator \cite{TanjiSuzuki2011}. This weakens the coupling strength between the atom and the (higher-order) mode. Consequently, in most practical applications, it is usually sufficient to focus on the positions of only a few of the lowest-order modes.
@@ -1257,7 +1263,50 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 \end{figure}
 
 
-
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity7.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{a}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {glue.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\\
+	\vspace{0.3em}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity5.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
+	\label{asdf}
+\end{figure}
 
 
 
@@ -1353,53 +1402,74 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf a
 
 \section{Characterisation}
 asdf asdfa sdfas dfasdf asdf asdf asf asdf as
-\subsection{Overview}
+\subsection{Mode geometry}
 asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
-
-\begin{figure}[t]
-	\vspace{0em}
+\tikzexternaldisable
+\begin{figure}[t!]
+	\tikzset{external/optimize=false}%
 	\centering
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity5.png}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\\
-	\vspace{0.3em}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {glue.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-	\label{asdf}
+	\begin{tikzpicture}[
+	box/.style={
+		draw,
+		minimum width=3.51cm,
+		minimum height=1.35cm,
+		align=center
+	},
+	arrow/.style={-{Latex[length=2mm]}, thick},
+	line/.style={thick},
+	label/.style={font=\footnotesize, inner sep=1pt},
+	]
+	
+	% Define nodes in 5x5 grid
+	\node[box, markrood] (fsr) at (0,0) {\footnotesize\sc free spectral r.\\[0.20em] \footnotesize $ \Delta \nu_{\mathrm{FSR}} $};
+	\node[box, markrood] (nuspace) at (9,0) {\footnotesize\sc mode spacing \\[0.20em] \footnotesize $ \nu_{q,1,0} - \nu_{q,0,0} $};
+	\node[box] (d2L) at (0,-2) {\footnotesize\sc cavity length \\[0.20em] \footnotesize $ d = 2L $};
+	\node[box] (deltaPsi) at (6.75,-2) {\footnotesize\sc Gouy phase shift \\[0.20em] \footnotesize $ \Delta \Psi_x $};
+	\node[box] (zR) at (4.5,-4) {\footnotesize\sc Rayleigh length \\[0.20em] \footnotesize $ z_{\mathrm{R},x} $};
+	\node[box, markrood] (lambda) at (0,-4) {\footnotesize\sc wavelength \\[0.20em] \footnotesize $ \lambda $};
+	\node[box] (w0) at (2.25,-6) {\footnotesize\sc mode waist \\[0.20em] \footnotesize $ w_{0,x} $};
+	\node[box] (Rc) at (0,-8) {\footnotesize\sc mirror roc \\[0.20em] \footnotesize $ R_{\mathrm{c},x} $};
+	
+	% Horizontal line between FSR and transverse mode spacing
+	\draw[line] (fsr.east) -- (nuspace.west);
+	
+	% Vertical arrow from that line to Delta Psi
+	\draw[arrow] let \p1 = (deltaPsi.north), \p2 = (nuspace) in
+	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{resfreqsHG}};
+	
+	% Arrow from FSR down to d=2L
+	\draw[arrow] (fsr.south) -- (d2L.north) node[label, right, xshift=2mm, yshift=3mm] {\sc def.};
+	
+	% Horizontal line from d=2L to Delta Psi
+	\draw[line] (d2L.east) -- (deltaPsi.west);
+	
+	% Vertical arrow from that line to zR
+	\draw[arrow] let \p1 = (zR.north), \p2 = (deltaPsi) in
+	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{deltapsi}};
+	
+	% Lambda at (0,2), horizontal line to zR
+	\draw[line] (lambda.east) -- (zR.west);
+	
+	% Vertical arrow from that line to w0
+	\draw[arrow] ($(lambda.east)!0.5!(zR.west)$) -- (w0.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{rayleigh}};
+	
+	% Long arrow from lambda down to Rc
+	\draw[arrow] (lambda.south) -- (Rc.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{waisteqs}};
+	
+	% Left hook from d=2L → (-1,1) ↓ to (-1,3) → w0
+	\draw[line] (d2L.west) -- ++(-0.495,0) coordinate (hook1);
+	\draw[line, line cap=rect] (hook1) -- ++(0,-4) coordinate (hook2);
+	\draw[line] (hook2) -- (w0.west);
+	\draw[line] (hook2) -- node[label, below left] {} (w0.west);
+	
+	\end{tikzpicture}
+	\caption[Flowchart for determining mode and mirror geometry from spectral data]{%
+		Flowchart illustrating how the mode and mirror geometry parameters of an optical cavity can be inferred from spectral measurements (red). Referenced equations used at each step can be found in the main text. In the case of elliptical mirrors, the radii of curvature differ along the $x$ and $y$-axes, resulting in non-degenerate transverse modes: $\nu_{q,1,0} \neq \nu_{q,0,1}$. In this flowchart, the mode and mirror parameters are considered along the $x$-axis, as indicated by the subscripts: $\Delta\Psi_x$,  $z_{\mathrm{R},x}$, $w_{0,x}$ and $R_{\mathrm{c},x}$.%
+	}
+	\label{fig:cavity_flowchart}
 \end{figure}
+\tikzexternalenable
+
 
 asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
 
@@ -1458,7 +1528,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
-APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$.
+APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$.
 
 \subsection{Coupling strength}
 To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
@@ -1496,6 +1566,24 @@ With a mode waist $ w_0 = \SI{13.4}{\micro\meter} $ and resonator length $ L = \
 g_{\mathrm{max}} \approx 2\pi\times\SI{11.5}{\mega\hertz}\,.
 \end{equation}
 
+\subsection{Cooperativity}
+In the preceding two sections, we have estimated the cavity field decay rate $\kappa$ from the measured linewidth and extracted the (maximum) atom-cavity coupling strength $g_\mathrm{max}$ from the cavity mode geometry. We now complete the set of key parameters with the transverse polarisation decay rate $\gamma= 2\pi \times \SI{3.03}{\mega\hertz}$ for the $\mathrm{D}2$ transition in \ce{^87Rb}, which yields a cooperativity of $C=\num{10.4}$ (see \autoref{cooperativity}). All values are summarised in \autoref{tab:parameters}.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{cccc}  
+		\toprule
+		Parameter & Symbol & Value & Unit \\
+		\midrule
+		Cavity field decay rate & $\kappa$ & $\num{2.10}$ & $2\pi\times\si{\mega\hertz}$ \\
+		Maximum coupling strength & $g_\mathrm{max}$ & $\num{11.5}$ & $2\pi\times\si{\mega\hertz}$\\
+		Transverse pol. decay rate & $\gamma$ & $\num{3.03}$ & $2\pi\times\si{\mega\hertz}$\\
+		Single-atom cooperativity & $C$ & $\num{10.4}$ & -- \\
+		\bottomrule
+	\end{tabular}
+	\caption[Summary of relevant cavity-QED parameters]{Summary of relevant cavity-QED parameters. The values for $\kappa$ and $g_\mathrm{max}$ are based on the cavity linewidth and geometry, respectively.}
+	\label{tab:parameters}   
+\end{table}
+These values place our system in the strong coupling regime, where $g_\mathrm{max} \gg \max \{\kappa,\gamma\}$ and the cooperativity $C \gg 1$. This enables coherent atom-photon interactions to dominate over dissipative processes, making the system suitable for cavity QED experiments such as V-STIRAP for deterministic single photon generation.
 
 \subsection{Transverse modes}
 
