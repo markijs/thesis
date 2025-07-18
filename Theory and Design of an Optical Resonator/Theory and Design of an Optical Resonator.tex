@@ -833,7 +833,7 @@ which yields the same mode spacing of $\Delta\nu_\mathrm{FSR}$ as obtained earli
 \label{resfreqsHG}
 \nu_{q,n_x,n_y} = \left(q + \left(n_x+n_y+1\right)\frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
 \end{align}
-which now depend on the longitudinal mode index $q$ and the transverse mode indices $n_x$ and $n_y$. Note that transverse modes are degenerate if their sum of the indices $n_x+n_y$ is the same. It is also worth noting that the mirror radius of curvature enters \autoref{resfreqsHG} via its effect on the Rayleigh length $z_\mathrm{R}$. In the limit of strongly curved, concentric mirrors ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}\rightarrow 2$) the Rayleigh length vanishes (see \autoref{beamradiusincavity}), such that $\Delta\Psi\rightarrow\pi$, in which case the transverse and longitudinal modes become degenerate. A similar phenomenon occurs in confocal resonators ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1$), for which $z_\mathrm{R}=\sfrac{d}{2}$ and thus $\Delta\Psi=\sfrac{\pi}{2}$. In contrast to the previous case, this imposes the condition $n_x+n_y = 0 \pmod 2$ for degeneracy to occur. The Fabry--Pérot resonator fabricated as part of this thesis is an asymmetric cavity consisting of one planar and one curved mirror. To allow meaningful comparison with standard symmetric resonator geometries such as confocal or plane-parallel cavities, we conceptually extend the cavity beyond the planar mirror by mirroring it, effectively forming a symmetric configuration of length $d = 2L$, where $L$ is the physical cavity length\footnote{Throughout the remainder of this chapter, $L$ refers to the actual physical length of the asymmetric cavity.}. In this extended picture, the relevant geometry parameter becomes $\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.613$ (average\footnote{Since the fabricated mirrors are slightly elliptical, the mirror radii of curvature along the horizontal and vertical axes are slightly different. In this context, we consider the average of these two values.}), placing the design between a plane-parallel and a confocal configuration. This results in a tighter spacing of higher-order transverse modes, which is visualised in \autoref{transversemodespacing}.
+which now depend on the longitudinal mode index $q$ and the transverse mode indices $n_x$ and $n_y$. Note that transverse modes are degenerate if their sum of the indices $n_x+n_y$ is the same. It is also worth noting that the mirror radius of curvature enters \autoref{resfreqsHG} via its effect on the Rayleigh length $z_\mathrm{R}$. In the limit of strongly curved, concentric mirrors ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}\rightarrow 2$) the Rayleigh length vanishes (see \autoref{beamradiusincavity}), such that $\Delta\Psi\rightarrow\pi$, in which case the transverse and longitudinal modes become degenerate. A similar phenomenon occurs in confocal resonators ($\sfrac{d}{\lvert R_\mathrm{c} \rvert}= 1$), for which $z_\mathrm{R}=\sfrac{d}{2}$ and thus $\Delta\Psi=\sfrac{\pi}{2}$. In contrast to the previous case, this imposes the condition $n_x+n_y = 0 \pmod 2$ for degeneracy to occur. The Fabry--Pérot resonator fabricated as part of this thesis is an asymmetric cavity consisting of one planar and one curved mirror. To allow meaningful comparison with standard symmetric resonator geometries such as confocal or plane-parallel cavities, we conceptually extend the cavity beyond the planar mirror by mirroring it, effectively forming a symmetric configuration of length $d = 2L$, where $L$ is the physical cavity length\footnote{Throughout the remainder of this chapter, $L$ refers to the actual physical length of the asymmetric cavity.}. In this extended picture, the relevant geometry parameter becomes $\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.611$ (average\footnote{Since the fabricated mirrors are slightly elliptical, the mirror radii of curvature along the horizontal and vertical axes are slightly different. In this context, we consider the average of these two values.}), placing the design between a plane-parallel and a confocal configuration. This results in a tighter spacing of higher-order transverse modes, which is visualised in \autoref{transversemodespacing}.
 \begin{figure}[t!]
 \vspace{0em}
 \centering
@@ -847,7 +847,7 @@ which now depend on the longitudinal mode index $q$ and the transverse mode indi
 \def\piValue{3.14159} % Value of pi
 \def\eValue{2.71828182845904523536}
 
-\def\dv{0.372766620141905}
+\def\dv{0.3742325}
 
 \def\xzero{0} % Center x_0
 \def\xone{\dv} % Center x_0
@@ -958,7 +958,7 @@ which now depend on the longitudinal mode index $q$ and the transverse mode indi
 
 \end{tikzpicture}
 \caption[Simulated transverse mode spectrum for a Fabry--Pérot resonator]{
-Simulated transverse mode spectrum for a Fabry--Pérot resonator with  \(\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.611\), corresponding to a Rayleigh length of \(z_\mathrm{R} = 0.754 d\). This configuration results in a Gouy phase shift of \(\Delta \Psi = 0.373\pi\) and thus a transverse mode spacing of $\Delta\nu_\perp=0.373\Delta\nu_\mathrm{FSR}$. The plot shows normalised transmission as a function of the normalised frequency detuning \((\nu - \nu_0)/\Delta \nu_\mathrm{FSR}\). Each resonance is labelled with the longitudinal mode index \(q\) followed by a number $n$, which represents the sum of the transverse mode indices for Hermite--Gaussian modes: \(n = n_x + n_y\) (resonances are shown up to $n=10$). The fundamental mode (\(q_0, 0\)) is associated with a frequency $\nu_0$. The suppressed transmission of higher-order modes, which is due to their larger spatial extent and greater leakage from the resonator, is modelled using an exponential factor $\mathrm{e}^{-\alpha n}$ with $\alpha=0.1$.
+Simulated transverse mode spectrum for a Fabry--Pérot resonator with  \(\sfrac{d}{\lvert R_\mathrm{c} \rvert} = 0.611\), corresponding to a Rayleigh length of \(z_\mathrm{R} = 0.752 d\). This configuration results in a Gouy phase shift of \(\Delta \Psi = 0.374\pi\) and thus a transverse mode spacing of $\Delta\nu_\perp=0.374\Delta\nu_\mathrm{FSR}$. The plot shows normalised transmission as a function of the normalised frequency detuning \((\nu - \nu_0)/\Delta \nu_\mathrm{FSR}\). Each resonance is labelled with the longitudinal mode index \(q\) followed by a number $n$, which represents the sum of the transverse mode indices for Hermite--Gaussian modes: \(n = n_x + n_y\) (resonances are shown up to $n=10$). The fundamental mode (\(q_0, 0\)) is associated with a frequency $\nu_0$. The suppressed transmission of higher-order modes, which is due to their larger spatial extent and greater leakage from the resonator, is modelled using an exponential factor $\mathrm{e}^{-\alpha n}$ with $\alpha=0.1$.
 }
 \label{transversemodespacing}
 \end{figure}
@@ -997,13 +997,13 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	\node[markgrijs, align=center] at (0.82,0.34) {\footnotesize $2\theta=\SI{80}{\degree}$};
 	
 	% top middle
-	\node[markgrijs, anchor=west] at (0.48,0.975) {\footnotesize $R_{\mathrm{c},x}=\SI{1419}{\micro\meter}$};
-	\node[markgrijs, anchor=west] at (0.48,0.925) {\footnotesize $R_{\mathrm{c},y}=\SI{1698}{\micro\meter}$};
+	\node[markgrijs, anchor=west] at (0.48,0.975) {\footnotesize $\lvert R_{\mathrm{c},x} \rvert=\SI{1.42}{\milli\meter}$};%1.419
+	\node[markgrijs, anchor=west] at (0.48,0.925) {\footnotesize $\lvert R_{\mathrm{c},y} \rvert=\SI{1.70}{\milli\meter}$};%1.698
 	\node[markgrijs, anchor=west] at (0.51,0.63) {\footnotesize $T=\SI{1.74}{ppm}$};
 	\node[markgrijs, anchor=west] at (0.51,0.58) {\footnotesize $\mathcal{L}=\SI{41.6}{ppm}$};
 	
 	%top left
-	\node[markgrijs, anchor=west] at (0.15,0.925) {\footnotesize $R_{\mathrm{c}}=\SI{50}{\milli\meter}$};
+	\node[markgrijs, anchor=west] at (0.15,0.925) {\footnotesize $\lvert R_{\mathrm{c}} \rvert=\SI{50.0}{\milli\meter}$};
 	\node[markgrijs, anchor=west] at (0.18,0.63) {\footnotesize $T=\SI{38.2}{ppm}$};
 	\node[markgrijs, anchor=west] at (0.18,0.58) {\footnotesize $\mathcal{L}=\SI{2.20}{ppm}$};
 	
@@ -1039,6 +1039,269 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 \label{resonatordesign} 
 \end{figure}
 
+
+
+\section{Assembly and alignment}
+
+\subsection{Cavity module}
+
+\begin{figure}[t]
+\hspace{-0.8cm}
+\begin{tikzpicture}[remember picture]
+\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module"}.pdf}};
+
+% left four
+\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.11,0.15) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.6,0.15) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.5,0.85) {\footnotesize\sc (c)};
+	
+\end{scope}
+
+\end{tikzpicture}
+\vspace{-1cm}
+\caption[Cavity module design and assembly]{Cavity module design and assembly. \textsc{(a)} An exploded view of the cavity module reveals its key components, including the conical and pyramidal mirrors, piezoelectric plates, a lens for mode-matching, and a structured support frame that maintains mechanical stability while allowing optical access for the dipole trapping beam. The support frame consists of a stainless steel base plate and cage structure. \textsc{(b)} The assembled module integrates these components into a compact structure, optimised for vacuum compatibility. \textsc{(c)} A bottom-up view highlights the screw holes for mounting and channels that guide the piezo wires, ensuring they remain secured and routed away from the optical paths.}
+\label{moduledesign}
+\end{figure}
+
+
+\begin{figure}[t]
+	\vspace{0em}
+	\centering
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=4cm] {cavity7.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{a}
+	\end{subfigure}
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=4cm] {glue.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\begin{subfigure}[b]{.32\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) {\includegraphics[width=4cm] {cavity.pdf}};;
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\caption[Selected components involved in the cavity module assembly process.]{Selected components involved in the cavity module assembly process. \textsc{(a)} Bottom-up view of the cavity module baseplate. \textsc{(b)} Top view of the pyramidal mirror substrate, showing the UV-cured epoxy used to bond it to the underlying piezoelectric plate. \textsc{(c)} Side view of the Fabry--Pérot resonator within the caged assembly, showing the aligned tips of both the conical and pyramidal mirror substrates.}
+	\label{cavitymodulepictures}
+\end{figure}
+
+
+
+\subsection{Mirror alignment}
+
+\begin{figure}[t]
+	\hspace{-0.2cm}
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}fibre coupler};
+	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}support structure};
+	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{af}claw};
+	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}beam splitter};
+	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}mode-matching lens};
+	
+	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, markgrijs] {\footnotesize NanoMax};
+	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, markgrijs] {\footnotesize microscope};
+	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, markgrijs] {\footnotesize translation stage};
+	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, markgrijs] {\footnotesize gantry};
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.03,0.91) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.03,0.45) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.56,0.91) {\footnotesize\sc (c)};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Cavity alignment tools and setup]{Cavity alignment tools and setup. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. Reference markers for positioning the resonator centre consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, indicated by red dashed lines, marks the intended trapping region for atoms. \textsc{(b)} The U-bench, supported by a 3D-printed structure, facilitates precise cavity alignment. Fibre couplers on either side enable probe beam injection and signal detection, while kinematic XY-mounted lenses ensure the beam matches the cavity mode. A beam splitter, temporarily placed on the base plate, allows side imaging of the cavity mode using a microscope. The resonator mirrors, as well as the collimation lens, are held in custom-made PEEK claws, individually designed for each component to ensure an optimal fit. \textsc{(c)} The gantry alignment system enables controlled placement of these components. The claws can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage, allowing precise retraction for epoxy injection before glueing. Once roughly positioned, the mirror remains fixed in its clamp while fine alignment is performed with the NanoMax by translating the entire U-bench along with the alignment mount. This method reduces susceptibility to mechanical vibrations, ensuring stable and reproducible cavity alignment.}
+	\label{ubenchgantry}
+\end{figure}
+
+\begin{figure}[t]
+	\hspace{-0.35cm}
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	
+	% labels
+	\node[align=center, rotate=0] at (0.04,0.02+1.0-0.03) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.03) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.03) {\footnotesize\sc (c)};
+	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.247-0.03) {\footnotesize\sc (d)};
+	
+	\draw[markgrijs]       (0.22, 0.055) -- +(-0.02, 0) node[left] {\footnotesize\sc side view};
+	\draw[markgrijs]       (0.345, 0.47+0.248) -- +(0.02, 0.015) node[right, yshift=0.1cm]     {\footnotesize microscope};
+	\draw[markgrijs]       (0.5-0.03, 0.93) -- +(-0.095, 0.03) node[left, yshift=0.1cm, xshift=-0.05cm]     {\footnotesize lenses};
+	\draw[markgrijs]       (0.5-0.34+0.03, 0.93) -- +(0.095, 0.03) node[right]     {\footnotesize };
+	
+	\draw[markrood, ->]       (0.552, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	\draw[markrood, ->]       (0.12, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	\draw[markrood, ->]       (0.552-0.02, 0.93-0.247-0.12) -- +(0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize $635,\SI{780}{\nano\meter}$};
+	%\draw[markrood, ->]       (0.552, 0.93-0.245-0.12-0.245) -- +(-0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize \SI{635}{\nano\meter}};
+	
+	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
+	
+	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Cavity mirror alignment procedure]{Cavity mirror alignment performed with a U-bench \textsc{(left)}, which supports the mirror alignment mount \textsc{(right)} that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a 90:10 beam splitter.}
+	\label{alignmentprocedure}
+\end{figure}
+
+
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+
+
+\section{Characterisation}
+asdf asdfa sdfas dfasdf asdf asdf asf asdf as
+\subsection{Mode geometry}
+\autoref{fig:cavity_flowchart} outlines the procedure used to characterise the mode and mirror geometry from experimental spectral data, in contrast to the approach shown in \autoref{transversemodespacing}, where a known cavity geometry is used to calculate the transverse mode spacing.
+\tikzexternaldisable
+\begin{figure}[t!]
+	\tikzset{external/optimize=false}%
+	\centering
+	\begin{tikzpicture}[
+	box/.style={
+		draw,
+		minimum width=3.51cm,
+		minimum height=1.35cm,
+		align=center
+	},
+	arrow/.style={-{Latex[length=2mm]}, thick},
+	line/.style={thick},
+	label/.style={font=\footnotesize, inner sep=1pt},
+	]
+	
+	% Define nodes in 5x5 grid
+	\node[box, markrood] (fsr) at (0,0) {\footnotesize\sc physical FSR\\[0.20em] \footnotesize $ \Delta \nu_{\mathrm{FSR},L} $};
+	\node[box] (fsr2) at (4.5,0) {\footnotesize\sc effective FSR\\[0.20em] \footnotesize $ \Delta \nu_{\mathrm{FSR},d}= \sfrac{\Delta \nu_{\mathrm{FSR},L}}{2}$};
+	\node[box, markrood] (nuspace) at (9,0) {\footnotesize\sc mode spacing \\[0.20em] \footnotesize $ \Delta\nu_{\perp,x}, \Delta\nu_{\perp,y} $};
+	\node[box] (d2L) at (0,-2) {\footnotesize\sc eff. cav. length \\[0.20em] \footnotesize $ d = 2L $};
+	\node[box] (deltaPsi) at (6.75,-2) {\footnotesize\sc eff. Gouy shift \\[0.20em] \footnotesize $ \Delta \Psi_x, \Delta \Psi_y $};
+	\node[box] (zR) at (4.5,-4) {\footnotesize\sc Rayleigh length \\[0.20em] \footnotesize $ z_{\mathrm{R},x}, z_{\mathrm{R},x} $};
+	\node[box, markrood] (lambda) at (0,-4) {\footnotesize\sc wavelength \\[0.20em] \footnotesize $ \lambda $};
+	\node[box] (w0) at (2.25,-6) {\footnotesize\sc mode waist \\[0.20em] \footnotesize $ w_{0,x}, w_{0,y} $};
+	\node[box] (Rc) at (0,-8) {\footnotesize\sc mirror ROC \\[0.20em] \footnotesize $ \lvert R_{\mathrm{c},x} \rvert, \lvert R_{\mathrm{c},y} \rvert$};
+	
+	% Horizontal arrow between FSR and FSR2
+	\draw[arrow] (fsr.east) -- (fsr2.west);
+	
+	% Horizontal line between FSR and transverse mode spacing
+	\draw[line] (fsr2.east) -- (nuspace.west);
+	
+	% Vertical arrow from that line to Delta Psi
+	\draw[arrow] let \p1 = (deltaPsi.north), \p2 = (nuspace) in
+	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{resfreqsHG}};
+	
+	% Arrow from FSR down to d=2L
+	\draw[arrow] (fsr.south) -- (d2L.north) node[label, right, xshift=2mm, yshift=3mm] {\sc $\Delta \nu_{\mathrm{FSR},L}:=\sfrac{c}{2L}$};
+	
+	% Horizontal line from d=2L to Delta Psi
+	\draw[line] (d2L.east) -- (deltaPsi.west);
+	
+	% Vertical arrow from that line to zR
+	\draw[arrow] let \p1 = (zR.north), \p2 = (deltaPsi) in
+	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{deltapsi}};
+	
+	% Lambda at (0,2), horizontal line to zR
+	\draw[line] (lambda.east) -- (zR.west);
+	
+	% Vertical arrow from that line to w0
+	\draw[arrow] ($(lambda.east)!0.5!(zR.west)$) -- (w0.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{rayleigh}};
+	
+	% Long arrow from lambda down to Rc
+	\draw[arrow] (lambda.south) -- (Rc.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{waisteqs}};
+	
+	% Left hook from d=2L → (-1,1) ↓ to (-1,3) → w0
+	\draw[line] (d2L.west) -- ++(-0.495,0) coordinate (hook1);
+	\draw[line, line cap=rect] (hook1) -- ++(0,-4) coordinate (hook2);
+	\draw[line] (hook2) -- (w0.west);
+	\draw[line] (hook2) -- node[label, below left] {} (w0.west);
+	
+	\draw[line, white] (0,-9) -- (1,-9);
+	
+	\end{tikzpicture}
+	\caption[Flowchart for determining mode and mirror geometry from spectral data]{%
+		Flowchart illustrating how the mode and mirror geometry parameters of an optical cavity can be inferred from spectral measurements (red). Referenced equations used at each step can be found in the main text. The effective parameters refer to an equivalent, symmetric resonator of twice the physical length ($d=2L$) and half the free spectral range (FSR). In the case of elliptical mirrors, the radii of curvature (ROC) differ along the $x$ and $y$-axes, resulting in non-degenerate transverse modes ($\nu_{q,1,0} \neq \nu_{q,0,1}$) and axis-dependent mode parameters as indicated by the subscripts. The corresponding mode spacings are $\Delta\nu_{\perp,x}=\nu_{q,1,0}-\nu_{q,0,0}$ and $\Delta\nu_{\perp,y}=\nu_{q,0,1}-\nu_{q,0,0}$.}
+	\label{fig:cavity_flowchart}
+\end{figure}
+\tikzexternalenable
+The resonator operates at the D$_2$ line of \ce{^87Rb}, with a wavelength of $\lambda =\SI{780.23}{\nano\metre}$. From the measured free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ we infer a physical cavity length of $L = \SI{476\pm5}{\micro\metre}$. To remain consistent with the equations derived for symmetric resonators in the preceding sections, we consider the equivalent cavity geometry with length $d = 2L$ and define the corresponding effective free spectral range as $\Delta\nu_{\mathrm{FSR},d} = \sfrac{\Delta\nu_{\mathrm{FSR},L}}{2}$. All effective parameters refer to this symmetric configuration. Due to the elliptical mirror curvature, the transverse modes along the $x$ and $y$ directions are non-degenerate and their measured spacings in terms of the effective free spectral range are:
+\begin{align}
+\Delta\nu_{\perp,x} &= \nu_{q,1,0}- \nu_{q,0,0} = 0.393 \Delta\nu_{\mathrm{FSR},d} \\
+\Delta\nu_{\perp,y} &=\Delta\nu_{q,0,1} - \nu_{q,0,0} = 0.355 \Delta\nu_{\mathrm{FSR},d}\,,
+\end{align}
+the average of which corresponds to the value in \autoref{transversemodespacing}. These determine the Gouy phase shifts and subsequently the geometry of the optical mode, yielding mirror radii of curvature as listed in \autoref{tab:geometry_summary}.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{cccccc}  
+		\toprule
+		Parameter & Symbol & \multicolumn{3}{c}{Value} & Unit \\
+		\midrule
+		Free spectral range & $\Delta\nu_{\mathrm{FSR},L}$ & \multicolumn{3}{c}{\num{315\pm3}} & $\si{\giga\hertz}$ \\
+		Cavity length & $L$ & \multicolumn{3}{c}{\num{476\pm5}} & $\si{\micro\metre}$ \\
+		\midrule
+		 &  & $x$ & $y$ & avg. &  \\
+		 \midrule
+		Gouy phase shift & $\Delta\Psi/2$ & $\num{0.393}$ & $\num{0.355}$ & $\num{0.374}$ & $\pi\,\si{\radian}$ \\
+		Rayleigh range & $z_\mathrm{R}$ & $\num{670}$ & $\num{763}$ & $\num{716}$ &$\si{\micro\metre}$ \\
+		Mode waist & $w_0$ & $\num{12.9}$ & $\num{13.8}$ & $\num{13.3}$ &$\si{\micro\metre}$ \\
+		Mirror ROC & $\lvert R_\mathrm{c}\rvert$ & $\num{1.42}$ & $\num{1.70}$ & $\num{1.56}$ &$\si{\milli\metre}$ \\
+		\bottomrule
+	\end{tabular}
+	\caption[Summary of mode and mirror geometry parameters extracted from spectral measurements]{Summary of mode and mirror geometry parameters extracted from spectral measurements.}
+	\label{tab:geometry_summary}   
+\end{table}
+asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+
+asldfk jalsdkfj alsdkfj alsdkjf aldksjf alskdjf alskdfj alsdkjf alsdkjf alskdfj alsdkfj alsdkjf alsdkfj 
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[
@@ -1230,247 +1493,6 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	\caption[Simulated transverse extent of the cavity mode]{Simulated transverse extent of the cavity mode, showing the expansion of the mode waist $w(z)$ beyond the resonator mirrors \textsc{(left)} and inside the resonator \textsc{(right)}. The lines are separated by twice the beam waist and are plotted as a function of the position $z$. The zero point defined at the planar mirror interface, where the waist reaches its minimum.}
 	\label{modeexpansion} 
 \end{figure}
-
-\section{Assembly and alignment}
-
-\subsection{Cavity module}
-
-\begin{figure}[t]
-\hspace{-0.8cm}
-\begin{tikzpicture}[remember picture]
-\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module"}.pdf}};
-
-% left four
-\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.11,0.15) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.6,0.15) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.5,0.85) {\footnotesize\sc (c)};
-	
-\end{scope}
-
-\end{tikzpicture}
-\vspace{-1cm}
-\caption[Cavity module design and assembly]{Cavity module design and assembly. \textsc{(a)} An exploded view of the cavity module reveals its key components, including the conical and pyramidal mirrors, piezoelectric plates, a lens for mode-matching, and a structured support frame that maintains mechanical stability while allowing optical access for the dipole trapping beam. The support frame consists of a stainless steel base plate and cage structure. \textsc{(b)} The assembled module integrates these components into a compact structure, optimised for vacuum compatibility. \textsc{(c)} A bottom-up view highlights the screw holes for mounting and channels that guide the piezo wires, ensuring they remain secured and routed away from the optical paths.}
-\label{moduledesign}
-\end{figure}
-
-
-\begin{figure}[t]
-	\vspace{0em}
-	\centering
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity7.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{a}
-	\end{subfigure}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {glue.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\\
-	\vspace{0.3em}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity5.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\begin{subfigure}[b]{.49\linewidth}
-		\begin{tikzpicture}
-		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=6cm] {cavity.pdf}};;
-		\end{tikzpicture}
-		\centering
-		\caption{}
-		\label{b}
-	\end{subfigure}
-	\caption{(a) what is plotted is the log(10e-9 plus intensity)Recorded light intensity in the trapping plane. (b) Corresponding grid of optical power per trap in mW. (c) Integrated atom fluorescence. The box marks the 5 traps used for analysis of the ac-Stark shift (see \autoref{stark}). The $1/e^2$ diameter of the traps is $2.2\,\mu$m.}
-	\label{asdf}
-\end{figure}
-
-
-
-\subsection{Mirror alignment}
-
-\begin{figure}[t]
-	\hspace{-0.2cm}
-	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount"}.pdf}};
-	
-	% left four
-	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}fibre coupler};
-	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}support structure};
-	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{af}claw};
-	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}beam splitter};
-	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}mode-matching lens};
-	
-	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, markgrijs] {\footnotesize NanoMax};
-	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, markgrijs] {\footnotesize microscope};
-	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, markgrijs] {\footnotesize translation stage};
-	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, markgrijs] {\footnotesize gantry};
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.03,0.91) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.03,0.45) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.56,0.91) {\footnotesize\sc (c)};
-	
-	\end{scope}
-	
-	\end{tikzpicture}
-	\caption[Cavity alignment tools and setup]{Cavity alignment tools and setup. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. Reference markers for positioning the resonator centre consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, indicated by red dashed lines, marks the intended trapping region for atoms. \textsc{(b)} The U-bench, supported by a 3D-printed structure, facilitates precise cavity alignment. Fibre couplers on either side enable probe beam injection and signal detection, while kinematic XY-mounted lenses ensure the beam matches the cavity mode. A beam splitter, temporarily placed on the base plate, allows side imaging of the cavity mode using a microscope. The resonator mirrors, as well as the collimation lens, are held in custom-made PEEK claws, individually designed for each component to ensure an optimal fit. \textsc{(c)} The gantry alignment system enables controlled placement of these components. The claws can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage, allowing precise retraction for epoxy injection before glueing. Once roughly positioned, the mirror remains fixed in its clamp while fine alignment is performed with the NanoMax by translating the entire U-bench along with the alignment mount. This method reduces susceptibility to mechanical vibrations, ensuring stable and reproducible cavity alignment.}
-	\label{ubenchgantry}
-\end{figure}
-
-\begin{figure}[t]
-	\hspace{-0.35cm}
-	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
-	
-	% left four
-	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-	% draw a grid
-	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-	% draw ticks
-	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-	
-	
-	% labels
-	\node[align=center, rotate=0] at (0.04,0.02+1.0-0.03) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.03) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.03) {\footnotesize\sc (c)};
-	\node[align=center, rotate=0] at (0.04,0.02+1-0.247-0.247-0.247-0.03) {\footnotesize\sc (d)};
-	
-	\draw[markgrijs]       (0.22, 0.055) -- +(-0.02, 0) node[left] {\footnotesize\sc side view};
-	\draw[markgrijs]       (0.345, 0.47+0.248) -- +(0.02, 0.015) node[right, yshift=0.1cm]     {\footnotesize microscope};
-	\draw[markgrijs]       (0.5-0.03, 0.93) -- +(-0.095, 0.03) node[left, yshift=0.1cm, xshift=-0.05cm]     {\footnotesize lenses};
-	\draw[markgrijs]       (0.5-0.34+0.03, 0.93) -- +(0.095, 0.03) node[right]     {\footnotesize };
-	
-	\draw[markrood, ->]       (0.552, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	\draw[markrood, ->]       (0.12, 0.93) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	\draw[markrood, ->]       (0.552-0.02, 0.93-0.247-0.12) -- +(0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize $635,\SI{780}{\nano\meter}$};
-	%\draw[markrood, ->]       (0.552, 0.93-0.245-0.12-0.245) -- +(-0.02, 0.0) node[below, align=center, pos=0.5]     {\footnotesize \SI{635}{\nano\meter}};
-	
-	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.12, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize PD};
-	
-	\draw[markrood, ->]       (0.552, 0.93-0.247-0.247-0.247) -- +(-0.02, 0.0) node[above, align=center, pos=0.5]     {\footnotesize \SI{780}{\nano\meter}};
-	
-	\end{scope}
-	
-	\end{tikzpicture}
-	\caption[Cavity mirror alignment procedure]{Cavity mirror alignment performed with a U-bench \textsc{(left)}, which supports the mirror alignment mount \textsc{(right)} that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a 90:10 beam splitter.}
-	\label{alignmentprocedure}
-\end{figure}
-
-
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
-
-
-\section{Characterisation}
-asdf asdfa sdfas dfasdf asdf asdf asf asdf as
-\subsection{Mode geometry}
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
-\tikzexternaldisable
-\begin{figure}[t!]
-	\tikzset{external/optimize=false}%
-	\centering
-	\begin{tikzpicture}[
-	box/.style={
-		draw,
-		minimum width=3.51cm,
-		minimum height=1.35cm,
-		align=center
-	},
-	arrow/.style={-{Latex[length=2mm]}, thick},
-	line/.style={thick},
-	label/.style={font=\footnotesize, inner sep=1pt},
-	]
-	
-	% Define nodes in 5x5 grid
-	\node[box, markrood] (fsr) at (0,0) {\footnotesize\sc free spectral r.\\[0.20em] \footnotesize $ \Delta \nu_{\mathrm{FSR}} $};
-	\node[box, markrood] (nuspace) at (9,0) {\footnotesize\sc mode spacing \\[0.20em] \footnotesize $ \nu_{q,1,0} - \nu_{q,0,0} $};
-	\node[box] (d2L) at (0,-2) {\footnotesize\sc cavity length \\[0.20em] \footnotesize $ d = 2L $};
-	\node[box] (deltaPsi) at (6.75,-2) {\footnotesize\sc Gouy phase shift \\[0.20em] \footnotesize $ \Delta \Psi_x $};
-	\node[box] (zR) at (4.5,-4) {\footnotesize\sc Rayleigh length \\[0.20em] \footnotesize $ z_{\mathrm{R},x} $};
-	\node[box, markrood] (lambda) at (0,-4) {\footnotesize\sc wavelength \\[0.20em] \footnotesize $ \lambda $};
-	\node[box] (w0) at (2.25,-6) {\footnotesize\sc mode waist \\[0.20em] \footnotesize $ w_{0,x} $};
-	\node[box] (Rc) at (0,-8) {\footnotesize\sc mirror roc \\[0.20em] \footnotesize $ R_{\mathrm{c},x} $};
-	
-	% Horizontal line between FSR and transverse mode spacing
-	\draw[line] (fsr.east) -- (nuspace.west);
-	
-	% Vertical arrow from that line to Delta Psi
-	\draw[arrow] let \p1 = (deltaPsi.north), \p2 = (nuspace) in
-	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{resfreqsHG}};
-	
-	% Arrow from FSR down to d=2L
-	\draw[arrow] (fsr.south) -- (d2L.north) node[label, right, xshift=2mm, yshift=3mm] {\sc def.};
-	
-	% Horizontal line from d=2L to Delta Psi
-	\draw[line] (d2L.east) -- (deltaPsi.west);
-	
-	% Vertical arrow from that line to zR
-	\draw[arrow] let \p1 = (zR.north), \p2 = (deltaPsi) in
-	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{deltapsi}};
-	
-	% Lambda at (0,2), horizontal line to zR
-	\draw[line] (lambda.east) -- (zR.west);
-	
-	% Vertical arrow from that line to w0
-	\draw[arrow] ($(lambda.east)!0.5!(zR.west)$) -- (w0.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{rayleigh}};
-	
-	% Long arrow from lambda down to Rc
-	\draw[arrow] (lambda.south) -- (Rc.north) node[label, right, xshift=2mm, yshift=3mm] {\autoref{waisteqs}};
-	
-	% Left hook from d=2L → (-1,1) ↓ to (-1,3) → w0
-	\draw[line] (d2L.west) -- ++(-0.495,0) coordinate (hook1);
-	\draw[line, line cap=rect] (hook1) -- ++(0,-4) coordinate (hook2);
-	\draw[line] (hook2) -- (w0.west);
-	\draw[line] (hook2) -- node[label, below left] {} (w0.west);
-	
-	\end{tikzpicture}
-	\caption[Flowchart for determining mode and mirror geometry from spectral data]{%
-		Flowchart illustrating how the mode and mirror geometry parameters of an optical cavity can be inferred from spectral measurements (red). Referenced equations used at each step can be found in the main text. In the case of elliptical mirrors, the radii of curvature differ along the $x$ and $y$-axes, resulting in non-degenerate transverse modes: $\nu_{q,1,0} \neq \nu_{q,0,1}$. In this flowchart, the mode and mirror parameters are considered along the $x$-axis, as indicated by the subscripts: $\Delta\Psi_x$,  $z_{\mathrm{R},x}$, $w_{0,x}$ and $R_{\mathrm{c},x}$.%
-	}
-	\label{fig:cavity_flowchart}
-\end{figure}
-\tikzexternalenable
-
-
 asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
 
 \subsection{Linewidth}
@@ -1561,7 +1583,7 @@ To estimate the value of $g_\mathrm{max}$, we must consider a suitable choice fo
 \begin{equation}
  \lvert \langle e \vert \hat{\vec{d}}\, \vert g \rangle \rvert = \sqrt{\sfrac{5}{24}} \times \lvert \langle J = \sfrac{1}{2} \| \hat{\vec{d}}\, \| J' = \sfrac{3}{2} \rangle \rvert= \SI{1.636e-29}{\coulomb\meter}\,.
 \end{equation}
-With a mode waist $ w_0 = \SI{13.4}{\micro\meter} $ and resonator length $ L = \SI{476}{\micro\meter}$, \autoref{eq:gmax} yields a maximum atom-cavity coupling strength of
+With a mode waist $ w_0 = \SI{13.3}{\micro\meter} $ and resonator length $ L = \SI{476}{\micro\meter}$, \autoref{eq:gmax} yields a maximum atom-cavity coupling strength of
 \begin{equation}
 g_{\mathrm{max}} \approx 2\pi\times\SI{11.5}{\mega\hertz}\,.
 \end{equation}
