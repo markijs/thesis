@@ -182,7 +182,7 @@ written in terms of the intensity reflectivities $R_1=r_1^2$ and $R_2=r_2^2$ of 
 \end{align}
 Since $2\Delta\phi={\pi\Delta\nu_\mathrm{A}}/{\Delta\nu_\mathrm{FSR}}$ (see \autoref{phiairy}), we can calculate the finesse $\mathcal{F}$ as
 \begin{align}
-	\mathcal{F}:=\frac{\Delta_\mathrm{FSR}}{\Delta\nu_\mathrm{A}}=\frac{\pi}{2}\left(\arcsin{\frac{1-\sqrt{R_1R_2}}{2\sqrt[4]{R_1R_2}}}\right)^{-1}\,.
+	\mathcal{F}:=\frac{\Delta\nu_\mathrm{FSR}}{\Delta\nu_\mathrm{A}}=\frac{\pi}{2}\left(\arcsin{\frac{1-\sqrt{R_1R_2}}{2\sqrt[4]{R_1R_2}}}\right)^{-1}\,.
 \end{align}
 Note that the finesse is independent of the resonator length and is instead fully determined by the properties of the mirrors. For values of $\phi$ close to the nearest integer multiple of $\phi$, or more precisely $\min\{\lvert \phi \bmod \pi \rvert, \lvert \phi \bmod \pi - \pi\rvert\} \ll 1$, we can approximate $\sin^2(\phi)\approx\phi^2$ in \autoref{airy}, which yields
 \begin{align}
@@ -968,18 +968,17 @@ In the context of coupling a single atom to a resonator mode, the fundamental Ga
 To isolate the Gaussian mode from higher-order transverse modes, the free spectral range and transverse mode spacing must not coincide. Since both parameters depend on the geometry of the cavity, certain configurations may result in the atom simultaneously coupling to multiple modes. However, a higher-order transverse mode exhibits a larger transverse mode area at the position of the atom, a quantity that is inversely proportional to the cooperativity of a Fabry--Pérot resonator \cite{TanjiSuzuki2011}. This weakens the coupling strength between the atom and the (higher-order) mode. Consequently, in most practical applications, it is usually sufficient to focus on the positions of only a few of the lowest-order modes.
 
 \section{Mirror design}
+Different mirror technologies for a Fabry--Pérot resonator have been employed in CQED experiments operating in the intermediate or strong coupling regime. These include dielectric coatings on superpolished macroscopic substrates \cite{Casabone2013, Reimann2015, Welte2017}, as well as fibre-tip mirrors fabricated via mirror transfer \cite{Steinmetz2006} or \ce{CO2} laser ablation \cite{Hunger2010}. Fibre-tip cavities offer several advantages, including compactness, intrinsic fibre coupling and tight mode confinement enabled by the small achievable radii of curvature and short cavity lengths. These features allow for strong light-matter interaction and make such cavities promising candidates for integration into scalable quantum network architectures. However, they also suffer from several limitations, including mechanical fragility and alignment sensitivity. Furthermore, fibre-tip cavities suffer from a fundamental limitation in photon extraction efficiency as a result of the mismatch between the cavity mode and the guided mode of a single-mode fibre core \cite{Gallego2016}. To overcome this, recent developments include the use of composite fibres with built-in mode-shaping structures \cite{Gulati2017}, as well as photonic crystal fibres engineered for improved mode matching \cite{Ott2016}. Nonetheless, these approaches introduce fabrication complexity and may still suffer from reduced mechanical robustness. In contrast, superpolished mirrors on macroscopic substrates offer excellent optical quality and mechanical stability, along with the flexibility to implement external mode-matching optics for efficient coupling to free-space or fibre-guided modes.
 
-
-
-
+In our setup, shown in \autoref{resonatordesign}, a tapered, monolithic fused silica substrate is \ce{CO2} laser-ablated to produce a high-quality concave mirror surface on its polished end facet.
 \begin{figure}[t]
-\centering
-\begin{tikzpicture}[remember picture]
-\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"drawing"}.pdf}};
-
-
-% left four
-\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	\centering
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"drawing"}.pdf}};
+	
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
 	% draw a grid
 	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
 	% draw ticks
@@ -1032,14 +1031,13 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	
 	
 	
-\end{scope}
-
-\end{tikzpicture}
-\caption[Mirror design of a Fabry--Pérot resonator]{Mirror design of a Fabry--Pérot resonator. Dielectric mirror coatings are applied to the superpolished \textsc{(a)} or laser-ablated \textsc{(b)} end facets of glass substrates with conical \textsc{(a)} and pyramidal \textsc{(b)} geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram \textsc{(c)} reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. \textsc{(d)} Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
-\label{resonatordesign} 
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Mirror design of a Fabry--Pérot resonator]{Mirror design of a Fabry--Pérot resonator. Dielectric mirror coatings are applied to the superpolished \textsc{(a)} or laser-ablated \textsc{(b)} end facets of glass substrates with conical \textsc{(a)} and pyramidal \textsc{(b)} geometries, respectively. The indicated mirror specifications (as reported in \cite{doherty2021a}) are the radius (or radii) of curvature $R_\mathrm{c}$, the intensity transmission coefficient $T$ and total incoherent loss $\mathcal{L}$. A white light interferogram \textsc{(c)} reveals the depth profile of the laser-ablated end facet: a Gaussian dimple with an effective mirror diameter of \SI{100}{\micro\meter} \cite{doherty2021a}. \textsc{(d)} Side view of the resonator with dimensions in millimetres. A magnified view of the end facets indicates the total cavity length and angular aperture ($\theta=\SI{40}{\degree}$).}
+	\label{resonatordesign} 
 \end{figure}
-
-
+Paired with a nearly planar mirror on a second, superpolished tapered substrate, this configuration achieves a small mode volume, enabling high coupling efficiency without sacrificing optical access or mechanical stability. The pyramidal substrate for the curved mirror is fabricated from UV-grade fused silica, selected for its low optical absorption and high transmission in the near-infrared. It features a square end facet of $\SI{275}{\micro\meter}\times\SI{275}{\micro\meter}$, polished with a fibre polishing tool (KrellTech SpecPro). A Gaussian-shaped depression is subsequently machined into the surface by laser ablation. The white-light interferogram in \autoref{resonatordesign} shows the resulting dimple profile, with an effective mirror diameter of approximately \SI{100}{\micro\meter} \cite{doherty2021a}. The radii of curvature are $\lvert R_{\mathrm{c},x}\rvert = \SI{1.42}{\milli\meter}$ and $\lvert R_{\mathrm{c},y}\rvert = \SI{1.70}{\milli\meter}$, indicating a slight ellipticity. A high-reflectivity dielectric coating is applied to the curved surface by Laseroptik GmbH and consists of alternating quarter-wave layers of \ce{Ta2O5} and \ce{SiO2} deposited via ion beam sputtering for a wavelength of $\lambda = \SI{780}{\nano\meter}$. The intensity transmission coefficient is $T = \SI{1.74}{ppm}$ and the total incoherent loss amounts to $\mathcal{L} = \SI{41.6}{ppm}$. The planar mirror is fabricated by REO (Part NS11334, Coating Run S7-254-P1/S7-251-P1) and features a high-transmission dielectric coating with $T = \SI{38.2}{ppm}$ and $\mathcal{L} = \SI{2.20}{ppm}$. The conical substrate is machined to a facet diameter of \SI{400}{\micro\meter} to match the pyramidal mirror. This substrate is mounted in a custom holder made from Macor, a machinable glass-ceramic known for its thermal stability and ultra-high vacuum compatibility. The holder includes a central through-hole to allow unobstructed optical access along the cavity axis. In contrast, the pyramidal mirror is self-supporting and does not require an additional mount. The angular aperture, as determined by the substrate geometries and relative alignment, is equal to $\theta = \SI{40}{\degree}$.
 
 \section{Assembly and alignment}
 
@@ -1124,16 +1122,16 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
 	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
 	
-	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}fibre coupler};
-	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}support structure};
-	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, markgrijs] {\footnotesize \phantom{af}claw};
-	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}beam splitter};
-	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, markgrijs] {\footnotesize \phantom{asdf}mode-matching lens};
+	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, black] {\footnotesize \phantom{asdf}fibre coupler};
+	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, black] {\footnotesize \phantom{asdf}support structure};
+	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, black] {\footnotesize \phantom{af}claw};
+	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, black] {\footnotesize \phantom{asdf}beam splitter};
+	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, black] {\footnotesize \phantom{asdf}mode-matching lens};
 	
-	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, markgrijs] {\footnotesize NanoMax};
-	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, markgrijs] {\footnotesize microscope};
-	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, markgrijs] {\footnotesize translation stage};
-	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, markgrijs] {\footnotesize gantry};
+	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, black] {\footnotesize NanoMax};
+	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, black] {\footnotesize microscope};
+	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, black] {\footnotesize translation stage};
+	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, black] {\footnotesize gantry};
 	
 	
 	% labels
@@ -1273,7 +1271,7 @@ asdf asdfa sdfas dfasdf asdf asdf asf asdf as
 	\label{fig:cavity_flowchart}
 \end{figure}
 \tikzexternalenable
-The resonator operates at the D$_2$ line of \ce{^87Rb}, with a wavelength of $\lambda =\SI{780.23}{\nano\metre}$. From the measured free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ we infer a physical cavity length of $L = \SI{476\pm5}{\micro\metre}$. To remain consistent with the equations derived for symmetric resonators in the preceding sections, we consider the equivalent cavity geometry with length $d = 2L$ and define the corresponding effective free spectral range as $\Delta\nu_{\mathrm{FSR},d} = \sfrac{\Delta\nu_{\mathrm{FSR},L}}{2}$. All effective parameters refer to this symmetric configuration. Due to the elliptical mirror curvature, the transverse modes along the $x$ and $y$ directions are non-degenerate and their measured spacings in terms of the effective free spectral range are:
+The resonator operates at the D$_2$ line of \ce{^87Rb}, with a wavelength of $\lambda =\SI{780.23}{\nano\metre}$. From the measured free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ we infer a physical cavity length of $L = \SI{476\pm5}{\micro\metre}$. To remain consistent with the equations derived for symmetric resonators in the preceding sections, we consider the equivalent cavity geometry with an effective length $d = 2L$ and define the corresponding effective free spectral range as $\Delta\nu_{\mathrm{FSR},d} = \sfrac{\Delta\nu_{\mathrm{FSR},L}}{2}$. All effective parameters refer to this symmetric configuration. Due to the elliptical mirror curvature, the transverse modes along the $x$ and $y$ directions are non-degenerate and their measured spacings in terms of the effective free spectral range are:
 \begin{align}
 \Delta\nu_{\perp,x} &= \nu_{q,1,0}- \nu_{q,0,0} = 0.393 \Delta\nu_{\mathrm{FSR},d} \\
 \Delta\nu_{\perp,y} &=\Delta\nu_{q,0,1} - \nu_{q,0,0} = 0.355 \Delta\nu_{\mathrm{FSR},d}\,,
@@ -1299,9 +1297,7 @@ the average of which corresponds to the value in \autoref{transversemodespacing}
 	\caption[Summary of mode and mirror geometry parameters extracted from spectral measurements]{Summary of mode and mirror geometry parameters extracted from spectral measurements.}
 	\label{tab:geometry_summary}   
 \end{table}
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
-
-asldfk jalsdkfj alsdkfj alsdkjf aldksjf alskdjf alskdfj alsdkjf alsdkjf alskdfj alsdkfj alsdkjf alsdkfj 
+The spatial extent of the fundamental mode is illustrated in \autoref{modeexpansion}, which shows the simulated beam waist $w(z)$ as a function of axial position based on the average parameters in \autoref{tab:geometry_summary}.
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[
@@ -1484,18 +1480,15 @@ asldfk jalsdkfj alsdkfj alsdkjf aldksjf alskdjf alskdfj alsdkjf alsdkjf alskdfj 
 	%scaled ticks = false,
 	]
 	
-	
-	
-	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Simulated transverse extent of the cavity mode]{Simulated transverse extent of the cavity mode, showing the expansion of the mode waist $w(z)$ beyond the resonator mirrors \textsc{(left)} and inside the resonator \textsc{(right)}. The lines are separated by twice the beam waist and are plotted as a function of the position $z$. The zero point defined at the planar mirror interface, where the waist reaches its minimum.}
+	\caption[Simulated transverse extent of the cavity mode]{Simulated transverse extent of the cavity mode, showing the expansion of the (average) mode waist $w(z)$ beyond the resonator mirrors \textsc{(left)} and inside the resonator \textsc{(right)}. The lines are separated by twice the beam waist and are plotted as a function of the position $z$. The zero point defined at the planar mirror interface, where the waist reaches its minimum.}
 	\label{modeexpansion} 
 \end{figure}
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+The propagation of the Gaussian beam, simulated using a ray transfer matrix analysis in the paraxial approximation, shows a minimum waist at the planar mirror interface ($z=0$). The mode remains well confined within the pyramidal glass substrate on the left and within the through hole of the ceramic mount that holds the planar mirror substrate on the right. On the pyramidal side, the lens fixed to the cavity module collimates the expanding mode, with its position optimised to ensure the beam remains collimated over the full length of the vacuum chamber (see \autoref{chap:CavityCompatibleTrappingArchitectures}). The planar mirror on the opposite side---having the highest transmission---serves as the outcoupling port for single photons. As this mirror is positioned in close proximity to the vacuum cell wall, the divergent beam can be collimated externally.
 
-\subsection{Linewidth}
+\subsection{Linewidth and finesse}
 The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity length using the two piezoelectric actuators to which the mirrors are glued. The resulting transmission spectrum---measured on a Thorlabs
 \begin{wrapfigure}[13]{l}{0.5\textwidth}
 	\centering
@@ -1550,7 +1543,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
-APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$.
+APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be inferred as $\mathcal{F} = {\Delta\nu_{\mathrm{FSR},L}}/{\Delta \nu_\mathrm{A}} = \num{75.1 \pm 0.9e3}$. Given the reflectivity $R_1$ of one reference mirror, the reflectivity $R_2$ of the second mirror can thus be inferred. When combined with independent measurements of the mirror transmission, the round-trip incoherent losses of the cavity can be extracted \cite{doherty2021a}.
 
 \subsection{Coupling strength}
 To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
