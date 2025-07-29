@@ -1111,7 +1111,7 @@ A bottom-up view of the baseplate reveals mounting points and wire-routing chann
 
 \subsection{Mirror alignment}
 \label{mirroralignmentsection}
-
+The optomechanical setup used for cavity mirror alignment is shown in \autoref{ubenchgantry}.
 \begin{figure}[t]
 	\hspace{-0.2cm}
 	\begin{tikzpicture}[remember picture]
@@ -1127,11 +1127,11 @@ A bottom-up view of the baseplate reveals mounting points and wire-routing chann
 	
 	\draw[markrood]       (0.51, 0.387) -- +(0.045, -0.15) node[below, align=center, black] {\footnotesize \phantom{asdf}fibre coupler};
 	\draw[markrood]       (0.45, 0.28) -- +(0.045*1.3, -0.15*1.3) node[below, align=center, black] {\footnotesize \phantom{asdf}support structure};
-	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, black] {\footnotesize \phantom{af}claw};
+	\draw[markrood]       (0.36, 0.33) -- +(0.045, -0.15) node[below, align=center, black] {\footnotesize \phantom{af}clamp};
 	\draw[markrood]       (0.28, 0.29) -- +(0.045*1.1, -0.15*1.1) node[below, align=center, black] {\footnotesize \phantom{asdf}beam splitter};
 	\draw[markrood]       (0.21, 0.21) -- +(0.045*1.0, -0.15*1.0) node[below, align=center, black] {\footnotesize \phantom{asdf}mode-matching lens};
 	
-	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, black] {\footnotesize NanoMax};
+	\draw[markrood]       (0.72, 0.28) -- +(0.0, -0.13) node[below, align=center, black] {\footnotesize six-axis translation stage};
 	\draw[markrood]       (0.57, 0.69) -- +(0.18, 0.22) node[right, black] {\footnotesize microscope};
 	\draw[markrood]       (0.71, 0.76) -- +(0.18*0.4, 0.22*0.4) node[right, black] {\footnotesize translation stage};
 	\draw[markrood]       (0.91, 0.3) -- +(0.0, -0.2) node[below, align=center, black] {\footnotesize gantry};
@@ -1145,11 +1145,15 @@ A bottom-up view of the baseplate reveals mounting points and wire-routing chann
 	\end{scope}
 	
 	\end{tikzpicture}
-	\caption[Cavity alignment tools and setup]{Cavity alignment tools and setup. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. Reference markers for positioning the resonator centre consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, indicated by red dashed lines, marks the intended trapping region for atoms. \textsc{(b)} The U-bench, supported by a 3D-printed structure, facilitates precise cavity alignment. Fibre couplers on either side enable probe beam injection and signal detection, while kinematic XY-mounted lenses ensure the beam matches the cavity mode. A beam splitter, temporarily placed on the base plate, allows side imaging of the cavity mode using a microscope. The resonator mirrors, as well as the collimation lens, are held in custom-made PEEK claws, individually designed for each component to ensure an optimal fit. \textsc{(c)} The gantry alignment system enables controlled placement of these components. The claws can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage, allowing precise retraction for epoxy injection before glueing. Once roughly positioned, the mirror remains fixed in its clamp while fine alignment is performed with the NanoMax by translating the entire U-bench along with the alignment mount. This method reduces susceptibility to mechanical vibrations, ensuring stable and reproducible cavity alignment.}
+	\caption[Optomechanical setup for cavity mirror alignment]{Optomechanical setup for cavity mirror alignment. \textsc{(a)} The alignment mount holds the base plate of the cavity module at the ideal height. \textsc{(b)} The U-bench, supported by a 3D-printed structure, constrains the position of a reference beam for the cavity axis through the use of fibre couplers. \textsc{(c)} The gantry alignment system enables controlled placement of components associated with the cavity module.}
 	\label{ubenchgantry}
 \end{figure}
+In the first part of this section, the key components of this setup are described. The second part then outlines the procedure for precise placement of the resonator mirrors. During the alignment procedure, the element to be fixed (either a mirror substrate or the mode-matching lens) remains stationary in its clamp suspended from a gantry, while a reference beam for the cavity axis is moved into position using a U-bench mounted on a precision translation stage. This approach minimises vibration-induced misalignment during glueing, as it is mechanically more stable to translate the U-bench and all associated optics than to move a lightweight mirror clamp, which is more susceptible to mechanical vibrations. Kinematic fibre couplers (Thorlabs PAF-X-2-B) on either side of the U-bench (Thorlabs CBB1/M) are initially used to align the reference beam by optimising the coupling from one fibre into the other. Once the resonator mirrors are in place, these couplers enable probe beam injection and detection of the cavity transmission signal. A pair of lenses in translation mounts (Thorlabs CXY1A XY) ensure mode matching of this beam with the resonator mode. A \num{90}:\num{10} beam splitter, temporarily placed on the cavity module baseplate, allows side imaging of the cavity mode using a microscope (Navitar 1-50487). The mirror substrates and mode-matching lens are held in bespoke PEEK clamps, individually machined for each component to ensure an optimal fit. Each clamp is equipped with a single nylon-tipped set screw to hold and release each component. The clamps can be coarsely positioned along the gantry rails and their height adjusted using a linear translation stage (Thorlabs MS1S/M), allowing precise retraction for epoxy injection before bonding. Once roughly positioned, the mirror substrate remains fixed in its clamp while fine alignment is performed with a six-axis translation stage (Thorlabs MAX602D/M), moving the U-bench along with the reference beam, the alignment mount and cavity module baseplate.
 
-\begin{figure}[t]
+To ensure accurate alignment of the reference beam with respect to the cavity module, a bespoke aluminium alignment mount is used. This positions the cavity module in such a way that, once transferred into the vacuum chamber, the cavity axis runs centrally through the inner volume of the glass cell. The alignment mount also includes reference markers to aid in the precise positioning of the mirror substrate end facets. These markers consist of a horizontal pair of holes and a combination of a single hole and a machined dimple. Their intersection, highlighted by red dashed lines in \autoref{ubenchgantry}, defines the intended trapping region for atoms. During the alignment process, a second microscope is aligned along one of these lines to verify that the cavity mode coincides with it. This approach ensures full optical access for high-NA dipole trapping and efficient fluorescence collection by preventing clipping at the support cage apertures, which can occur if the cavity mode is not centrally aligned within the module.
+
+Throughout the remainder of this section, we describe the step-by-step procedure used to position the resonator mirrors onto the cavity module baseplate. An overview of the process is shown in \autoref{alignmentprocedure}.
+\begin{figure}[t!]
 	\hspace{-0.35cm}
 	\begin{tikzpicture}[remember picture]
 	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
@@ -1192,16 +1196,19 @@ A bottom-up view of the baseplate reveals mounting points and wire-routing chann
 	\end{scope}
 	
 	\end{tikzpicture}
-	\caption[Cavity mirror alignment procedure]{Cavity mirror alignment performed with a U-bench \textsc{(left)}, which supports the mirror alignment mount \textsc{(right)} that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a 90:10 beam splitter.}
+	\caption[Cavity mirror placement procedure]{Cavity mirror placement performed with a U-bench \textsc{(left)}, which supports the mirror alignment mount \textsc{(right)} that holds the cavity module (\autoref{moduledesign}). The procedure comprises of four steps: \textsc{(a)} beam alignment through the U-bench, \textsc{(b)} fixing the planar mirror to the cavity module base plate, \textsc{(c)} positioning the pyramidal mirror and \textsc{(d)} attaching the collimator lens. A microscope is used to monitor the transverse modes via a \num{90}:\num{10} beam splitter.}
 	\label{alignmentprocedure}
 \end{figure}
+As aforementioned, the first step involves aligning the probe beam along the central axis of the U-bench using the kinematic fibre couplers, a series of apertures mounted along the U-bench structure and a photodiode (Thorlabs PDA36A-EC) placed at the output. Additionally, a pair of free-space lenses is introduced between the fibre couplers to mode-match the input beam to the expected cavity mode waist.
 
+The second step is the installation of the planar mirror. Glued to its mount, the conical mirror substrate is lowered into the U-bench using the gantry system and held in place by a custom clamp. Its axial position is set using the reference markers in the alignment mount, as described earlier. The beam is visually centred on the mirror surface using the temporary beam splitter and primary microscope, after which the U-bench pitch and yaw are adjusted to achieve retro-reflection of the beam. This is verified by measuring the coupling back into the input fibre using a fibre-integrated beam splitter (Newport F-CPL-S22785-FCAPC) and photodiode. Once the mirror is correctly aligned, it is retracted vertically using a linear translation stage, epoxy is injected onto the piezo and the mirror is lowered back into position. The epoxy (Norland Optical Adhesive 88) is cured under UV light for \SI{15}{\minute} before the clamp is released.
 
-asdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf asasdf asdfa sdfas dfasdf asdf asdf asf asdf as
+The third step concerns placement of the pyramidal mirror. It is introduced into the U-bench in the same way as the planar mirror. Its position along the cavity axis determines the resonator length and is set using a secondary microscope equipped with a calibrated measurement reticle. To facilitate cavity alignment, a \SI{635}{\nano\meter} beam is overlapped with the \SI{780}{\nano\meter} probe light at the fibre input. While the \SI{780}{\nano\meter} beam is used to probe the resonator mode, the \SI{635}{\nano\meter} light is transmitted even when the cavity is off resonance, making coarse alignment easier. Once transverse cavity modes are visible under the primary microscope, the U-bench pitch and yaw are adjusted to centre the mode on the curved mirror. The cavity length is then scanned using the piezo actuators to sweep over a free spectral range and the resulting transmission is monitored on an avalanche photodiode (Thorlabs APD110A/M). The pyramidal mirror is translated in the transverse plane to maximise coupling into the fundamental mode, as indicated by the APD signal. Once optimal coupling and mode placement are achieved, the mirror is secured with epoxy in the same manner as for the planar mirror.
 
+The final step is to install the integrated mode-matching lens. Before doing so, the cavity support cage is screwed onto the cavity module baseplate to stabilise the structure. The temporary output collimator lens in the U-bench is removed and the integrated plano-convex lens---pre-mounted in its custom holder---is introduced using the gantry and clamp system. Its position is fine-tuned by maximising the cavity transmission signal on the APD. Once optimised, the lens holder is fixed in place using the same UV-curable epoxy.
 
 \section{Characterisation}
-asdf asdfa sdfas dfasdf asdf asdf asf asdf as
+In this section, we characterise the optical properties of the assembled Fabry--Pérot resonator. We begin by extracting the mode geometry from the frequency splitting between different modes, comparing the observed transmission spectrum to Hermite--Gaussian mode theory. From the transmission profile of a single resonance, we then determine the resonator linewidth, from which we infer the finesse and cavity decay rate. These results form the basis for estimating the atom-cavity coupling strength and cooperativity, which are the key figures of merit for CQED applications. Finally, we present a qualitative analysis of the transverse mode structure based on cavity transmission images, including higher-order Hermite--Gaussian and Laguerre--Gaussian modes.
 \subsection{Mode geometry}
 \autoref{fig:cavity_flowchart} outlines the procedure used to characterise the mode and mirror geometry from experimental spectral data, in contrast to the approach shown in \autoref{transversemodespacing}, where a known cavity geometry is used to calculate the transverse mode spacing.
 \tikzexternaldisable
@@ -1280,7 +1287,7 @@ The resonator operates at the D$_2$ line of \ce{^87Rb}, with a wavelength of $\l
 \Delta\nu_{\perp,y} &=\Delta\nu_{q,0,1} - \nu_{q,0,0} = 0.355 \Delta\nu_{\mathrm{FSR},d}\,,
 \end{align}
 the average of which corresponds to the value in \autoref{transversemodespacing}. These determine the Gouy phase shifts and subsequently the geometry of the optical mode, yielding mirror radii of curvature as listed in \autoref{tab:geometry_summary}.
-\begin{table}[h]
+\begin{table}[t]
 	\centering
 	\begin{tabular}{cccccc}  
 		\toprule
@@ -1301,7 +1308,7 @@ the average of which corresponds to the value in \autoref{transversemodespacing}
 	\label{tab:geometry_summary}   
 \end{table}
 The spatial extent of the fundamental mode is illustrated in \autoref{modeexpansion}, which shows the simulated beam waist $w(z)$ as a function of axial position based on the average parameters in \autoref{tab:geometry_summary}.
-\begin{figure}[t]
+\begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}[
 	fill between/on layer={
@@ -1492,8 +1499,8 @@ The spatial extent of the fundamental mode is illustrated in \autoref{modeexpans
 The propagation of the Gaussian beam, simulated using a ray transfer matrix analysis in the paraxial approximation, shows a minimum waist at the planar mirror interface ($z=0$). The mode remains well confined within the pyramidal glass substrate on the left and within the through hole of the ceramic mount that holds the planar mirror substrate on the right. On the pyramidal side, the lens fixed to the cavity module collimates the expanding mode, with its position optimised to ensure the beam remains collimated over the full length of the vacuum chamber (see \autoref{chap:CavityCompatibleTrappingArchitectures}). The planar mirror on the opposite side---having the highest transmission---serves as the outcoupling port for single photons. As this mirror is positioned in close proximity to the vacuum cell wall, the divergent beam can be collimated externally.
 
 \subsection{Linewidth and finesse}
-The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity length using the two piezoelectric actuators to which the mirrors are glued. The resulting transmission spectrum---measured on a Thorlabs
-\begin{wrapfigure}[13]{l}{0.5\textwidth}
+The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity length using the two piezoelectric actuators to which the mirrors are glued. The resulting transmission spectrum---measured on a Thorlabs APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling
+\begin{wrapfigure}[12]{l}{0.5\textwidth}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
@@ -1546,7 +1553,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
-APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be inferred as $\mathcal{F} = {\Delta\nu_{\mathrm{FSR},L}}/{\Delta \nu_\mathrm{A}} = \num{75.1 \pm 0.9e3}$. Given the reflectivity $R_1$ of one reference mirror, the reflectivity $R_2$ of the second mirror can thus be inferred. When combined with independent measurements of the mirror transmission, the round-trip incoherent losses of the cavity can be extracted \cite{doherty2021a}.
+regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be inferred as $\mathcal{F} = {\Delta\nu_{\mathrm{FSR},L}}/{\Delta \nu_\mathrm{A}} = \num{75.1 \pm 0.9e3}$. Given the reflectivity $R_1$ of one reference mirror, the reflectivity $R_2$ of the second mirror can thus be inferred. When combined with independent measurements of the mirror transmission, the round-trip incoherent losses of the cavity can be extracted \cite{doherty2021a}.
 
 \subsection{Coupling strength}
 To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope takes the form
@@ -1586,7 +1593,7 @@ g_{\mathrm{max}} \approx 2\pi\times\SI{11.5}{\mega\hertz}\,.
 
 \subsection{Cooperativity}
 In the preceding two sections, we have estimated the cavity field decay rate $\kappa$ from the measured linewidth and extracted the (maximum) atom-cavity coupling strength $g_\mathrm{max}$ from the cavity mode geometry. We now complete the set of key parameters with the transverse polarisation decay rate $\gamma= 2\pi \times \SI{3.03}{\mega\hertz}$ for the $\mathrm{D}2$ transition in \ce{^87Rb}, which yields a cooperativity of $C=\num{10.4}$ (see \autoref{cooperativity}). All values are summarised in \autoref{tab:parameters}.
-\begin{table}[h]
+\begin{table}[t]
 	\centering
 	\begin{tabular}{cccc}  
 		\toprule
@@ -1598,7 +1605,7 @@ In the preceding two sections, we have estimated the cavity field decay rate $\k
 		Single-atom cooperativity & $C$ & $\num{10.4}$ & -- \\
 		\bottomrule
 	\end{tabular}
-	\caption[Summary of relevant cavity-QED parameters]{Summary of relevant cavity-QED parameters. The values for $\kappa$ and $g_\mathrm{max}$ are based on the cavity linewidth and geometry, respectively.}
+	\caption[Summary of relevant CQED parameters]{Summary of relevant CQED parameters. The values for $\kappa$ and $g_\mathrm{max}$ are based on the cavity linewidth and geometry, respectively.}
 	\label{tab:parameters}   
 \end{table}
 These values place our system in the strong coupling regime, where $g_\mathrm{max} \gg \max \{\kappa,\gamma\}$ and the cooperativity $C \gg 1$. This enables coherent atom-photon interactions to dominate over dissipative processes, making the system suitable for cavity QED experiments such as V-STIRAP for deterministic single photon generation.
