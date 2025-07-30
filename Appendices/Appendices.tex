@@ -53,49 +53,7 @@ Note that in an experiment that involves stochastic cavity loading, which is the
 
 \chapter{Some Appendix}
 
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}
-	\newcommand\step{0.157491}
-	\newcommand\gap{0.0110096}
-	
-	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.85\textwidth]{{"allH"}.pdf}};
-	\begin{scope}[x={(image.south east)},y={(image.north west)}]
-	
-	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
-	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
-	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
-	
-	\draw[->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {\small $n_y$};
-	\draw[->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {\small $n_x$};
-	
-	\draw[->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {\small $n$};
-	\draw[->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {\small $l$};
-	
-	\node[align=center] at (-0.03, \step/2) {\small $5$};
-	\node[align=center] at (-0.03, 3*\step/2 + \gap) {\small $4$};
-	\node[align=center] at (-0.03, 5*\step/2 + 2*\gap) {\small $3$};
-	\node[align=center] at (-0.03, 7*\step/2 + 3*\gap) {\small $2$};
-	\node[align=center] at (-0.03, 9*\step/2 + 4*\gap) {\small $1$};
-	\node[align=center] at (-0.03, 11*\step/2 + 5*\gap) {\small $0$};
-	
-	\node[align=center] at (\step/2, 1.035) {\small $0$};
-	\node[align=center] at (3*\step/2 + \gap, 1.035) {\small $1$};
-	\node[align=center] at (5*\step/2 + 2*\gap, 1.035) {\small $2$};
-	\node[align=center] at (7*\step/2 + 3*\gap, 1.035) {\small $3$};
-	\node[align=center] at (9*\step/2 + 4*\gap, 1.035) {\small $4$};
-	\node[align=center] at (11*\step/2 + 5*\gap, 1.035) {\small $5$};
-	
-	\node[align=center] at (0.661-0.018, 3*\step/2 + \gap) {\small $0$};
-	\node[align=center] at (0.661-0.018, \step/2) {\small $1$};
-	\node[align=center] at (0.661+0.012 + \step/2, 1-0.661+0.023) {\small $0$};
-	\node[align=center] at (0.661+0.012 + 3*\step/2 + \gap, 1-0.661+0.023) {\small $1$};
-	
-	\end{scope}
-	\end{tikzpicture}
-	\caption[Optical setup for generation of dipole traps and MOT.]{(Left) Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. (Right) Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. A pair of high-NA lenses focus and image the dipole trapping light.}
-	\label{cavitymodestheory} 
-\end{figure}
+
 
 
 \chapter{Some Appendix}

@@ -808,7 +808,7 @@ $n_y = p - m + 1$ for the odd modes.
 	
 \end{scope}
 \end{tikzpicture}
-\caption[Optical setup for generation of dipole traps and MOT]{Ince--Gaussian modes as a continuous mode family that interpolates between Laguerre--Gaussian ($\mathcal{L}_{n,l}$) and Hermite--Gaussian ($\mathcal{H}_{n_x,n_y}$) modes. This transition is parametrised via the ellipticity parameter $\epsilon$. \textsc{(right)} The even Ince--Gaussian modes $\mathcal{I}_{4,m}^\mathrm{e}(\vec{r}, \epsilon)$ are shown for $\epsilon\in\{0,2,\infty\}$ and $m\in\{0,2,4\}$. Using the HSV representation \textsc{(top left)}, the value and hue correspond to the amplitude and phase of these modes, respectively. The mode amplitudes are scaled such that the fundamental Gaussian mode attains a maximum of unity (not shown). As $\epsilon\rightarrow 0$ or $\epsilon\rightarrow \infty$, the Ince--Gaussian modes reveal a direct correspondence to the Laguerre--Gaussian and Hermite--Gaussian mode families, respectively \textsc{(bottom left)}.}
+\caption[Optical setup for generation of dipole traps and MOT]{Ince--Gaussian modes as a continuous mode family that interpolates between Laguerre--Gaussian ($\mathcal{L}_{n,l}$) and Hermite--Gaussian ($\mathcal{H}_{n_x,n_y}$) modes. This transition is parametrised via the ellipticity parameter $\epsilon$. \textsc{(right)} The even Ince--Gaussian modes $\mathcal{I}_{4,m}^\mathrm{e}(\vec{r}, \epsilon)$ are shown for $\epsilon\in\{0,2,\infty\}$ and $m\in\{0,2,4\}$. Using the hue-saturation-value (HSV) colour representation \textsc{(top left)}, the value and hue correspond to the amplitude and phase of these modes, respectively. The mode amplitudes are scaled such that the fundamental Gaussian mode attains a maximum of unity (not shown). As $\epsilon\rightarrow 0$ or $\epsilon\rightarrow \infty$, the Ince--Gaussian modes reveal a direct correspondence to the Laguerre--Gaussian and Hermite--Gaussian mode families, respectively \textsc{(bottom left)}.}
 \label{incegauss} 
 \end{figure}
 
@@ -1500,7 +1500,7 @@ The propagation of the Gaussian beam, simulated using a ray transfer matrix anal
 
 \subsection{Linewidth and finesse}
 The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity length using the two piezoelectric actuators to which the mirrors are glued. The resulting transmission spectrum---measured on a Thorlabs APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated through frequency modulation of the laser (via the diode current of a Toptica DL pro ECDL), resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth directly relates to the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling
-\begin{wrapfigure}[12]{l}{0.5\textwidth}
+\begin{wrapfigure}[13]{l}{0.5\textwidth}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
@@ -1550,7 +1550,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator, showing a central resonance peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
+	\caption[Measured transmission spectrum of the Fabry--Pérot resonator]{Measured transmission spectrum of the Fabry--Pérot resonator as a function of detuning from resonance, showing a central peak fitted with a Lorentzian profile. Modulation sidebands appear at $\pm \SI{25}{\mega\hertz}$ and serve as a precise frequency reference to extract the FWHM of the central resonance peak: $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$.}
 	\label{cavitytrace}
 \end{wrapfigure}
 regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be inferred as $\mathcal{F} = {\Delta\nu_{\mathrm{FSR},L}}/{\Delta \nu_\mathrm{A}} = \num{75.1 \pm 0.9e3}$. Given the reflectivity $R_1$ of one reference mirror, the reflectivity $R_2$ of the second mirror can thus be inferred. When combined with independent measurements of the mirror transmission, the round-trip incoherent losses of the cavity can be extracted \cite{doherty2021a}.
@@ -1611,8 +1611,8 @@ In the preceding two sections, we have estimated the cavity field decay rate $\k
 These values place our system in the strong coupling regime, where $g_\mathrm{max} \gg \max \{\kappa,\gamma\}$ and the cooperativity $C \gg 1$. This enables coherent atom-photon interactions to dominate over dissipative processes, making the system suitable for cavity QED experiments such as V-STIRAP for deterministic single photon generation.
 
 \subsection{Transverse modes}
-
-\begin{figure}[t]
+\autoref{cavitymodes} shows CCD camera images of the transmitted cavity intensity for various resonant transverse modes in the assembled Fabry--Pérot resonator.
+\begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}
 	\newcommand\step{0.157491}
@@ -1652,11 +1652,53 @@ These values place our system in the strong coupling regime, where $g_\mathrm{ma
 	
 	\end{scope}
 	\end{tikzpicture}
-	\caption[Optical setup for generation of dipole traps and MOT.]{\textsc{(left)} Optical setup for the generation of \SI{1064}{\nano\meter} dipole traps and the detection of fluorescence. A spatial light modulator (SLM) generates a tweezer array inside the glass cell, monitored via a CCD. A dichroic mirror (DM) redirects the fluorescence into a detection path, where atoms are imaged using an EMCCD camera. Numbers indicate the beam magnification factors. \textsc{(right)} Optical setup for the generation of the MOT inside a glass cell using $3$ retro-reflected beams. A pair of high-NA lenses focus and image the dipole trapping light.}
+	\caption[CCD camera images of Hermite--Gaussian and Laguerre--Gaussian transverse modes in the assembled Fabry--Pérot resonator]{CCD camera images of Hermite--Gaussian and Laguerre--Gaussian transverse modes in the assembled Fabry--Pérot resonator. The upper triangular array displays Hermite--Gaussian modes $\mathcal{H}_{n_x,n_y}$, indexed by integers $n_x$ and $n_y$ corresponding to the number of nodes along the $x$- and $y$-axes. The bottom-right inset shows Laguerre--Gaussian modes $\mathcal{L}_{n,l}$, indexed by the radial quantum number $n$ and azimuthal quantum number $l$, which determine the number of radial nodes and the orbital angular momentum of the beam, respectively.}
 	\label{cavitymodes} 
 \end{figure}
-
-
-
+For comparison, the theoretical intensity and phase distributions of the corresponding mode functions are shown in \autoref{cavitymodestheory}.
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+	\newcommand\step{0.157491}
+	\newcommand\gap{0.0110096}
+	
+	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.85\textwidth]{{"allH"}.pdf}};
+	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+	
+	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+	
+	\draw[->, line cap=rect] (-0.012, 1.012) -- (-0.012, -0.02) node[above left] {\small $n_y$};
+	\draw[->, line cap=rect] (-0.012, 1.012) -- (1.02, 1.012) node[above left] {\small $n_x$};
+	
+	\draw[->, line cap=rect] (0.661, 1-0.661) -- (1.02, 1-0.661) node[above left] {\small $n$};
+	\draw[->, line cap=rect] (0.661, 1-0.661) -- (0.661, -0.02) node[above left] {\small $l$};
+	
+	\node[align=center] at (-0.03, \step/2) {\small $5$};
+	\node[align=center] at (-0.03, 3*\step/2 + \gap) {\small $4$};
+	\node[align=center] at (-0.03, 5*\step/2 + 2*\gap) {\small $3$};
+	\node[align=center] at (-0.03, 7*\step/2 + 3*\gap) {\small $2$};
+	\node[align=center] at (-0.03, 9*\step/2 + 4*\gap) {\small $1$};
+	\node[align=center] at (-0.03, 11*\step/2 + 5*\gap) {\small $0$};
+	
+	\node[align=center] at (\step/2, 1.035) {\small $0$};
+	\node[align=center] at (3*\step/2 + \gap, 1.035) {\small $1$};
+	\node[align=center] at (5*\step/2 + 2*\gap, 1.035) {\small $2$};
+	\node[align=center] at (7*\step/2 + 3*\gap, 1.035) {\small $3$};
+	\node[align=center] at (9*\step/2 + 4*\gap, 1.035) {\small $4$};
+	\node[align=center] at (11*\step/2 + 5*\gap, 1.035) {\small $5$};
+	
+	\node[align=center] at (0.661-0.018, 3*\step/2 + \gap) {\small $0$};
+	\node[align=center] at (0.661-0.018, \step/2) {\small $1$};
+	\node[align=center] at (0.661+0.012 + \step/2, 1-0.661+0.023) {\small $0$};
+	\node[align=center] at (0.661+0.012 + 3*\step/2 + \gap, 1-0.661+0.023) {\small $1$};
+	
+	\end{scope}
+	\end{tikzpicture}
+	\caption[Theoretical distributions of Hermite--Gaussian and Laguerre--Gaussian transverse modes in the assembled Fabry--Pérot resonator]{Theoretical distributions of Hermite--Gaussian and Laguerre--Gaussian transverse modes corresponding to those in \autoref{cavitymodes}. The mode functions are rendered using the HSV colour representation as in \autoref{incegauss}, where the value and hue correspond to the amplitude and phase, respectively. The upper triangular array shows Hermite--Gaussian modes $\mathcal{H}_{n_x,n_y}$, while the bottom-right inset displays Laguerre--Gaussian modes $\mathcal{L}_{n,l}$. All mode amplitudes are normalised such that the peak of the fundamental Gaussian mode reaches unity.}
+	\label{cavitymodestheory} 
+\end{figure}
+While the general features of the measured transverse modes align well with the theoretical predictions, the observed Hermite--Gaussian patterns appear slightly distorted compared to their simulated counterparts. The measured profiles are more accurately described by even Ince--Gaussian modes with finite ellipticity $\epsilon < \infty$, rather than by Hermite--Gaussian modes with $\varepsilon \to \infty$. Regarding the Laguerre--Gaussian modes, the characteristic ring-like intensity profile of the $\mathcal{L}_{1,0}$ mode in \autoref{cavitymodes} arises from the underlying phase, which advances continuously as a function of the azimuthal coordinate, forming a $2\pi$ vortex as seen in \autoref{cavitymodestheory}. The destructive interference at the centre caused by this phase singularity leads to the observed intensity dip.
 
 \end{document}
