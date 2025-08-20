@@ -10,8 +10,137 @@
 \addcontentsline{toc}{chapter}{Appendices}%
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 
+\chapter[Cavity-mediated entanglement of single atoms]{Cavity-mediated entanglement of\\single atoms}
+\label{app:cavityentanglement}
+A standard approach for entangling two distant atoms relies on the interference of narrow-band indistinguishable photons, emitted from two atom-cavity systems.
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=1\textwidth]{entangle.pdf}};
+	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+	
+	
+	
+	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=55mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.305,0.215-0.05) {\footnotesize\textcolor{markgrijs}{$ \color{markgrijs} \ket{\Psi}_\text{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) $}};
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=55mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.305,0.0850-0.05) {\footnotesize\textcolor{markgrijs}{$ \color{white} \ket{\Psi}_\text{ap} \color{markgrijs}= \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_x\!\ket{V} + \ket{\uparrow}_x\!\ket{H} \! \big)$}};
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.165+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\downarrow}_z\!$}};	
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.262+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\uparrow}_z\!$}};		
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=3mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.15+0.072,0.717) {\footnotesize\textcolor{markviesblauw}{$ \sigma^+$}};	
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=3mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.265+0.072,0.717) {\footnotesize\textcolor{markviesblauw}{$ \sigma^-$}};	
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.209+0.072,0.717) {\footnotesize\textcolor{markrood}{$ \pi$}};	
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=60mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.76,0.215-0.05) {\footnotesize\textcolor{markgrijs}{\color{markgrijs} $1.$\quad$\ket{\Psi^+}_\text{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x + \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) $}};
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=60mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.76,0.085-0.05) {\footnotesize\textcolor{markgrijs}{\color{markgrijs} $2.$\quad $\ket{\Psi^-}_\text{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x - \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) $}};
+	
+	
+	\node[markgrijs] at (0.542+0.055, 0.76) {\footnotesize \text{a}};
+	\node[markgrijs] at (0.542+0.055, 0.415) {\footnotesize \text{a}};
+	\node[markgrijs] at (0.542+0.08+0.055, 0.76+0.05) {\footnotesize \text{p}};
+	\node[markgrijs] at (0.542+0.08+0.055, 0.415+0.05) {\footnotesize \text{p}};
+	
+	\node[markgrijs] at (0.92, 0.4) {\footnotesize $1$};
+	\node[markgrijs] at (0.96, 0.4) {\footnotesize $2$};
+	
+	\node[markgrijs] at (0.07+0.06, 0.92) {\footnotesize \ce{5\!^2P_{\sfrac{3}{2}}}};
+	
+	\node[markgrijs] at (0.07+0.06, 0.535) {\footnotesize \ce{5\!^2S_{\sfrac{1}{2}}}};
+	
+	
+	\node[markgrijs] at (0.37+0.072, 0.496) {\footnotesize $F=1$};
+	\node[markgrijs] at (0.37+0.072, 0.57) {\footnotesize $F=2$};
+	\node[markgrijs] at (0.33+0.072, 0.92) {\footnotesize $F'=1$};
+	
+	\node[markgrijs] at (0.775, 0.595) {\footnotesize $\sfrac{\lambda}{2}$};
+	\node[markgrijs] at (0.798, 0.54) {\footnotesize $\sfrac{\lambda}{4}$};
+	
+	\node[markgrijs] at (0.775, 0.77) {\footnotesize $\sfrac{\lambda}{2}$};
+	\node[markgrijs] at (0.798, 0.77+0.055) {\footnotesize $\sfrac{\lambda}{4}$};
+	
+	\node[markgrijs] at (0.735, 0.685) {\tiny BS};
+	
+	\node[markgrijs] at (0.83, 0.685+0.222) {\tiny PBS};
+	\node[markgrijs] at (0.83, 0.685-0.222) {\tiny PBS};
+	
+	\node[markgrijs] at (0.882, 0.685+0.14) {\tiny PD};
+	\node[markgrijs] at (0.882, 0.685-0.14) {\tiny PD};
+	
+	
+	\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.5,0.95) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.05,0.21) {\footnotesize\sc (c)};
+	
+	
+	%\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
+	%anchor=base, very thick, draw=markviesblauw, fill=markviesblauw, align=center] at (0.4,0.385) {\small\textcolor{white}{\textbf{a}}};
+	
+	%\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
+	%anchor=base, very thick, draw=markviesblauw, fill=markviesblauw, align=center] at (0.4,0.235) {\small\textcolor{white}{\textbf{b}}};
+	
+	%\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
+	%anchor=base, very thick, draw=markviesblauw, fill=markviesblauw, align=center] at (0.465,0.385) {\small\textcolor{white}{\textbf{c}}};
+	
+	%\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
+	%anchor=base, very thick, draw=markviesblauw, fill=markviesblauw, align=center] at (0.465,0.235) {\small\textcolor{white}{\textbf{d}}};
+	
+	\end{scope}
+	\end{tikzpicture}
+	\caption[Cavity-mediated entangling scheme for two \ce{^87Rb} atoms]{Entangling scheme for two \ce{^87Rb} atoms. Each atom undergoes vacuum-stimulated Raman adiabatic passage \textsc{(a)}, which results in an atom-photon entangled state denoted by $\ket{\Psi}_\text{ap}$. A bell state measurement of the emitted photon pair \textsc{(b)} projects the atoms onto a maximally entangled state \textsc{(c)}.} 
+	\label{fig:entangle} 
+\end{figure}
+\autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the \ce{5\!^2S_{\sfrac{1}{2}}} ground level. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the \ce{5\!^2P_{\sfrac{3}{2}}} excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z := \ket{F=1,m_F=-1}$ or $\ket{\uparrow}z := \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following entangled state
+\begin{equation}
+\color{black} \ket{\Psi}_\text{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) \,.
+\end{equation}
+Via the Hong–Ou–Mandel effect \cite{HOM}, a Bell-state measurement on the two photons projects the atoms onto one of two maximally entangled states:
+\begin{equation}
+\begin{split}
+\color{black} \ket{\Psi^+}_\text{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x + \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) \,, \\ \color{black} \ket{\Psi^-}_\text{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x - \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) \,.
+\end{split}
+\end{equation}
+Which of these specific Bell states is realised depends on the pair of detectors registering a coincidence event as indicated by the numbers in \autoref{fig:entangle}. This constitutes a probabilistic procedure, as it relies on a projective measurement
+\begin{wrapfigure}[9]{l}{0.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.45\textwidth]{cavity.pdf}};
+	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+	
+	%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+	%\node[] at (0.16,1.05) {\small\textcolor{markgoud}{$B$}};
+	\node[] at (0.33,0.03) {\footnotesize\textcolor{markgrijs}{$V\rightarrow \sigma^++\sigma^-$}};
+	\node[] at (0.33,0.18) {\footnotesize\textcolor{markdiepblauw}{$H\rightarrow \pi$}};
+	\node[] at (0.75,0.33) {\footnotesize\textcolor{markrood}{$\sigma^+$}};
+	\node[] at (0.87,0.33) {\footnotesize\textcolor{markrood}{$\sigma^-$}};
+	\end{scope}
+	\end{tikzpicture}
+	\caption[The quantisation direction and supported polarisation modes in an optical cavity]{The quantisation direction (red) is along the axis of an optical cavity, which only supports the $\sigma^+$ and $\sigma^-$ polarisation modes. A perpendicular laser (blue) drives $\pi$ and $\sigma^+/\sigma^-$ transitions for horizontally and vertically polarised light, respectively.} 
+	\label{fig:cavity} 
+\end{wrapfigure}
+of the emitted photon pair. Deterministic schemes include the direct absorption of a photon emitted by one atom into a cavity mode coupled to a second atom. In the ideal impedance-matched regime, this transfers the photonic excitation with unit probability, mapping it onto the second atom and thereby generating entanglement between the emitters \cite{Cirac1997,Dilley2012}. Another approach for two neutral atoms trapped inside the same cavity is the carving technique, in which weak photon pulses are reflected from the cavity to remove the separable components of an initialised two-atom state \cite{Welte2017}.
+
 \chapter{Stochastic cavity loading}
-\label{appendixA}
+\label{app:stochasticcavityloading}
 For a total number of atoms $N$ in a control volume $V$ (see \autoref{volume}), the probability $P(N,n,\alpha)$ that $n$ atoms occupy the cavity mode volume $\delta V$ is given by the binomial distribution:
 \begin{equation}
 \label{binomial}
@@ -49,12 +178,7 @@ Using \autoref{binomial}, $\chi$ can be rewritten in terms of the total number o
 \begin{equation}
 \chi(N)=\frac{N}{N-1}\,.
 \end{equation}
-Note that in an experiment that involves stochastic cavity loading, which is the case for an atomic fountain, $N\gg1$, which implies that $\chi(N)\approx1$. This means that double loading of one cavity is as likely to occur as single atom loading in both cavities. Thus, one cannot be certain about the loading configuration in the event of a two-photon detection.
-
-\chapter{Some Appendix}
-
-
-
+In an experiment that involves stochastic cavity loading, which is the case for an atomic fountain, $N\gg1$, which implies that $\chi(N)\approx1$. This means that double loading of one cavity is as likely to occur as single atom loading in both cavities. Thus, one cannot be certain about the loading configuration in the event of a two-photon detection.
 
 \chapter{Some Appendix}
 Let $x_{i, j}$ denote the $j$-th data point in the $i$-th group which has $n_{i}$ data points. There are $N$ such groups and thus a total of $\sum_{i=1}^{N} n_{i}=n$ data points. If the sample mean and sample variance of the $i$-th group are $m_{i}$ and $v_{i}$ respectively, then we have

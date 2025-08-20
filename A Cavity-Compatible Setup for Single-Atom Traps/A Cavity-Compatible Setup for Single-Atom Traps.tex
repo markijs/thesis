@@ -2,79 +2,40 @@
 
 \begin{document}
 
-\graphicspath{ {"Cavity-Compatible Trapping Architectures/figs/"} }
-\pgfplotsset{table/search path={"Cavity-Compatible Trapping Architectures/data/"}}
+\graphicspath{ {"A Cavity-Compatible Setup for Single-Atom Traps/figs/"} }
+\pgfplotsset{table/search path={"A Cavity-Compatible Setup for Single-Atom Traps/data/"}}
 
-\chapter{Cavity-Compatible Trapping Architectures}
+\chapter[A Cavity-Compatible Setup for Single-Atom Traps]{A Cavity-Compatible Setup for\\Single-Atom Traps}
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:CavityCompatibleTrappingArchitectures}
+In this chapter, we present the design and implementation of a mechanical assembly comprising a high-finesse optical resonator, a tightly focused optical dipole trap and a compact cold-atom source based on a pyramidal magneto-optical trap (MOT). Following an introduction that sets the broader context for cavity-compatible atom trapping, we discuss the general mounting structure in \autoref{sec:mounting_structure}, where we first provide an overview of its geometry and integration constraints, before presenting a detailed mechanical stability and vibration analysis to ensure reliable operation in an ultra-high vacuum environment. In \autoref{sec:pyramidal_mot}, we describe the pyramidal MOT, starting from its basic operating principle and continuing with an analysis of aperture diffraction effects, the fabrication of the right-angle prism mirrors and the methods used for cold-atom detection. The chapter closes with a summary of the main design choices and implications for future work on intra-cavity single-atom trapping.
+\section{Introduction}
+Efficient atom-photon interfaces are a key enabling technology for quantum information processing. In particular, their potential for deterministic single-photon generation and the distribution of remote entanglement across a quantum network. As discussed in \autoref{chap:TheoryandDesignofanOpticalResonator}, the atom-photon coupling can be strengthened significantly by placing the emitter in a high-finesse optical cavity. This supports deterministic photon emission into a single mode of the radiation field through what is known as the Purcell effect \cite{Purcell1946}. The potential of a cavity-enhanced atom-photon interface for the delivery of single photons and distributed entanglement has been demonstrated using an atomic fountain, by means of which \ce{^87Rb} atoms are stochastically loaded into a high-finesse optical cavity \cite{Barrett2019}. In this case, the loading efficiency is deliberately kept low to suppress the likelihood of multi-atom occupancy within the resonator, which limits the interaction time and hence the photon generation efficiency. This is further limited by the transient nature of atomic loading in this experiment, which gives rise to time-dependent coupling strengths and a finite time frame for the repeated execution of V-STIRAP. In addition, stochastic loading becomes ineffective when multiple cavities must be loaded simultaneously---a requirement for realising entanglement protocols based on the inference of indistinguishable photons emitted from separate atom-cavity systems (see \autoref{app:cavityentanglement}). This follows from the fact that the likelihood of loading two cavities at the same time is comparable to the likelihood of finding two atoms within the mode volume of a single resonator (see \autoref{app:stochasticcavityloading}).
 
-\section{CAVITY MOUNTING FINGER DESIGN}
-\subsection{Overview}
-\subsection{Structural analysis}
-In the current setup for cavity-assisted photon generation \cite{Barrett2019}, atoms are loaded stochastically into the cavity mode via an atomic fountain. However, the cavity used in that experiment (with a geometry as shown in \autoref{fig:cavity}) is not compatible with holographic optical tweezers, since its mirrors are relatively large ($\diameter \SI{1.5}{\milli\meter}$) in comparison to the length of the cavity (\SI{339}{\micro\meter}). These dimensions imply that the full accessible angle of this cavity is \ang{25.5}, whereas the trapping light would propagate through the glass cell at nearly the full acceptance angle of the high numerical aperture lens, which is \ang{73.7}. A new cavity is under construction which consists of two truncated square pyramids of silica. An important difference is that the surfaces of truncation are much smaller ($\SI{300}{\micro\meter}\times\SI{300}{\micro\meter}$). This implies that for a similar cavity length ($\sim\SI{300}{\micro\meter}$), the new design would feature a full accessible angle of \ang{90}, which is compatible with the current optical tweezers. Another difference is the method of cavity mirror fabrication. In the current design, the macroscopic silica substrates are super-polished, which means that these mirrors can have exceptionally low losses ($\sim\SI{2}{ppm}$). The disadvantage of this technique is that it results in a relatively large radius of curvature (\SI{50}{\milli\meter}) and mirror diameter. An alternative approach involves the use of intense \ce{CO2} laser pulses to ablate Gaussian micro-dimples onto the end facets of optical fibres \cite{Hunger2010}, which yields a much smaller radius of curvature (\SI{200}{\micro\meter} within a range varying from \SI{50}{\micro\meter} to \SI{1}{\milli\meter}) that can enable a smaller mode volume and therefore higher cooperativity. However, fibre-based optical microcavities can be difficult to stabilise due to the limited mass of the fibre and the fact that the cavity facets are always under some tension from the rest of the structure \cite{Janitz2017}. Another complication is the limited spatial mode matching between the cavity mode and the input/output modes of the fibre. In the new cavity design, the ablation is performed on the truncated surfaces of the macroscopic silica bases for increased stability and improved mode matching, whilst incorporating the advantages of an ablated mirror surface.
+While such platforms constitute excellent test beds, probabilistic loading fundamentally limits scalability. To maximise the single-atom occupation probability of an optical resonator, an atom can be confined in a tightly focused optical dipole trap operating in the collisional blockade regime (see \autoref{collisionalblockade}). By employing holographic optical tweezer arrays, multiple atoms can be positioned with high precision within the cavity mode, enabling simultaneous coupling of several emitters. Alternatively, such arrays can act as a quantum register, where individual atoms are stored outside the mode volume and dynamically shuttled in and out to interact with the cavity field as required.
 
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"finger"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
-			% labels
-			\node[align=center, rotate=0] at (0.05,0.9) {\footnotesize\sc (a)};
-			\node[align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (b)};
-			\node[align=center, rotate=0] at (0.67,0.42) {\footnotesize\sc (c)};
-			
-		\end{scope}
-		
-	\end{tikzpicture}
-	\caption[Cavity mounting finger and integration into the vacuum system]{Cavity mounting finger and integration into the vacuum system. \textsc{(a)} The cavity mounting finger, which is designed to secure the cavity module with six screws. A small mount inserted from the side holds four mirrors in a pyramidal configuration to form a pyramid MOT from which to load the dipole trap. The insets on the right illustrate the assembly of the pyramid MOT mirrors within the mount. The mounting finger features multiple openings to provide optical access for (horizontal) cooling and (vertical) trapping beams. \textsc{(b)} Integration of the cavity mounting finger into the vacuum system. A cuboid glass cell encloses the mounting finger, which is bolted to a flange attached to the vacuum chamber. This flange also secures the mounting finger with six smaller bolts (see inset). \textsc{(c)} A partial view of the mounting finger inside the glass cell, showing a pair of high-NA lenses that focus and recollimate the trapping beam (shown in red).}
-	\label{fingeroverview} 
-\end{figure}
+One challenge with this approach, however, is that direct loading of the dipole traps from a MOT is often impractical due to the restricted optical access for the MOT beams in the space between the cavity mirrors. Instead, the MOT cloud must be positioned in the vicinity of the cavity, from which atoms are subsequently transported into the trapping region inside the resonator. A number of such approaches have been implemented, including funnelling atoms from an atomic fountain into the cavity using blue-detuned cavity modes \cite{Puppe2007}, guiding atoms from a static MOT with a single red-detuned beam \cite{Numann2005} and employing an optical lattice as a conveyor belt for atom transport \cite{Gallego2018,Schrader2001}.
 
+Here, our approach for a cavity-compatible cold-atom source is based on the pyramidal MOT concept first introduced in 1996 \cite{Lee1996}. In this geometry, four reflective facets form a hollow pyramid that redirects a single incident cooling beam to create a compact three-dimensional trap. When configured with a small aperture at the apex, this setup can produce a continuous beam of cold atoms emanating along the pyramid axis \cite{Arlt1998,Williamson1998}. When directed towards the trapping region between the cavity mirrors, the atomic beam serves to load the intra-cavity dipole traps. In the sections that follow, we examine the design choices and engineering considerations underpinning a modular apparatus that integrates the optical resonator presented in \autoref{chap:TheoryandDesignofanOpticalResonator}, a pyramidal MOT cold-atom source and single-atom dipole traps.
 
+\section{Mounting structure}
+\label{sec:mounting_structure}
+The central component of the cavity-compatible trapping setup is a rigid mounting structure which secures the cavity module whilst also accommodating the in-vacuum optics for the pyramidal MOT source inside a glass cell. This section outlines the design principles and overall layout of the assembly and evaluates its stability through detailed mechanical and vibrational analysis, with reference to an earlier mounting design for a fibre-tip optical resonator.
+
+\subsection{Mechanical stability of a Fabry--Pérot resonator}
+\label{subsec:mechanicalstab}
+Fabry--Pérot resonators underpin a wide range of applications, from cavity optomechanical sensing \cite{Aspelmeyer2014} and gravitational-wave detection \cite{Abbott2016} to optical clocks \cite{Hinkley2013} and CQED experiments \cite{Mabuchi2002,Birnbaum2005,Steiner2013}. In all these contexts, active stabilisation of the cavity length is essential to suppress environmental fluctuations and maintain resonance. This is achieved by locking to an external frequency reference via feedback to the actuators that control the mirror positions. The usable feedback bandwidth is ultimately constrained by the mechanical response of the resonator assembly, since sharp vibrational resonances in the mirrors or their mounts directly affect the control loop and reduce stability.
+
+A variety of approaches have been explored to improve the mechanical stability of Fabry--Pérot cavities, especially in the fields of laser frequency stabilisation and interferometry \cite{Notcutt2005,Briles2010,Sinclair2015}. For CQED experiments, however, the constraints of compact UHV environments limit the direct use of such damping or mounting strategies. Active suppression methods, for instance employing digital filters to cancel mechanical resonances within feedback loops \cite{Ryou2017}, can provide improvements, but add considerable complexity to the stabilisation system. A more robust solution is to design the cavity assembly for passive stability from the outset, reducing the presence of low-frequency resonances that would otherwise need to be actively compensated. Previous work has shown that resonances can be shifted to higher frequencies and suppressed in quality factor by maximising stiffness and introducing damping in the mounting structure \cite{Briles2010, Sinclair2015}. For the glass-substrate Fabry--Pérot resonator introduced in \autoref{chap:TheoryandDesignofanOpticalResonator}, we pursue passive stability by maximising the steel mass that can be accommodated within the compact glass cell and by introducing geometric irregularities in the mount to avoid degenerate mechanical modes. Before presenting the design and modal frequency response analysis of this mount, we first examine an earlier-generation fibre-tip resonator and its corresponding mount. The following three sections characterise this fibre-tip system through simulated modal frequency response, assessment of passive stability under environmental noise and measurement of the actuator transfer function, providing a basis for comparison.
+
+\subsection{Modal frequency response analysis of a fibre-tip resonator mount}
+The modal frequency response of the fibre-tip resonator mount is evaluated through finite-element modelling, implemented in Autodesk Inventor using the Nastran solver.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=1 by 3, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
-	
-	\iffalse
-	\nextgroupplot
-	[
-	ylabel={},
-	xmin=0, xmax=1,
-	ymin=0, ymax=1,
-	xticklabels={,\textcolor{white}{0},},
-	yticklabels={,,},
-	%legend pos=north west,
-	ymajorgrids=true,
-	xmajorgrids=true,
-	grid style=dashed,
-	%axis lines=none,        % No axis lines
-	%tick style=none,        % No ticks
-	%xtick=\empty,           % No x-axis ticks
-	%ytick=\empty,           % No y-axis ticks
-	xlabel={},              % No x-axis label
-	ylabel={},              % No y-axis label
-	%enlargelimits=true,     % Keeps the plot within the bounds
-	]
-	
-	\addplot graphics [
-	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
-	ymin=0, ymax=1    % Stretch to fit the y-axis limits
-	] {FINALFINGER.png};
-	\fi
-	
-	
+	\begin{groupplot}[group style={group size=1 by 3, vertical sep=0.5cm},xmin=0,ymin=0,height=4cm,width=13.5cm,no markers]
 	\nextgroupplot
 	[
 	ymode=log,
@@ -141,13 +102,13 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = xzero and xfive,
 	]; 
 	
-	\node at (rel axis cs: 0.52, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
+	\node at (rel axis cs: 0.52, 0.6) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
 	
 	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{0.1}{\percent}$}
 	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{1}{\percent}$}
 	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{5}{\percent}$}
 	
-	\draw[<->] (rel axis cs: 0.64, 0.8) --++ (150:0.5cm);
+	\draw[<->] (rel axis cs: 0.64, 0.75) --++ (150:0.5cm);
 	\node[align=left] at (rel axis cs: 0.632, 0.88) {\footnotesize $x$};
 	
 	\nextgroupplot
@@ -216,13 +177,13 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = yzero and yfive,
 	]; 
 	
-	\node at (rel axis cs: 0.52, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
-
+	\node at (rel axis cs: 0.52, 0.6) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
+	
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{0.1}{\percent}$}
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{1}{\percent}$}
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{5}{\percent}$}
 	
-	\draw[<->] (rel axis cs: 0.605, 0.81) --++ (30:0.5cm);
+	\draw[<->] (rel axis cs: 0.605, 0.76) --++ (30:0.5cm);
 	\node[align=left] at (rel axis cs: 0.615, 0.895) {\footnotesize $y$};
 	
 	\nextgroupplot
@@ -290,9 +251,9 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = zzero and zfive,
 	]; 
 	
-	\node at (rel axis cs: 0.52, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
-
-	\draw[<->] (rel axis cs: 0.615, 0.79) --++ (90:0.5cm);
+	\node at (rel axis cs: 0.52, 0.6) [anchor=center] {\includegraphics[width=3.5cm]{MARWANFINGERtrans.png}};
+	
+	\draw[<->] (rel axis cs: 0.615, 0.74) --++ (90:0.5cm);
 	\node[align=left] at (rel axis cs: 0.635, 0.86) {\footnotesize $z$};
 	
 	
@@ -301,7 +262,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	
 	
 	\end{tikzpicture}
-	\caption[Modal frequency response analysis for fibre-tip cavity mounting structure]{Modal frequency response analysis for fibre-tip cavity mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
+	\caption[Modal frequency response analysis of the fibre-tip resonator mounting structure]{Modal frequency response analysis of the fibre-tip resonator mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
 	\label{freqresponseMarw} 
 \end{figure}
 
@@ -384,37 +345,38 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 		\caption{}
 		\label{b}
 	\end{subfigure}
-\\
-\begin{subfigure}[b]{.45\linewidth}
-	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) at (0,0) {\includegraphics[width=5cm] {7F.png}};;
-	\begin{scope}[x={(image.south east)},y={(image.north west)}]
-	\node at (0.3, 0.7) {\footnotesize \SI{6643}{\hertz}};
-	\end{scope}
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{a}
-\end{subfigure}
-\begin{subfigure}[b]{.45\linewidth}
-	\begin{tikzpicture}
-	\centering
-	\node[inner sep=0] (image) at (0,0) {\includegraphics[width=5cm] {8F.png}};;
-	\begin{scope}[x={(image.south east)},y={(image.north west)}]
-	\node at (0.3, 0.7) {\footnotesize \SI{6935}{\hertz}};
+	\\
+	\begin{subfigure}[b]{.45\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) at (0,0) {\includegraphics[width=5cm] {7F.png}};;
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+		\node at (0.3, 0.7) {\footnotesize \SI{6643}{\hertz}};
+		\end{scope}
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{a}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\linewidth}
+		\begin{tikzpicture}
+		\centering
+		\node[inner sep=0] (image) at (0,0) {\includegraphics[width=5cm] {8F.png}};;
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+		\node at (0.3, 0.7) {\footnotesize \SI{6935}{\hertz}};
 		\draw[->] (1, 0.15) --++ (90:0.5cm) node[above, anchor=south] {\footnotesize $z$};
-\draw[->] (1, 0.15) --++ (150:0.5cm) node[above, anchor=base] {\footnotesize  $x$\,\, \phantom{x}};
-\draw[->] (1, 0.15) --++ (210:0.5cm) node[above, anchor=mid] {\footnotesize $y$\,\, \phantom{x}};
-	\end{scope}
-	\end{tikzpicture}
-	\centering
-	\caption{}
-	\label{b}
-\end{subfigure}
-	\caption[Normal modes below \SI{10}{\kilo\hertz} for fibre-tip cavity mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} for the fibre-tip cavity mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseMarw}.}
+		\draw[->] (1, 0.15) --++ (150:0.5cm) node[above, anchor=base] {\footnotesize  $x$\,\, \phantom{x}};
+		\draw[->] (1, 0.15) --++ (210:0.5cm) node[above, anchor=mid] {\footnotesize $y$\,\, \phantom{x}};
+		\end{scope}
+		\end{tikzpicture}
+		\centering
+		\caption{}
+		\label{b}
+	\end{subfigure}
+	\caption[Normal modes below \SI{10}{\kilo\hertz} of the fibre-tip resonator mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} of the fibre-tip resonator mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseMarw}.}
 	\label{marwanmodes}
 \end{figure}
+
 
 \begin{table}[h]
 	\centering
@@ -436,16 +398,18 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 		{Total} & 24.8574 & 8.5251 & 26.2227 & 91.9425 & 5.9831 & 91.5980 \\
 		\bottomrule
 	\end{tabular}
-\caption[Percentages of modal effective mass for cavity (fibre-tip) mounting structure]{Modal effective mass participation for the first 10 modes of the cavity (fibre-tip) mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
+	\caption[Percentages of modal effective mass for the fibre-tip resonator mounting structure]{Modal effective mass participation for the first 10 modes of the fibre-tip resonator mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
 	\label{modeparticipationM}
 \end{table}
+
+\subsection{Passive stability of a fibre-tip resonator}
 
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
 	
-
+	
 	
 	\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm, y descriptions at=edge right,},xmin=0,ymin=0,height=5.5cm,width=12cm,no markers,]
 	
@@ -593,9 +557,11 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Power spectral density of the fibre-tip cavity transmission signal at \SI{1064}{\nano\meter}]{Power spectral density of the fibre-tip cavity transmission signal at \SI{1064}{\nano\meter}. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}]{Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
 	\label{PSD} 
 \end{figure}
+
+\subsection{Actuator transfer function of a fibre-tip resonator}
 
 \begin{figure}[!t]
 	%\vspace{0.7em}
@@ -604,14 +570,14 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	
 	
 	
-	\begin{groupplot}[group style={group size=1 by 2, vertical sep=1cm, y descriptions at=edge right,},xmin=0,ymin=0,height=5.5cm,width=12cm,no markers,]
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.5cm, y descriptions at=edge right,},xmin=0,ymin=0,height=4.5cm,width=12cm,no markers,]
 	
 	\nextgroupplot
 	[
 	ymode=log,
 	ymin=7e-1,
 	ymax=1e4,
-	ylabel style=markgrijs,
+	ylabel style={markgrijs, xshift=-4em},
 	yticklabel style=markgrijs,
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency (\si{\kilo\hertz})},
@@ -654,7 +620,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	\draw[color=markgrijs, dashed] 
 	(axis cs:6.935, 7e-1) -- (axis cs:6.935, 40000);
 	
-	
+	\iffalse
 	
 	\pgfplotsset{
 		after end axis/.append code={
@@ -669,6 +635,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 		}
 	}
 	
+	\fi
 	
 	
 	\addplot[
@@ -713,7 +680,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	yticklabel style=markgrijs,
 	%ymin=1e-2, ymax=1e0,
 	xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={Max. accel. (\si{\milli\meter\per\second\squared})},
+	%ylabel={Max. accel. (\si{\milli\meter\per\second\squared})},
 	xmin=0, xmax=10,
 	ytick pos=right,
 	%ymin=-0.1, ymax=1.1,
@@ -803,7 +770,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	
 	\end{groupplot}
 	
-	\begin{groupplot}[group style={group size=1 by 2, vertical sep=1cm,y descriptions at=edge left},xmin=0,ymin=0,height=5.5cm,width=12cm,no markers]
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.5cm,y descriptions at=edge left},xmin=0,ymin=0,height=4.5cm,width=12cm,no markers]
 	
 	\nextgroupplot
 	[
@@ -888,17 +855,47 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	\end{groupplot}
 	
 	\end{tikzpicture}
-\caption[Magnitude and phase of the transfer function corresponding to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip cavity]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\omega)$ corresponding to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip cavity that is driven sinusoidally with a single sheer piezo. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
-\label{transferfunction} 
+	\caption[Magnitude and phase of the transfer function that corresponds to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip resonator]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\omega)$ that corresponds to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip resonator that is driven sinusoidally with a single sheer piezo. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
+	\label{transferfunction} 
 \end{figure}
 
+\subsection{Design of a glass-substrate resonator mount}
+\label{subsec:mountingoverview}
+The mounting structure, shown in \autoref{fig:fingeroverview}, is precision-machined from 316LN stainless steel and houses the cavity module (see \autoref{cavitymodulesection}), which slides in through the central square aperture and is fixed at the correct position with six countersunk screws. In addition, the mounting structure hosts a compact pyramidal mirror assembly (see \autoref{sec:pyramidal_mot}), held in place by a custom aluminium holder inserted from the side.
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[remember picture]
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"finger"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	% labels
+	\node[align=center, rotate=0] at (0.05,0.9) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.67,0.42) {\footnotesize\sc (c)};
+	
+	\end{scope}
+	
+	\end{tikzpicture}
+	\caption[Cavity mounting structure and integration into the vacuum system]{Cavity mounting structure and integration into the vacuum system. \textsc{(a)} The cavity mounting structure is designed to secure the cavity module with six screws. A small mount inserted from the side holds four mirrors in a pyramidal configuration to form a MOT from which to load the dipole trap. The insets on the right illustrate the assembly of the pyramidal MOT mirrors within the mount. The mounting structure features multiple openings to provide optical access for (horizontal) cooling and (vertical) trapping beams. \textsc{(b)} Integration of the cavity mounting structure into the vacuum system. A cuboid glass cell encloses the mounting structure, which is bolted to a flange attached to the vacuum chamber. This flange also secures the mounting structure with six smaller bolts (see inset). \textsc{(c)} A partial view of the mounting structure inside the glass cell, showing a pair of high-NA lenses that focus and recollimate the trapping beam (shown in red).}
+	\label{fig:fingeroverview} 
+\end{figure}
+Multiple apertures are machined into the mount to allow optical access for horizontal cooling beams, the vertically propagating trapping beam and cavity coupling beams. The entire structure is enclosed in a cuboid glass cell equipped with an anti-reflective coating as discussed in \autoref{setupoverview}. Both the mounting structure and glass cell are secured to a custom vacuum flange with two sets of six bolts.
+
+\subsection{Modal frequency response analysis of a glass-substrate resonator mount}
 
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
 	\begin{tikzpicture}
 	
-	\begin{groupplot}[group style={group size=1 by 3, vertical sep=1cm},xmin=0,ymin=0,height=5.5cm,width=13.5cm,no markers]
+	\begin{groupplot}[group style={group size=1 by 3, vertical sep=0.5cm},xmin=0,ymin=0,height=4cm,width=13.5cm,no markers]
 	
 	\iffalse
 	\nextgroupplot
@@ -992,13 +989,13 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = xzero and xfive,
 	]; 
 	
-	\node at (rel axis cs: 0.37, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{FINALFINGERtrans.png}};
+	\node at (rel axis cs: 0.39, 0.55) [anchor=center] {\includegraphics[width=3.1cm]{FINALFINGERtrans.png}};
 	
 	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{0.1}{\percent}$}
 	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{1}{\percent}$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{5}{\percent}$}
 	
-	\draw[<->] (rel axis cs: 0.54, 0.8) --++ (150:0.5cm);
+	
+	\draw[<->] (rel axis cs: 0.54, 0.75) --++ (150:0.5cm);
 	\node[align=left] at (rel axis cs: 0.532, 0.88) {\footnotesize $x$};
 	
 	\nextgroupplot
@@ -1037,11 +1034,13 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	\node[align=center] at (axis cs: 8.530, 13) {\footnotesize\sc f};
 	
 	\addplot[
+	forget plot,
 	color=markrood,
 	name path=ypointone,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_y_01.csv};
 	
 	\addplot[
+	forget plot,
 	color=rainbow2of8,
 	name path=yone,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{F_y_1.csv};
@@ -1065,13 +1064,15 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = yzero and yfive,
 	]; 
 	
-	\node at (rel axis cs: 0.37, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{FINALFINGERtrans.png}};
+	\node at (rel axis cs: 0.39, 0.55) [anchor=center] {\includegraphics[width=3.1cm]{FINALFINGERtrans.png}};
 	
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{0.1}{\percent}$}
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{1}{\percent}$}
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{5}{\percent}$}
 	
-	\draw[<->] (rel axis cs: 0.505, 0.81) --++ (30:0.5cm);
+	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{5}{\percent}$}
+	
+	\draw[<->] (rel axis cs: 0.505, 0.76) --++ (30:0.5cm);
 	\node[align=left] at (rel axis cs: 0.515, 0.895) {\footnotesize $y$};
 	
 	\nextgroupplot
@@ -1137,9 +1138,9 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	of = zzero and zfive,
 	]; 
 	
-	\node at (rel axis cs: 0.37, 0.65) [anchor=center] {\includegraphics[width=3.5cm]{FINALFINGERtrans.png}};
+	\node at (rel axis cs: 0.39, 0.55) [anchor=center] {\includegraphics[width=3.1cm]{FINALFINGERtrans.png}};
 	
-	\draw[<->] (rel axis cs: 0.515, 0.79) --++ (90:0.5cm);
+	\draw[<->] (rel axis cs: 0.515, 0.74) --++ (90:0.5cm);
 	\node[align=left] at (rel axis cs: 0.535, 0.86) {\footnotesize $z$};
 	
 	%\addlegendentry{\small \hspace{0.3em} $G=\SI{0.1}{\percent}$}
@@ -1151,10 +1152,9 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 	
 	
 	\end{tikzpicture}
-	\caption[Modal frequency response analysis for glass-substrate cavity mounting structure]{Modal frequency response analysis for glass-substrate cavity mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
+	\caption[Modal frequency response analysis of the glass-substrate resonator mounting structure]{Modal frequency response analysis of the glass-substrate resonator mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
 	\label{freqresponseFF} 
 \end{figure}
-
 
 
 \begin{figure}[t]
@@ -1237,7 +1237,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 		\caption{}
 		\label{b}
 	\end{subfigure}
-	\caption[Normal modes below \SI{10}{\kilo\hertz} for glass-substrate cavity mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} for the glass-substrate cavity mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseFF}.}
+	\caption[Normal modes below \SI{10}{\kilo\hertz} of the glass-substrate resonator mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} of the glass-substrate resonator mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseFF}.}
 	\label{FFmodes}
 \end{figure}
 
@@ -1261,7 +1261,7 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 		{Total} & 75.1903 & 47.2232 & 74.0620 & 44.6679 & 63.2762 & 47.4645 \\
 		\bottomrule
 	\end{tabular}
-\caption[Percentages of modal effective mass for cavity (glass-substrate) mounting structure]{Modal effective mass participation for the first 10 modes of the cavity (glass-substrate) mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseFF} and \autoref{FFmodes}.}
+\caption[Percentages of modal effective mass of the glass-substrate resonator mounting structure]{Modal effective mass participation for the first 10 modes of the glass-substrate resonator mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseFF} and \autoref{FFmodes}.}
 	\label{tab:modepercentFinalfinger}   
 \end{table}
 
@@ -1271,11 +1271,28 @@ In the current setup for cavity-assisted photon generation \cite{Barrett2019}, a
 
 
 
-\section{PYRAMID MOT}
-\subsection{Introduction}
-For the operation of holographic optical tweezers inside a cavity (see \autoref{exp5}), it is not possible to load microtraps from a MOT positioned between the cavity mirrors due to limited optical access for the MOT beams. The idea is to position the MOT cloud in the neighbourhood of the cavity, from which atoms are then transported towards the focal plane of the trapping light inside the cavity. There are various methods of doing this, which include funnelling atoms ejected with an atomic fountain using a combination of blue detuned cavity modes \cite{Puppe2007}, guiding atoms from a static MOT with a single, red detuned beam \cite{Numann2005} or using an optical lattice that can act as an optical conveyor belt \cite{Gallego2018,Schrader2001}. For this experiment, we propose using an atomic fountain to load a large grid of holographic microtraps in the cavity. This will increase the capture probability from the thermally expanding cloud of atoms.
+\section{Pyramidal magneto-optical trap}
+\label{sec:pyramidal_mot}
 
 
+\iffalse
+By securing these elements on a single mount, the architecture minimises mechanical degrees of freedom, reduces alignment complexity and ensures stable spatial overlap between the atomic source, the dipole trap and the cavity mode.
+
+
+This arrangement reflects a single incident cooling beam into the standard six-beam MOT configuration, providing efficient loading of the dipole trap from a cold atomic ensemble. 
+
+
+
+
+The choice of a pyramidal MOT as the cold-atom source is motivated by its compactness, mechanical robustness, and minimal optical access requirements. Conventional MOTs use three orthogonal pairs of counterpropagating laser beams, requiring multiple independent optical elements and substantial optical access to the trapping region. While retroreflection can halve the number of independent beams, the apparatus remains relatively bulky and alignment-sensitive. In contrast, the pyramidal MOT uses a set of four mirrors in a square-based pyramidal configuration to reflect a single circularly polarised input beam into the full six-beam arrangement required for magneto-optical trapping in a spherical quadrupole magnetic field. Each pair of counterpropagating beams emerges with the correct relative circular polarisation by virtue of the $180^{\circ}$ phase shift between $s$- and $p$-components upon reflection from the mirrors. 
+
+This geometry yields balanced beam intensities at all points in the trapping volume (assuming well-aligned and identical mirrors), making efficient use of the available optical power and suppressing phase and intensity noise via common-mode rejection. Moreover, because the light returns along the incident axis, only a single optical feedthrough is required, allowing the MOT optics to be integrated entirely within the vacuum chamber. By truncating the pyramid apex to form an aperture, the configuration can be operated as a \emph{source}, in which atoms are extracted along the symmetry axis to load a downstream trap---in our case, the optical dipole trap inside the cavity mode.
+
+Integrating the pyramidal MOT directly into the cavity mounting finger offers two primary benefits: (i) the MOT is mechanically referenced to the cavity, ensuring that any long-term drifts affect both subsystems identically; and (ii) the use of a single, compact mechanical support minimises vibrational resonances and simplifies the optical layout. The remainder of this chapter describes the design considerations, mechanical analysis, and optical performance of the integrated cavity support and MOT source, beginning with the cavity mounting finger design and followed by the realisation and characterisation of the pyramidal MOT.
+
+\fi
+
+\subsection{Overview}
 
 5 - 2 * ((6. * a * t) ** (1./3.))
 
@@ -1305,11 +1322,11 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramid MOT]{Loading an intracavity dipole trap from a pyramid MOT. \textsc{(a)} A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramid MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. \textsc{(b)} The same structure viewed from the back, showing the gold-coated rear surface of the pyramid mirror mount. The location of the cross-section shown in \textsc{(c)} is indicated in light blue. \textsc{(c)} A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramid MOT.}
+	\caption[Loading an intracavity dipole trap from a pyramidal MOT]{Loading an intracavity dipole trap from a pyramidal MOT. \textsc{(a)} A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramidal MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. \textsc{(b)} The same structure viewed from the back, showing the gold-coated rear surface of the mirror holder. The location of the cross-section shown in \textsc{(c)} is indicated in light blue. \textsc{(c)} A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramidal MOT.}
 	\label{pyramidloading} 
 \end{figure}
 
-\subsection{Aperture diffraction}
+\subsection{Aperture diffraction analysis}
 
 \begin{figure}[!t]
 	\centering
@@ -1339,7 +1356,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\end{scope}
 	
 	\end{tikzpicture}
-	\caption[asdf]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction of size $a$ (right). The diffraction pattern is modelled at various distances $d$.}
+	\caption[Schematic of the pyramidal MOT mirror configuration with an apex aperture and corresponding diffraction model]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction of size $a$ (right). The diffraction pattern is modelled at various distances $d$.}
 	\label{motdiffraction} 
 \end{figure}
 
@@ -2217,7 +2234,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 	\label{mirror}
 \end{figure}
 
-\subsection{MOT detection}
+\subsection{Cold atom detection}
 
 \begin{figure}[t]
 	\centering
@@ -2241,7 +2258,7 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry--Pérot resonator]{Testbed setup for evaluating the standalone performance of a pyramid MOT before integration with a dipole trap and Fabry--Pérot resonator. \textsc{(a)} A PTFE holder secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. \textsc{(b)} Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. \textsc{(c)} The stainless steel mounting finger supports the PTFE holder and aluminium mount, keeping the assembly in place while allowing optical access for the cooling beams. \textsc{(d)} Full assembly inside the glass cell, with anti-Helmholtz coils affixed to a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
+	\caption[Test bed setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator]{Test bed setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator. \textsc{(a)} A PTFE holder secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. \textsc{(b)} Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. \textsc{(c)} The stainless steel mounting structure supports the PTFE holder and aluminium mount, keeping the assembly in place while allowing optical access for the cooling beams. \textsc{(d)} Full assembly inside the glass cell, with anti-Helmholtz coils affixed to a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
 	\label{pyramidtest} 
 \end{figure}
 
@@ -2286,9 +2303,10 @@ For the operation of holographic optical tweezers inside a cavity (see \autoref{
 		\caption{}
 		\label{motbfieldc}
 	\end{subfigure}
-	\caption[asdf]{CCD images of a pyramidal mirror configuration installed under ultra-high vacuum (UHV) and continuously illuminated with red-detuned cooling light. \textsc{(a)} Image taken at zero magnetic field ($B = 0$). \textsc{(b)} Image taken at a magnetic field gradient of $B =\SI{11.3}{\gauss\per\centi\meter}$. \textsc{(c)} Difference image obtained by subtracting \textsc{(a)} from \textsc{(b)}.}
+	\caption[Images of a pyramidal mirror configuration with and without an applied magnetic field gradient]{CCD images of a pyramidal mirror configuration installed under ultra-high vacuum (UHV) and continuously illuminated with red-detuned cooling light. \textsc{(a)} Image taken at zero magnetic field ($B = 0$). \textsc{(b)} Image taken at a magnetic field gradient of $B =\SI{11.3}{\gauss\per\centi\meter}$. \textsc{(c)} Difference image obtained by subtracting \textsc{(a)} from \textsc{(b)}.}
 	\label{motbfield}
 \end{figure}
 
+\section{Conclusion}
 
 \end{document}
