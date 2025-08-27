@@ -26,10 +26,14 @@ The central component of the cavity-compatible trapping setup is a rigid mountin
 \label{subsec:mechanicalstab}
 Fabry--Pérot resonators underpin a wide range of applications, from cavity optomechanical sensing \cite{Aspelmeyer2014} and gravitational-wave detection \cite{Abbott2016} to optical clocks \cite{Hinkley2013} and CQED experiments \cite{Mabuchi2002,Birnbaum2005,Steiner2013}. In all these contexts, active stabilisation of the cavity length is essential to suppress environmental fluctuations and maintain resonance. This is achieved by locking to an external frequency reference via feedback to the actuators that control the mirror positions. The usable feedback bandwidth is ultimately constrained by the mechanical response of the resonator assembly, since sharp vibrational resonances in the mirrors or their mounts directly affect the control loop and reduce stability.
 
-A variety of approaches have been explored to improve the mechanical stability of Fabry--Pérot cavities, especially in the fields of laser frequency stabilisation and interferometry \cite{Notcutt2005,Briles2010,Sinclair2015}. For CQED experiments, however, the constraints of compact UHV environments limit the direct use of such damping or mounting strategies. Active suppression methods, for instance employing digital filters to cancel mechanical resonances within feedback loops \cite{Ryou2017}, can provide improvements, but add considerable complexity to the stabilisation system. A more robust solution is to design the cavity assembly for passive stability from the outset, reducing the presence of low-frequency resonances that would otherwise need to be actively compensated. Previous work has shown that resonances can be shifted to higher frequencies and suppressed in quality factor by maximising stiffness and introducing damping in the mounting structure \cite{Briles2010, Sinclair2015}. For the glass-substrate Fabry--Pérot resonator introduced in \autoref{chap:TheoryandDesignofanOpticalResonator}, we pursue passive stability by maximising the steel mass that can be accommodated within the compact glass cell and by introducing geometric irregularities in the mount to avoid degenerate mechanical modes. Before presenting the design and modal frequency response analysis of this mount, we first examine an earlier-generation fibre-tip resonator and its corresponding mount. The following three sections characterise this fibre-tip system through simulated modal frequency response, assessment of passive stability under environmental noise and measurement of the actuator transfer function, providing a basis for comparison.
+A variety of approaches have been explored to improve the mechanical stability of Fabry--Pérot cavities, especially in the fields of laser frequency stabilisation and interferometry \cite{Notcutt2005,Briles2010,Sinclair2015}. For CQED experiments, however, the constraints of compact UHV environments limit the direct use of such damping or mounting strategies. Active suppression methods, for instance employing digital filters to cancel mechanical resonances within feedback loops \cite{Ryou2017}, can provide improvements, but add considerable complexity to the stabilisation system. A more robust solution is to design the cavity assembly for passive stability from the outset, reducing the presence of low-frequency resonances that would otherwise need to be actively compensated. Previous work has shown that resonances can be shifted to higher frequencies and suppressed in quality factor by maximising stiffness and introducing damping in the mounting structure \cite{Briles2010, Sinclair2015}. For the glass-substrate Fabry--Pérot resonator introduced in \autoref{chap:TheoryandDesignofanOpticalResonator}, we pursue passive stability by maximising the steel mass that can be accommodated within the compact glass cell and by introducing geometric irregularities in the mount to avoid degenerate mechanical modes.
+
+Before presenting the design and modal frequency response analysis of this mount, we first examine an earlier-generation fibre-tip resonator and its corresponding mount. The following three sections characterise this fibre-tip system through simulated modal frequency response, assessment of passive stability under environmental noise and measurement of the actuator transfer function, providing a basis for comparison.
 
 \subsection{Modal frequency response analysis of a fibre-tip resonator mount}
-The modal frequency response of the fibre-tip resonator mount is evaluated through finite-element modelling, implemented in Autodesk Inventor using the Nastran solver.
+Modal frequency response analysis is a computational technique used to predict how a structure responds dynamically to base excitations across a range of frequencies. By decomposing the system into its eigenmodes, each characterised by a natural frequency and mode shape, the method allows the evaluation of the contribution of individual modes to the overall dynamic behaviour. This approach is particularly effective for multi-degree-of-freedom (MDOF) systems, where the number of vibrational modes can be large, but only a subset significantly influences the response under typical operating conditions.
+
+The modal frequency response of the fibre-tip resonator mount is evaluated through finite-element modelling, implemented in Autodesk Inventor using the Nastran solver. The analysis uses \num{8} processor threads\footnote{Using around \num{8} threads is near optimal for this analysis. Using more threads increases overhead from distributing the calculation and does not necessarily reduce total runtime.} on an AMD Ryzen Threadripper 3990X 64-Core Processor (\SI{2.90}{\giga\hertz}) with \SI{256}{\giga\byte} of RAM. A parabolic mesh with an element size of \SI{1}{\milli\metre} is used, resulting in a total of \num{85527} elements. To capture the dominant dynamic behaviour, \num{80} modes are retained in the analysis, such that the cumulative effective modal mass reaches at least \SI{80}{\percent} of the total physical mass for each degree of freedom. The effective modal mass ratios are listed in \autoref{modeparticipationM} (see \autoref{app:effectivemodalmass}). Base excitations with an acceleration magnitude of \SI{1}{\milli\metre\per\second\squared} are enforced individually in the $x$, $y$ and $z$ directions at the mounting interface to the vacuum chamber flange. The frequency response is evaluated between \SI{0}{\kilo\hertz} and \SI{10}{\kilo\hertz} with \num{15} data points between each pair of successive modes and a bias factor of \num{3} to ensure denser sampling near the resonance frequencies. The maximum linear acceleration magnitudes of the structure for these three excitation directions are presented in \autoref{freqresponseMarw}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -265,10 +269,11 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 	\caption[Modal frequency response analysis of the fibre-tip resonator mounting structure]{Modal frequency response analysis of the fibre-tip resonator mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
 	\label{freqresponseMarw} 
 \end{figure}
-
-
-
-\begin{figure}[t]
+Three values (\SI{0.1}{\percent}, \SI{1}{\percent} and \SI{5}{\percent}) of the structural damping coefficient $G$ are considered, representing different levels of material damping. For a modal frequency response analysis in Autodesk Nastran, structural damping is defined in units of $G = 2\zeta$, where $\zeta$ is the critical damping ratio. Consequently, the effective modal damping applied is $\sfrac{G}{2}$. Literature values for steel typically report a critical damping ratio below \SI{1}{\percent} \cite[p.~500]{Adams1998}, which corresponds to $G < \SI{2}{\percent}$ in this convention.
+\startsquarepar
+The modal frequency response analysis in \autoref{freqresponseMarw} shows that the mounting structure exhibits eight vibrational modes below \SI{10}{\kilo\hertz}. The corresponding mode shapes, shown as exaggerated deformations at representative amplitude, are illustrated in \autoref{marwanmodes}. The fundamental mode at \SI{267}{\hertz} \textsc{(a)} corresponds to a first-order cantilever bending mode of the mounting arm. This mode is predominantly excited by vertical base acceleration (along the $z$-axis), while its amplitude under excitation along the $x$- and $y$-axes is comparatively minor. A distinction can be made between the even modes \textsc{(b, d, f, h)} and the odd modes \textsc{(a, c, e, g)}. The even modes are primarily excited by base acceleration along the $x$-axis, whereas the odd modes are predominantly excited along the $z$-axis and, to a lesser extent, the $y$-axis. This distinction is practically relevant because the resonator fibres are mounted on either side of the access hole for the dipole-trap beam, where structural
+\stopsquarepar
+\begin{figure}[H]
 	\vspace{0em}
 	\centering
 	\begin{subfigure}[b]{.45\linewidth}
@@ -281,7 +286,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{a}
 	\end{subfigure}
 	\begin{subfigure}[b]{.45\linewidth}
 		\begin{tikzpicture}
@@ -293,7 +297,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{b}
 	\end{subfigure}
 	\\
 	\begin{subfigure}[b]{.45\linewidth}
@@ -306,7 +309,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{c}
 	\end{subfigure}
 	\begin{subfigure}[b]{.45\linewidth}
 		\begin{tikzpicture}
@@ -318,7 +320,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{c}
 	\end{subfigure}
 	\\
 	\begin{subfigure}[b]{.45\linewidth}
@@ -331,7 +332,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{a}
 	\end{subfigure}
 	\begin{subfigure}[b]{.45\linewidth}
 		\begin{tikzpicture}
@@ -343,7 +343,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{b}
 	\end{subfigure}
 	\\
 	\begin{subfigure}[b]{.45\linewidth}
@@ -356,7 +355,6 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{a}
 	\end{subfigure}
 	\begin{subfigure}[b]{.45\linewidth}
 		\begin{tikzpicture}
@@ -371,36 +369,13 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 		\end{tikzpicture}
 		\centering
 		\caption{}
-		\label{b}
 	\end{subfigure}
 	\caption[Normal modes below \SI{10}{\kilo\hertz} of the fibre-tip resonator mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} of the fibre-tip resonator mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseMarw}.}
 	\label{marwanmodes}
 \end{figure}
+deformation directly alters the cavity length. The fundamental mode already affects the cavity length through this effect, but higher-order odd modes introduce stronger local curvature of the mounting arm at the fibre position, leading to much larger cavity-length fluctuations.
 
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{ccccccc}
-		\toprule
-		{Mode number} & { ${T}_x$} & {${T}_y$} & {${T}_z$} & {${R}_x$} & {${R}_y$} & {${R}_z$} \\
-		\midrule
-		1 \textsc{(a)} & 0.0000 & 0.0000 & 16.5379 & 85.1071 & 0.0000 & 0.0000 \\
-		2 \textsc{(b)} & 15.8373 & 0.0000 & 0.0000 & 0.0000 & 1.8747 & 83.4516 \\
-		3 \textsc{(c)} & 0.0001 & 0.0014 & 4.9304 & 4.4790 & 0.0003 & 0.0000 \\
-		4 \textsc{(d)} & 1.6181 & 0.0004 & 0.0004 & 0.0002 & 0.5771 & 2.7442 \\
-		5 \textsc{(e)} & 0.0001 & 0.0024 & 2.7994 & 1.4686 & 2.7770 & 8.9820 \\
-		6 \textsc{(f)} & 2.5962 & 0.0000 & 0.0000 & 0.0322 & 1.1527 & 2.7770 \\
-		7 \textsc{(g)} & 0.0000 & 0.1034 & 1.5245 & 0.4678 & 0.0199 & 0.0000 \\
-		8 \textsc{(h)} & 1.7830 & 0.0000 & 0.0000 & 0.2995 & 0.0134 & 1.1527 \\
-		9 & 3.0222 & 0.0037 & 0.5778 & 0.0001 & 0.7470 & 1.3507 \\
-		10 & 0.0005 & 8.4142 & 0.4302 & 0.4197 & 0.0001 & 0.0002 \\
-		\midrule
-		{Total} & 24.8574 & 8.5251 & 26.2227 & 91.9425 & 5.9831 & 91.5980 \\
-		\bottomrule
-	\end{tabular}
-	\caption[Percentages of modal effective mass for the fibre-tip resonator mounting structure]{Modal effective mass participation for the first 10 modes of the fibre-tip resonator mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
-	\label{modeparticipationM}
-\end{table}
+Further insight is gained by comparing the effective modal mass across each translational and rotational degree of freedom (\autoref{modeparticipationM}). The cumulative effective modal mass is lowest for both translational ($T_y$) and rotational motion ($R_y$) associated with the $y$-axis, reflecting the high stiffness of the mount in this direction due to its elongated geometry and the direct constraint at the fixed base. The first modes exhibiting significant effective modal mass for translational displacement along the $y$-axis occur at frequencies higher than \SI{10}{\kilo\hertz}: \SI{11.4}{\kilo\hertz} for mode number $n=10$ and \SI{11.8}{\kilo\hertz}  for $n=11$. As a result, the resonance peaks observed within the \SIrange{0}{10}{\kilo\hertz} range for enforced acceleration along the $y$-axis are one to two orders of magnitude smaller than most resonances observed under $x$- and $z$-excitation.
 
 \subsection{Passive stability of a fibre-tip resonator}
 
@@ -890,6 +865,8 @@ Multiple apertures are machined into the mount to allow optical access for horiz
 
 \subsection{Modal frequency response analysis of a glass-substrate resonator mount}
 
+other finger model same element size, but 330715
+
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1241,29 +1218,6 @@ Multiple apertures are machined into the mount to allow optical access for horiz
 	\label{FFmodes}
 \end{figure}
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{ccccccc}
-		\toprule
-		{Mode number} & { ${T}_x$} & {${T}_y$} & {${T}_z$} & {${R}_x$} & {${R}_y$} & {${R}_z$} \\
-		\midrule
-		1 \textsc{(a)} & 0.0007 & 0.0000 & 35.8125 & 1.5245 & 0.0004 & 0.0000 \\
-		2 \textsc{(b)} & 35.7347 & 0.0001 & 0.0007 & 0.0000 & 0.0006 & 1.5554 \\
-		3 \textsc{(c)} & 26.7161 & 0.0023 & 0.0092 & 0.0073 & 0.2986 & 25.4059 \\
-		4 \textsc{(d)} & 0.1826 & 0.0070 & 19.8976 & 19.7244 & 8.5420 & 1.1956 \\
-		5 \textsc{(e)} & 0.2574 & 0.0023 & 7.2673 & 7.7576 & 15.4124 & 0.2826 \\
-		6 \textsc{(f)} & 0.0940 & 0.0001 & 0.0290 & 0.0322 & 1.1623 & 0.1025 \\
-		7 & 0.0120 & 1.0386 & 10.8091 & 15.2692 & 0.7660 & 0.0199 \\
-		8 & 0.1064 & 45.3301 & 0.2023 & 0.2995 & 0.0543 & 0.1714 \\
-		9 & 8.2676 & 0.5778 & 0.0307 & 0.0477 & 10.6172 & 13.3469 \\
-		10 & 3.8187 & 0.2649 & 0.0035 & 0.0056 & 26.4222 & 6.3842 \\
-		\midrule
-		{Total} & 75.1903 & 47.2232 & 74.0620 & 44.6679 & 63.2762 & 47.4645 \\
-		\bottomrule
-	\end{tabular}
-\caption[Percentages of modal effective mass of the glass-substrate resonator mounting structure]{Modal effective mass participation for the first 10 modes of the glass-substrate resonator mounting structure. The numbers shown represent percentages for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels are references to the modes as indicated in \autoref{freqresponseFF} and \autoref{FFmodes}.}
-	\label{tab:modepercentFinalfinger}   
-\end{table}
 
 
 

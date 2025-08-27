@@ -141,7 +141,7 @@ of the emitted photon pair. Deterministic schemes include the direct absorption 
 
 \chapter{Stochastic cavity loading}
 \label{app:stochasticcavityloading}
-For a total number of atoms $N$ in a control volume $V$ (see \autoref{volume}), the probability $P(N,n,\alpha)$ that $n$ atoms occupy the cavity mode volume $\delta V$ is given by the binomial distribution:
+For a total number of atoms $N$ in a control volume $V$, the probability $P(N,n,\alpha)$ that $n$ atoms occupy the cavity mode volume $\delta V$ is given by the binomial distribution:
 \begin{equation}
 \label{binomial}
 P(N,n,\alpha)=\frac{N!}{\left(N-n\right)!n!}\alpha^n\left(1-\alpha\right)^{N-n}\,,
@@ -151,36 +151,211 @@ where $\alpha=\sfrac{\delta V}{V}$. A quantity of interest is the following rati
 \label{successratio}
 \chi=\frac{P(1,N,\alpha) P(1,N,\alpha)}{2 P(2,N,\alpha) P(0,N,\alpha)}\,,
 \end{equation}
-which represents the success ratio of single atom loading in each of two identical cavities versus double loading in one of two identical cavities.
-\tikzstyle{int}=[draw, fill=blue!20, minimum size=2em]
-\tikzstyle{init} = [pin edge={to-,thin,black}]
-\begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-	\coordinate (O) at (0,0);
-	\draw (0.5,0.5) node {$\delta V$};
-	
-	\draw[dashed] (0,0) -- (0,1);
-	\draw[dashed] (0,0) -- (1,0);
-	\draw[dashed] (1,1) -- (0,1);
-	\draw[dashed] (1,1) -- (1,0);
-	
-	\draw (-0.5,1.5) node {$V$};
-	\draw[semithick] (-1,-1) -- (2,-1);
-	\draw[semithick] (2,2) -- (-1,2);
-	\draw[semithick] (2,-1) -- (2,2);
-	\draw[semithick] (-1,-1) -- (-1,2);
-	\end{tikzpicture}
-	\caption{Control volume $V$ with a cavity mode volume $\delta V$ of interest.}
-	\label{volume}
-\end{figure}
-Using \autoref{binomial}, $\chi$ can be rewritten in terms of the total number of atoms per control volume:
+which represents the success ratio of single atom loading in each of two identical cavities versus double loading in one of two identical cavities. Using \autoref{binomial}, $\chi$ can be rewritten in terms of the total number of atoms per control volume:
 \begin{equation}
 \chi(N)=\frac{N}{N-1}\,.
 \end{equation}
 In an experiment that involves stochastic cavity loading, which is the case for an atomic fountain, $N\gg1$, which implies that $\chi(N)\approx1$. This means that double loading of one cavity is as likely to occur as single atom loading in both cavities. Thus, one cannot be certain about the loading configuration in the event of a two-photon detection.
 
-\chapter{Some Appendix}
+\chapter[Effective Modal Mass Ratios]{Effective Modal\\Mass Ratios}
+\label{app:effectivemodalmass}
+\startsquarepar
+When performing a modal transient or frequency response analysis using the finite-element method (FEM), the structure under consideration is generally a multi-degree-of-freedom (MDOF) system---requiring two or more independent coordinates to describe its motion. Each degree of freedom contributes to an associated vibrational mode and the effective modal mass provides a measure of its relative significance. \autoref{modeparticipationM} and \autoref{tab:modepercentFinalfinger} summarise the effective modal mass ratios for the first \num{80} eigenmodes of the fibre-tip and glass-substrate resonator mounting structures, respectively. Values are obtained from a modal frequency response analysis in Autodesk Inventor Nastran. Modes that feature a high effective modal mass are easily excited by base excitation, whereas modes with low effective modal masses are much less susceptible to such excitation. The complete response of a system could in principle be expressed as a superposition of all modes. In
+\stopsquarepar
+\begin{spacing}{0.97}
+	\begin{small}
+		\begin{longtable}{crrrrrrr}
+			\toprule
+			{$n$} & {$\nu$ (\si{\kilo\hertz})} & {${T}_x$} & {${T}_y$} & {${T}_z$} & {${R}_x$} & {${R}_y$} & {${R}_z$} \\
+			\midrule
+			1 \textsc{(a)} & 0.2677 & 0.0000 & 0.0000 & 16.5379 & 85.1071 & 0.0000 & 0.0000 \\  
+			2 \textsc{(b)} & 1.1055 & 15.8373 & 0.0000 & 0.0000 & 0.0000 & 1.8747 & 83.4516 \\  
+			3 \textsc{(c)} & 1.2541 & 0.0001 & 0.0014 & 4.9304 & 4.4790 & 0.0000 & 0.0003 \\  
+			4 \textsc{(d)} & 2.9403 & 1.6181 & 0.0000 & 0.0004 & 0.0002 & 0.5771 & 2.7442 \\  
+			5 \textsc{(e)} & 3.0248 & 0.0001 & 0.0024 & 2.7994 & 1.4686 & 0.0001 & 0.0002 \\  
+			6 \textsc{(f)} & 3.8931 & 2.5962 & 0.0000 & 0.0000 & 0.0000 & 2.7770 & 2.8982 \\  
+			7 \textsc{(g)} & 6.6434 & 0.0000 & 0.1034 & 1.5245 & 0.4678 & 0.0000 & 0.0000 \\  
+			8 \textsc{(h)} & 6.9354 & 1.7830 & 0.0000 & 0.0000 & 0.0000 & 0.0134 & 1.1527 \\  
+			9 & 10.9510 & 3.0222 & 0.0037 & 0.0000 & 0.0001 & 0.7407 & 1.3507 \\  
+			10 & 11.3552 & 0.0005 & 8.4142 & 0.4302 & 0.4197 & 0.0001 & 0.0002 \\  
+			11 & 11.8099 & 0.0001 & 10.6426 & 0.4847 & 0.0001 & 0.0000 & 0.0001 \\  
+			12 & 13.6480 & 0.5078 & 0.0002 & 0.0000 & 0.0000 & 0.0444 & 0.2043 \\  
+			13 & 16.7358 & 0.0000 & 0.1255 & 0.6383 & 0.1601 & 0.0000 & 0.0000 \\  
+			14 & 18.7201 & 0.1827 & 0.0008 & 0.0000 & 0.0000 & 0.1277 & 0.0523 \\  
+			15 & 19.9288 & 0.0002 & 7.1260 & 0.0210 & 0.0585 & 0.0000 & 0.0000 \\  
+			16 & 22.5183 & 0.0354 & 0.0000 & 0.0000 & 0.0000 & 0.0765 & 0.0100 \\  
+			17 & 22.9818 & 0.0000 & 0.0297 & 0.8506 & 0.1557 & 0.0000 & 0.0000 \\  
+			18 & 24.4133 & 2.8080 & 0.0001 & 0.0000 & 0.0000 & 0.2869 & 0.6312 \\  
+			19 & 30.4621 & 0.0173 & 0.0000 & 0.0000 & 0.0000 & 0.0927 & 0.0036 \\  
+			20 & 31.6185 & 0.0000 & 0.0159 & 1.5774 & 0.2137 & 0.0000 & 0.0000 \\  
+			21 & 37.5527 & 1.1689 & 0.0000 & 0.0001 & 0.0000 & 0.2667 & 0.1457 \\  
+			22 & 39.1882 & 6.2235 & 0.0000 & 0.0000 & 0.0000 & 0.1034 & 0.7347 \\  
+			23 & 40.8323 & 0.0001 & 0.1962 & 7.0876 & 0.5910 & 0.0000 & 0.0000 \\  
+			24 & 44.0018 & 1.4395 & 0.0000 & 0.0015 & 0.0001 & 0.2834 & 0.1312 \\  
+			25 & 46.1511 & 0.0000 & 2.8098 & 0.5949 & 0.0000 & 0.0000 & 0.0000 \\  
+			26 & 46.7235 & 0.0019 & 0.1900 & 33.4022 & 2.8616 & 0.0000 & 0.0001 \\  
+			27 & 47.3001 & 36.9577 & 0.0000 & 0.0014 & 0.0001 & 0.3630 & 2.8354 \\  
+			28 & 50.2494 & 0.4451 & 0.0000 & 0.0005 & 0.0000 & 0.0004 & 0.0404 \\  
+			29 & 51.3924 & 0.0002 & 0.0967 & 4.9329 & 0.3923 & 0.0002 & 0.0000 \\  
+			30 & 53.0640 & 0.5854 & 0.0000 & 0.0003 & 0.0000 & 1.2655 & 0.0403 \\  
+			31 & 56.4142 & 0.0000 & 0.2024 & 0.0397 & 0.0001 & 0.0001 & 0.0000 \\  
+			32 & 56.8496 & 0.0557 & 0.0000 & 0.0000 & 0.0000 & 53.3273 & 0.0002 \\  
+			33 & 58.9283 & 0.0001 & 0.1241 & 0.4264 & 0.0118 & 0.0002 & 0.0000 \\  
+			34 & 59.8500 & 2.4595 & 0.0000 & 0.0000 & 0.0000 & 14.2083 & 0.1056 \\  
+			35 & 60.0681 & 0.0032 & 0.0001 & 0.0001 & 0.0000 & 2.8571 & 0.0004 \\  
+			36 & 63.7955 & 0.0000 & 0.2110 & 0.4697 & 0.0341 & 0.0000 & 0.0000 \\  
+			37 & 66.3503 & 0.0785 & 0.0000 & 0.0003 & 0.0000 & 0.0014 & 0.0010 \\  
+			38 & 67.8585 & 0.0000 & 0.1071 & 0.4673 & 0.0315 & 0.0000 & 0.0000 \\  
+			39 & 69.9652 & 0.1249 & 0.0000 & 0.0000 & 0.0000 & 0.5395 & 0.0130 \\  
+			40 & 70.8138 & 0.0000 & 0.4284 & 1.1374 & 0.0889 & 0.0000 & 0.0000 \\  
+			41 & 71.2145 & 0.0000 & 0.0000 & 0.0218 & 0.0008 & 0.0000 & 0.0000 \\  
+			42 & 74.3448 & 0.0999 & 0.0014 & 0.0000 & 0.0000 & 0.2842 & 0.0009 \\  
+			43 & 74.5214 & 0.0001 & 2.8775 & 0.0650 & 0.0871 & 0.0001 & 0.0000 \\  
+			44 & 77.1347 & 1.4593 & 0.0001 & 0.0003 & 0.0000 & 0.0036 & 0.0387 \\  
+			45 & 77.8347 & 0.0002 & 0.6120 & 0.7066 & 0.0105 & 0.0000 & 0.0000 \\  
+			46 & 78.1093 & 0.0000 & 0.1096 & 0.6212 & 0.0288 & 0.0000 & 0.0000 \\  
+			47 & 79.7856 & 0.4569 & 0.0001 & 0.0001 & 0.0000 & 0.0748 & 0.0285 \\  
+			48 & 79.9251 & 0.0009 & 0.0359 & 0.0782 & 0.0138 & 0.0001 & 0.0001 \\  
+			49 & 83.5845 & 0.0000 & 0.1861 & 0.0067 & 0.0014 & 0.0000 & 0.0000 \\  
+			50 & 83.6302 & 0.0000 & 0.0540 & 0.0001 & 0.0019 & 0.0000 & 0.0000 \\  
+			51 & 84.6818 & 0.0000 & 0.4352 & 0.0055 & 0.0000 & 0.0000 & 0.0000 \\  
+			52 & 86.4014 & 0.0157 & 0.0000 & 0.0000 & 0.0000 & 0.0972 & 0.0000 \\  
+			53 & 89.2124 & 0.0000 & 0.1992 & 0.0077 & 0.0041 & 0.0000 & 0.0000 \\  
+			54 & 90.5314 & 0.0000 & 0.3529 & 0.0099 & 0.0010 & 0.0000 & 0.0000 \\  
+			55 & 91.8515 & 0.0088 & 0.0001 & 0.0000 & 0.0000 & 0.0000 & 0.0005 \\  
+			56 & 92.4169 & 0.0192 & 0.0002 & 0.0000 & 0.0000 & 0.1010 & 0.0005 \\  
+			57 & 92.9035 & 0.0000 & 1.4327 & 0.0015 & 0.0289 & 0.0000 & 0.0000 \\  
+			58 & 95.2326 & 0.0001 & 0.3289 & 0.0608 & 0.0143 & 0.0000 & 0.0000 \\  
+			59 & 95.5267 & 0.0612 & 0.0001 & 0.0001 & 0.0000 & 0.0031 & 0.0068 \\  
+			60 & 98.4617 & 0.0000 & 22.2746 & 0.0011 & 0.0689 & 0.0000 & 0.0000 \\  
+			61 & 99.0426 & 0.0021 & 0.0000 & 0.0001 & 0.0000 & 0.0002 & 0.0006 \\  
+			62 & 99.7248 & 0.0000 & 2.6268 & 0.0118 & 0.0018 & 0.0000 & 0.0000 \\  
+			63 & 100.6117 & 0.0002 & 0.0033 & 0.0001 & 0.0001 & 0.0078 & 0.0025 \\  
+			64 & 100.7903 & 0.0000 & 7.9735 & 1.5531 & 1.7009 & 0.0000 & 0.0000 \\  
+			65 & 102.1514 & 2.5148 & 0.0000 & 0.0000 & 0.0000 & 0.0207 & 2.1768 \\  
+			66 & 103.2609 & 0.0000 & 1.9258 & 0.2621 & 0.0223 & 0.0000 & 0.0000 \\  
+			67 & 106.0900 & 0.5795 & 0.0001 & 0.0000 & 0.0000 & 0.0002 & 0.0595 \\  
+			68 & 106.9691 & 0.0000 & 8.7812 & 1.8901 & 0.2924 & 0.0000 & 0.0000 \\  
+			69 & 109.3883 & 0.0000 & 0.5204 & 0.2651 & 0.0172 & 0.0000 & 0.0000 \\  
+			70 & 109.9754 & 0.0006 & 0.0004 & 0.0003 & 0.0001 & 0.0002 & 0.0023 \\  
+			71 & 109.9968 & 0.0000 & 0.0025 & 0.0036 & 0.0032 & 0.0000 & 0.0000 \\  
+			72 & 111.3491 & 0.0000 & 0.2345 & 0.1230 & 0.0009 & 0.0000 & 0.0000 \\  
+			73 & 111.9323 & 0.0939 & 0.0001 & 0.0000 & 0.0000 & 0.0191 & 0.0016 \\  
+			74 & 112.6832 & 0.0000 & 0.0001 & 0.1429 & 0.0066 & 0.0000 & 0.0000 \\  
+			75 & 112.8511 & 0.1276 & 0.0000 & 0.0001 & 0.0000 & 0.0008 & 0.0051 \\  
+			76 & 113.2006 & 0.0000 & 0.0614 & 0.0425 & 0.0033 & 0.0000 & 0.0000 \\  
+			77 & 115.8701 & 0.0000 & 0.5250 & 0.9997 & 0.0003 & 0.0000 & 0.0000 \\  
+			78 & 116.9485 & 0.0000 & 0.0161 & 0.0002 & 0.0008 & 0.0000 & 0.0000 \\  
+			79 & 118.7274 & 1.2741 & 0.0000 & 0.0001 & 0.0000 & 0.0397 & 0.0112 \\  
+			80 & 118.9953 & 0.5619 & 0.0000 & 0.0000 & 0.0000 & 0.1165 & 0.0180 \\ 
+			\midrule
+			{Total} & {} & 85.2302 & 82.4035 & 85.2385 & 98.8535 & 80.5971 & 98.9012 \\
+			\bottomrule
+			%\end{longtable}
+			\caption[Percentages of effective modal mass for the fibre-tip resonator mounting structure]{Effective modal mass ratios for the first \num{80} modes (with index $n$ and frequency $\nu$) of the fibre-tip resonator mounting structure. The numbers shown represent percentages of total mass for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels (\textsc{a-h}) are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
+			\label{modeparticipationM}
+		\end{longtable}
+	\end{small}
+\end{spacing}
+\begin{spacing}{0.97}
+	\begin{small}
+		\begin{longtable}{crrrrrrr}
+			\toprule
+			{$n$} & {$\nu$ (\si{\kilo\hertz})} & {${T}_x$} & {${T}_y$} & {${T}_z$} & {${R}_x$} & {${R}_y$} & {${R}_z$} \\
+			\midrule
+	        1 \textsc{(a)} & 1.8902 & 0.0007 & 0.0000 & 35.8125 & 1.5245 & 0.0004 & 0.0000 \\  
+			2 \textsc{(b)} & 1.9799 & 35.7347 & 0.0001 & 0.0007 & 0.0000 & 0.0006 & 1.5554 \\  
+			3 \textsc{(c)} & 5.8933 & 26.7161 & 0.0023 & 0.0092 & 0.0073 & 0.2986 & 25.4059 \\  
+			4 \textsc{(d)} & 6.3371 & 0.1826 & 0.0070 & 19.8976 & 19.7244 & 8.5420 & 0.1956 \\  
+			5 \textsc{(e)} & 6.4665 & 0.2574 & 0.0023 & 7.2673 & 7.7576 & 15.4124 & 0.2826 \\  
+			6 \textsc{(f)} & 8.5302 & 0.0940 & 0.0001 & 0.0290 & 0.0322 & 1.1623 & 0.1025 \\  
+			7 & 10.8602 & 0.0120 & 1.0386 & 10.8091 & 15.2692 & 0.7660 & 0.0199 \\  
+			8 & 11.5830 & 0.1064 & 45.3301 & 0.2023 & 0.2995 & 0.0543 & 0.1714 \\  
+			9 & 12.5502 & 8.2676 & 0.5778 & 0.0307 & 0.0477 & 10.6172 & 13.3469 \\  
+			10 & 13.1415 & 3.8187 & 0.2649 & 0.0035 & 0.0056 & 26.4222 & 6.3842 \\  
+			11 & 14.2430 & 0.6729 & 3.3479 & 0.0274 & 0.0511 & 0.0038 & 1.1685 \\  
+			12 & 15.7660 & 0.1590 & 0.0027 & 0.0030 & 0.0054 & 0.1235 & 0.2834 \\  
+			13 & 15.8606 & 0.0208 & 2.7387 & 0.2349 & 0.4014 & 0.0001 & 0.0353 \\  
+			14 & 17.1852 & 0.6552 & 1.1206 & 0.3996 & 0.7628 & 4.0308 & 1.1828 \\  
+			15 & 18.3568 & 0.1128 & 0.1234 & 2.8826 & 5.4536 & 8.5804 & 0.2073 \\  
+			16 & 19.8318 & 4.2918 & 0.0256 & 3.7633 & 7.2735 & 0.6632 & 8.1049 \\  
+			17 & 20.0269 & 5.1159 & 0.0002 & 1.7370 & 3.3540 & 1.4178 & 9.6987 \\  
+			18 & 21.3348 & 0.0351 & 0.0488 & 1.5330 & 3.0326 & 0.2981 & 0.0681 \\  
+			19 & 22.4121 & 0.0385 & 0.0136 & 0.0167 & 0.0340 & 0.1484 & 0.0763 \\  
+			20 & 22.9886 & 0.0000 & 0.0000 & 0.0134 & 0.0267 & 0.0018 & 0.0000 \\  
+			21 & 23.1507 & 0.3390 & 0.6113 & 0.0428 & 0.0873 & 0.0001 & 0.6919 \\  
+			22 & 23.3081 & 0.0006 & 0.3773 & 1.5698 & 3.2077 & 0.2773 & 0.0013 \\  
+			23 & 24.2607 & 0.0062 & 10.8926 & 0.0469 & 0.0947 & 0.0012 & 0.0132 \\  
+			24 & 24.4047 & 0.0442 & 0.0005 & 0.0035 & 0.0094 & 0.1424 & 0.0928 \\  
+			25 & 24.7820 & 0.0054 & 9.9456 & 0.1826 & 0.4000 & 0.0044 & 0.0106 \\  
+			26 & 25.3314 & 0.0190 & 0.0669 & 0.1931 & 0.4069 & 0.0398 & 0.0403 \\  
+			27 & 27.5465 & 0.0941 & 0.0493 & 0.0844 & 0.1932 & 0.0492 & 0.2006 \\  
+			28 & 28.3120 & 0.0000 & 0.0000 & 0.0300 & 0.0690 & 0.3477 & 0.0000 \\  
+			29 & 29.2320 & 0.0000 & 0.0001 & 0.2189 & 0.4780 & 0.0277 & 0.0000 \\  
+			30 & 29.6369 & 0.0156 & 0.0030 & 0.0659 & 0.1439 & 0.0374 & 0.0317 \\  
+			31 & 30.0676 & 0.0028 & 0.0109 & 0.0369 & 0.0811 & 0.0002 & 0.0058 \\  
+			32 & 31.1353 & 0.2795 & 0.0004 & 0.1231 & 0.2622 & 6.5611 & 0.5813 \\  
+			33 & 31.8381 & 0.3609 & 0.1702 & 0.0284 & 0.0614 & 1.9381 & 0.7399 \\  
+			34 & 32.6157 & 0.0767 & 0.4450 & 0.0318 & 0.0735 & 0.5540 & 0.1555 \\  
+			35 & 32.8431 & 0.3322 & 0.1095 & 0.0139 & 0.0293 & 0.0104 & 0.6819 \\  
+			36 & 33.9546 & 0.0018 & 0.1219 & 0.0478 & 0.0981 & 0.0285 & 0.0016 \\  
+			37 & 34.9224 & 0.0128 & 1.2156 & 0.6100 & 1.3284 & 0.1116 & 0.0269 \\  
+			38 & 35.1979 & 0.0055 & 1.2063 & 0.3694 & 0.8150 & 0.0186 & 0.0129 \\  
+			39 & 35.5040 & 0.0001 & 0.0152 & 1.4390 & 3.2240 & 0.0000 & 0.0000 \\  
+			40 & 35.8287 & 0.0152 & 1.0260 & 0.9695 & 2.1539 & 0.2548 & 0.0316 \\  
+			41 & 37.0494 & 0.0049 & 0.0199 & 0.0509 & 0.1145 & 0.0121 & 0.0076 \\  
+			42 & 37.1707 & 0.0124 & 0.0092 & 0.2827 & 0.6335 & 0.0067 & 0.0222 \\  
+			43 & 37.8116 & 0.4728 & 0.0627 & 0.0482 & 0.1106 & 0.0306 & 1.0392 \\  
+			44 & 38.6054 & 0.1560 & 0.7563 & 0.0115 & 0.0274 & 0.0001 & 0.4111 \\  
+			45 & 39.0529 & 3.1497 & 0.0020 & 0.0121 & 0.0269 & 0.0021 & 7.7708 \\  
+			46 & 39.2771 & 0.2739 & 1.8149 & 0.0401 & 0.0908 & 0.0014 & 0.6859 \\  
+			47 & 39.5534 & 0.0024 & 0.5198 & 0.0138 & 0.0293 & 0.0009 & 0.0014 \\  
+			48 & 39.7886 & 0.0242 & 0.0230 & 0.0196 & 0.0420 & 0.0000 & 0.0533 \\  
+			49 & 40.5027 & 0.1155 & 0.9830 & 0.0304 & 0.0673 & 0.0023 & 0.2628 \\  
+			50 & 40.8560 & 0.0100 & 0.0717 & 0.0080 & 0.0178 & 0.0095 & 0.0234 \\  
+			51 & 41.8915 & 0.2428 & 0.0846 & 0.0078 & 0.0181 & 0.0089 & 0.4652 \\  
+			52 & 42.0889 & 0.0220 & 0.0152 & 0.0104 & 0.0236 & 0.0001 & 0.0333 \\  
+			53 & 43.3176 & 0.0451 & 0.0002 & 0.1194 & 0.2736 & 0.0006 & 0.0843 \\  
+			54 & 43.6274 & 0.0131 & 0.0321 & 0.2946 & 0.6967 & 0.0037 & 0.0124 \\  
+			55 & 43.9557 & 0.0331 & 0.0308 & 0.1837 & 0.4369 & 0.0459 & 0.0452 \\  
+			56 & 44.7010 & 0.0095 & 0.0097 & 0.1903 & 0.4548 & 0.0002 & 0.0142 \\  
+			57 & 46.1585 & 0.0022 & 0.0021 & 0.0205 & 0.0490 & 0.0009 & 0.0046 \\  
+			58 & 46.6609 & 0.0126 & 0.0082 & 0.0791 & 0.1879 & 0.0353 & 0.0171 \\  
+			59 & 47.0574 & 0.0204 & 0.0351 & 0.0348 & 0.0786 & 0.0000 & 0.0378 \\  
+			60 & 47.5996 & 0.0000 & 0.0377 & 0.0397 & 0.1066 & 0.0925 & 0.0001 \\  
+			61 & 47.8897 & 0.0635 & 0.0677 & 0.0725 & 0.1906 & 0.0003 & 0.1249 \\  
+			62 & 48.6047 & 0.0326 & 0.0152 & 0.0005 & 0.0002 & 0.0245 & 0.0622 \\  
+			63 & 49.1732 & 0.0379 & 0.0476 & 0.1939 & 0.4672 & 0.0015 & 0.0720 \\  
+			64 & 49.8086 & 0.0400 & 0.0064 & 0.0007 & 0.0029 & 0.1040 & 0.0780 \\  
+			65 & 50.2752 & 0.0110 & 0.0353 & 0.0011 & 0.0032 & 0.0079 & 0.0230 \\  
+			66 & 50.9779 & 0.0301 & 0.0090 & 0.2581 & 0.6729 & 0.0141 & 0.0588 \\  
+			67 & 51.6087 & 0.0005 & 0.2948 & 0.0152 & 0.0317 & 0.0064 & 0.0010 \\  
+			68 & 52.3183 & 0.0001 & 0.0408 & 0.0024 & 0.0149 & 0.0237 & 0.0001 \\  
+			69 & 52.7680 & 0.0333 & 0.8111 & 0.0071 & 0.0179 & 0.0948 & 0.0613 \\  
+			70 & 52.9745 & 0.0287 & 0.3001 & 0.0340 & 0.1102 & 0.0222 & 0.0701 \\  
+			71 & 53.2696 & 0.0002 & 0.3634 & 0.2558 & 0.6530 & 0.0038 & 0.0008 \\  
+			72 & 53.8837 & 0.0072 & 0.2094 & 0.0373 & 0.1075 & 0.0001 & 0.0136 \\  
+			73 & 54.0314 & 0.0218 & 0.0237 & 0.0365 & 0.1416 & 0.0709 & 0.0394 \\  
+			74 & 54.9813 & 0.0213 & 0.0700 & 0.0260 & 0.0682 & 0.1421 & 0.0434 \\  
+			75 & 55.1873 & 0.0288 & 0.3924 & 0.0023 & 0.0041 & 0.2285 & 0.0550 \\  
+			76 & 55.3805 & 0.0119 & 0.0024 & 0.0016 & 0.0032 & 1.3240 & 0.0294 \\  
+			77 & 55.5735 & 0.0109 & 0.1499 & 0.0589 & 0.1828 & 0.0049 & 0.0211 \\  
+			78 & 55.8733 & 0.0389 & 0.0408 & 0.0001 & 0.0014 & 0.0069 & 0.0830 \\  
+			79 & 56.4600 & 0.0094 & 0.2288 & 0.0135 & 0.0565 & 0.0048 & 0.0184 \\  
+			80 & 56.6343 & 0.0503 & 0.0003 & 0.0000 & 0.0028 & 0.0836 & 0.0974 \\  
+			\midrule
+			{Total} & {} & 93.0048 & 88.5396 & 93.2956 & 84.4988 & 91.3712 & 83.5543 \\
+			\bottomrule
+			%\end{longtable}
+			\caption[Percentages of effective modal mass of the glass-substrate resonator mounting structure]{Effective modal mass ratios for the first \num{80} modes (with index $n$ and frequency $\nu$) of the glass-substrate resonator mounting structure. The numbers shown represent percentages of total mass for the translational (${T}_x$, ${T}_y$, ${T}_z$) and rotational (${R}_x$, ${R}_y$, ${R}_z$) degrees of freedom. Labels (\textsc{a-f}) are references to the modes as indicated in \autoref{freqresponseFF} and \autoref{FFmodes}.}
+			\label{tab:modepercentFinalfinger}   
+		\end{longtable}
+	\end{small}
+\end{spacing}
+reality, however, the number of modes can be very large and not all of them contribute significantly to the system's dynamic behaviour. For this reason, only a limited number of modes are usually retained for computational efficiency. A common guideline is to include enough modes such that the cumulative effective modal mass reaches at least \SI{80}{\percent} of the total physical mass for each of the translational and rotational degrees of freedom.
+
+
+\iffalse
 Let $x_{i, j}$ denote the $j$-th data point in the $i$-th group which has $n_{i}$ data points. There are $N$ such groups and thus a total of $\sum_{i=1}^{N} n_{i}=n$ data points. If the sample mean and sample variance of the $i$-th group are $m_{i}$ and $v_{i}$ respectively, then we have
 \begin{equation}
 n_{i} \cdot m_{i}=\sum_{j=1}^{n_{i}} x_{i, j} \quad \text { and } \quad\left(n_{i}-1\right) v_{i}=\sum_{j=1}^{n_{i}}\left(x_{i, j}-m_{i}\right)^{2}
@@ -198,6 +373,7 @@ It follows that $\sum_{i=1}^{N} \sum_{j=1}^{n_{i}} x_{i, j}=\sum_{i=1}^{N} n_{i}
 \end{aligned}
 \end{equation}
 All that remains is to divide both sides by $n-1$ and we are done.
+\fi
 
 \chapter{Wilson Score Interval}
 \label{wilsonscoreinterval}
