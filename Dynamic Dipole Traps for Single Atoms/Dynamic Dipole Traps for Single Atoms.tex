@@ -54,7 +54,7 @@ Here, we discuss a semi-classical model that helps explain the dynamics of atom 
 	ymax=2,
 	%xtick={1.4,1.6},
 	xticklabels={},
-	ylabel={Potential $U/h$ (\si{\giga\hertz})},
+	ylabel={Potential $U/h$ {[\si{\giga\hertz}]}},
 	height=5cm,
 	axis x line*=top,
 	ylabel style={xshift=-0.2cm}
@@ -138,7 +138,7 @@ Here, we discuss a semi-classical model that helps explain the dynamics of atom 
 	xmax=38,
 	ymin=-3.8,
 	ymax=-3,
-	xlabel={Internuclear separation $R$ (\si{\nano\meter})},
+	xlabel={Internuclear separation $R$ {[\si{\nano\meter}]}},
 	ytick={},
 	yticklabels={,},
 	ytick style={draw=none},
@@ -395,8 +395,8 @@ The field gradient required to spatially confine an optical molasses of neutral 
 	
 	\nextgroupplot
 	[
-	xlabel={$z$ (\si{\centi\meter})},
-	ylabel={$B_z(z)$ (\si{\gauss})},
+	xlabel={$z$ {[\si{\centi\meter}]}},
+	ylabel={$B_z(z)$ {[\si{\gauss}]}},
 	%title={Magnetic Field in Anti-Helmholtz Configuration},
 	domain=-11:11, % Range of z
 	xmin=-10,
@@ -730,7 +730,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			[
 			title={\small$P=23\,$\si{\milli\watt}},
 			title style={yshift=-0.24cm},
-			ylabel={Fluorescence counts (\si{\kilo\hertz})},
+			ylabel={Fluorescence counts {[\si{\kilo\hertz}]}},
 			ylabel style={yshift=0.2cm},
 			xmin=0, xmax=250,
 			ymin=-10, ymax=110,
@@ -913,7 +913,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			[
 			title={\small$P=\SI{29}{\milli\watt}$},
 			title style={yshift=-0.24cm},
-			xlabel={Time (\si{\second})},
+			xlabel={Time {[\si{\second}]}},
 			xmin=0, xmax=250,
 			ymin=-10, ymax=110,
 			%xtick={0,20,40,60,80,100},
@@ -935,7 +935,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			\nextgroupplot
 			[
 			%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-			xlabel = {Counts (\si{\kilo\hertz})},
+			xlabel = {Counts {[\si{\kilo\hertz}]}},
 			xmin=-10, xmax=110,
 			%ymin=0, ymax=1600,
 			%xtick={0,20,40,60,80,100},
@@ -983,7 +983,7 @@ Calibration of the CCD camera enables the extraction of absolute optical power p
 			grid style=dashed,
 			y label style={at={(axis description cs:0.30,.5)},anchor=south},
 			x tick label style={rotate=0},
-			xlabel = {Lifetime (\si{\second})},
+			xlabel = {Lifetime {[\si{\second}]}},
 			x label style={at={(axis description cs:0.5,-.5)},anchor=south},
 			]
 			
@@ -1323,8 +1323,8 @@ The expected value of this distribution is given by $\tau = \sfrac{1}{\lambda}$,
 	\begin{axis}
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	ylabel={Fluorescence counts (\si{\kilo\hertz})},
-	xlabel={Dipole trap power (\si{\milli\watt})},
+	ylabel={Fluorescence counts {[\si{\kilo\hertz}]}},
+	xlabel={Dipole trap power {[\si{\milli\watt}]}},
 	xmin=-0, xmax=150,
 	ymin=0, ymax=100,
 	%ymin=0, ymax=120,
@@ -1400,8 +1400,8 @@ The time-averaged occupancy or filling fraction---defined as the fraction of tim
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Optical power in dipole trap (\si{\milli\watt})},
-	ylabel={Average trap lifetime (s)},
+	xlabel={Optical power in dipole trap {[\si{\milli\watt}]}},
+	ylabel={Average trap lifetime {[\si{\second}]}},
 	x label style={xshift=7em},
 	%xmin=0, xmax=100,
 	%ymin=0, ymax=120,
@@ -1566,7 +1566,7 @@ In order to make estimates of the achievable filling fraction $\eta$ as introduc
 	\begin{groupplot}[group style={group size=3 by 1, horizontal sep=1cm},xmin=0,ymin=0,height=5cm,width=5cm,no markers]
 	\nextgroupplot
 	[
-	ylabel={Fluorescence counts (a.\,u.)},
+	ylabel={Fluorescence counts {[a.\,u.]}},
 	yticklabel style={
 		/pgf/number format/fixed,
 		/pgf/number format/precision=5,
@@ -1611,7 +1611,7 @@ In order to make estimates of the achievable filling fraction $\eta$ as introduc
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
 	%xlabel={Power in dipole trap (\si{\milli\watt})},
-	xlabel={Time (s)},
+	xlabel={Time {[\si{\second}]}},
 	xmin=0, xmax=60,
 	ymin=0, ymax=150000,
 	yticklabel style={
@@ -1693,7 +1693,7 @@ In order to make estimates of the achievable filling fraction $\eta$ as introduc
 	\caption[Fluorescence traces for the conditioned interruption of cooling light]{Fluorescence traces for the conditioned interruption of cooling light. To measure the survival probability of an atom in the dark, the cooling light is interrupted for a period of $\Delta t$. Thereafter, the light is switched back on to check for the survival of the atom. This sequence is repeated until the atom is lost. Three fluorescence traces are shown for $\Delta t\in\{\SI{0.5}{\second}, \SI{1}{\second}, \SI{2}{\second}\}$.}
 	\label{fig:darktime} 
 \end{figure}
-Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration is performed to determine the fluorescence threshold for atom detection. This threshold is obtained by analysing the brightest pixel value recorded on the EMCCD camera. Once established, it is used to conditionally extinguish the cooling light by controlling the corresponding AOM via a data acquisition card (ADLINK DAQ-2502). In \autoref{fig:darktime}, the effect of switching off the cooling light is observed as a drop in background counts, which arises from the reduction in scattered cooling light reaching the EMCCD. The number of consecutive trigger events corresponds to the number of successes in this Bernoulli process and is observed to decrease as the interval $\Delta t$ is increased. Based on the total number of trials and successes, we estimate the Wilson score intervals of the survival probabilities for a range of trap depths. The Wilson score interval \cite{wilson1927} adjusts for cases with an extreme success rate or a small sample size (see \autoref{wilsonscoreinterval} for further details). These intervals are then corrected for type I and type II detection errors, which is discussed in \autoref{erroranalysis}. Both sets of uncorrected and corrected intervals are shown in \autoref{SurvivalProbs}.
+Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration is performed to determine the fluorescence threshold for atom detection. This threshold is obtained by analysing the brightest pixel value recorded on the EMCCD camera. Once established, it is used to conditionally extinguish the cooling light by controlling the corresponding AOM via a data acquisition card (ADLINK DAQ-2502). In \autoref{fig:darktime}, the effect of switching off the cooling light is observed as a drop in background counts, which arises from the reduction in scattered cooling light reaching the EMCCD. The number of consecutive trigger events corresponds to the number of successes in this Bernoulli process and is observed to decrease as the interval $\Delta t$ is increased. Based on the total number of trials and successes, we estimate the Wilson score intervals of the survival probabilities for a range of trap depths. The Wilson score interval \cite{wilson1927} adjusts for cases with an extreme success rate or a small sample size. These intervals are then corrected for type I and type II detection errors, which is discussed in \autoref{erroranalysis}. Both sets of uncorrected and corrected intervals are shown in \autoref{SurvivalProbs}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1707,7 +1707,7 @@ Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration 
 	%y dir=reverse,
 	xmode=log,
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Optical power in dipole trap (\si{\milli\watt})},
+	xlabel={Optical power in dipole trap {[\si{\milli\watt}]}},
 	x label style={xshift=7em},
 	ylabel={Survival probability},
 	%xmin=0, xmax=100,
@@ -1775,7 +1775,7 @@ Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration 
 		\node[anchor=center, color=black, rotate=90] at (axis cs: 90,2.15) {\tiny 7.4};
 		\node[anchor=center, color=black, rotate=90] at (axis cs: 100,2.15) {\tiny 8.3};
 		
-		\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small(\si{\milli\kelvin})};
+		\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small{[\si{\milli\kelvin}]}};
 	}
 }
 	
@@ -1866,7 +1866,7 @@ Prior to each measurement at a given trap depth, a \SI{60}{\second} calibration 
 			\node[anchor=center, color=black, rotate=90] at (axis cs: 90,2.15) {\tiny 7.4};
 			\node[anchor=center, color=black, rotate=90] at (axis cs: 100,2.15) {\tiny 8.3};
 			
-			\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small(\si{\milli\kelvin})};
+			\node[anchor=center, color=black] at (axis description cs: 0.9,1.07) {\small{[\si{\milli\kelvin}]}};
 		}
 	}
 	
@@ -1890,7 +1890,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={$\Delta t$ (\si{\second})},
+	xlabel={$\Delta t$ {[\si{\second}]}},
 	ylabel={$P$},
 	xmin=0, xmax=2.5,
 	ymin=0, ymax=1,
@@ -2099,7 +2099,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={$\Delta t$ (\si{\second})},
+	xlabel={$\Delta t$ {[\si{\second}]}},
 	ylabel={$P$},
 	xmin=0, xmax=1.5,
 	ymin=0.9, ymax=1,
@@ -2196,7 +2196,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={$\Delta t$ (\si{\second})},
+	xlabel={$\Delta t$ {[\si{\second}]}},
 	ylabel={$P$},
 	xmin=0, xmax=1.5,
 	ymin=0.9, ymax=1,
@@ -2290,7 +2290,7 @@ Where sufficient data is available for a trap depth, the survival probabilities 
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={$\Delta t$ (\si{\second})},
+	xlabel={$\Delta t$ {[\si{\second}]}},
 	ylabel={$P$},
 	xmin=0, xmax=1.5,
 	ymin=0, ymax=1,
@@ -2550,7 +2550,7 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.752cm},xmin=0,ymin=0,height=4.5cm,width=13.5cm, clip marker paths=true, axis on top=false]
 	\nextgroupplot
 	[
-	ylabel={Time (\si{\second})},
+	ylabel={Time {[\si{\second}]}},
 	xmin=8, xmax=220,
 	ymin=0, ymax=11.2,
 	xticklabels={,,},
@@ -2673,7 +2673,7 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 		\node[anchor=center, color=black, rotate=90] at (axis cs: 90,-1.5) {\tiny 7.4};
 		\node[anchor=center, color=black, rotate=90] at (axis cs: 100,-1.5) {\tiny 8.3};
 		
-		\node[anchor=center, color=black] at (axis description cs: 0.9,-0.145) {\small(\si{\milli\kelvin})};
+		\node[anchor=center, color=black] at (axis description cs: 0.9,-0.145) {\small{[\si{\milli\kelvin}]}};
 		
 		}
 	}
@@ -2683,8 +2683,8 @@ For each trap depth, an exponential function is fitted to the survival rates to 
 	
 	\nextgroupplot
 	[
-	ylabel={Time (\si{\second})},
-	xlabel={Optical power in dipole trap (\si{\milli\watt})},
+	ylabel={Time {[\si{\second}]}},
+	xlabel={Optical power in dipole trap {[\si{\milli\watt}]}},
 	xmin=8, xmax=220,
 	ymin=0, ymax=25,
 	ymajorgrids=true,
@@ -2782,8 +2782,8 @@ Based on the measured values of $\tau_\text{d}$ and $\tau$ in \autoref{fig:lifet
 	
 	\nextgroupplot
 	[
-	ylabel={Optical power for loading (\si{\milli\watt})},
-	xlabel={Optical power for holding (\si{\milli\watt})},
+	ylabel={Optical power for loading {[\si{\milli\watt}]}},
+	xlabel={Optical power for holding {[\si{\milli\watt}]}},
 	enlargelimits=false,
 	axis on top, axis equal image,
 	ymin=8, ymax=100,
@@ -2863,7 +2863,7 @@ Based on the measured values of $\tau_\text{d}$ and $\tau$ in \autoref{fig:lifet
 	\node[anchor=center, color=black, rotate=90] at (axis cs: 90,111) {\tiny 7.4};
 	
 	%\node[anchor=center, color=black, rotate=90] at (axis description cs: 1.13,0.5) {Holding depth (mK)};
-	\node[anchor=center, color=black] at (axis description cs: 1.0,1.15) {\small Equivalent trap depth (\si{\milli\kelvin})};
+	\node[anchor=center, color=black] at (axis description cs: 1.0,1.15) {\small Equivalent trap depth {[\si{\milli\kelvin}]}};
 	
 	\nextgroupplot
 	[
@@ -2955,8 +2955,8 @@ To demonstrate the concept of maximising the filling fraction of traps experimen
 	ymax=50,
 	yticklabel=\empty,
 	width=10.5cm,
-	xlabel={Time (\si{\second})},
-	ylabel={Fluor. counts (a.\,u.)},
+	xlabel={Time {[\si{\second}]}},
+	ylabel={Fluor. counts {[a.\,u.]}},
 	xtick={0,30,60,90,120,150,180,210,240},
 	ytick={0, 9.2, 37},
 	xmajorgrids=true,
@@ -2988,7 +2988,7 @@ To demonstrate the concept of maximising the filling fraction of traps experimen
 	ymajorgrids=true,
 	xmajorgrids=false,
 	grid style=dashed,
-	xlabel={Occurrence (a.\,u.)},
+	xlabel={Occurrence {[a.\,u.]}},
 	x label style={at={(axis description cs:1.25, -0.45)},anchor=south},
 	xtick scale label code/.code={},
 	]
@@ -3268,7 +3268,7 @@ We collect \SI{120}{\minute} of fluorescence data with a time resolution of \SI{
 	
 	\nextgroupplot
 	[
-	xlabel={Time relative to switch (s)},
+	xlabel={Time relative to switch {[\si{\second}]}},
 	%ylabel={Survival probability},
 	x label style={at={(axis description cs:1.2, -0.5)},anchor=south},
 	xmin=-10, xmax=30,
@@ -3417,7 +3417,7 @@ The two fitted exponentials for each trace feature time constants $\tau_1$ and $
 	xlabel=Trapping site,
 	xtick distance = 1,
 	x label style={at={(axis description cs: 0.5, -0.35)},anchor=base},
-	ylabel=Lifetime (\si{\second}),
+	ylabel=Lifetime {[\si{\second}]},
 	% (changed to an absolute value)
 	enlarge x limits={abs=0.5},
 	% ---------------------------------------------------------------------
@@ -3475,7 +3475,7 @@ The two fitted exponentials for each trace feature time constants $\tau_1$ and $
 	ymode=log,
 	ymin=1e-2, ymax=1e0,
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Time relative to switch (\si{\second})},
+	xlabel={Time relative to switch {[\si{\second}]}},
 	ylabel={Survival probability},
 	x label style={at={(axis description cs: 1.2, -0.35)},anchor=base},
 	xmin=-10, xmax=30,
@@ -3727,7 +3727,7 @@ During the first measurement, the atomic fluorescence exceeding a single thresho
 	\nextgroupplot
 	[
 	ylabel=Occurrence,
-	xlabel=Fluorescence counts (a.\,u.),
+	xlabel=Fluorescence counts {[a.\,u.]},
 	axis on top,
 	enlargelimits=false,
 	]
@@ -3914,8 +3914,8 @@ In contrast to the single-threshold atom detection method, which can be suscepti
 	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
 	\nextgroupplot
 	[
-	xlabel={Time (s)},
-	ylabel={Fluorescence counts (a.\,u.)},
+	xlabel={Time {[\si{\second}]}},
+	ylabel={Fluorescence counts {[a.\,u.]}},
 	xmin=0, xmax=200,
 	ymin=-0.1, ymax=0.3,
 	ymajorgrids=true,
@@ -3941,7 +3941,7 @@ In contrast to the single-threshold atom detection method, which can be suscepti
 	\nextgroupplot
 	[
 	ylabel=Occurrence,
-	xlabel=Fluorescence counts (a.\,u.),
+	xlabel=Fluorescence counts {[a.\,u.]},
 	axis on top,
 	enlargelimits=false
 	]
@@ -4024,8 +4024,8 @@ In this section, we explore whether time-domain filtering of the fluorescence co
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Optical power in dipole trap (\si{\milli\watt})},
-	ylabel={Average trap lifetime (s)},
+	xlabel={Optical power in dipole trap {[\si{\milli\watt}]}},
+	ylabel={Average trap lifetime {[\si{\second}]}},
 	xmin=0, xmax=180,
 	ymin=0, ymax=8,
 	%xticklabels={,,},
@@ -4399,8 +4399,8 @@ To determine the latency of the real-time atom detection and control system, we 
 	\nextgroupplot
 	[
 	%title={Temperature dependence of CuSO$_4\cdot$5H$_2$O solubility},
-	xlabel={Set waiting time (\si{\second})},
-	ylabel={Measured time (\si{\second})},
+	xlabel={Set waiting time {[\si{\second}]}},
+	ylabel={Measured time {[\si{\second}]}},
 	xmin=0, xmax=2.25,
 	ymin=0, ymax=2.25,
 	xtick={0,0.5,1,1.5,2},

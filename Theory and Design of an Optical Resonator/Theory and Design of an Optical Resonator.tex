@@ -1352,8 +1352,8 @@ The spatial extent of the fundamental mode is illustrated in \autoref{modeexpans
 	xlabel style={yshift=-0cm},
 	every tick/.append style = {black, thin},
 	tick align = outside,
-	xlabel = {$z$ (\si{\milli\meter})},
-	ylabel = {$\pm w(z)$ (\si{\milli\meter})},
+	xlabel = {$z$ {[\si{\milli\meter}]}},
+	ylabel = {$\pm w(z)$ {[\si{\milli\meter}]}},
 	xmin = -30,
 	xmax = 20,
 	ymin = -6,
@@ -1384,8 +1384,8 @@ The spatial extent of the fundamental mode is illustrated in \autoref{modeexpans
 	tick align = outside,
 	ytick={-20,-10,0,10,20},
 	yticklabels={$-20$,\phantom{$-10$},$0$,\phantom{$10$},$20$},
-	xlabel = {$z$ (\si{\micro\meter})},
-	ylabel = {$\pm w(z)$ (\si{\micro\meter})},
+	xlabel = {$z$ {[\si{\micro\meter}]}},
+	ylabel = {$\pm w(z)$ {[\si{\micro\meter}]}},
 	xmin = -600, %0.2538231361 total to match aspect ratio
 	xmax = 100,
 	ymin = -20,
@@ -1519,8 +1519,8 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	\begin{tikzpicture}
 	\begin{axis}
 	[
-	ylabel={Transmission (a.\,u.)},
-	xlabel={$\nu - \nu_0$ (\si{\mega\hertz})},
+	ylabel={Transmission {[a.\,u.]}},
+	xlabel={$\nu - \nu_0$ {[\si{\mega\hertz}]}},
 	xmin=-40, xmax=40,
 	ymin=-0.02, ymax=0.82,
 	ymajorgrids=true,
@@ -1541,7 +1541,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	
 	% Raw data
 	\addplot[smooth, rainbow5of8, thin] table [col sep = comma, x index = 0, y index = 1, each nth point=5, filter discard warning=false, unbounded coords=discard ] {cavity_smoothtrace.csv};
-	\addlegendentry{data}
+	\addlegendentry{\footnotesize data}
 	
 	% Smoothed data
 	%\addplot[smooth, rainbow2of8, thin] table [col sep = comma, x index = 0, y index = 1, every nth point=10] {cavity_smoothtrace.csv};
@@ -1549,7 +1549,7 @@ The linewidth of the Fabry--Pérot resonator is extracted by scanning the cavity
 	
 	% Fit
 	\addplot[markrood, densely dotted, thick] table [col sep = comma, x index = 0, y index = 1, each nth point=1, filter discard warning=false, unbounded coords=discard ] {cavity_fit.csv};
-	\addlegendentry{fit}
+	\addlegendentry{\footnotesize fit}
 	
 	% Optional: Add vertical lines at ±25 MHz
 	\addplot[densely dotted, markgrijs, thick] coordinates {(25,-1) (25,0.2)};

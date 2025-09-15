@@ -31,7 +31,7 @@ A variety of approaches have been explored to improve the mechanical stability o
 Before presenting the design and modal frequency response analysis of this mount, we first examine an earlier-generation fibre-tip resonator and its corresponding mount. The following three sections characterise this fibre-tip system through simulated modal frequency response, assessment of passive stability under environmental noise and measurement of the actuator transfer function, providing a basis for comparison.
 
 \subsection{Modal frequency response analysis of a fibre-tip resonator mount}
-Modal frequency response analysis is a computational technique used to predict how a structure responds dynamically to base excitations across a range of frequencies. By decomposing the system into its eigenmodes, each characterised by a natural frequency and mode shape, the method allows the evaluation of the contribution of individual modes to the overall dynamic behaviour. This approach is particularly effective for multi-degree-of-freedom (MDOF) systems, where the number of vibrational modes can be large, but only a subset significantly influences the response under typical operating conditions.
+Modal frequency response analysis is a computational technique used to predict how a structure responds dynamically to base excitations across a range of frequencies (see \autoref{app:modalanalysis}). By decomposing the system into its eigenmodes, each characterised by a natural frequency and mode shape, the method allows the evaluation of the contribution of individual modes to the overall dynamic behaviour. This approach is particularly effective for multi-degree-of-freedom (MDOF) systems, where the number of vibrational modes can be large, but only a subset significantly influences the response under typical operating conditions.
 
 The modal frequency response of the fibre-tip resonator mount is evaluated through finite-element modelling, implemented in Autodesk Inventor using the Nastran solver. The analysis uses \num{8} processor threads\footnote{Using around \num{8} threads is near optimal for this analysis. Using more threads increases overhead from distributing the calculation and does not necessarily reduce total runtime.} on an AMD Ryzen Threadripper 3990X 64-Core Processor (\SI{2.90}{\giga\hertz}) with \SI{256}{\giga\byte} of RAM. A parabolic mesh with an element size of \SI{1}{\milli\metre} is used, resulting in a total of \num{85527} elements. To capture the dominant dynamic behaviour, \num{80} modes are retained in the analysis, such that the cumulative effective modal mass reaches at least \SI{80}{\percent} of the total physical mass for each degree of freedom. The effective modal mass ratios are listed in \autoref{modeparticipationM} (see \autoref{app:effectivemodalmass}). Base excitations with an acceleration magnitude of \SI{1}{\milli\metre\per\second\squared} are enforced individually in the $x$, $y$ and $z$ directions at the mounting interface to the vacuum chamber flange. The frequency response is evaluated between \SI{0}{\kilo\hertz} and \SI{10}{\kilo\hertz} with \num{15} data points between each pair of successive modes and a bias factor of \num{3} to ensure denser sampling near the resonance frequencies. The maximum linear acceleration magnitudes of the structure for these three excitation directions are presented in \autoref{freqresponseMarw}.
 \begin{figure}[!t]
@@ -122,7 +122,7 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 	ymax=1e3,
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency},
-	ylabel={Maximum linear acceleration magnitude (\si{\milli\meter\per\second\squared})},
+	ylabel={Maximum linear acceleration magnitude {[\si{\milli\meter\per\second\squared}]}},
 	xmin=0, xmax=10,
 	xticklabels={,,},
 	%ymin=-0.1, ymax=1.1,
@@ -196,7 +196,7 @@ The modal frequency response of the fibre-tip resonator mount is evaluated throu
 	ymin=1e-0,
 	ymax=1e4,
 	%ymin=1e-2, ymax=1e0,
-	xlabel={Enforced acceleration frequency (\si{\kilo\hertz})},
+	xlabel={Enforced acceleration frequency {[\si{\kilo\hertz}]}},
 	%ylabel={Max. linear acceleration},
 	xmin=0, xmax=10,
 	%ymin=-0.1, ymax=1.1,
@@ -378,7 +378,7 @@ deformation directly alters the cavity length. The fundamental mode already affe
 Further insight is gained by comparing the effective modal mass across each translational and rotational degree of freedom (\autoref{modeparticipationM}). The cumulative effective modal mass is lowest for both translational ($T_y$) and rotational motion ($R_y$) associated with the $y$-axis, reflecting the high stiffness of the mount in this direction due to its elongated geometry and the direct constraint at the fixed base. The first modes exhibiting significant effective modal mass for translational displacement along the $y$-axis occur at frequencies higher than \SI{10}{\kilo\hertz}: \SI{11.4}{\kilo\hertz} for mode number $n=10$ and \SI{11.8}{\kilo\hertz}  for $n=11$. As a result, the resonance peaks observed within the \SIrange{0}{10}{\kilo\hertz} range for enforced acceleration along the $y$-axis are one to two orders of magnitude smaller than most resonances observed under $x$- and $z$-excitation.
 
 \subsection{Passive stability of a fibre-tip resonator}
-
+To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we monitor its transmission under conditions such that the signal is directly proportional to cavity length. This is realised by operating the resonator in a low-finesse regime using \SI{1064}{\nano\meter} light, deliberately detuned from the mirror coating's design wavelength of \SI{780}{\nano\meter}. The lower reflectivity results in broader resonance profiles as shown in \autoref{fabryperot}. Before the transmission is recorded, the cavity length is adjusted with a piezoelectric actuator such that the transmitted optical power is at roughly \SI{50}{\percent} of its maximum value. At this point on the Airy distribution, the transmitted power varies approximately linearly with cavity length. A time trace of the transmission signal\footnote{It should be noted that this method is inherently sensitive to laser power fluctuations, since any change in the incident optical power is indistinguishable from an effective change in cavity length.} is recorded on a photodiode and the corresponding power spectral density is shown in \autoref{PSD}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -396,8 +396,8 @@ Further insight is gained by comparing the effective modal mass across each tran
 	ylabel style=markgrijs,
 	yticklabel style=markgrijs,
 	%ymin=1e-2, ymax=1e0,
-	xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={Max. accel. (\si{\milli\meter\per\second\squared})},
+	xlabel={Frequency {[\si{\kilo\hertz}]}},
+	ylabel={Max. accel. {[\si{\milli\meter\per\second\squared}]}},
 	xmin=0, xmax=10,
 	ytick pos=right,
 	%ymin=-0.1, ymax=1.1,
@@ -499,7 +499,7 @@ Further insight is gained by comparing the effective modal mass across each tran
 	every y tick/.style={markrood},
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={Power spectral density (\si{\volt\squared\per\hertz})},
+	ylabel={Power spectral density {[\si{\volt\squared\per\hertz}]}},
 	xmin=0, xmax=10,
 	%ymin=-0.1, ymax=1.1,
 	%ymin=0, ymax=120,
@@ -532,12 +532,15 @@ Further insight is gained by comparing the effective modal mass across each tran
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}]{Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+	\caption[Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}]{Power spectral density of the fibre-tip resonator transmission signal at \SI{1064}{\nano\meter}. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
 	\label{PSD} 
 \end{figure}
+As a reference, the modal frequency response traces from \autoref{freqresponseMarw} are shown in grey. The power spectral density of the transmission signal reveals that, under ambient conditions, environmental vibrational noise perturbs the cavity length most strongly at frequencies near the expected modal resonances.
 
-\subsection{Actuator transfer function of a fibre-tip resonator}
+It is important to note that the transmission spectrum in \autoref{PSD} is not directly comparable to a modal frequency response curve. The measured signal reflects the product of the environmental vibration spectrum with the transfer function of the entire vacuum chamber and mounting assembly. Therefore, we do not expect an exact correspondence with the simulated modal frequency response. Nonetheless, we can identify a number of common features. The most prominent peak in the transmission spectrum appears at \SI{200}{\hertz}, which lies reasonably close to the first normal mode of the mounting structure at \SI{267}{\hertz} \textsc{(a)}. The discrepancy can be attributed to the additional mass of a small steel fibre holder that is fastened to the free end of the mounting structure with four screws (not shown in \autoref{marwanmodes}). When material is added at the free end of a cantilever, two competing effects arise: the added inertia lowers the resonant frequency, while the increased local stiffness raises it. For a local thickening near the free end of a cantilever, the inertial effect dominates, resulting a net downshift of the fundamental bending frequency. A second pronounced feature in the transmission spectrum is visible at \SI{1220}{\hertz}, closely matching modes \textsc{(b)} and \textsc{(c)} at \SI{1105}{\hertz} and \SI{1254}{\hertz}, respectively. At higher frequencies, two peaks are observed at \SI{3330}{\hertz} and \SI{3510}{\hertz}, somewhat above the simulated pair of resonances at \SI{2940}{\hertz} \textsc{(d)} and \SI{3024}{\hertz} \textsc{(e)}. This upward shift can be explained by the stiffening effect of the fibre support piece, which is more significant for these bending modes. In contrast, modes \textsc{(g)} and \textsc{(h)} are only weakly visible in the transmission spectrum, most likely because the environmental background provides limited excitation in this frequency range.
 
+\subsection{Actuator transfer function of a fibre-tip resonator mount}
+In the previous section, the passive stability of the fibre-tip Fabry--Pérot resonator was characterised by analysing the transmission signal under ambient conditions. This approach, however, is inherently limited by the non-uniform power spectrum of the environmental noise. To obtain a more controlled and quantitative characterisation of the mechanical response, we measure the actuator transfer function of the fibre-tip resonator mount. For this purpose, one of the shear piezoelectric actuators that holds one end of the fibre-tip resonator is used to drive\footnote{Within the vacuum chamber, this configuration provides the only available means to actuate the mount mechanically.} the cavity and its mount sinusoidally, while the drive frequency is swept up to \SI{10}{\kilo\hertz} with an arbitrary waveform generator (AWG). The sinusoidal drive induces a corresponding oscillation of the cavity length and the response amplitude is expected to increase when the drive frequency coincides with a mechanical resonance of the mount. Strictly speaking, this measurement also probes resonances of the piezoelectric actuator itself, but these occur far above the frequency range of interest. The specified unloaded resonance frequency of the Noliac CSAP02 shear piezoelectric actuator is \SI{1.75}{\mega\hertz}. While the additional mass of the fibres and holders bonded to the actuator may reduce this resonance frequency, it is not expected to shift into the sub-\SI{10}{\kilo\hertz} range explored here. As in the passive stability analysis, the resonator is illuminated at \SI{1064}{\nano\meter} and a second piezoelectric actuator is used to stabilise the cavity length at the half-transmission point of a resonance slope, ensuring that the transmitted optical power remains approximately linear with respect to cavity length. The transmitted signal from the cavity is recorded on a photodiode and analysed with a spectrum analyser. By comparing the amplitude and phase of the photodiode signal to those of the AWG reference, we directly obtain the magnitude and phase of the transfer function $H(i\cdot 2\pi\nu)$, defined as the ratio of the cavity transmission response (photodiode output voltage) to the applied drive voltage before amplification. The results are shown in \autoref{transferfunction}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -556,7 +559,7 @@ Further insight is gained by comparing the effective modal mass across each tran
 	yticklabel style=markgrijs,
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={Max. accel. (\si{\milli\meter\per\second\squared})},
+	ylabel={Max. accel. {[\si{\milli\meter\per\second\squared}]}},
 	xmin=0, xmax=10,
 	ytick pos=right,
 	xticklabels={,,},
@@ -574,7 +577,8 @@ Further insight is gained by comparing the effective modal mass across each tran
 		anchor=north east,  % Attach the legend to its top-right corner
 		draw=none,           % Optional: Remove border around the legend
 		fill=none,
-		align=left
+		align=left,
+		%y label style={at={(axis description cs: -0.12, 0.5)},anchor=base}
 	}
 	]
 	
@@ -594,23 +598,6 @@ Further insight is gained by comparing the effective modal mass across each tran
 	(axis cs:6.643, 7e-1) -- (axis cs:6.643, 40000);
 	\draw[color=markgrijs, dashed] 
 	(axis cs:6.935, 7e-1) -- (axis cs:6.935, 40000);
-	
-	\iffalse
-	
-	\pgfplotsset{
-		after end axis/.append code={
-			\node[align=center] at (axis cs: 0.267, 20000) {\footnotesize\sc a};
-			\node[align=center] at (axis cs: 1.105-0.06, 20000) {\footnotesize\sc b};
-			\node[align=center] at (axis cs: 1.254+0.06, 20000) {\footnotesize\sc c};
-			\node[align=center] at (axis cs: 2.940-0.1, 20000) {\footnotesize\sc d};
-			\node[align=center] at (axis cs: 3.024+0.1, 20000) {\footnotesize\sc e};
-			\node[align=center] at (axis cs: 3.893, 20000) {\footnotesize\sc f};
-			\node[align=center] at (axis cs: 6.643, 20000) {\footnotesize\sc g};
-			\node[align=center] at (axis cs: 6.935, 20000) {\footnotesize\sc h};
-		}
-	}
-	
-	\fi
 	
 	
 	\addplot[
@@ -654,7 +641,7 @@ Further insight is gained by comparing the effective modal mass across each tran
 	ylabel style=markgrijs,
 	yticklabel style=markgrijs,
 	%ymin=1e-2, ymax=1e0,
-	xlabel={Frequency (\si{\kilo\hertz})},
+	xlabel={Frequency $\nu$ {[\si{\kilo\hertz}]}},
 	%ylabel={Max. accel. (\si{\milli\meter\per\second\squared})},
 	xmin=0, xmax=10,
 	ytick pos=right,
@@ -673,7 +660,8 @@ Further insight is gained by comparing the effective modal mass across each tran
 		draw=none,           % Optional: Remove border around the legend
 		fill=none,
 		align=left
-	}
+	},
+	y label style={at={(axis description cs: -0.12, 0.5)},anchor=base}
 	]
 	
 	\draw[color=markgrijs, dashed] 
@@ -757,11 +745,11 @@ Further insight is gained by comparing the effective modal mass across each tran
 	every y tick/.style={markrood},
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={$\vert H(i\omega)\vert$},
+	ylabel={$\vert H(i\cdot 2\pi\nu)\vert$ {[\si{\deci B}]}},
 	xmin=0, xmax=10,
-	ytick={0,0.05,0.1},
-	yticklabels = {0,0.05,0.1},
-	%ymin=-0.1, ymax=1.1,
+	%ytick={0,0.05,0.1},
+	%yticklabels = {0,0.05,0.1},
+	ymin=-37, ymax=-18,
 	%ymin=0, ymax=120,
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
@@ -780,13 +768,14 @@ Further insight is gained by comparing the effective modal mass across each tran
 		draw=none,           % Optional: Remove border around the legend
 		fill=none,
 		align=left
-	}
+	},
+	y label style={at={(axis description cs: -0.12, 0.5)},anchor=base}
 	]
 	
 	
 	\addplot[
 	color=markrood,
-	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{TRANSFERFUNCTION.csv};
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr={20 * ln(\thisrowno{1}) / ln(10)}]{TRANSFERFUNCTION.csv};
 	
 	\nextgroupplot
 	[
@@ -798,9 +787,9 @@ Further insight is gained by comparing the effective modal mass across each tran
 	every y tick/.style={markdiepblauw},
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency (\si{\kilo\hertz})},
-	ylabel={$\arg{(H(i\omega))}$ (\si{\degree})},
+	ylabel={$\arg{(H(i\cdot 2\pi\nu))}$ {[\si{\degree}]}},
 	xmin=0, xmax=10,
-	%ymin=-0.1, ymax=1.1,
+	ymin=-150, ymax=0,
 	%ymin=0, ymax=120,
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
@@ -819,20 +808,25 @@ Further insight is gained by comparing the effective modal mass across each tran
 		draw=none,           % Optional: Remove border around the legend
 		fill=none,
 		align=left
-	}
+	},
+	y label style={at={(axis description cs: -0.12, 0.5)},anchor=base}
 	]
 	
 	
 	\addplot[
 	color=markdiepblauw,
-	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 2]{TRANSFERFUNCTION.csv};
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr={\thisrowno{2}-180}]{TRANSFERFUNCTION.csv};
 	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Magnitude and phase of the transfer function that corresponds to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip resonator]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\omega)$ that corresponds to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip resonator that is driven sinusoidally with a single sheer piezo. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
+	\caption[Magnitude and phase of the transfer function that corresponds to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip resonator]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\cdot 2\pi\nu)$ that corresponds to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip resonator that is driven sinusoidally with a single sheer piezoelectric actuator. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
 	\label{transferfunction} 
 \end{figure}
+
+talk about how it resembles \autoref{fig:tf_groupplot} in \autoref{app:modalanalysis}
+
+talk about collocated actuating and sensing (what sort of sensing with cavity?) etc.
 
 \subsection{Design of a glass-substrate resonator mount}
 \label{subsec:mountingoverview}
@@ -982,7 +976,7 @@ other finger model same element size, but 330715
 	ymax=1e2,
 	%ymin=1e-2, ymax=1e0,
 	%xlabel={Frequency},
-	ylabel={Maximum linear acceleration magnitude (\si{\milli\meter\per\second\squared})},
+	ylabel={Maximum linear acceleration magnitude {[\si{\milli\meter\per\second\squared}]}},
 	xmin=0, xmax=10,
 	xticklabels={,,},
 	%ymin=-0.1, ymax=1.1,
@@ -1058,7 +1052,7 @@ other finger model same element size, but 330715
 	ymin=1e-0,
 	ymax=1e4,
 	%ymin=1e-2, ymax=1e0,
-	xlabel={Enforced acceleration frequency (\si{\kilo\hertz})},
+	xlabel={Enforced acceleration frequency {[\si{\kilo\hertz}]}},
 	%ylabel={Max. linear acceleration},
 	xmin=0, xmax=10,
 	%ymin=-0.1, ymax=1.1,
@@ -1694,7 +1688,7 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 	
 	\pgfplotsset{
 		after end axis/.append code={
-			\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc error (\si{\percent})};
+			\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc error {[\si{\percent}]}};
 		}
 	}
 	
@@ -1703,7 +1697,7 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 	\nextgroupplot
 	[
 	%xlabel={$x$},
-	ylabel={$y$ (\si{\milli\meter})},
+	ylabel={$y$ {[\si{\milli\meter}]}},
 	ylabel style={xshift=2.5cm},
 	enlargelimits=false,
 	%xmin=0.5,
@@ -1746,7 +1740,7 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 	
 		\nextgroupplot
 	[
-	xlabel={$x$ (\si{\milli\meter})},
+	xlabel={$x$ {[\si{\milli\meter}]}},
 	%ylabel={$y$},
 	enlargelimits=false,
 	%xmin=0.5,
@@ -1849,7 +1843,7 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 	ymin=0,
 	ymax=0.4,
 	%xlabel={$x$ (\si{\milli\meter})},
-	ylabel={Error (\si{\percent})},
+	ylabel={Error {[\si{\percent}]}},
 	xticklabels={,,},
 	ytick={0,0.1,0.2,0.3,0.4},
 	yticklabels={0,10,20,30,40},
@@ -1895,8 +1889,8 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 	[
 	ymin=0,
 	ymax=2,
-	xlabel={$x$ (\si{\milli\meter})},
-	ylabel={Intensity (a.\,u.)},
+	xlabel={$x$ {[\si{\milli\meter}]}},
+	ylabel={Intensity {[a.\,u.]}},
 	enlargelimits=false,
 	ymajorgrids=true,
 	xmajorgrids=true,
@@ -2050,8 +2044,8 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 			xmin=0,
 			xmax=200,
 			ytick={0,1,2,3,4,5},
-			xlabel={Polishing time $t$ (\si{\second})},
-			ylabel={End facet length $a$ (\si{\milli\meter})},
+			xlabel={Polishing time $t$ {[\si{\second}]}},
+			ylabel={End facet length $a$ {[\si{\milli\meter}]}},
 			ymajorgrids=true,
 			xmajorgrids=true,
 			grid style=dashed,
@@ -2093,8 +2087,8 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 			width=3.5cm,
 			height=3.5cm,
 			anchor=north east,
-			xlabel={$t$ (\si{\second})},
-			ylabel={$a$ (\si{\micro\meter})},
+			xlabel={$t$ {[\si{\second}]}},
+			ylabel={$a$ {[\si{\micro\meter}]}},
 			]
 			\fill[fill=white] (axis cs:163,190) rectangle (axis cs:182,360);
 			
@@ -2113,8 +2107,8 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 			width=3.5cm,
 			height=3.5cm,
 			anchor=north east,
-			xlabel={$t$ (\si{\second})},
-			ylabel={$a$ (\si{\micro\meter})},
+			xlabel={$t$ {[\si{\second}]}},
+			ylabel={$a$ {[\si{\micro\meter}]}},
 			]
 			
 			\addplot[only marks, markgrijs, error bars/.cd,
