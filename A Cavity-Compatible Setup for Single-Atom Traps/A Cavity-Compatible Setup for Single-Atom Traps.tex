@@ -1652,60 +1652,47 @@ The comparison highlights clear advantages of the glass-substrate resonator moun
 
 \section{Pyramidal magneto-optical trap}
 \label{sec:pyramidal_mot}
-asd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf ds
-
-\iffalse
-By securing these elements on a single mount, the architecture minimises mechanical degrees of freedom, reduces alignment complexity and ensures stable spatial overlap between the atomic source, the dipole trap and the cavity mode.
-
-
-This arrangement reflects a single incident cooling beam into the standard six-beam MOT configuration, providing efficient loading of the dipole trap from a cold atomic ensemble. 
-
-
-
-
-The choice of a pyramidal MOT as the cold-atom source is motivated by its compactness, mechanical robustness, and minimal optical access requirements. Conventional MOTs use three orthogonal pairs of counterpropagating laser beams, requiring multiple independent optical elements and substantial optical access to the trapping region. While retroreflection can halve the number of independent beams, the apparatus remains relatively bulky and alignment-sensitive. In contrast, the pyramidal MOT uses a set of four mirrors in a square-based pyramidal configuration to reflect a single circularly polarised input beam into the full six-beam arrangement required for magneto-optical trapping in a spherical quadrupole magnetic field. Each pair of counterpropagating beams emerges with the correct relative circular polarisation by virtue of the $180^{\circ}$ phase shift between $s$- and $p$-components upon reflection from the mirrors. 
-
-This geometry yields balanced beam intensities at all points in the trapping volume (assuming well-aligned and identical mirrors), making efficient use of the available optical power and suppressing phase and intensity noise via common-mode rejection. Moreover, because the light returns along the incident axis, only a single optical feedthrough is required, allowing the MOT optics to be integrated entirely within the vacuum chamber. By truncating the pyramid apex to form an aperture, the configuration can be operated as a \emph{source}, in which atoms are extracted along the symmetry axis to load a downstream trap---in our case, the optical dipole trap inside the cavity mode.
-
-Integrating the pyramidal MOT directly into the cavity mounting finger offers two primary benefits: (i) the MOT is mechanically referenced to the cavity, ensuring that any long-term drifts affect both subsystems identically; and (ii) the use of a single, compact mechanical support minimises vibrational resonances and simplifies the optical layout. The remainder of this chapter describes the design considerations, mechanical analysis, and optical performance of the integrated cavity support and MOT source, beginning with the cavity mounting finger design and followed by the realisation and characterisation of the pyramidal MOT.
-
-\fi
+In this section, we discuss a pyramidal magneto-optical trap as a compact, cavity-compatible cold-atom source that can deliver atoms into the region between the cavity mirrors to load single-atom dipole traps. In \autoref{pyramidMOToverview} we describe the operating principle of the pyramidal MOT and its implementation in our setup. An important consideration is that the aperture at the pyramid apex, which allows atoms to pass toward the cavity centre, inevitably alters the reflected cooling beams through diffraction. The impact of this effect is examined in \autoref{pyramidMOTaperture}. The fabrication of the mirror substrates and their assembly into the pyramidal configuration is detailed in \autoref{pyramidMOTmirrorfab}. Finally, \autoref{pyramidMOTcoldatom} outlines the detection of cold atoms trapped with the assembled pyramidal MOT in a stand-alone test configuration.
 
 \subsection{Overview}
-
-5 - 2 * ((6. * a * t) ** (1./3.))
-
-
+\label{pyramidMOToverview}
+The choice of a pyramidal MOT as the cold-atom source is motivated by its compactness, mechanical robustness and minimal optical access requirements. Conventional MOTs use three orthogonal pairs of counter-propagating laser beams, requiring multiple independent optical elements and substantial optical access to the trapping region. While retro-reflection can halve the number of independent beams, the apparatus remains relatively bulky and alignment-sensitive. In contrast, the pyramidal MOT uses a set of four right-angle mirrors in a square-based\footnote{Alternative mirror arrangements have also been demonstrated \cite{Vangeleyn2009, Kim1997, Vangeleyn2010}.} pyramidal configuration to reflect a circularly polarised input beam into the full six-beam arrangement required for magneto-optical trapping in a spherical quadrupole magnetic field. Each pair of counter-propagating beams emerges with the correct relative circular polarisation by virtue of the \SI{180}{\degree} phase shift between the $s$- and $p$-components of the light upon reflection from the mirrors. This geometry, requiring only a single incident beam, yields balanced intensities at all points in the trapping volume (assuming well-aligned and identical mirrors), making efficient use of the available optical power. By truncating the pyramid apex to form an aperture, the configuration can be operated as a source, where atoms are extracted along the symmetry axis to load a downstream trap---in our case, the optical dipole trap inside the cavity mode as illustrated in \autoref{pyramidloading}.
 \begin{figure}[t]
 	\hspace{-0cm}
 	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
-			% labels
-			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
-			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
-			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-			
-			\node[align=center, rotate=0] at (0.15,-0.05) {\footnotesize\sc (a)};
-			\node[align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
-			\node[align=center, rotate=0] at (0.85,-0.05) {\footnotesize\sc (c)};
-			
-		\end{scope}
-		
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	% labels
+	%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+	%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+	%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+	
+	\node[align=center, rotate=0] at (0.15,-0.05) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.85,-0.05) {\footnotesize\sc (c)};
+	
+	\end{scope}
+	
 	\end{tikzpicture}
-	\caption[Loading an intracavity dipole trap from a pyramidal MOT]{Loading an intracavity dipole trap from a pyramidal MOT. \textsc{(a)} A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramidal MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. \textsc{(b)} The same structure viewed from the back, showing the gold-coated rear surface of the mirror holder. The location of the cross-section shown in \textsc{(c)} is indicated in light blue. \textsc{(c)} A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramidal MOT.}
+	\caption[Loading an intra-cavity dipole trap from a pyramidal MOT]{Loading an intra-cavity dipole trap from a pyramidal MOT. \textsc{(a)} A cutaway view of the cavity mounting structure, revealing the cavity mirrors and part of the right-angle mirrors that reflect the cooling beams to form the pyramidal MOT. At the apex of the pyramid, a central opening allows an atomic beam to emanate towards the cavity mode. \textsc{(b)} The same structure viewed from the back, showing the gold-coated rear surface of the mirror holder. The location of the cross-section shown in \textsc{(c)} is indicated in light blue. \textsc{(c)} A cross-sectional view illustrating the dipole trap beam (red) and the cooling beams (green), which are incident at small angles relative to the normal. These beams reflect off the gold coating, creating a region around the dipole trap (yellow) where an optical molasses can form, populated by cold atoms from the pyramidal MOT.}
 	\label{pyramidloading} 
 \end{figure}
+Such pyramidal MOT sources have been demonstrated both as pulsed emitters of cold atoms \cite{Arlt1998} and as continuous funnels capable of efficiently transferring atoms into a secondary MOT \cite{Williamson1998}. The ejection is a direct result of asymmetric radiation pressure. The pyramidal mirrors provide cooling and transverse confinement by creating a balanced scattering force from all sides. In the central region in front of the aperture, however, the counter-propagating beam is absent. Atoms in this volume scatter only from the unopposed input beam, resulting in a net force that accelerates them through the hole. Acceleration continues until the atoms are Doppler shifted out of resonance, suppressing further scattering. This produces a slow atomic beam with a velocity matched to the capture range of a downstream MOT or optical molasses.
+
+In order to load atoms from the pyramidal MOT into the intra-cavity dipole trap, a local optical molasses is required. This is realised by directing two cooling beams onto the trapping region as illustrated in \autoref{pyramidloading}. Reflections from the gold-coated mirror holder provide the necessary counter-propagating components, establishing two (non-orthogonal) beam pairs in this volume to form a molasses that captures and cools the atoms emerging from the pyramidal MOT.
 
 \subsection{Aperture diffraction analysis}
+\label{pyramidMOTaperture}
+
+if the aperture is too small, diffraction of the retro-reflected cooling beams and geometric restriction of the exit channel suppress the output flux, while an overly large aperture reduces the MOT capture volume and increases transverse losses before atoms can be extracted.
 
 \begin{figure}[!t]
 	\centering
@@ -2389,7 +2376,9 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 
 
 \subsection{Mirror fabrication}
+\label{pyramidMOTmirrorfab}
 
+5 - 2 * ((6. * a * t) ** (1./3.))
 
 \begin{figure}[t]
 	\centering
@@ -2614,7 +2603,7 @@ Integrating the pyramidal MOT directly into the cavity mounting finger offers tw
 \end{figure}
 
 \subsection{Cold atom detection}
-
+\label{pyramidMOTcoldatom}
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[remember picture]

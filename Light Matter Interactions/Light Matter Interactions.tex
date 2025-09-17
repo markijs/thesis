@@ -25,20 +25,20 @@ In matrix form, $\hat{\mathcal{H}}$ can then be written as:
 \begin{equation}
 \label{hamiltonian1}
 \hat{\mathcal{H}}=\hbar
-\begin{pmatrix} 
+\begin{bmatrix} 
 \omega_0/2 & \Omega\cos(\omega t)\\
 \Omega\cos(\omega t) & -\omega_0/2
-\end{pmatrix}
+\end{bmatrix}
 \,,
 \end{equation}
 where we have defined the Rabi frequency $\Omega=-\vec{d}_{eg}\cdot\vec{\epsilon}E_0/\hbar$. Under the rotating wave approximation, this Hamiltonian can be written in the rotating frame\footnote{The transformation matrix is given by $\hat{R}(t)=\exp(i\omega\hat{\sigma}_z t/2)$, see \autoref{rotatingframeapp}.} as \cite{loudon}:
 \begin{equation}
 \label{timeindependentH}
 \hat{\mathcal{H}}=\frac{\hbar}{2}
-\begin{pmatrix} 
+\begin{bmatrix} 
 \Delta& \Omega\\
 \Omega& -\Delta
-\end{pmatrix}\,,
+\end{bmatrix}\,,
 \end{equation}
 where $\Delta=\omega_0-\omega$ is the detuning of the laser relative to the atomic resonance frequency.
 \subsection{The scattering force}
@@ -746,7 +746,7 @@ where we have assumed $g_{\vec{k},\hat{\epsilon}}=g^*_{\vec{k},\hat{\epsilon}}$,
 \subsection{Dressed states}
 The Hamiltonian in \autoref{JC} is an example of one of the few exactly solvable models in quantum optics. Note that it takes on a block diagonal structure, coupling pairs of atom-field states $\{|e,n-1\rangle, |g, n\rangle\}$. Each $2\times2$ block $\hat{\mathcal{H}}_n$ can be represented as follows:
 \begin{align}
-\hat{\mathcal{H}}_n \begin{pmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{pmatrix} = \hbar \begin{pmatrix} (n-1)\omega + \omega_0 & g\sqrt{n} \\ g\sqrt{n} & n\omega \end{pmatrix} \begin{pmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{pmatrix}\,.
+\hat{\mathcal{H}}_n \begin{bmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} (n-1)\omega + \omega_0 & g\sqrt{n} \\ g\sqrt{n} & n\omega \end{bmatrix} \begin{bmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix}\,.
 \end{align}
 Solving for the eigenfrequencies of this Hamiltonian yields:
 \begin{align}
@@ -805,7 +805,7 @@ cited state $\vert e, n-1 \rangle $ by a laser with a frequency of $\omega_L$ an
 \begin{align}
 \label{hamiltonianHn}
 \begin{split}
-\hat{\mathcal{H}}_n \begin{pmatrix}  \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{pmatrix} = \hbar \begin{pmatrix} n\omega_C & \Omega/2 & 0 \\ \Omega/2 & n\omega_C + \Delta_L & g\sqrt{n} \\ 0 & g\sqrt{n} &  n\omega_C + \Delta_L-\Delta_C \end{pmatrix} \begin{pmatrix} \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{pmatrix}\,.
+\hat{\mathcal{H}}_n \begin{bmatrix}  \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} n\omega_C & \Omega/2 & 0 \\ \Omega/2 & n\omega_C + \Delta_L & g\sqrt{n} \\ 0 & g\sqrt{n} &  n\omega_C + \Delta_L-\Delta_C \end{bmatrix} \begin{bmatrix} \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix}\,.
 \end{split}
 \end{align}
 For equal laser and cavity detuning ($\Delta_L=\Delta_C=\Delta$), the eigenfrequencies are given by
