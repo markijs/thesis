@@ -31,6 +31,7 @@ A variety of approaches have been explored to improve the mechanical stability o
 Before presenting the design and modal frequency response analysis of this mount, we first examine an earlier-generation fibre-tip resonator and its corresponding mount. The following three sections characterise this fibre-tip system through simulated modal frequency response, assessment of passive stability under environmental noise and measurement of the actuator transfer function, providing a basis for comparison.
 
 \subsection{Modal frequency response analysis of a fibre-tip resonator mount}
+\label{modalfreqresponseanalysisfibretip}
 Modal frequency response analysis is a computational technique used to predict how a structure responds dynamically to base excitations across a range of frequencies (see \autoref{app:modalanalysis}). By decomposing the system into its eigenmodes, each characterised by a natural frequency and mode shape, the method allows the evaluation of the contribution of individual modes to the overall dynamic behaviour. This approach is particularly effective for multi-degree-of-freedom (MDOF) systems, where the number of vibrational modes can be large, but only a subset significantly influences the response under typical operating conditions.
 
 The modal frequency response of the fibre-tip resonator mount is evaluated through finite-element modelling, implemented in Autodesk Inventor using the Nastran solver. The analysis uses \num{8} processor threads\footnote{Using around \num{8} threads is near optimal for this analysis. Using more threads increases overhead from distributing the calculation and does not necessarily reduce total runtime.} on an AMD Ryzen Threadripper 3990X 64-Core Processor (\SI{2.90}{\giga\hertz}) with \SI{256}{\giga\byte} of RAM. A parabolic mesh with an element size of \SI{1}{\milli\metre} is used, resulting in a total of \num{85527} elements. To capture the dominant dynamic behaviour, \num{80} modes are retained in the analysis, such that the cumulative effective modal mass reaches at least \SI{80}{\percent} of the total physical mass for each degree of freedom. The effective modal mass ratios are listed in \autoref{modeparticipationM} (see \autoref{app:effectivemodalmass}). Base excitations with an acceleration magnitude of \SI{1}{\milli\metre\per\second\squared} are enforced individually in the $x$, $y$ and $z$ directions at the mounting interface to the vacuum chamber flange. The frequency response is evaluated between \SI{0}{\kilo\hertz} and \SI{10}{\kilo\hertz} with \num{15} data points between each pair of successive modes and a bias factor of \num{3} to ensure denser sampling near the resonance frequencies. The maximum linear acceleration magnitudes of the structure for these three excitation directions are presented in \autoref{freqresponseMarw}.
@@ -386,7 +387,7 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	
 	
 	
-	\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm, y descriptions at=edge right,},xmin=0,ymin=0,height=5.5cm,width=12cm,no markers,]
+	\begin{groupplot}[group style={group size=1 by 1, vertical sep=1cm, y descriptions at=edge right,},xmin=0,ymin=0,height=5.5cm,width=12cm,no markers,axis on top]
 	
 	\nextgroupplot
 	[
@@ -405,7 +406,7 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
 	%legend pos=north west,
-	ymajorgrids=true,
+	ymajorgrids=false,
 	xmajorgrids=false,
 	grid style=dashed,
 	legend cell align={left},
@@ -451,7 +452,6 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	}
 	
 	
-	
 	\addplot[
 	color=markgrijs,
 	name path=xpointone,
@@ -459,30 +459,30 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	
 	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs, opacity=0.25] fill between[
 	of = xzero and xpointone,
 	]; 
 	
 	\addplot[
-	color=markgrijs,
-	name path=ypointone,
-	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
-	
-	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
-	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
-	of = yzero and ypointone,
-	]; 
-	
-	\addplot[
-	color=markgrijs,
+	color=marklichtgrijs2!70!black,
 	name path=zpointone,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_z_01.csv};
 	
 	\addplot+[draw=none,domain=0:10,name path=zzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs!10!white, opacity=0.8] fill between[
 	of = zzero and zpointone,
+	]; 
+	
+	\addplot[
+	color=black,
+	name path=ypointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
+	
+	\addplot[color=markgrijs, opacity=0.5] fill between[
+	of = yzero and ypointone,
 	]; 
 	
 	\end{groupplot}
@@ -509,7 +509,7 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	xtick=\empty,
 	axis line style=transparent,
 	ytick pos=left,
-	ymajorgrids=false,
+	ymajorgrids=true,
 	xmajorgrids=false,
 	grid style=dashed,
 	y grid style={color=markrood, opacity=0.3},
@@ -527,7 +527,10 @@ To evaluate the passive stability of the fibre-tip Fabry--Pérot resonator, we m
 	\addplot[
 	color=markrood,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{PSD.csv};
-	
+
+	\node[align=center] at (rel axis cs: 0.335,0.11) {\footnotesize\sc \textcolor{marklichtgrijs2!70!black}{$z$}};
+	\node[align=center] at (rel axis cs: 0.64,0.09) {\footnotesize\sc \textcolor{black}{$y$}};
+	\node[align=center] at (rel axis cs: 0.42,0.13) {\footnotesize\sc \textcolor{markgrijs}{$x$}};
 	
 	\end{groupplot}
 	
@@ -539,7 +542,7 @@ As a reference, the modal frequency response traces from \autoref{freqresponseMa
 
 It is important to note that the transmission spectrum in \autoref{PSD} is not directly comparable to a modal frequency response curve. The measured signal reflects the product of the environmental vibration spectrum with the transfer function of the entire vacuum chamber and mounting assembly. Therefore, we do not expect an exact correspondence with the simulated modal frequency response. Nonetheless, we can identify a number of common features. The most prominent peak in the transmission spectrum appears at \SI{200}{\hertz}, which lies reasonably close to the first normal mode of the mounting structure at \SI{267}{\hertz} \textsc{(a)}. The discrepancy can be attributed to the additional mass of a small steel fibre holder that is fastened to the free end of the mounting structure with four screws (not shown in \autoref{marwanmodes}). When material is added at the free end of a cantilever, two competing effects arise: the added inertia lowers the resonant frequency, while the increased local stiffness raises it. For a local thickening near the free end of a cantilever, the inertial effect dominates, resulting a net downshift of the fundamental bending frequency. A second pronounced feature in the transmission spectrum is visible at \SI{1220}{\hertz}, closely matching modes \textsc{(b)} and \textsc{(c)} at \SI{1105}{\hertz} and \SI{1254}{\hertz}, respectively. At higher frequencies, two peaks are observed at \SI{3330}{\hertz} and \SI{3510}{\hertz}, somewhat above the simulated pair of resonances at \SI{2940}{\hertz} \textsc{(d)} and \SI{3024}{\hertz} \textsc{(e)}. This upward shift can be explained by the stiffening effect of the fibre support piece, which is more significant for these bending modes. In contrast, modes \textsc{(g)} and \textsc{(h)} are only weakly visible in the transmission spectrum, most likely because the environmental background provides limited excitation in this frequency range.
 
-\subsection{Actuator transfer function of a fibre-tip resonator mount}
+\subsection[Actuator transfer function of a fibre-tip resonator mount]{Actuator transfer function of a fibre-tip\hspace{4em} resonator mount}
 In the previous section, the passive stability of the fibre-tip Fabry--Pérot resonator was characterised by analysing the transmission signal under ambient conditions. This approach, however, is inherently limited by the non-uniform power spectrum of the environmental noise. To obtain a more controlled and quantitative characterisation of the mechanical response, we measure the actuator transfer function of the fibre-tip resonator mount. For this purpose, one of the shear piezoelectric actuators that holds one end of the fibre-tip resonator is used to drive\footnote{Within the vacuum chamber, this configuration provides the only available means to actuate the mount mechanically.} the cavity and its mount sinusoidally, while the drive frequency is swept up to \SI{10}{\kilo\hertz} with an arbitrary waveform generator (AWG). The sinusoidal drive induces a corresponding oscillation of the cavity length and the response amplitude is expected to increase when the drive frequency coincides with a mechanical resonance of the mount. Strictly speaking, this measurement also probes resonances of the piezoelectric actuator itself, but these occur far above the frequency range of interest. The specified unloaded resonance frequency of the Noliac CSAP02 shear piezoelectric actuator is \SI{1.75}{\mega\hertz}. While the additional mass of the fibres and holders bonded to the actuator may reduce this resonance frequency, it is not expected to shift into the sub-\SI{10}{\kilo\hertz} range explored here. As in the passive stability analysis, the resonator is illuminated at \SI{1064}{\nano\meter} and a second piezoelectric actuator is used to stabilise the cavity length at the half-transmission point of a resonance slope, ensuring that the transmitted optical power remains approximately linear with respect to cavity length. The transmitted signal from the cavity is recorded on a photodiode and analysed with a spectrum analyser. By comparing the amplitude and phase of the photodiode signal to those of the AWG reference, we directly obtain the magnitude and phase of the transfer function $H(i\cdot 2\pi\nu)$, defined as the ratio of the cavity transmission response (photodiode output voltage) to the applied drive voltage before amplification. The results are shown in \autoref{transferfunction}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
@@ -548,7 +551,7 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	
 	
 	
-	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.5cm, y descriptions at=edge right,},xmin=0,ymin=0,height=4.5cm,width=12cm,no markers,]
+	\begin{groupplot}[group style={group size=1 by 2, vertical sep=0.5cm, y descriptions at=edge right,},xmin=0,ymin=0,height=4.5cm,width=12cm,no markers,axis on top]
 	
 	\nextgroupplot
 	[
@@ -568,7 +571,7 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
 	%legend pos=north west,
-	ymajorgrids=true,
+	ymajorgrids=false,
 	xmajorgrids=false,
 	grid style=dashed,
 	legend cell align={left},
@@ -607,30 +610,30 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	
 	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs, opacity=0.25] fill between[
 	of = xzero and xpointone,
 	]; 
 	
 	\addplot[
-	color=markgrijs,
-	name path=ypointone,
-	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
-	
-	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
-	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
-	of = yzero and ypointone,
-	]; 
-	
-	\addplot[
-	color=markgrijs,
+	color=marklichtgrijs2!70!black,
 	name path=zpointone,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_z_01.csv};
 	
 	\addplot+[draw=none,domain=0:10,name path=zzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs!10!white, opacity=0.8] fill between[
 	of = zzero and zpointone,
+	]; 
+	
+	\addplot[
+	color=black,
+	name path=ypointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
+	
+	\addplot[color=markgrijs, opacity=0.5] fill between[
+	of = yzero and ypointone,
 	]; 
 	
 	\nextgroupplot
@@ -650,7 +653,7 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	%xtick={0,20,40,60,80,100},
 	%ytick={0,20,40,60,80,100,120},
 	%legend pos=north west,
-	ymajorgrids=true,
+	ymajorgrids=false,
 	xmajorgrids=false,
 	grid style=dashed,
 	legend cell align={left},
@@ -705,30 +708,30 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	
 	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs, opacity=0.25] fill between[
 	of = xzero and xpointone,
 	]; 
 	
 	\addplot[
-	color=markgrijs,
-	name path=ypointone,
-	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
-	
-	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
-	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
-	of = yzero and ypointone,
-	]; 
-	
-	\addplot[
-	color=markgrijs,
+	color=marklichtgrijs2!70!black,
 	name path=zpointone,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_z_01.csv};
 	
 	\addplot+[draw=none,domain=0:10,name path=zzero] {1e-11}; 
 	
-	\addplot[color=markgrijs, opacity=0.1] fill between[
+	\addplot[color=markgrijs!10!white, opacity=0.8] fill between[
 	of = zzero and zpointone,
+	]; 
+	
+	\addplot[
+	color=black,
+	name path=ypointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y index = 1]{M_y_01.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=yzero] {1e-11}; 
+	
+	\addplot[color=markgrijs, opacity=0.5] fill between[
+	of = yzero and ypointone,
 	]; 
 	
 	\end{groupplot}
@@ -757,7 +760,7 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	xtick=\empty,
 	axis line style=transparent,
 	ytick pos=left,
-	ymajorgrids=false,
+	ymajorgrids=true,
 	xmajorgrids=false,
 	grid style=dashed,
 	y grid style={color=markrood, opacity=0.3},
@@ -776,6 +779,10 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	\addplot[
 	color=markrood,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr={20 * ln(\thisrowno{1}) / ln(10)}]{TRANSFERFUNCTION.csv};
+	
+	\node[align=center] at (rel axis cs: 0.32,0.15) {\footnotesize\sc \textcolor{marklichtgrijs2!80!black}{$z$}};
+	\node[align=center] at (rel axis cs: 0.98,0.10) {\footnotesize\sc \textcolor{black}{$y$}};
+	\node[align=center] at (rel axis cs: 0.41,0.15) {\footnotesize\sc \textcolor{markgrijs}{$x$}};
 	
 	\nextgroupplot
 	[
@@ -797,10 +804,10 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	xtick=\empty,
 	axis line style=transparent,
 	ytick pos=left,
-	ymajorgrids=false,
+	ymajorgrids=true,
 	xmajorgrids=false,
 	grid style=dashed,
-	y grid style={color=markrood, opacity=0.3},
+	y grid style={color=markdiepblauw, opacity=0.3},
 	legend cell align={left},
 	legend style={
 		at={(1, 1)},  % Adjust (x, y) to move it
@@ -817,20 +824,27 @@ In the previous section, the passive stability of the fibre-tip Fabry--Pérot re
 	color=markdiepblauw,
 	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr={\thisrowno{2}-180}]{TRANSFERFUNCTION.csv};
 	
+	\node[align=center] at (rel axis cs: 0.32,0.15) {\footnotesize\sc \textcolor{marklichtgrijs2!70!black}{$z$}};
+	\node[align=center] at (rel axis cs: 0.98,0.10) {\footnotesize\sc \textcolor{black}{$y$}};
+	\node[align=center] at (rel axis cs: 0.41,0.15) {\footnotesize\sc \textcolor{markgrijs}{$x$}};
+	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Magnitude and phase of the transfer function that corresponds to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip resonator]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\cdot 2\pi\nu)$ that corresponds to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip resonator that is driven sinusoidally with a single sheer piezoelectric actuator. The grey reference traces correspond to the simulated modal frequency response curves ($x$, $y$ and $z$) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
+	\caption[Magnitude and phase of the transfer function that corresponds to the transmission at \SI{1064}{\nano\meter} of a piezo-driven fibre-tip resonator]{Magnitude \textsc{(top)} and phase \textsc{(bottom)} of the transfer function $H(i\cdot 2\pi\nu)$ that corresponds to the transmission signal at \SI{1064}{\nano\meter} of a fibre-tip resonator that is driven sinusoidally with a single sheer piezoelectric actuator. The grey reference traces correspond to the simulated modal frequency response curves for enforced acceleration along the axes $x$, $y$ (darkest) and $z$ (lightest) as shown in \autoref{freqresponseMarw}. Labels are references to the modes as indicated in \autoref{freqresponseMarw} and \autoref{marwanmodes}.}
 	\label{transferfunction} 
 \end{figure}
+The measured transfer function of the fibre-tip resonator mount exhibits sharp resonance-antiresonance pairs, each one of which qualitatively resembles the characteristic response of a two-mode mechanical system with collocated actuation and sensing (see \autoref{fig:tf_groupplot} in \autoref{app:modalanalysis}). In the present case, the shear piezoelectric actuator applies a local force along the $y$-axis of the mount at a position within \SI{5}{\milli\meter} of the cavity centre. The cavity transmission signal, which does not directly correspond to a measurement of displacement, rather responds to bending of the mount at this location, which results in the actuation and sensing points being nearly collocated.
 
-talk about how it resembles \autoref{fig:tf_groupplot} in \autoref{app:modalanalysis}
+If we examine the transfer function, the most prominent features appear close to the predicted resonances from the frequency response analysis for enforced acceleration of the base along the $y$-axis, where the visible modes associated with this direction of actuation are \textsc{(c)}, \textsc{(e)} and \textsc{(g)}. This behaviour is expected, since the shear piezoelectric actuator applies a harmonic force along the $y$-axis, though at a position near the free end of the cantilever. By contrast, the two lowest-frequency resonances that dominate the passive stability spectrum in \autoref{PSD} leave almost no signature in the transfer function, as they are primarily excited via enforced acceleration along the $z$- and $x$-axes, respectively (see \autoref{freqresponseMarw}). These resonances are thus excited more effectively by environmental vibrations that couple through the base in multiple directions. Interestingly, even though most of the other resonances \textsc{(a, b, d, f)} remain essentially invisible in the transfer function, we do observe mode \textsc{(h)} alongside mode \textsc{(g)}. In the simulations, however, mode \textsc{(h)} only appears for enforced acceleration along the $x$-axis. This suggests that a small component of the actuator force may couple into the $x$-direction, possibly due to slight misalignment of the piezoelectric element.
 
-talk about collocated actuating and sensing (what sort of sensing with cavity?) etc.
+Finally, additional spectral features appear around \SI{9}{\kilo\hertz}. Since these do not emerge in the simulated modal response curves, they are most likely associated with the fibre-holder structure, which was not included in the finite-element model. These observations demonstrate that actuator transfer function measurements provide complementary information to the passive stability analysis. The latter reveals which modes are most strongly excited by ambient disturbances, while the former identifies which modes are efficiently driven and sensed in the actuator-cavity configuration. Taken together, these perspectives yield a more comprehensive picture of the dynamic behaviour of the fibre-tip resonator mount.
 
 \subsection{Design of a glass-substrate resonator mount}
 \label{subsec:mountingoverview}
-The mounting structure, shown in \autoref{fig:fingeroverview}, is precision-machined from 316LN stainless steel and houses the cavity module (see \autoref{cavitymodulesection}), which slides in through the central square aperture and is fixed at the correct position with six countersunk screws. In addition, the mounting structure hosts a compact pyramidal mirror assembly (see \autoref{sec:pyramidal_mot}), held in place by a custom aluminium holder inserted from the side.
+The fibre-tip resonator mount, while simple in its design, suffers from poor mechanical stability. A dense set of low-frequency resonances spread across the simulated frequency response and measured transfer function makes the cavity highly sensitive to environmental vibrations and difficult to operate reliably. In particular, the presence of strong resonances complicates active feedback stabilisation of cavity length, since the controller gain must be reduced around these resonances to maintain stability, which in turn limits the achievable feedback bandwidth. To overcome these limitations, we developed a new mount for a glass-substrate resonator that emphasises passive stability by maximising the steel mass inside the glass cell and by shaping the structure to break degeneracies in the mechanical response spectrum. This design philosophy aims to shift resonances out of the critical low-frequency regime and provide a more robust platform for stabilising cavity length.
+
+The mounting structure, shown in \autoref{fig:fingeroverview}, is machined from 316LN stainless steel and houses the cavity module (see \autoref{cavitymodulesection}), which slides in through the central square aperture and is fixed at the correct position with six countersunk screws. In addition, the mounting structure hosts a compact pyramidal mirror assembly (see \autoref{sec:pyramidal_mot}), held in place by a custom aluminium holder inserted from the side.
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}[remember picture]
@@ -858,9 +872,7 @@ The mounting structure, shown in \autoref{fig:fingeroverview}, is precision-mach
 Multiple apertures are machined into the mount to allow optical access for horizontal cooling beams, the vertically propagating trapping beam and cavity coupling beams. The entire structure is enclosed in a cuboid glass cell equipped with an anti-reflective coating as discussed in \autoref{setupoverview}. Both the mounting structure and glass cell are secured to a custom vacuum flange with two sets of six bolts.
 
 \subsection{Modal frequency response analysis of a glass-substrate resonator mount}
-
-other finger model same element size, but 330715
-
+The modal frequency response of the glass-substrate resonator mount (including cavity module) is computed with the same finite-element analysis settings used for the fibre-tip resonator mount (enforced base acceleration of \SI{1}{\milli\metre\per\second\squared} and identical damping cases), but on a mesh of \num{330715} elements to maintain element size. The effective modal mass ratios are reported in \autoref{tab:modepercentFinalfinger} (see \autoref{app:effectivemodalmass}), while the frequency response curves and the mode shapes below \SI{10}{\kilo\hertz} are shown in \autoref{freqresponseFF} and \autoref{FFmodes},
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1126,9 +1138,8 @@ other finger model same element size, but 330715
 	\caption[Modal frequency response analysis of the glass-substrate resonator mounting structure]{Modal frequency response analysis of the glass-substrate resonator mounting structure. The graphs show the maximum linear acceleration magnitude of the structure versus the frequency of enforced acceleration at the base in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
 	\label{freqresponseFF} 
 \end{figure}
-
-
-\begin{figure}[t]
+respectively.
+\begin{figure}[!t]
 	\vspace{0em}
 	\centering
 	\begin{subfigure}[b]{.45\linewidth}
@@ -1200,8 +1211,8 @@ other finger model same element size, but 330715
 		\begin{scope}[x={(image.south east)},y={(image.north west)}]
 		\node at (0.2, 0.7) {\footnotesize \SI{8530}{\hertz}};
 		\draw[->] (1, 0.15) --++ (90:0.5cm) node[above, anchor=south] {\footnotesize $z$};
-\draw[->] (1, 0.15) --++ (150:0.5cm) node[above, anchor=base] {\footnotesize  $x$\,\, \phantom{x}};
-\draw[->] (1, 0.15) --++ (210:0.5cm) node[above, anchor=mid] {\footnotesize $y$\,\, \phantom{x}};
+		\draw[->] (1, 0.15) --++ (150:0.5cm) node[above, anchor=base] {\footnotesize  $x$\,\, \phantom{x}};
+		\draw[->] (1, 0.15) --++ (210:0.5cm) node[above, anchor=mid] {\footnotesize $y$\,\, \phantom{x}};
 		\end{scope}
 		\end{tikzpicture}
 		\centering
@@ -1211,17 +1222,437 @@ other finger model same element size, but 330715
 	\caption[Normal modes below \SI{10}{\kilo\hertz} of the glass-substrate resonator mounting structure]{Normal modes and corresponding frequencies below \SI{10}{\kilo\hertz} of the glass-substrate resonator mounting structure. The colour scale corresponds to the displacement from the unperturbed position of the structure (dashed contours). Mode labels correspond to those in \autoref{freqresponseFF}.}
 	\label{FFmodes}
 \end{figure}
+The first observation is that the glass-substrate resonator mount exhibits fewer resonance peaks, especially within the \SIrange{0}{5}{\kilo\hertz} range, where we previously observed six modes. The lowest frequency mode for the glass-substrate resonator mount is located at $\SI{1.89}{\kilo\hertz}$ \textsc{(a)}, which is in sharp contrast to the fundamental bending mode at $\SI{267}{\hertz}$ for the fibre-tip resonator mount. Pushing the fundamental mode upward by a factor of seven reduces the structure's vulnerability to low-frequency ambient excitation. The proximity of the second mode at $\SI{1.98}{\kilo\hertz}$ to the first reflects the transition from the highly asymmetric rectangular cross-section to the more symmetric square cross-section of the current design, which is an unavoidable consequence of maximising the available steel volume within the (cuboid) glass cell. When comparing the effective modal mass ratios in \autoref{modeparticipationM} with those in \autoref{tab:modepercentFinalfinger}, we observe that the lowest two modes for the earlier design show a strong participation in the rotational degrees of freedom, with effective mass ratios of $\SI{85.1}{\percent}$ for $R_x$ (first mode) and $\SI{83.5}{\percent}$ for $R_z$ (second mode). In contrast, the glass-substrate resonator mount exhibits strong translational participation for the first two modes, with effective mass ratios of $\SI{35.8}{\percent}$ for $T_z$ (first mode) and $\SI{35.7}{\percent}$ for $T_x$ (second mode). This discrepancy arises because the fibre-tip resonator mount features a smaller support at the base, so the cantilever deforms by bending and rotating about an axis close to the origin. By contrast, the glass-substrate resonator mount consists of a tapered support that extends over nearly half the structure. As a result, the fundamental mode no longer pivots about an axis near the origin but instead buckles at the interface with the cuboid section of the mount, resulting in stronger modal mass participation for the translational degree of freedom.
 
-
-
-
-
-
-
+To complement the previous analysis of structural acceleration, it is useful to consider the displacement response, since the cavity length is directly affected by deformations of the mount. This provides a more accurate representation of which modes are most detrimental to the stability of the resonator. Prominent acceleration peaks at high frequency may correspond to negligible displacements, in contrast to low-frequency modes. For a harmonic base acceleration $\vec{a}(t) = \vec{a}_0 \cos(\omega t)$, the corresponding rigid-body displacement amplitude scales as $\lvert \vec{x}(t) \rvert = \lvert \vec{a}_0 \rvert / \omega^2$. Thus, away from resonances, the displacement response decreases as $\sfrac{1}{\omega^2}$. The curves in \autoref{freqresponsecomparison} show the maximum displacement magnitude for both mounting designs under enforced base acceleration of $\lvert \vec{a}_0 \rvert = \SI{1}{\milli\metre\per\second\squared}$.
+\begin{figure}[!t]
+	%\vspace{0.7em}
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{groupplot}[group style={group size=2 by 3, horizontal sep=0.5cm, vertical sep=0.5cm},xmin=0,ymin=0,height=4cm,width=7cm,no markers, ymin=1e-13, ymax=1e-5]
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%ymin=1e-0,
+	%ymax=1e4,
+	%xlabel={Frequency},
+	%ylabel={Max. linear acceleration},
+	xmin=0, xmax=10,
+	xticklabels={,,},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={,,},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={$10^{-5}$,,,,$10^{-9}$,,,,$10^{-13}$},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	minor grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_x_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_x_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_x_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=center] at (rel axis cs: 0.5, 1.3) {\footnotesize\sc fibre-tip res.};
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $x$};
+		}
+	}
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	yticklabels={,,},
+	%ymin=1e-0,
+	%ymax=1e4,
+	%xlabel={Frequency},
+	%ylabel={Max. linear acceleration},
+	xmin=0, xmax=10,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={,,},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={,,},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_x_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_x_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_x_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{0.1}{\percent}$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{1}{\percent}$}
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=center] at (rel axis cs: 0.5, 1.3) {\footnotesize\sc glass-substrate res.};
+		}
+	}
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $x$};
+		}
+	}
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%ymin=1e-0,
+	%ymax=1e4,
+	%xlabel={Frequency},
+	ylabel={Maximum displacement magnitude {[\si{\meter}]}},
+	xmin=0, xmax=10,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={,,},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={$10^{-5}$,,,,$10^{-9}$,,,,$10^{-13}$},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_y_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_y_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_y_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $y$};
+		}
+	}
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	yticklabels={,,},
+	%ymin=1e-0,
+	%ymax=1e4,
+	%xlabel={Frequency},
+	%ylabel={Max. linear acceleration},
+	xmin=0, xmax=10,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={,,},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={,,},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_y_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_y_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_y_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $y$};
+		}
+	}
+	
+	\addlegendentry{\footnotesize \hspace{0.3em} $G=\SI{5}{\percent}$}
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	%ymin=1e-0,
+	%ymax=1e4,
+	%xlabel={Frequency},
+	%ylabel={Max. linear acceleration},
+	xmin=0, xmax=10,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={$0$,,$2$,,$4$,,$6$,,$8$,,$10$},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={$10^{-5}$,,,,$10^{-9}$,,,,$10^{-13}$},
+	%xticklabels={,,},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_z_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_z_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_M_z_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $z$};
+		}
+	}
+	
+	\nextgroupplot
+	[
+	ymode=log,
+	xtick={0,1,2,3,4,5,6,7,8,9,10},
+	xticklabels={$0$,,$2$,,$4$,,$6$,,$8$,,$10$},
+	ytick={1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12,1e-13},
+	yticklabels={,,},
+	%ymin=1e-0,
+	%ymax=1e4,
+	xlabel={Enforced acceleration frequency {[\si{\kilo\hertz}]}},
+	xlabel style={shift={(-7em, 0em)}},
+	%ylabel={Max. linear acceleration},
+	xmin=0, xmax=10,
+	%xticklabels={,,},
+	%ymin=-0.1, ymax=1.1,
+	%ymin=0, ymax=120,
+	%xtick={0,20,40,60,80,100},
+	%ytick={0,20,40,60,80,100,120},
+	%legend pos=north west,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	grid style=dashed,
+	legend cell align={left},
+	legend style={
+		at={(1, 1)},  % Adjust (x, y) to move it
+		anchor=north east,  % Attach the legend to its top-right corner
+		draw=none,           % Optional: Remove border around the legend
+		fill=none,
+		align=left
+	}
+	]
+	
+	\addplot[
+	color=markrood,
+	name path=xpointone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_z_01.csv};
+	
+	\addplot[
+	color=rainbow2of8,
+	name path=xone,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_z_1.csv};
+	
+	\addplot[
+	color=rainbow4of8,
+	name path=xfive,
+	] table [col sep = comma, x expr = \thisrowno{0}/1000, y expr = \thisrowno{1}/1000]{D_F_z_5.csv};
+	
+	\addplot+[draw=none,domain=0:10,name path=xzero] {1e-15}; 
+	
+	\addplot[color=markrood, opacity=0.5] fill between[
+	of = xone and xpointone,
+	]; 
+	
+	\addplot[color=rainbow2of8, opacity=0.5] fill between[
+	of = xfive and xone,
+	]; 
+	
+	\addplot[color=rainbow4of8, opacity=0.5] fill between[
+	of = xzero and xfive,
+	]; 
+	
+	\pgfplotsset{
+		after end axis/.append code={
+			\node[align=left, anchor=north west] at (rel axis cs: 0, 1) {\footnotesize $z$};
+		}
+	}
+	
+	
+	\end{groupplot}
+	
+	
+	
+	\end{tikzpicture}
+	\caption[Comparison of maximum displacement from the frequency response analyses of two resonator mount designs]{Comparison of maximum displacement from the frequency response analyses of two resonator mount designs. Acceleration is enforced at the base of each mount is in three different directions: $x$ \textsc{(top)}, $y$ \textsc{(middle)} and $z$ \textsc{(bottom)}. In each direction, traces are shown for three different values of the structural damping coefficient $G$. The magnitude of the enforced acceleration equals \SI{1}{\milli\meter\per\second\squared}}
+	\label{freqresponsecomparison} 
+\end{figure}
+The comparison highlights clear advantages of the glass-substrate resonator mount. For enforced acceleration along the $x$-axis, the first visible displacement resonance is shifted upward by about \SI{1}{\kilo\hertz} and reduced in magnitude relative to the fibre-tip resonator mount, with all higher modes remaining below \SI{1}{\nano\metre} of maximum displacement. Along the $y$-axis, the response at resonance is suppressed by roughly an order of magnitude across the spectrum. Most strikingly, for excitation along the $z$-axis the problematic \SI{267}{\hertz} peak of the fibre-tip resonator mount is eliminated. The most prominent resonance in this direction now occurs at \SI{1.89}{\kilo\hertz}, but as the first visible mode its peak value is reduced by nearly two orders of magnitude. All other resonances again lie below \SI{1}{\nano\metre} of maximum displacement. For the current design, this means that only the closely spaced pair of modes at \SI{1.89}{\kilo\hertz} and \SI{1.98}{\kilo\hertz} remain of concern. Their isolation, however, may even permit a split feedback strategy in which one piezoelectric actuator suppresses sub-\SI{1.89}{\kilo\hertz} disturbances and another covers the band above \SI{1.98}{\kilo\hertz}. Since feedback gain must be reduced in the vicinity of sharp resonances to prevent instability, separating the control bands in this way avoids having either actuator operate across these problematic frequencies. With broader resonance-free regions and substantially reduced displacement amplitudes, the current mounting design provides a more reliable platform for the stable operation of an optical resonator.
 
 \section{Pyramidal magneto-optical trap}
 \label{sec:pyramidal_mot}
-
+asd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf dsasd asdfa sdfa sdf asf asf asdf asdf asdf asdf asdf asdf ds
 
 \iffalse
 By securing these elements on a single mount, the architecture minimises mechanical degrees of freedom, reduces alignment complexity and ensures stable spatial overlap between the atomic source, the dipole trap and the cavity mode.
