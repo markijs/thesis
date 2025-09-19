@@ -1691,9 +1691,15 @@ In order to load atoms from the pyramidal MOT into the intra-cavity dipole trap,
 
 \subsection{Aperture diffraction analysis}
 \label{pyramidMOTaperture}
+A simple ray-optics picture suggests that any finite square aperture at the apex of a pyramidal MOT would provide a cuboid channel through which atoms can escape, since the retro-reflected light is absent in this region. In practice, however, diffraction of the retro-reflected beams around the aperture leads to a residual intensity that reduces the axial scattering force imbalance, yielding a slower output beam \cite{ravenhall2018a}. While this can help increase the capture probability in a downstream MOT or optical molasses, the primary risk of diffraction is that it effectively narrows the exit channel. This diffractive narrowing suppresses the atomic flux by increasing the probability of collisional loss. Atoms with large transverse velocities are more likely to leave the exit channel before arriving at the aperture. This increases the average number of recycling events that an atom undergoes, which prolongs the time $\tau$ for an atom to be cooled and reach the exit. The probability that an atom is lost due to collisions with the background vapour during this time can be expressed as
+\begin{equation}
+P_{\rm loss} = 1 - \mathrm{e}^{-\gamma_1 \tau}\,,
+\end{equation}
+where $\gamma_1$ is the single-body collisional loss rate.\footnote{Here, $\gamma_1 = n \sigma_{\rm c} \bar{v}$, with $n$ the number density of the background gas, $\sigma_{\rm c}$ the collisional cross-section and $\bar{v}$ the mean speed of background atoms. The formula follows from a Poissonian treatment of collisions: $\mathrm{e}^{-\gamma_1 \tau}$ is the probability that no collision occurs in time $\tau$, so $1 - \mathrm{e}^{-\gamma_1 \tau}$ gives the probability of at least one collision, resulting in loss.} Consequently, the longer dwell time $\tau$ in a narrow-aperture pyramidal MOT directly increases the loss probability via collisions, thereby reducing the atomic flux.
 
-if the aperture is too small, diffraction of the retro-reflected cooling beams and geometric restriction of the exit channel suppress the output flux, while an overly large aperture reduces the MOT capture volume and increases transverse losses before atoms can be extracted.
+In a recent study of a compact pyramidal MOT, square apertures with side lengths below $\SI{0.3}{\milli\meter}$ resulted in a negligible flux, which increased roughly linearly up to an aperture size of $\SI{1}{\milli\meter}$ before showing signs of saturation \cite{Ravenhall2021}. Although increasing the aperture size can, in principle, enhance the atomic flux, this does not necessarily apply for a small pyramidal MOT. Our system is considerably smaller than these high-flux sources, with an expected MOT diameter of only a few millimetres. In this regime, an aperture on the order of $\SI{1}{\milli\meter}$ would severely limit the effective trapping volume and hence reduce the capture rate of the MOT source. We therefore aim for a sub-millimetre aperture that balances competing requirements. It must be small enough to maintain a sufficiently large MOT capture volume, yet not so small that diffraction effectively closes the exit channel and suppresses the atomic flux. To quantify the latter effect, we perform a near-field diffraction analysis.
 
+As illustrated in \autoref{motdiffraction}, the reflected beams can be modelled as an incident plane wave diffracting from a square obstruction.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
@@ -1722,11 +1728,15 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 	\end{scope}
 	
 	\end{tikzpicture}
-	\caption[Schematic of the pyramidal MOT mirror configuration with an apex aperture and corresponding diffraction model]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction of size $a$ (right). The diffraction pattern is modelled at various distances $d$.}
+	\caption[Schematic of the pyramidal MOT mirror configuration with an apex aperture and corresponding diffraction model]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction with side length $a$ (right). The diffraction pattern is modelled at various distances $d$.}
 	\label{motdiffraction} 
 \end{figure}
-
-\begin{figure}[t]
+The diffraction patterns are simulated numerically using a standard FFT-based propagation method within the Fresnel approximation, which assumes paraxial propagation and neglects higher-order phase terms. The validity of the Fresnel approximation for near-field diffraction can be assessed via the Fresnel number:
+\begin{equation}
+N_\mathrm{F} = \frac{a^{2}}{4 \lambda d}\,,
+\end{equation}
+in terms of the wavelength $\lambda$ and the characteristic dimensions shown in \autoref{motdiffraction}. For $N_\mathrm{F} \gtrsim 1$, the system is in the Fresnel regime, where diffraction fringes are strongly influenced by near-field effects, whereas $N_\mathrm{F} \ll 1$ corresponds to the Fraunhofer (far-field) limit. For intermediate Fresnel numbers, where neither the Fresnel nor Fraunhofer approximations are strictly valid, one must in principle solve the full Fresnel-Kirchhoff diffraction integrals, which account for the exact distance-dependent phase and amplitude contributions from the aperture. Direct evaluation of these integrals on a two-dimensional grid with $N \times N$ points is computationally very inefficient, with the number of operations scaling as $N^4$ \cite{Schultheisz1994}.
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}
 	
@@ -1765,7 +1775,7 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 		\coordinate (mfresnel#1) at (axis cs: 0.5,0.5);
 	}
 	
-
+	
 	
 	\end{groupplot}
 	
@@ -1782,21 +1792,22 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 		\pgfmathtruncatemacro{\dindex}{mod(#1-1,8)}
 		
 		% Map indices to actual values:
-		\pgfmathsetmacro{\a}{0.1*(\aindex+1)} % a in {0.1,...,0.8}
-		\pgfmathsetmacro{\d}{\dindex}          % d in {0,...,7}
+		\pgfmathsetmacro{\a}{0.1*(\aindex+1)} % side length in mm
+		\pgfmathsetmacro{\d}{\dindex}          % distance in mm
 		
 		% Calculate Fresnel number:
 		\ifnum\dindex=0
-			\pgfmathsetmacro{\result}{0}
+		\pgfmathsetmacro{\result}{0}
 		\else
-			\pgfmathsetmacro{\boolean}{ifthenelse(\a<0.5, 0, 1)} 
-			\ifnum\boolean=0
-				\pgfmathsetmacro{\result}{1e3*(\a^2)/(\lambda*\d)}
-				\node[align=center, white] at (fresnel#1) {\tiny $\pgfmathprintnumber[precision=1]{\result}$};
-			\else
-				\pgfmathsetmacro{\result}{1e3*(\a^2)/(\lambda*\d)}
-				\node[align=center, white] at (mfresnel#1) {\tiny $\pgfmathprintnumber[precision=1]{\result}$};
-			\fi
+		\pgfmathsetmacro{\boolean}{ifthenelse(\a<0.5, 0, 1)} 
+		\ifnum\boolean=0
+		% Fresnel number: F = (a/2)^2 / (λ d) = a^2 / (4 λ d)
+		\pgfmathsetmacro{\result}{1e3*(\a^2)/(4*\lambda*\d)}
+		\node[align=center, white] at (fresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
+		\else
+		\pgfmathsetmacro{\result}{1e3*(\a^2)/(4*\lambda*\d)}
+		\node[align=center, white] at (mfresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
+		\fi
 		\fi
 	}
 	
@@ -1804,7 +1815,7 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 	% Print with three significant digits
 	
 	
-
+	
 	
 	\draw[white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\small $a$};
 	
@@ -1831,9 +1842,15 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 	\node[align=center] at (hor8) {\small $7$};
 	
 	\end{tikzpicture}
-	\caption[Simulated diffraction patterns from a pyramid MOT mirror configuration]{Simulated diffraction patterns from a pyramid MOT mirror configuration with a square aperture of various dimensions $a$ at the apex, observed at distances $d$. The Fresnel number $F$ is indicated in each subplot. Each pattern represents a $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area in the observation plane.}
-\label{diffraction2d}
+	\caption[Simulated diffraction patterns from a pyramid MOT mirror configuration]{Simulated diffraction patterns from a pyramid MOT mirror configuration with a square aperture of various dimensions $a$ at the apex, observed at distances $d$. The Fresnel number $N_\mathrm{F}$ is indicated in each subplot. Each pattern represents a $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area in the observation plane.}
+	\label{diffraction2d}
 \end{figure}
+\autoref{diffraction2d} presents the near-field diffraction patterns obtained from simulations at different distances $d$ from the apex, highlighting how the intensity distribution varies with the aperture size $a$.
+
+CONTINUE HERE - describe Poisson spot, and fresnel numbers.
+
+A more quantitative analysis is provided in \autoref{diffraction1d}, which shows central cross-sections of the diffraction profiles. These plots reveal the residual on-axis intensity and quantify the deviation from the light profile at $d=0$.
+
 
 
 
@@ -1973,7 +1990,7 @@ if the aperture is too small, diffraction of the retro-reflected cooling beams a
 		\node[markgrijs, align=center] at (louterright64) {\small $0$};
 		
 	\end{tikzpicture}
-	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (with arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over a distance of \SI{10}{\milli\meter}). The top right number is the maximum absolute difference as a percentage of maximum incident intensity.}
+	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (in arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over a distance of \SI{10}{\milli\meter}). The top right number is the maximum absolute difference as a percentage of maximum incident intensity.}
 \label{diffraction1d}
 \end{figure}
 
