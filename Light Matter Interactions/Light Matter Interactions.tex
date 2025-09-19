@@ -14,10 +14,10 @@ The interaction between light and matter is central to many techniques in quantu
 
 \section{Scattering and dipole forces for a two-level atom}
 \label{subsection_System_Hamiltonian}
-Consider a two-level atom with eigenstates $\vert g \rangle$ and $\vert e \rangle$ and corresponding energies $-\hbar\omega_0/2$ and $\hbar\omega_0/2$, expressed in terms of the energy level spacing $\hbar\omega_0$. The atomic transition has an electric dipole moment $\vec{d}_{eg}=\langle e \vert q \hat{\vec{r}} \,\vert g \rangle$, which contains the position operator $\hat{\vec{r}}$ and charge $q=-e$ of the electron. In the semi-classical description of the atom-light interaction, the light is considered an oscillating electric field $\vec{E}(t)=\vec{\epsilon}E_0\cos \left(\omega t\right)$, with frequency $\omega$, polarisation vector $\vec{\epsilon}$ and electric field amplitude $E_0$ at the position of the atom.
+Consider a two-level atom with eigenstates $\vert \mathrm{g} \rangle$ and $\vert \mathrm{e} \rangle$ and corresponding energies $-\hbar\omega_0/2$ and $\hbar\omega_0/2$, expressed in terms of the energy level spacing $\hbar\omega_0$. The atomic transition has an electric dipole moment $\vec{d}_\mathrm{eg}=\langle \mathrm{e} \vert q \hat{\vec{r}} \,\vert \mathrm{g} \rangle$, which contains the position operator $\hat{\vec{r}}$ and charge $q=-e$ of the electron. In the semi-classical description of the atom-light interaction, the light is considered an oscillating electric field $\vec{E}(t)=\vec{\epsilon}E_0\cos \left(\omega t\right)$, with frequency $\omega$, polarisation vector $\vec{\epsilon}$ and electric field amplitude $E_0$ at the position of the atom.
 \subsection{System Hamiltonian}
 \label{systemhamiltonian}
-The Hamiltonian for the combined system can be expressed as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_I$, where $\hat{\mathcal{H}}_0$ is the Hamiltonian of the unperturbed atom and $\hat{\mathcal{H}}_I$ is the interaction Hamiltonian given by $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \vec{E}$, where the dipole operator $\hat{\vec{d}}=q\hat{\vec{r}}$ can be represented in the atomic basis as follows:
+The Hamiltonian for the combined system can be expressed as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_\mathrm{I}$, where $\hat{\mathcal{H}}_0$ is the Hamiltonian of the unperturbed atom and $\hat{\mathcal{H}}_\mathrm{I}$ is the interaction Hamiltonian given by $\hat{\mathcal{H}}_\mathrm{I}=-\hat{\vec{d}}\cdot \vec{E}$, where the dipole operator $\hat{\vec{d}}=q\hat{\vec{r}}$ can be represented in the atomic basis as follows:
 \begin{equation}
 \hat{\vec{d}}=\sum_{i,j} \langle i \vert q \hat{\vec{r}}\, \vert j \rangle \vert i \rangle \langle j \vert  = \sum_{i,j} \vec{d}_{ij} \vert  i \rangle \langle j \vert\,.
 \end{equation}
@@ -31,7 +31,7 @@ In matrix form, $\hat{\mathcal{H}}$ can then be written as:
 \end{bmatrix}
 \,,
 \end{equation}
-where we have defined the Rabi frequency $\Omega=-\vec{d}_{eg}\cdot\vec{\epsilon}E_0/\hbar$. Under the rotating wave approximation, this Hamiltonian can be written in the rotating frame\footnote{The transformation matrix is given by $\hat{R}(t)=\exp(i\omega\hat{\sigma}_z t/2)$, see \autoref{rotatingframeapp}.} as \cite{loudon}:
+where we have defined the Rabi frequency $\Omega=-\vec{d}_\mathrm{eg}\cdot\vec{\epsilon}E_0/\hbar$. Under the rotating wave approximation, this Hamiltonian can be written in the rotating frame\footnote{The transformation matrix is given by $\hat{R}(t)=\exp(i\omega\hat{\sigma}_z t/2)$, see \autoref{rotatingframeapp}.} as \cite{loudon}:
 \begin{equation}
 \label{timeindependentH}
 \hat{\mathcal{H}}=\frac{\hbar}{2}
@@ -48,36 +48,36 @@ The preceding description does not account for spontaneous emission, as it does 
 \frac{\partial\hat{\rho}}{\partial t}=-i\frac{\Delta}{2}\big[\hat{\sigma}_z,\hat{\rho}\big]-i\frac{\Omega}{2}\big[\hat{\sigma}_x,\hat{\rho}\big] + \gamma \big(-\hat{\sigma}_+\hat{\sigma}_-\hat{\rho}+2\hat{\sigma}_-\hat{\rho}\hat{\sigma}_+-\hat{\rho}\hat{\sigma}_+\hat{\sigma}_-\big)\,,
 \end{equation}
 where $\hat{\rho}$ is the time-dependent density operator\footnote{Also in the rotating frame, defined as $\hat{\rho}(t)=\hat{R}(t)\hat{\rho}'(t)\hat{R}^\dagger(t)$, where $\hat{\rho}'(t)$ is the density operator in the non-rotating frame and $\hat{R}(t)=\exp(i\omega\hat{\sigma}_z t/2)$.} of the atom,
- $\hat{\sigma}_z=\vert e \rangle \langle e \vert-\vert g \rangle \langle g \vert$, $\hat{\sigma}_x=\vert e \rangle \langle g \vert+\vert g \rangle \langle e \vert$, $\hat{\sigma}_+=\vert e \rangle \langle g \vert$, $\hat{\sigma}_-=\vert g \rangle \langle e \vert$ and $\gamma$ is the transverse decay rate, which in the case of purely radiative damping equals half the natural decay rate $\Gamma$ of the excited state: $\gamma=\sfrac{\Gamma}{2}$. Note that \autoref{lindblad} features a competition between the coherent dynamics induced by the light field (first two terms) and the dissipative dynamics that arise from the decay into the vacuum of the radiation field (last three terms). Typically, \autoref{lindblad} is rewritten as a system of coupled differential equations (optical Bloch equations), from which one can extract the steady state ($\frac{\partial\hat{\rho}}{\partial t}=0$) solution for ${\rho}_{ee}=\langle e \vert \hat{\rho} \vert e\rangle$, which represents the equilibrium population in the excited state:
+ $\hat{\sigma}_z=\vert \mathrm{e} \rangle \langle \mathrm{e} \vert-\vert \mathrm{g} \rangle \langle \mathrm{g} \vert$, $\hat{\sigma}_x=\vert \mathrm{e} \rangle \langle \mathrm{g} \vert+\vert \mathrm{g} \rangle \langle \mathrm{e} \vert$, $\hat{\sigma}_+=\vert \mathrm{e} \rangle \langle \mathrm{g} \vert$, $\hat{\sigma}_-=\vert \mathrm{g} \rangle \langle \mathrm{e} \vert$ and $\gamma$ is the transverse decay rate, which in the case of purely radiative damping equals half the natural decay rate $\Gamma$ of the excited state: $\gamma=\sfrac{\Gamma}{2}$. Note that \autoref{lindblad} features a competition between the coherent dynamics induced by the light field (first two terms) and the dissipative dynamics that arise from the decay into the vacuum of the radiation field (last three terms). Typically, \autoref{lindblad} is rewritten as a system of coupled differential equations (optical Bloch equations), from which one can extract the steady state ($\frac{\partial\hat{\rho}}{\partial t}=0$) solution for ${\rho}_\mathrm{ee}=\langle \mathrm{e} \vert \hat{\rho} \vert \mathrm{e}\rangle$, which represents the equilibrium population in the excited state:
 \begin{equation}
 \label{rhoee}
-{\rho}_{ee}=\frac{\Omega^2}{\Gamma^2+4\Delta^2+2\Omega^2}\,.
+{\rho}_\mathrm{ee}=\frac{\Omega^2}{\Gamma^2+4\Delta^2+2\Omega^2}\,.
 \end{equation}
-The scattering rate $R_\text{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\text{sc}=\Gamma \rho_{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as
+The scattering rate $R_\mathrm{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\mathrm{sc}=\Gamma \rho_\mathrm{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as
 \begin{equation}
 \label{scatter}
-R_\text{sc}=\frac{\Gamma}{2}\frac{{I}/{I_\text{sat}}}{1+{4\Delta^2}/{\Gamma^2}+{I}/{I_\text{sat}}}\,,
+R_\mathrm{sc}=\frac{\Gamma}{2}\frac{{I}/{I_\mathrm{sat}}}{1+{4\Delta^2}/{\Gamma^2}+{I}/{I_\mathrm{sat}}}\,,
 \end{equation}
 where we have defined the saturation intensity
 \begin{align}
-I_\text{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
+I_\mathrm{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_\mathrm{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
 \end{align}
-such that $2\Omega^2/\Gamma^2=I/I_\text{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\text{sc}\approx\sfrac{\Gamma}{2}$, which is the saturation limit. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\text{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. The scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
+such that $2\Omega^2/\Gamma^2=I/I_\mathrm{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\mathrm{sc}\approx\sfrac{\Gamma}{2}$, which is the saturation limit. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\mathrm{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. The scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
-F_\text{sc}(\Delta)=\hbar kR_\text{sc}(\Delta)\,.
+F_\mathrm{sc}(\Delta)=\hbar kR_\mathrm{sc}(\Delta)\,.
 \end{equation}
 Through the scattering rate, this force depends on the detuning $\Delta$. However, to account for the Doppler shift experienced by moving atoms, $\Delta$ is replaced with an effective detuning: $\Delta \rightarrow \Delta + f(\vec{v}\,)$. This effective detuning contains a velocity dependent component $f(\vec{v}\,)$. The resulting velocity-dependent scattering force is the underlying principle of Doppler cooling (see \autoref{dopplercooling}). In addition, the scattering force may acquire a positional dependence in the presence of a spatially varying magnetic field (denoted by $g(\vec{r}\,)$), which alters the detuning via the Zeeman effect: $\Delta \rightarrow \Delta + g(\vec{r}\,)$. The resulting position-dependent force, in combination with Doppler cooling, is what allows a magneto-optical trap to cool and confine atoms (see \autoref{mots}).
 \subsection{Doppler cooling}
 \label{dopplercooling}
-Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables their confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\text{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\text{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded around $v=0$ as:
+Doppler cooling is a technique used to reduce the kinetic energy of atoms, which enables their confinement in conservative potentials like optical dipole traps (see \autoref{dipoleforce}). When an atom travels at a velocity $v$ facing a counter-propagating laser with wavenumber $k$, the angular frequency $\omega$ of the incident laser light is Doppler-shifted by $kv$: $\omega \rightarrow \omega + kv$. In a one-dimensional setup with two counter-propagating laser beams, the net scattering force $F_\mathrm{net}$ acting on a moving atom can thus be expressed\footnote{This description is only valid for laser intensities well below saturation ($I/I_\mathrm{sat}\ll 1$), in which case the scattering from each beam can be treated independently.} and expanded around $v=0$ as:
 \begin{align}
 \begin{split}
-	F_\text{net} &= F_\text{sc}(\Delta+kv) - F_\text{sc}(\Delta-kv) \\&= -\underbrace{\frac{16  \hbar k^2 \Gamma\Delta\Omega^2 }{(\Gamma^2 + 4 \Delta^2 +  2 \Omega^2)^2}}_{\alpha}v + \mathcal{O}(v^3) \\&\approx -\alpha v\,.
+	F_\mathrm{net} &= F_\mathrm{sc}(\Delta+kv) - F_\mathrm{sc}(\Delta-kv) \\&= -\underbrace{\frac{16  \hbar k^2 \Gamma\Delta\Omega^2 }{(\Gamma^2 + 4 \Delta^2 +  2 \Omega^2)^2}}_{\alpha}v + \mathcal{O}(v^3) \\&\approx -\alpha v\,.
 \end{split}
 \label{coolingforce}
 \end{align}
 From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$), for which $\alpha$ is positive, exerts a frictional or damping force on the atom, effectively reducing its velocity and temperature (see \autoref{dopplerplots}).
-%For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\text{max}=\sfrac{\hbar k^2}{2}$.
+%For $\Delta=\sfrac{\Gamma}{2}$ and $\Omega=\Gamma$, the damping coefficient $\alpha$ attains its maximum of $\alpha_\mathrm{max}=\sfrac{\hbar k^2}{2}$.
 \begin{figure}[!t]
 	\hspace{-0.4em}
 	\begin{tikzpicture} 
@@ -142,7 +142,7 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 	\nextgroupplot
 	[
 	xlabel={$\sfrac{v}{(\Gamma k^{-1} )}$},
-	ylabel={$\sfrac{F_\text{net}}{\hbar k \Gamma}$},
+	ylabel={$\sfrac{F_\mathrm{net}}{\hbar k \Gamma}$},
 	%axis lines = middle,
 	grid = major,
 	grid style = {dashed, gray!30},
@@ -212,30 +212,30 @@ From \autoref{coolingforce}, it follows that red-detuned laser light ($\Delta>0$
 	
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption[Damping coefficient and net cooling force in a one-dimensional optical molasses]{\textsc{(left)} Dimensionless damping coefficient $\sfrac{\alpha}{\hbar k^2}$ in a one-dimensional optical molasses as a function of $\sfrac{\Omega}{\,\Gamma}$ and $\sfrac{\Delta}{\,\Gamma}$. For fixed values of $\sfrac{\Omega}{\,\Gamma}$, the minima and maxima are shown as white and black dashed lines, respectively. \textsc{(right)} Net cooling force $\sfrac{F_\text{net}}{\hbar k \Gamma}$ versus velocity $\sfrac{v}{(\Gamma k^{-1} )}$ (both dimensionless) for ${\Omega}=\sfrac{\Gamma}{2}$ and $\Delta\in\{\sfrac{\Gamma}{10},\sfrac{\Gamma}{2}, \Gamma, 2\Gamma\}$. The antisymmetric profile is characteristic of Doppler cooling, exhibiting a linear dependence near $v = 0$ and saturation at higher velocities. Dashed curves represent the forces exerted by a single cooling beam.
+	\caption[Damping coefficient and net cooling force in a one-dimensional optical molasses]{\textsc{(left)} Dimensionless damping coefficient $\sfrac{\alpha}{\hbar k^2}$ in a one-dimensional optical molasses as a function of $\sfrac{\Omega}{\,\Gamma}$ and $\sfrac{\Delta}{\,\Gamma}$. For fixed values of $\sfrac{\Omega}{\,\Gamma}$, the minima and maxima are shown as white and black dashed lines, respectively. \textsc{(right)} Net cooling force $\sfrac{F_\mathrm{net}}{\hbar k \Gamma}$ versus velocity $\sfrac{v}{(\Gamma k^{-1} )}$ (both dimensionless) for ${\Omega}=\sfrac{\Gamma}{2}$ and $\Delta\in\{\sfrac{\Gamma}{10},\sfrac{\Gamma}{2}, \Gamma, 2\Gamma\}$. The antisymmetric profile is characteristic of Doppler cooling, exhibiting a linear dependence near $v = 0$ and saturation at higher velocities. Dashed curves represent the forces exerted by a single cooling beam.
 	}
 	\label{dopplerplots} 
 \end{figure}
 The kinetic energy cooling rate that corresponds to this damping force can be written as
 \begin{align}
-	\frac{\mathrm{d} \langle E_\text{c} \rangle}{\mathrm{d}t}=\langle F_\text{net}v\rangle\approx-\alpha\langle v^2 \rangle  \,,
+	\frac{\mathrm{d} \langle E_\mathrm{c} \rangle}{\mathrm{d}t}=\langle F_\mathrm{net}v\rangle\approx-\alpha\langle v^2 \rangle  \,,
 \label{coolingrate}
 \end{align}
-where the angle brackets denote the ensemble average. While the cooling force systematically reduces the atomic velocity, each spontaneously emitted photon (associated with a scattering event) transfers a momentum of magnitude $\hbar k$ to the atom in a random direction, which increases the kinetic energy by the recoil energy $E_\text{r}=\sfrac{\hbar^2 k^2}{2m}$. This stochastic process of recoil heating ultimately limits the minimum temperature $T_\text{D}$ achievable through Doppler cooling. The kinetic energy heating rate can be written as \cite{cohen1992}
+where the angle brackets denote the ensemble average. While the cooling force systematically reduces the atomic velocity, each spontaneously emitted photon (associated with a scattering event) transfers a momentum of magnitude $\hbar k$ to the atom in a random direction, which increases the kinetic energy by the recoil energy $E_\mathrm{r}=\sfrac{\hbar^2 k^2}{2m}$. This stochastic process of recoil heating ultimately limits the minimum temperature $T_\mathrm{D}$ achievable through Doppler cooling. The kinetic energy heating rate can be written as \cite{cohen1992}
 \begin{align}
-\frac{\mathrm{d} \langle E_\text{h} \rangle}{\mathrm{d}t}=4 E_\text{r} R_\text{sc} \,.
+\frac{\mathrm{d} \langle E_\mathrm{h} \rangle}{\mathrm{d}t}=4 E_\mathrm{r} R_\mathrm{sc} \,.
 \label{heatingrate}
 \end{align}
-To find an expression for $T_\text{D}$, we use the fact that at equilibrium, the sum of the Doppler cooling rate (\autoref{coolingrate}) and the recoil heating rate (\autoref{heatingrate}) equals zero. This allows us to write the following expression for the average kinetic energy:
+To find an expression for $T_\mathrm{D}$, we use the fact that at equilibrium, the sum of the Doppler cooling rate (\autoref{coolingrate}) and the recoil heating rate (\autoref{heatingrate}) equals zero. This allows us to write the following expression for the average kinetic energy:
 \begin{align}
-	 \frac{1}{2}m\langle v^2\rangle \approx \frac{\hbar^2 k^2 R_\text{sc}}{\alpha}= \frac{\hbar\left(\Gamma^2+4\Delta^2+2\Omega^2\right)}{16\Delta}\,,
+	 \frac{1}{2}m\langle v^2\rangle \approx \frac{\hbar^2 k^2 R_\mathrm{sc}}{\alpha}= \frac{\hbar\left(\Gamma^2+4\Delta^2+2\Omega^2\right)}{16\Delta}\,,
 \label{dopplerlimit}
 \end{align}
-which attains a minimum of $\frac{\hbar\Gamma}{4}\sqrt{1+I/I_\text{sat}}$ for $\Delta=\frac{\Gamma}{2}\sqrt{1+I/I_\text{sat}}$. Using the fact that $\frac{1}{2}m\langle v^2\rangle = \frac{1}{2}k_\text{B}T$ and $I/I_\text{sat}\ll 1$, we arrive at the following result:
+which attains a minimum of $\frac{\hbar\Gamma}{4}\sqrt{1+I/I_\mathrm{sat}}$ for $\Delta=\frac{\Gamma}{2}\sqrt{1+I/I_\mathrm{sat}}$. Using the fact that $\frac{1}{2}m\langle v^2\rangle = \frac{1}{2}k_\mathrm{B}T$ and $I/I_\mathrm{sat}\ll 1$, we arrive at the following result:
 \begin{align}
-	k_\text{B}T_\text{D} \approx \frac{\hbar\Gamma}{2}\,,
+	k_\mathrm{B}T_\mathrm{D} \approx \frac{\hbar\Gamma}{2}\,,
 \end{align}
-which is known as the Doppler cooling limit. For \ce{^{87}Rb}, $T_\text{D}=\SI{146}{\micro\kelvin}$.
+which is known as the Doppler cooling limit. For \ce{^{87}Rb}, $T_\mathrm{D}=\SI{146}{\micro\kelvin}$.
 \subsection{Magneto-optical traps}
 \label{mots}
 A magneto-optical trap (MOT) combines laser cooling of neutral atoms with a spatially varying magnetic field to achieve confinement in all directions. The setup consists of three pairs of counter-propagating laser beams with opposite circular polarisation\footnote{\label{note1}The polarisations are defined with respect to the global quantisation axes ($x, y, z$).} and a quadrupole magnetic field, as illustrated in \autoref{mot}.
@@ -416,25 +416,25 @@ A magneto-optical trap (MOT) combines laser cooling of neutral atoms with a spat
 \end{figure}
 In a transition between the hyperfine levels $\ket{F=0}$ (ground state) and $\ket{F'=1}$ (excited state), the quadrupole field leads to a position-dependent Zeeman shift of the $2F+1$ magnetic sublevels, lifting the degeneracy of the excited state. For a sublevel with quantum number $m_F$ and a magnetic field of magnitude $B$ that points along the quantisation axis, this energy shift (to first order) is given by
 \begin{align}
-	\Delta E = g_F\mu_B m_F B\,
+	\Delta E = g_F\mu_\mathrm{B} m_F B\,
 \end{align}
-where $g_F$ is the Landé $g$-factor and $\mu_B$ is the Bohr magneton. Since counter-propagating beams have opposite (circular) polarisations, the atoms displaced from the trap centre preferentially absorb photons from the beam with the smallest detuning from the relevant transition ($m_F'-m_F= \pm1$ for $\sigma_\pm$). The imbalance in scattering forces for opposing beams results in a net restoring force that directs the atoms back towards the trap centre.
+where $g_F$ is the Landé $g$-factor and $\mu_\mathrm{B}$ is the Bohr magneton. Since counter-propagating beams have opposite (circular) polarisations, the atoms displaced from the trap centre preferentially absorb photons from the beam with the smallest detuning from the relevant transition ($m_F'-m_F= \pm1$ for $\sigma_\pm$). The imbalance in scattering forces for opposing beams results in a net restoring force that directs the atoms back towards the trap centre.
 
 \subsection{The dipole force}
 \label{dipoleforce}
-In addition to exerting a scattering force, light also perturbs the atomic energy levels, an effect known as the ac-Stark shift\footnote{A more detailed description of the ac-Stark effect is given in \autoref{acstark}}. To calculate this perturbation, we consider the atom together with a quantised light field. For an atom in the ground state (i.\,e. zero internal energy), the unperturbed energy of the system is $\epsilon_g=n\hbar \omega$ if the field contains $n$ photons of frequency $\omega$. However, after absorption of a single photon, the total unperturbed energy of the combined system is $\epsilon_e=\hbar \omega_0+(n-1)\hbar\omega=\hbar\Delta+n\hbar\omega$. The effect of the interaction can now be calculated using second order perturbation theory. As an effect of the interaction Hamiltonian $\hat{\mathcal{H}}_I$, the energy of a non-degenerate atomic eigenstate $\vert i \rangle$ with unperturbed energy $\epsilon_i$ is shifted by
+In addition to exerting a scattering force, light also perturbs the atomic energy levels, an effect known as the ac-Stark shift\footnote{A more detailed description of the ac-Stark effect is given in \autoref{acstark}}. To calculate this perturbation, we consider the atom together with a quantised light field. For an atom in the ground state (\ie\ zero internal energy), the unperturbed energy of the system is $\epsilon_\mathrm{g}=n\hbar \omega$ if the field contains $n$ photons of frequency $\omega$. However, after absorption of a single photon, the total unperturbed energy of the combined system is $\epsilon_\mathrm{e}=\hbar \omega_0+(n-1)\hbar\omega=\hbar\Delta+n\hbar\omega$. The effect of the interaction can now be calculated using second order perturbation theory. As an effect of the interaction Hamiltonian $\hat{\mathcal{H}}_\mathrm{I}$, the energy of a non-degenerate atomic eigenstate $\vert i \rangle$ with unperturbed energy $\epsilon_i$ is shifted by
 \begin{equation}
-\Delta E_i=\sum_{j\neq i}\frac{\lvert \langle j \vert\hat{\mathcal{H}}_I \vert i \rangle\rvert^2}{\epsilon_i-\epsilon_j}\,.
+\Delta E_i=\sum_{j\neq i}\frac{\lvert \langle j \vert\hat{\mathcal{H}}_\mathrm{I} \vert i \rangle\rvert^2}{\epsilon_i-\epsilon_j}\,.
 \end{equation}
-For the ground state of a two-level atom, the denominator reads $\epsilon_g - \epsilon_e = -\hbar \Delta$ and $\hat{\mathcal{H}}_I$ equals the (off-diagonal) interaction part of the transformed Hamiltonian in \autoref{timeindependentH}. For the excited state, the denominator equals $\hbar\Delta$. The energy shifts are thus given by
+For the ground state of a two-level atom, the denominator reads $\epsilon_\mathrm{g} - \epsilon_\mathrm{e} = -\hbar \Delta$ and $\hat{\mathcal{H}}_\mathrm{I}$ equals the (off-diagonal) interaction part of the transformed Hamiltonian in \autoref{timeindependentH}. For the excited state, the denominator equals $\hbar\Delta$. The energy shifts are thus given by
 \begin{align}
 \begin{split}
-\Delta E_{g/e}=\mp\frac{\hbar\Omega^2}{4\Delta}=\mp \frac{3\pi c^2}{2\omega_0^3}\frac{\Gamma}{\Delta}I\,,
+\Delta E_\mathrm{g/e}=\mp\frac{\hbar\Omega^2}{4\Delta}=\mp \frac{3\pi c^2}{2\omega_0^3}\frac{\Gamma}{\Delta}I\,,
 \end{split}
 \end{align}
-where the minus and plus sign correspond to the ground and excited state, respectively. One can see from \autoref{rhoee} that the atom is practically in the ground state for large detuning. Therefore, the energy of the atom corresponds to the energy of the light shifted ground state, which results in an effective dipole potential $V_\text{dip} = \Delta E_g$. Note that this potential is proportional to the intensity and attractive for a ground state atom in red-detuned light ($\Delta>0$), in which case it can be trapped. The dipole force $F_\text{dip}$ is given by the potential gradient:
+where the minus and plus sign correspond to the ground and excited state, respectively. One can see from \autoref{rhoee} that the atom is practically in the ground state for large detuning. Therefore, the energy of the atom corresponds to the energy of the light shifted ground state, which results in an effective dipole potential $V_\mathrm{dip} = \Delta E_\mathrm{g}$. Note that this potential is proportional to the intensity and attractive for a ground state atom in red-detuned light ($\Delta>0$), in which case it can be trapped. The dipole force $F_\mathrm{dip}$ is given by the potential gradient:
 \begin{equation}
-F_\text{dip}=-\nabla V_\text{dip}\,,
+F_\mathrm{dip}=-\nabla V_\mathrm{dip}\,,
 \end{equation}
 which is only non-zero if there is a spatial intensity variation of the light. This is the case for a Gaussian laser beam, which, in radial ($r$) and axial ($z$) coordinates, has an intensity profile $I$ given by
 \begin{equation}
@@ -452,24 +452,24 @@ The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focu
 \label{hyperfineinteraction}
 In this section, we briefly discuss the hyperfine interaction to provide the necessary context for a detailed treatment of the ac-Stark effect in alkali atoms (see \autoref{acstark}). In general, the interaction between the nuclear and electron angular momenta can be expanded in a multipole series,
 \begin{equation}
-\hat{\mathcal{H}}_{\text{hfs}}=\sum_{k}T_\text{n}^{(k)} \cdot T_\text{e}^{(k)}
+\hat{\mathcal{H}}_{\mathrm{hfs}}=\sum_{k}T_\mathrm{n}^{(k)} \cdot T_\mathrm{e}^{(k)}
 \end{equation}
-in terms of the spherical tensor operators $T_\text{n}^{(k)}$ and $T_\text{e}^{(k)}$ of rank $k$ that operate on the nuclear and electronic Hilbert spaces, respectively. The $k = 0$ term accounts for the monopole and is typically included in the calculation for the fine structure of the atom. Subsequent terms include the magnetic dipole ($k=1$), the electric quadrupole ($k=2$) and the magnetic octupole ($k=3$). Expectation values are calculated with respect to the $|J\, I\, F\rangle$ states. In the expansion, electric multipoles of odd $k$ and magnetic multipoles of even $k$ are forbidden due to violations of parity and time-reversibility, causing either the electric or magnetic interaction to vanish at each subsequent multipole order. Up to the electric quadrupole, the interaction between the electron and nuclear angular momenta can be expressed as
+in terms of the spherical tensor operators $T_\mathrm{n}^{(k)}$ and $T_\mathrm{e}^{(k)}$ of rank $k$ that operate on the nuclear and electronic Hilbert spaces, respectively. The $k = 0$ term accounts for the monopole and is typically included in the calculation for the fine structure of the atom. Subsequent terms include the magnetic dipole ($k=1$), the electric quadrupole ($k=2$) and the magnetic octupole ($k=3$). Expectation values are calculated with respect to the $|J\, I\, F\rangle$ states. In the expansion, electric multipoles of odd $k$ and magnetic multipoles of even $k$ are forbidden due to violations of parity and time-reversibility, causing either the electric or magnetic interaction to vanish at each subsequent multipole order. Up to the electric quadrupole, the interaction between the electron and nuclear angular momenta can be expressed as
 \begin{equation}
 \label{hyperfinehamiltonian}
-\hat{\mathcal{H}}_{\text{hfs}}=A_{\text{hfs}} \frac{\hat{\vec{I}} \cdot \hat{\vec{J}}}{\hbar^2}+B_{\text{hfs}} \frac{\frac{3}{\hbar^4} (\hat{\vec{I}} \cdot \hat{\vec{J}} \,)^2+\frac{3}{2 \hbar^2}(\hat{\vec{I}} \cdot \hat{\vec{J}}\,)-I(I+1) J(J+1)}{2 I(2 I-1) J(2 J-1)} \,.
+\hat{\mathcal{H}}_{\mathrm{hfs}}=A_{\mathrm{hfs}} \frac{\hat{\vec{I}} \cdot \hat{\vec{J}}}{\hbar^2}+B_{\mathrm{hfs}} \frac{\frac{3}{\hbar^4} (\hat{\vec{I}} \cdot \hat{\vec{J}} \,)^2+\frac{3}{2 \hbar^2}(\hat{\vec{I}} \cdot \hat{\vec{J}}\,)-I(I+1) J(J+1)}{2 I(2 I-1) J(2 J-1)} \,.
 \iffalse
-+C_{\text{hfs}} \frac{\frac{10}{\hbar^3}(\mathbf{I} \cdot \mathbf{J})^3+\frac{20}{\hbar^2}(\mathbf{I} \cdot \mathbf{J})^2+\frac{2}{\hbar}(\mathbf{I} \cdot \mathbf{J})[I(I+1)+J(J+1)+3-3 I(I+1) J(J+1)]-5 I(I+1) J(J+1)}{I(I-1)(2 I-1) J(J-1)(2 J-1)} .
++C_{\mathrm{hfs}} \frac{\frac{10}{\hbar^3}(\mathbf{I} \cdot \mathbf{J})^3+\frac{20}{\hbar^2}(\mathbf{I} \cdot \mathbf{J})^2+\frac{2}{\hbar}(\mathbf{I} \cdot \mathbf{J})[I(I+1)+J(J+1)+3-3 I(I+1) J(J+1)]-5 I(I+1) J(J+1)}{I(I-1)(2 I-1) J(J-1)(2 J-1)} .
 \fi
 \end{equation}
-The first term on the right hand side represents the magnetic dipole. It applies only when $I, J>0$ and scales with the magnetic dipole hyperfine constant $A_{\text{hfs}}$. The second term represents the electric quadrupole. It applies only when $I, J>\sfrac{1}{2}$ and scales with the electric quadrupole hyperfine constant $B_{\text{hfs}}$. We are neglecting the magnetic octupole and higher order couplings. By making use of the following identity
+The first term on the right hand side represents the magnetic dipole. It applies only when $I, J>0$ and scales with the magnetic dipole hyperfine constant $A_{\mathrm{hfs}}$. The second term represents the electric quadrupole. It applies only when $I, J>\sfrac{1}{2}$ and scales with the electric quadrupole hyperfine constant $B_{\mathrm{hfs}}$. We are neglecting the magnetic octupole and higher order couplings. By making use of the following identity
 \begin{equation}
 \hat{\vec{I}} \cdot \hat{\vec{J}} = \frac{1}{2}\left(\hat{\vec{F}} \cdot \hat{\vec{F}} - \hat{\vec{I}} \cdot \hat{\vec{I}} - \hat{\vec{J}} \cdot \hat{\vec{J}}\right)
 \end{equation}
 and substituting the eigenvalues of each operator one can express the eigenenergies under the hyperfine interaction in terms of the energy shifts as
 \begin{align}
 \begin{split}
-\Delta E_{\text{hfs}}&= \langle J\, I\, F\, m_F \vert \hat{\mathcal{H}}_{\text{hfs}} \vert J\, I\, F\, m_F \rangle\\ &= \frac{1}{2} A_{\text{hfs}} K+B_{\text{hfs}} \frac{\frac{3}{2} K(K+1)-2 I(I+1) J(J+1)}{4 I(2 I-1) J(2 J-1)} \,,
+\Delta E_{\mathrm{hfs}}&= \langle J\, I\, F\, m_F \vert \hat{\mathcal{H}}_{\mathrm{hfs}} \vert J\, I\, F\, m_F \rangle\\ &= \frac{1}{2} A_{\mathrm{hfs}} K+B_{\mathrm{hfs}} \frac{\frac{3}{2} K(K+1)-2 I(I+1) J(J+1)}{4 I(2 I-1) J(2 J-1)} \,,
 \end{split}
 \end{align}
 where $K$ is defined as
@@ -528,30 +528,30 @@ where we have used the fact that $\alpha_{\nu \mu}(\omega) = \alpha_{\mu \nu}^*(
 The remaining step at this stage is to find an expression for the tensor polarisability using the defining relation in \autoref{definingrelationpolarisability}. In order to achieve this, we need to find the mean induced dipole moment starting from the semi-classical atom-field interaction Hamiltonian as discussed in \autoref{subsection_System_Hamiltonian}:
 \begin{align}
 \begin{split}
-	\hat{\mathcal{H}}_I &= -\hat{\vec{d}} \cdot \vec{E} \\ &=-\sum_{j} \left( \langle g \vert \hat{\vec{d}}\, \vert e_j \rangle \vert g \rangle \langle e_j \vert +  \langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \vert e_j \rangle \langle g \vert \right)  \\ &\hspace{12em} \times \left( \hat{\epsilon}E_0^{(+)} \mathrm{e}^{-i\omega t} + \hat{\epsilon}^*E_0^{(-)} \mathrm{e}^{i\omega t} \right) \,,
+	\hat{\mathcal{H}}_\mathrm{I} &= -\hat{\vec{d}} \cdot \vec{E} \\ &=-\sum_{j} \left( \langle \mathrm{g} \vert \hat{\vec{d}}\, \vert \mathrm{e}_j \rangle \vert \mathrm{g} \rangle \langle \mathrm{e}_j \vert +  \langle \mathrm{e}_j \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \vert \mathrm{e}_j \rangle \langle \mathrm{g} \vert \right)  \\ &\hspace{12em} \times \left( \hat{\epsilon}E_0^{(+)} \mathrm{e}^{-i\omega t} + \hat{\epsilon}^*E_0^{(-)} \mathrm{e}^{i\omega t} \right) \,,
 \end{split}
 \end{align}
-where we have assumed, for the sake of simplicity and without loss of generality, that the atom is in the ground state, since the following results can be applied to any atomic state $\vert i \rangle$ via the substitution $\vert g \rangle \rightarrow \vert i \rangle$. The next step is to calculate the mean dipole moment of the perturbed ground state found via time-dependent perturbation theory. The interaction causes mixing of the ground state with the excited states, which leads us to the following ansatz for the perturbed ground state
+where we have assumed, for the sake of simplicity and without loss of generality, that the atom is in the ground state, since the following results can be applied to any atomic state $\vert i \rangle$ via the substitution $\vert \mathrm{g} \rangle \rightarrow \vert i \rangle$. The next step is to calculate the mean dipole moment of the perturbed ground state found via time-dependent perturbation theory. The interaction causes mixing of the ground state with the excited states, which leads us to the following ansatz for the perturbed ground state
 \begin{equation}
 \label{ansatzgroundstate}
-	\underbrace{\mathrm{e}^{-i\omega_0 t} \vert g \rangle}_{\vert g(t) \rangle} + \underbrace{\sum_j \left( c_j^{(+)} \mathrm{e}^{-i\omega t} + c_j^{(-)} \mathrm{e}^{i\omega t} \right) \mathrm{e}^{-i\omega_0 t} \vert e_j \rangle }_{\vert \delta g (t) \rangle} \,,
+	\underbrace{\mathrm{e}^{-i\omega_0 t} \vert \mathrm{g} \rangle}_{\vert \mathrm{g}(t) \rangle} + \underbrace{\sum_j \left( c_j^{(+)} \mathrm{e}^{-i\omega t} + c_j^{(-)} \mathrm{e}^{i\omega t} \right) \mathrm{e}^{-i\omega_0 t} \vert \mathrm{e}_j \rangle }_{\vert \delta \mathrm{g} (t) \rangle} \,,
 \end{equation}
-in which $\omega_0=E_0/\hbar$ represents the angular frequency associated with the ground state energy $E_0$. Furthermore, we have introduced the unknown coefficients $c_j^{(+)}$ and $c_j^{(-)}$ that can be solved through substitution of \autoref{ansatzgroundstate} into the Schrödinger equation with $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_I$, where the Hamiltonian $\hat{\mathcal{H}}_0$ of the unperturbed atom is given by
+in which $\omega_0=E_0/\hbar$ represents the angular frequency associated with the ground state energy $E_0$. Furthermore, we have introduced the unknown coefficients $c_j^{(+)}$ and $c_j^{(-)}$ that can be solved through substitution of \autoref{ansatzgroundstate} into the Schrödinger equation with $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_\mathrm{I}$, where the Hamiltonian $\hat{\mathcal{H}}_0$ of the unperturbed atom is given by
 \begin{equation}
-	\hat{\mathcal{H}}_0=\hbar\omega_0\vert g \rangle \langle g \vert + \sum_j \hbar \omega_j \vert e_j \rangle \langle e_j \vert \,.
+	\hat{\mathcal{H}}_0=\hbar\omega_0\vert \mathrm{g} \rangle \langle \mathrm{g} \vert + \sum_j \hbar \omega_j \vert \mathrm{e}_j \rangle \langle \mathrm{e}_j \vert \,.
 \end{equation}
-In this equation, $\omega_j=E_j/\hbar$ represents the angular frequency associated with the energy $E_j$ of the excited state $\vert e_j \rangle$. Keeping only terms up to first order and grouping those with matching time dependence, allows us to express the perturbation coefficients as
+In this equation, $\omega_j=E_j/\hbar$ represents the angular frequency associated with the energy $E_j$ of the excited state $\vert \mathrm{e}_j \rangle$. Keeping only terms up to first order and grouping those with matching time dependence, allows us to express the perturbation coefficients as
 \begin{align}
 \begin{split}
-c_j^{(+)} &= \frac{\langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \cdot \hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j}-\omega_0-\omega)} \\ 
-c_j^{(-)} &= \frac{\langle e_j \vert \hat{\vec{d}}\, \vert g \rangle \cdot \hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j}-\omega_0+\omega)} \,.
+c_j^{(+)} &= \frac{\langle \mathrm{e}_j \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \cdot \hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j}-\omega_0-\omega)} \\ 
+c_j^{(-)} &= \frac{\langle \mathrm{e}_j \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \cdot \hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j}-\omega_0+\omega)} \,.
 \end{split}
 \end{align}
-To simplify the notation, we define the transition frequency $\omega_{j0}$ between $\vert e_j \rangle$ and the ground state as $\omega_{j0}=\omega_j-\omega_0$. Given that the mean dipole moment of the unperturbed ground state is zero ($\langle g \vert \hat{\vec{d}} \, \vert g \rangle= \vec{0}\,$), we can write the mean dipole moment of the perturbed ground state to first order in the perturbation as
+To simplify the notation, we define the transition frequency $\omega_{j0}$ between $\vert \mathrm{e}_j \rangle$ and the ground state as $\omega_{j0}=\omega_j-\omega_0$. Given that the mean dipole moment of the unperturbed ground state is zero ($\langle \mathrm{g} \vert \hat{\vec{d}} \, \vert \mathrm{g} \rangle= \vec{0}\,$), we can write the mean dipole moment of the perturbed ground state to first order in the perturbation as
 \begin{align}
 \label{equationdipolemomentexpectationvalue}
 \begin{split}
-	\langle \hat{d}_\mu (t) \rangle &= \langle g(t) \vert \hat{d}_\mu \vert \delta g(t) \rangle + \langle \delta g(t) \vert \hat{d}_\mu \vert g(t) \rangle \\ &= \sum_j \underbrace{ \langle g \vert \hat{{d}}_\mu \vert e_j \rangle \langle e_j \vert \hat{{d}}_\nu \vert g \rangle }_{M_{\mu\nu,j}} \underbrace{ \left( \frac{\hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j0} - \omega)}\mathrm{e}^{-i\omega t} + \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar ( \omega_{j0} + \omega)} \mathrm{e}^{i\omega t} \right)_{\!\nu} }_{A_{\nu,j}} \\ &+ \sum_j \underbrace{  \langle g \vert \hat{{d}}_\nu \vert e_j \rangle \langle e_j \vert \hat{{d}}_\mu \vert g \rangle }_{M_{\nu\mu,j}} \underbrace{ \left( \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j0} - \omega)}\mathrm{e}^{i\omega t} + \frac{\hat{\epsilon} E_0^{(+)}}{\hbar ( \omega_{j0} + \omega)} \mathrm{e}^{-i\omega t} \right)_{\!\nu} }_{A^*_{\nu,j}} \\ &= \sum_j M_{\mu\nu,j} A_{\nu,j} + M_{\nu\mu,j} A_{\nu,j}^* \,.
+	\langle \hat{d}_\mu (t) \rangle &= \langle \mathrm{g}(t) \vert \hat{d}_\mu \vert \delta \mathrm{g}(t) \rangle + \langle \delta \mathrm{g}(t) \vert \hat{d}_\mu \vert \mathrm{g}(t) \rangle \\ &= \sum_j \underbrace{ \langle \mathrm{g} \vert \hat{{d}}_\mu \vert \mathrm{e}_j \rangle \langle \mathrm{e}_j \vert \hat{{d}}_\nu \vert \mathrm{g} \rangle }_{M_{\mu\nu,j}} \underbrace{ \left( \frac{\hat{\epsilon} E_0^{(+)}}{\hbar(\omega_{j0} - \omega)}\mathrm{e}^{-i\omega t} + \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar ( \omega_{j0} + \omega)} \mathrm{e}^{i\omega t} \right)_{\!\nu} }_{A_{\nu,j}} \\ &+ \sum_j \underbrace{  \langle \mathrm{g} \vert \hat{{d}}_\nu \vert \mathrm{e}_j \rangle \langle \mathrm{e}_j \vert \hat{{d}}_\mu \vert \mathrm{g} \rangle }_{M_{\nu\mu,j}} \underbrace{ \left( \frac{\hat{\epsilon}^* E_0^{(-)}}{\hbar(\omega_{j0} - \omega)}\mathrm{e}^{i\omega t} + \frac{\hat{\epsilon} E_0^{(+)}}{\hbar ( \omega_{j0} + \omega)} \mathrm{e}^{-i\omega t} \right)_{\!\nu} }_{A^*_{\nu,j}} \\ &= \sum_j M_{\mu\nu,j} A_{\nu,j} + M_{\nu\mu,j} A_{\nu,j}^* \,.
 \end{split}
 \end{align}
 Note the switch to tensor component notation and the simplification using the newly defined tensors $M_{\mu\nu,j}$ and $A_{\nu,j}$.
@@ -582,7 +582,7 @@ Considering separate cases of linearly and circularly polarised light and writin
 \langle \hat{d}^{(+)}_\mu (\omega) \rangle = \sum_j \frac{1}{3} M^{(0)}_j \delta_{\mu\nu} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ \frac{1}{4} M^{(1)}_{\sigma,j} \epsilon_{\sigma\mu\nu} \frac{2\omega }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ M^{(2)}_{\mu\nu,j} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \,.
 \end{split}
 \end{align}
-Comparing the above expression with the defining relation in \autoref{definingrelationpolarisability}, we can directly infer the full polarisability tensor $\alpha_{\mu\nu}(\omega)$ and its decomposition into the isotropic, antisymmetric and symmetric traceless parts. Substituting this result into \autoref{StarkSummary}, we can evaluate the Stark shift of a particular hyperfine sublevel $\vert F\,m_F \rangle$ by replacing $\vert g \rangle \rightarrow \vert F\,m_F \rangle$ and $\vert e_j \rangle \rightarrow \vert F'\,m_F' \rangle$. The associated energy shift can be viewed as the scalar contraction of two rank-$2$ tensors: $T_{\mu\nu}:=-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ]$ containing the tensor polarisability and the dyadic tensor $U_{\mu\nu}:=( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu$ of the electric field.
+Comparing the above expression with the defining relation in \autoref{definingrelationpolarisability}, we can directly infer the full polarisability tensor $\alpha_{\mu\nu}(\omega)$ and its decomposition into the isotropic, antisymmetric and symmetric traceless parts. Substituting this result into \autoref{StarkSummary}, we can evaluate the Stark shift of a particular hyperfine sublevel $\vert F\,m_F \rangle$ by replacing $\vert \mathrm{g} \rangle \rightarrow \vert F\,m_F \rangle$ and $\vert \mathrm{e}_j \rangle \rightarrow \vert F'\,m_F' \rangle$. The associated energy shift can be viewed as the scalar contraction of two rank-$2$ tensors: $T_{\mu\nu}:=-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ]$ containing the tensor polarisability and the dyadic tensor $U_{\mu\nu}:=( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu$ of the electric field.
 \subsection{Decomposition into spherical tensors}
 In general, it is more convenient to work with a decomposition of these tensors into their irreducible spherical components $T_q^{(k)}$ given by $\{T_0^{(0)}, T_{q}^{(1)}, T_{q}^{(2)}\}$ with $q$ running from $-k$ to $k$. These spherical tensor operators transform among themselves like $2k+1$ angular momentum eigenstates $\vert j = k, m = q\rangle$, exactly like spherical harmonics according to
 \begin{align}
@@ -666,29 +666,29 @@ resulting in $\alpha^{(2)}(F ; \omega) \approx 0$. If we furthermore assume a li
 \begin{align}
 \label{groundstatestark}
 \begin{split}
-\Delta E_\text{g}\left(\omega\right) &\approx - \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \lvert E_0^{(+)}\rvert ^2 \\&= -\frac{1}{\epsilon_0 c} \sum_{J'} \frac{\omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} I \,.
+\Delta E_\mathrm{g}\left(\omega\right) &\approx - \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \lvert E_0^{(+)}\rvert ^2 \\&= -\frac{1}{\epsilon_0 c} \sum_{J'} \frac{\omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} I \,.
 \end{split}
 \end{align}
 
 \subsection{Strong and intermediate field regimes}
-In writing down the preceding expressions, we have assumed the tensor shifts to be much smaller than the hyperfine splittings. In this case, one can turn \autoref{acStarkHyperfineShifts} into an effective hyperfine Stark Hamiltonian. In the case of stronger fields however, $F$ is no longer a good quantum number and the above equations no longer apply. Since the electric field couples only to the electron and not to the nucleus, one can nonetheless define an effective Stark Hamiltonian in terms of the electron angular momentum $J$. As long as the Stark interaction energy does not exceed the fine structure of the atom, this is an adequate Hamiltonian for describing the hyperfine Stark shifts for stronger fields. This effective Stark Hamiltonian $\hat{\mathcal{H}}_\text{s}$ is given by
+In writing down the preceding expressions, we have assumed the tensor shifts to be much smaller than the hyperfine splittings. In this case, one can turn \autoref{acStarkHyperfineShifts} into an effective hyperfine Stark Hamiltonian. In the case of stronger fields however, $F$ is no longer a good quantum number and the above equations no longer apply. Since the electric field couples only to the electron and not to the nucleus, one can nonetheless define an effective Stark Hamiltonian in terms of the electron angular momentum $J$. As long as the Stark interaction energy does not exceed the fine structure of the atom, this is an adequate Hamiltonian for describing the hyperfine Stark shifts for stronger fields. This effective Stark Hamiltonian $\hat{\mathcal{H}}_\mathrm{s}$ is given by
 \begin{align}
 \label{effectivestarkhamiltonian}
 \begin{split}
-\hat{\mathcal{H}}_\text{s}\left(J;\omega\right) = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(J;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{\hat{J}_z}{J}   \\&- \alpha^{(2)}\left(J;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}}{J\left(2J-1\right)} \,,
+\hat{\mathcal{H}}_\mathrm{s}\left(J;\omega\right) = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(J;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{\hat{J}_z}{J}   \\&- \alpha^{(2)}\left(J;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}}{J\left(2J-1\right)} \,,
 \end{split}
 \end{align}
-where the polarisabilities are defined analogously to \autoref{Ftensorpolarisabilities} in terms of $J$ and $\omega$. In the limit of a strong electric field, the hyperfine interaction can be treated as perturbation to the dominating Stark Hamiltonian. This is analogous to the (hyperfine) Paschen--Back regime for strong magnetic fields that decouple the nuclear spin ($I$) from the total angular momentum ($J$) of the electron but do not decouple the electron's spin ($S$) from its orbital angular momentum ($L$). In this case, we see that $\hat{\mathcal{H}}_\text{s}$ is diagonal in the strong-field basis $\vert J\, m_J\, I\, m_I\rangle$, which is used to calculate the first-order, hyperfine perturbation as $\langle J\, m_J\, I\, m_I \vert \hat{\mathcal{H}}_{\text{hfs}} \vert J\, m_J\, I\, m_I\rangle$. The resulting energies of the perturbed eigenstates are
+where the polarisabilities are defined analogously to \autoref{Ftensorpolarisabilities} in terms of $J$ and $\omega$. In the limit of a strong electric field, the hyperfine interaction can be treated as perturbation to the dominating Stark Hamiltonian. This is analogous to the (hyperfine) Paschen--Back regime for strong magnetic fields that decouple the nuclear spin ($I$) from the total angular momentum ($J$) of the electron but do not decouple the electron's spin ($S$) from its orbital angular momentum ($L$). In this case, we see that $\hat{\mathcal{H}}_\mathrm{s}$ is diagonal in the strong-field basis $\vert J\, m_J\, I\, m_I\rangle$, which is used to calculate the first-order, hyperfine perturbation as $\langle J\, m_J\, I\, m_I \vert \hat{\mathcal{H}}_{\mathrm{hfs}} \vert J\, m_J\, I\, m_I\rangle$. The resulting energies of the perturbed eigenstates are
 \begin{align}
 \begin{split}
-	&E_{\vert J\, m_J\, I\, m_I\rangle}= A_{\text{hfs}} m_I m_J \\&+B_{\text{hfs}}\frac{9(m_I m_J)^2-3J(J+1)m_I^2 - 3I(I+1)m_J^2 + I(I+1)J(J+1)}{4J(2J-1)I(2I-1)} \\&- \langle J\, m_J\, I\, m_I \vert \hat{\mathcal{H}}_{\text{s}} \vert J\, m_J\, I\, m_I\rangle \,,
+	&E_{\vert J\, m_J\, I\, m_I\rangle}= A_{\mathrm{hfs}} m_I m_J \\&+B_{\mathrm{hfs}}\frac{9(m_I m_J)^2-3J(J+1)m_I^2 - 3I(I+1)m_J^2 + I(I+1)J(J+1)}{4J(2J-1)I(2I-1)} \\&- \langle J\, m_J\, I\, m_I \vert \hat{\mathcal{H}}_{\mathrm{s}} \vert J\, m_J\, I\, m_I\rangle \,,
 \end{split}
 \end{align}
-where the eigenvalues with respect to \autoref{hyperfinehamiltonian} have been obtained by writing the $\hat{J}_x$ and $\hat{J}_y$ components of $\hat{\vec{J}}$ in terms of the raising and lowering operators as $\hat{J}_x=(\hat{J}_+ + \hat{J}_-)/2$ and $\hat{J}_y=(\hat{J}_+ - \hat{J}_-)/2i$, before using the fact that $\langle j\, m \vert \hat{J}_\mp \hat{J}_\pm \vert j\, m \rangle = \hbar^2\left( j(j+1) - m(m\pm1)\right)$. For intermediate field strengths, when neither $\hat{\mathcal{H}}_\text{s}$ nor $\hat{\mathcal{H}}_\text{hfs}$ dominates, both perturbative approaches break down. In this case, the full Hamiltonian $\hat{\mathcal{H}}=\hat{\mathcal{H}}_\text{s}+\hat{\mathcal{H}}_\text{hfs}$ must be diagonalised numerically. Some progress can be made however, by considering the Hamiltonian in the hyperfine basis $\vert J\, I\, F\, m_F\rangle$. Let us assume, for the sake of simplicity, that the field is linearly polarised along the $\hat{z}$-axis: $(E_0^{(+)})_0=E_0^{(+)}$. The matrix elements of $\hat{\mathcal{H}}_\text{s}$ are thus
+where the eigenvalues with respect to \autoref{hyperfinehamiltonian} have been obtained by writing the $\hat{J}_x$ and $\hat{J}_y$ components of $\hat{\vec{J}}$ in terms of the raising and lowering operators as $\hat{J}_x=(\hat{J}_+ + \hat{J}_-)/2$ and $\hat{J}_y=(\hat{J}_+ - \hat{J}_-)/2i$, before using the fact that $\langle j\, m \vert \hat{J}_\mp \hat{J}_\pm \vert j\, m \rangle = \hbar^2\left( j(j+1) - m(m\pm1)\right)$. For intermediate field strengths, when neither $\hat{\mathcal{H}}_\mathrm{s}$ nor $\hat{\mathcal{H}}_\mathrm{hfs}$ dominates, both perturbative approaches break down. In this case, the full Hamiltonian $\hat{\mathcal{H}}=\hat{\mathcal{H}}_\mathrm{s}+\hat{\mathcal{H}}_\mathrm{hfs}$ must be diagonalised numerically. Some progress can be made however, by considering the Hamiltonian in the hyperfine basis $\vert J\, I\, F\, m_F\rangle$. Let us assume, for the sake of simplicity, that the field is linearly polarised along the $\hat{z}$-axis: $(E_0^{(+)})_0=E_0^{(+)}$. The matrix elements of $\hat{\mathcal{H}}_\mathrm{s}$ are thus
 \begin{align}
 \label{matrixelementofstark}
 \begin{split}
-\langle F\,m_F \vert \hat{\mathcal{H}}_\text{s} \vert F'\, m'_F \rangle = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \delta_{FF'}\delta_{m_F m'_F} \\&- \alpha^{(2)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \frac{ \langle F\,m_F \vert 3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}  \vert F'\, m'_F \rangle }{J\left(2J-1\right)} \,.
+\langle F\,m_F \vert \hat{\mathcal{H}}_\mathrm{s} \vert F'\, m'_F \rangle = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \delta_{FF'}\delta_{m_F m'_F} \\&- \alpha^{(2)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \frac{ \langle F\,m_F \vert 3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}  \vert F'\, m'_F \rangle }{J\left(2J-1\right)} \,.
 \end{split}
 \end{align}
 Since $3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}$ is a rank-$2$ spherical tensor component ($q=0$), we can use the Wigner--Eckart theorem to write the matrix element in \autoref{matrixelementofstark} as
@@ -708,12 +708,12 @@ where we have used \autoref{reducedmatrixelementonecomponent} to express $\langl
 \label{cqed}
 Throughout the preceding sections, we have treated the light-matter interaction in a predominantly semi-classical picture, in which the electric field is modelled as a sinusoidal perturbation. Although the semi-classical model offers significant insights into light-matter interactions, it fails to account for the full quantum nature of these couplings, which give rise to phenomena such as quantum coherence, entanglement, and hybrid light-matter states. A more comprehensive framework accounting for a fully quantised electromagnetic field is that of cavity quantum electrodynamics (CQED), which is the study of interactions between light and matter in a confined electromagnetic environment, typically an optical or microwave cavity. The simplest example is that of a two-level atom coupled to a single mode of the field inside an optical cavity.
 \subsection{Jaynes--Cummings Hamiltonian}
-In the second quantisation, the Hamiltonian of a two-level atom interacting with a single cavity mode can be written as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_I$, where $\hat{\mathcal{H}}_0$ represents the uncoupled part:
+In the second quantisation, the Hamiltonian of a two-level atom interacting with a single cavity mode can be written as $\hat{\mathcal{H}}=\hat{\mathcal{H}}_0+\hat{\mathcal{H}}_\mathrm{I}$, where $\hat{\mathcal{H}}_0$ represents the uncoupled part:
 \begin{align}
 \label{uncoupledham}
-\hat{\mathcal{H}}_0=\hbar \omega_0 \vert e \rangle \langle e \vert + \hbar \omega \left( \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \sfrac{1}{2} \right)\,,
+\hat{\mathcal{H}}_0=\hbar \omega_0 \vert \mathrm{e} \rangle \langle \mathrm{e} \vert + \hbar \omega \left( \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \sfrac{1}{2} \right)\,,
 \end{align}
-where we have set the atomic ground state energy to zero to express the Hamiltonian in terms of the atomic transition frequency $\omega_0$. The cavity resonance frequency is denoted by $\omega$, while $\hat{a}^\dagger_{\vec{k},\hat{\epsilon}}$ and $\hat{a}_{\vec{k},\hat{\epsilon}}$ respectively represent the field creation and annihilation operators for a mode with wave vector $\vec{k}$ and unit polarisation $\hat{\epsilon}$. Similar to the interaction Hamiltonian as discussed under \autoref{systemhamiltonian}, we have $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}$, now written in terms of the quantised electric field, which can be written in the Schr\"{o}dinger picture as
+where we have set the atomic ground state energy to zero to express the Hamiltonian in terms of the atomic transition frequency $\omega_0$. The cavity resonance frequency is denoted by $\omega$, while $\hat{a}^\dagger_{\vec{k},\hat{\epsilon}}$ and $\hat{a}_{\vec{k},\hat{\epsilon}}$ respectively represent the field creation and annihilation operators for a mode with wave vector $\vec{k}$ and unit polarisation $\hat{\epsilon}$. Similar to the interaction Hamiltonian as discussed under \autoref{systemhamiltonian}, we have $\hat{\mathcal{H}}_\mathrm{I}=-\hat{\vec{d}}\cdot \hat{\vec{E}}$, now written in terms of the quantised electric field, which can be written in the Schr\"{o}dinger picture as
 \begin{align}
 \label{electricfieldoperator}
 \hat{\vec{E}}(\vec{r}\,) = \sqrt{\frac{\hbar \omega}{2 \epsilon_0}} \left(\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}_{\vec{k},\hat{\epsilon}}  + \vec{f}^*_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \right)\,,
@@ -723,30 +723,30 @@ written in terms of the normalised\footnote{The mode functions are assumed to no
 This expression includes the quantisation volume\footnote{For a given spatial mode of the electric field $\vec{E}(\vec{r}\,)$ in vacuum, we define this volume as $V = \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} / \max_{\vec{r}} |\vec{E}(\vec{r}\,)|^2$. This definition captures how concentrated the field energy is in space. By equating the energy stored in the electric field to half the zero-point energy, $ \frac{1}{2} \epsilon_0 \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} = \frac{1}{4} \hbar \omega $, we can express the maximum electric field amplitude in terms of $\omega$ and $V$: $\max_{\vec{r}} |\vec{E}(\vec{r}\,)| = \sqrt{ \hbar \omega / (2 \varepsilon_0 V) }$, which is precisely the prefactor that appears in the electric field operator (\autoref{electricfieldoperator}).} $V$ of the cavity and the wavevector $\vec{k}$.
 \fi
 \iffalse
-In the electric dipole approximation, the electromagnetic field is assumed to be uniform over the size of the atom. This reduces the electric dipole interaction to $\hat{\mathcal{H}}_I=-\hat{\vec{d}}\cdot \hat{\vec{E}}(\vec{0}\,)$.
+In the electric dipole approximation, the electromagnetic field is assumed to be uniform over the size of the atom. This reduces the electric dipole interaction to $\hat{\mathcal{H}}_\mathrm{I}=-\hat{\vec{d}}\cdot \hat{\vec{E}}(\vec{0}\,)$.
 \fi
-In the interaction picture, $\hat{\mathcal{H}}_I$ reads:
+In the interaction picture, $\hat{\mathcal{H}}_\mathrm{I}$ reads:
 \begin{align}
 \label{interactionhamiltonianallterms}
 \begin{split}
-\hat{\mathcal{H}}_I(t) &= \mathrm{e}^{i\hat{\mathcal{H}}_0 t/\hbar}\hat{\mathcal{H}}_I \mathrm{e}^{-i \hat{\mathcal{H}}_0 t/\hbar} \\&= \hbar \Big( g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0-\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0-\omega)t} \\ &\hspace{4em}+ g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0+\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0+\omega)t}     \Big)\,,
+\hat{\mathcal{H}}_\mathrm{I}(t) &= \mathrm{e}^{i\hat{\mathcal{H}}_0 t/\hbar}\hat{\mathcal{H}}_\mathrm{I} \mathrm{e}^{-i \hat{\mathcal{H}}_0 t/\hbar} \\&= \hbar \Big( g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0-\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0-\omega)t} \\ &\hspace{4em}+ g_{\vec{k},\hat{\epsilon}} \hat{\sigma}_+ \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \mathrm{e}^{i(\omega_0+\omega)t} + g^*_{\vec{k},\hat{\epsilon}} \hat{\sigma}_- \hat{a}_{\vec{k},\hat{\epsilon}} \mathrm{e}^{-i(\omega_0+\omega)t}     \Big)\,,
 \end{split}
 \end{align}
 where the atom-cavity coupling rate $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ is defined as
 \begin{align}
 \label{couplingrate}
-g_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = -\sqrt{\frac{\omega}{2\epsilon_0\hbar}} \langle e \vert \hat{\vec{d}} \, \vert g \rangle \cdot \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\,.
+g_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = -\sqrt{\frac{\omega}{2\epsilon_0\hbar}} \langle \mathrm{e} \vert \hat{\vec{d}} \, \vert \mathrm{g} \rangle \cdot \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\,.
 \end{align}
 If the resonance frequency of the cavity is sufficiently close to the atomic transition frequency, which is to say $\vert \omega_0-\omega\vert \ll \omega_0 + \omega$, we see that the first two terms in \autoref{interactionhamiltonianallterms} are nearly resonant, whereas the remaining terms oscillate at a frequency of roughly $2\omega$. In this so-called rotating wave approximation, these latter two average to zero over timescales that correspond to the resonant dynamics. Transforming this interaction Hamiltonian back to the Schr\"{o}dinger picture and ignoring the zero-point energy of the field in \autoref{uncoupledham} that does not contribute to the system dynamics, the full Hamiltonian\footnote{This is referred to as the Jaynes--Cummings Hamiltonian.} can be written as
 \begin{align}
 \label{JC}
-\hat{\mathcal{H}}=\hbar\omega_0 \vert e \rangle \langle e \vert + \hbar \omega \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \hbar g_{\vec{k},\hat{\epsilon}}(\hat{\sigma}_+\hat{a}_{\vec{k},\hat{\epsilon}} + \hat{\sigma}_-\hat{a}^\dagger_{\vec{k},\hat{\epsilon}})\,,
+\hat{\mathcal{H}}=\hbar\omega_0 \vert \mathrm{e} \rangle \langle \mathrm{e} \vert + \hbar \omega \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \hat{a}_{\vec{k},\hat{\epsilon}} + \hbar g_{\vec{k},\hat{\epsilon}}(\hat{\sigma}_+\hat{a}_{\vec{k},\hat{\epsilon}} + \hat{\sigma}_-\hat{a}^\dagger_{\vec{k},\hat{\epsilon}})\,,
 \end{align}
 where we have assumed $g_{\vec{k},\hat{\epsilon}}=g^*_{\vec{k},\hat{\epsilon}}$, hereafter denoted $g$.
 \subsection{Dressed states}
-The Hamiltonian in \autoref{JC} is an example of one of the few exactly solvable models in quantum optics. Note that it takes on a block diagonal structure, coupling pairs of atom-field states $\{|e,n-1\rangle, |g, n\rangle\}$. Each $2\times2$ block $\hat{\mathcal{H}}_n$ can be represented as follows:
+The Hamiltonian in \autoref{JC} is an example of one of the few exactly solvable models in quantum optics. Note that it takes on a block diagonal structure, coupling pairs of atom-field states $\{\vert\mathrm{e},n-1\rangle, \vert\mathrm{g}, n\rangle\}$. Each $2\times2$ block $\hat{\mathcal{H}}_n$ can be represented as follows:
 \begin{align}
-\hat{\mathcal{H}}_n \begin{bmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} (n-1)\omega + \omega_0 & g\sqrt{n} \\ g\sqrt{n} & n\omega \end{bmatrix} \begin{bmatrix}  \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix}\,.
+\hat{\mathcal{H}}_n \begin{bmatrix}  \vert \mathrm{e}, n-1\rangle \\ \vert \mathrm{g}, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} (n-1)\omega + \omega_0 & g\sqrt{n} \\ g\sqrt{n} & n\omega \end{bmatrix} \begin{bmatrix}  \vert \mathrm{e}, n-1\rangle \\ \vert \mathrm{g}, n\rangle \end{bmatrix}\,.
 \end{align}
 Solving for the eigenfrequencies of this Hamiltonian yields:
 \begin{align}
@@ -756,23 +756,23 @@ where $\Delta = \omega_0 - \omega$ is the detuning of the radiation frequency fr
 \begin{align}
 \label{dressedstates}
 \begin{split}
-\vert  \psi^+_n\rangle &= \cos\left({\theta_n}\right) \vert e, n-1\rangle + \sin\left({\theta_n}\right) \vert g, n\rangle \\
-\vert \psi^-_n\rangle &= - \sin\left({\theta_n}\right) \vert e, n-1\rangle + \cos\left({\theta_n}\right) \vert g, n\rangle \,,
+\vert  \psi^+_n\rangle &= \cos\left({\theta_n}\right) \vert \mathrm{e}, n-1\rangle + \sin\left({\theta_n}\right) \vert \mathrm{g}, n\rangle \\
+\vert \psi^-_n\rangle &= - \sin\left({\theta_n}\right) \vert \mathrm{e}, n-1\rangle + \cos\left({\theta_n}\right) \vert \mathrm{g}, n\rangle \,,
 \end{split}
 \end{align}
-where $\theta_n$ is defined by $\tan(\theta_n)=\frac{\Omega_n}{\Delta+\sqrt{\Delta^2+\Omega_n^2}}$. This doublet of states are split by $\sqrt{\Delta^2 + \Omega_n^2}$, which is the effective Rabi frequency at which the population oscillates between $\ket{g,n}$ and $\ket{e,n-1}$. Even if no photon is initially present in a resonant cavity ($n=1$), there will be a level splitting, or vacuum Rabi splitting of $2g$, between the exact eigenstates of the combined atom-cavity system.
+where $\theta_n$ is defined by $\tan(\theta_n)=\frac{\Omega_n}{\Delta+\sqrt{\Delta^2+\Omega_n^2}}$. This doublet of states are split by $\sqrt{\Delta^2 + \Omega_n^2}$, which is the effective Rabi frequency at which the population oscillates between $\ket{\mathrm{g},n}$ and $\ket{\mathrm{e},n-1}$. Even if no photon is initially present in a resonant cavity ($n=1$), there will be a level splitting, or vacuum Rabi splitting of $2g$, between the exact eigenstates of the combined atom-cavity system.
 
 \subsection{V-STIRAP in a three-level system}
 \label{vstirap}
-The preceding model can be extended to that of a $\Lambda$-like three-level system by introducing a ground state $\vert u, n-1 \rangle$ with energy $\hbar \omega_u$ that is coupled to the ex-
+The preceding model can be extended to that of a $\Lambda$-like three-level system by introducing a ground state $\vert \mathrm{u}, n-1 \rangle$ with energy $\hbar \omega_\mathrm{u}$ that is coupled to the ex-
 \begin{wrapfigure}[10]{l}{0.5\textwidth}
 	\centering
 	\begin{tikzpicture}
 	
 	% Energy levels
-	\node at (0,3.3)    {$\left|e, n-1\right\rangle$};
-	\node at (-1.25,-0.45)   {$\left|u, n-1\right\rangle$};
-	\node at (1.4,-0.45)    {$\left|g, n\right\rangle$};
+	\node at (0,3.3)    {$\vert\mathrm{e}, n-1\rangle$};
+	\node at (-1.25,-0.45)   {$\vert\mathrm{u}, n-1\rangle$};
+	\node at (1.4,-0.45)    {$\vert\mathrm{g}, n\rangle$};
 	
 	\node at (0,3) (e) {};
 	\node at (-1.25,-0.1) (u) {};
@@ -798,30 +798,30 @@ The preceding model can be extended to that of a $\Lambda$-like three-level syst
 	\draw[thick, <->] (-0.67,2.6) -- node[midway, left] {$\Delta_L$} (-0.67,2.9);
 	
 	\end{tikzpicture}
-	\caption[Energy level diagram of a $\Lambda$-like three-level system]{Energy level diagram of a $\Lambda$-like three-level system showing the laser detuning ($\Delta_L$), cavity detuning ($\Delta_C$) and Rabi frequencies ($\Omega$, $2g\sqrt{n}$) of the driving field and cavity, respectively.}
+	\caption[Energy level diagram of a $\Lambda$-like three-level system]{Energy level diagram of a $\Lambda$-like three-level system showing the laser detuning ($\Delta_\mathrm{L}$), cavity detuning ($\Delta_\mathrm{C}$) and Rabi frequencies ($\Omega$, $2g\sqrt{n}$) of the driving field and cavity, respectively.}
 	\label{fig:3lvlLambdaSystem}
 \end{wrapfigure}
-cited state $\vert e, n-1 \rangle $ by a laser with a frequency of $\omega_L$ and a Rabi frequency of $\Omega$ (see \autoref{fig:3lvlLambdaSystem}). The atomic transition frequencies are denoted $\omega_{eu}=\omega_e-\omega_u$ and $\omega_{eg}=\omega_e-\omega_g$. The detuning between the driving field and the atomic resonance is therefore written as $\Delta_L=\omega_{eu}-\omega_L$. To distinguish the field parameters from those of the cavity, we occasionally write $\Delta=\Delta_C$ and $\omega=\omega_C$. Analogous to the two-level system, the Hamiltonian (in the rotating frame) of the three-level system can be decomposed into blocks that now couple the atom-field states $\{\vert u, n-1 \rangle,  \vert e,n-1\rangle, \vert g, n\rangle\}$ as
+cited state $\vert \mathrm{e}, n-1 \rangle $ by a laser with a frequency of $\omega_\mathrm{L}$ and a Rabi frequency of $\Omega$ (see \autoref{fig:3lvlLambdaSystem}). The atomic transition frequencies are denoted $\omega_\mathrm{eu}=\omega_\mathrm{e}-\omega_\mathrm{u}$ and $\omega_\mathrm{eg}=\omega_\mathrm{e}-\omega_\mathrm{g}$. The detuning between the driving field and the atomic resonance is therefore written as $\Delta_\mathrm{L}=\omega_\mathrm{eu}-\omega_\mathrm{L}$. To distinguish the field parameters from those of the cavity, we occasionally write $\Delta=\Delta_\mathrm{C}$ and $\omega=\omega_\mathrm{C}$. Analogous to the two-level system, the Hamiltonian (in the rotating frame) of the three-level system can be decomposed into blocks that now couple the atom-field states $\{\vert \mathrm{u}, n-1 \rangle,  \vert \mathrm{e},n-1\rangle, \vert \mathrm{g}, n\rangle\}$ as
 \begin{align}
 \label{hamiltonianHn}
 \begin{split}
-\hat{\mathcal{H}}_n \begin{bmatrix}  \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} n\omega_C & \Omega/2 & 0 \\ \Omega/2 & n\omega_C + \Delta_L & g\sqrt{n} \\ 0 & g\sqrt{n} &  n\omega_C + \Delta_L-\Delta_C \end{bmatrix} \begin{bmatrix} \vert u, n-1 \rangle \\ \vert e, n-1\rangle \\ \vert g, n\rangle \end{bmatrix}\,.
+\hat{\mathcal{H}}_n \begin{bmatrix}  \vert \mathrm{u}, n-1 \rangle \\ \vert \mathrm{e}, n-1\rangle \\ \vert \mathrm{g}, n\rangle \end{bmatrix} = \hbar \begin{bmatrix} n\omega_\mathrm{C} & \Omega/2 & 0 \\ \Omega/2 & n\omega_\mathrm{C} + \Delta_\mathrm{L} & g\sqrt{n} \\ 0 & g\sqrt{n} &  n\omega_\mathrm{C} + \Delta_\mathrm{L}-\Delta_\mathrm{C} \end{bmatrix} \begin{bmatrix} \vert \mathrm{u}, n-1 \rangle \\ \vert \mathrm{e}, n-1\rangle \\ \vert \mathrm{g}, n\rangle \end{bmatrix}\,.
 \end{split}
 \end{align}
-For equal laser and cavity detuning ($\Delta_L=\Delta_C=\Delta$), the eigenfrequencies are given by
+For equal laser and cavity detuning ($\Delta_\mathrm{L}=\Delta_\mathrm{C}=\Delta$), the eigenfrequencies are given by
 \begin{align}
 \begin{split}
-\omega_{n}^0 &= n\omega_C  \\
-\omega_{n}^{\pm} &= n\omega_C + \frac{1}{2} \left(\Delta \pm \sqrt{\Omega_n^2 + \Omega^2 + \Delta^2 } \right)\,,
+\omega_{n}^0 &= n\omega_\mathrm{C}  \\
+\omega_{n}^{\pm} &= n\omega_\mathrm{C} + \frac{1}{2} \left(\Delta \pm \sqrt{\Omega_n^2 + \Omega^2 + \Delta^2 } \right)\,,
 \label{eq:3lvlTripletEnergies}
 \end{split}
 \end{align}
 with the following corresponding eigenstates:\iffalse \cite{kuhn10} \fi
 \begin{align}
 \begin{split}
-\vert \psi^0_n \rangle &= \cos(\theta_n)\vert u,n-1\rangle - \sin(\theta_n)\vert{g,n}\rangle \\
-\vert \psi^+_n \rangle &= \sin(\phi_n)\sin(\theta_n)\vert{u,n-1}\rangle + \cos(\phi_n)\vert{e,n-1}\rangle + \sin(\phi_n)\cos(\theta_n)\vert{g,n}\rangle \\
-\vert \psi^-_n \rangle &= \cos(\phi_n)\sin(\theta_n)\vert{u,n-1}\rangle - \sin(\phi_n)\vert{e,n-1}\rangle + \cos(\phi_n)\cos(\theta_n)\vert{g,n}\rangle\,,
+\vert \psi^0_n \rangle &= \cos(\theta_n)\vert \mathrm{u},n-1\rangle - \sin(\theta_n)\vert{\mathrm{g},n}\rangle \\
+\vert \psi^+_n \rangle &= \sin(\phi_n)\sin(\theta_n)\vert{\mathrm{u},n-1}\rangle + \cos(\phi_n)\vert{\mathrm{e},n-1}\rangle + \sin(\phi_n)\cos(\theta_n)\vert{\mathrm{g},n}\rangle \\
+\vert \psi^-_n \rangle &= \cos(\phi_n)\sin(\theta_n)\vert{\mathrm{u},n-1}\rangle - \sin(\phi_n)\vert{\mathrm{e},n-1}\rangle + \cos(\phi_n)\cos(\theta_n)\vert{\mathrm{g},n}\rangle\,,
 \label{eq:3lvlTripletStates}
 \end{split}
 \end{align}
@@ -831,7 +831,7 @@ where $\theta_n$ and $\phi_n$ are the mixing angles defined by
 \tan(\phi_n) = \frac{\sqrt{\Omega_n^2 + \Omega^2}}{\sqrt{\Omega_n^2 + \Omega^2 + \Delta^2} + \Delta}\,. 
 \label{eq:3lvlTripletStatesMixingAngles}
 \end{align}
-In the limit of a vanishing laser coupling ($\Omega\rightarrow 0 $), the states $\vert \psi ^\pm _n \rangle $ correspond to the dressed states of the two-level system as defined in \autoref{dressedstates}, while $\vert \psi ^0 _n \rangle $ reduces to $ \vert u, n-1\rangle$. In general, $\vert \psi ^0 _n \rangle$ is referred to as the dark eigenstate, since it involves a linear combination of the grounds states only. Note that the distribution across the ground states depends only on the ratio of the relevant couplings strengths ($\sfrac{\Omega}{\Omega_n}$). This implies that, starting from the state $\vert u, 0\rangle$, the population can be adiabatically transferred between the ground states by means of an adequately shaped control pulse $\Omega(t)$. This process avoids any transient population in the excited state, which suppresses spontaneous emission into free space. As will be discussed in the following section, a realistic cavity is subject to photon loss. This means that, once the system reaches the state $ \vert g, 1\rangle $, the photon will irreversibly decay from the cavity at a constant rate, eventually leaving the system in the state $ \vert g, 0\rangle$. This cavity-mediated, adiabatic population transfer is referred to as Vacuum Stimulated Raman Adiabatic Passage (V-STIRAP) and constitutes a valuable method for extracting and shaping single photons from atoms \cite{Kuhn2002,McKeever2004,Brattke2001}. This is especially relevant for photons in the context of linear optics quantum computing (LOQC) \cite{Knill2001,Ralph2001,Kok2007,OBrien2007}, the scalability of which relies heavily on deterministic single-photon generation and preparation.
+In the limit of a vanishing laser coupling ($\Omega\rightarrow 0 $), the states $\vert \psi ^\pm _n \rangle $ correspond to the dressed states of the two-level system as defined in \autoref{dressedstates}, while $\vert \psi ^0 _n \rangle $ reduces to $ \vert \mathrm{u}, n-1\rangle$. In general, $\vert \psi ^0 _n \rangle$ is referred to as the dark eigenstate, since it involves a linear combination of the grounds states only. Note that the distribution across the ground states depends only on the ratio of the relevant couplings strengths ($\sfrac{\Omega}{\Omega_n}$). This implies that, starting from the state $\vert \mathrm{u}, 0\rangle$, the population can be adiabatically transferred between the ground states by means of an adequately shaped control pulse $\Omega(t)$. This process avoids any transient population in the excited state, which suppresses spontaneous emission into free space. As will be discussed in the following section, a realistic cavity is subject to photon loss. This means that, once the system reaches the state $ \vert \mathrm{g}, 1\rangle $, the photon will irreversibly decay from the cavity at a constant rate, eventually leaving the system in the state $ \vert \mathrm{g}, 0\rangle$. This cavity-mediated, adiabatic population transfer is referred to as Vacuum Stimulated Raman Adiabatic Passage (V-STIRAP) and constitutes a valuable method for extracting and shaping single photons from atoms \cite{Kuhn2002,McKeever2004,Brattke2001}. This is especially relevant for photons in the context of linear optics quantum computing (LOQC) \cite{Knill2001,Ralph2001,Kok2007,OBrien2007}, the scalability of which relies heavily on deterministic single-photon generation and preparation.
 
 \subsection{Loss mechanisms in an atom-cavity system}
 In the preceding discussion of the dressed eigenstates of two- and three-level systems, we have ignored the effect of spontaneous emission and cavity field decay. In practice, a good model for a single-mode radiation field is that of an optical cavity, which consists of two reflective mirrors. By trapping an atom inside this cavity, light-matter interaction can be achieved. \autoref{fig:JCFPcavity} illustrates a two-level atom confined within a cavity with mode volume $V$.
@@ -911,14 +911,14 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\draw[<->, thick] (5.7,-0.95) -- (5.7,0.35) node[midway, right] {$\omega$};
 	\draw[<->, thick] (5.7,0.95) -- (5.7,0.45) node[midway, right] {$\Delta$};
 	
-	\node at (7,1) {$|e\rangle$};
-	\node at (7,-1) {$|g\rangle$};
+	\node at (7,1) {$\vert\mathrm{e}\rangle$};
+	\node at (7,-1) {$\vert\mathrm{g}\rangle$};
 	
 	\node[white] at (7,-2.3) {};
 	
 	
 	\end{tikzpicture}
-	\caption[Coupling and decay channels in an atom-cavity system]{\textsc{(left)} The atom-cavity system is characterised by the coupling strength $g$, the field decay rate from the cavity $\kappa$ and the amplitude decay rate of the atomic state $\gamma$. \textsc{(right)} The energy level diagram of the two-level atom showing the ground and excited states $\vert{g}\rangle$ and $\vert{e}\rangle$, respectively. The angular frequency corresponding to this energy difference is $\omega_{0}$. The cavity, which operates at a frequency $\omega$, is detuned from the atomic resonance by $\Delta$.}
+	\caption[Coupling and decay channels in an atom-cavity system]{\textsc{(left)} The atom-cavity system is characterised by the coupling strength $g$, the field decay rate from the cavity $\kappa$ and the amplitude decay rate of the atomic state $\gamma$. \textsc{(right)} The energy level diagram of the two-level atom showing the ground and excited states $\vert{\mathrm{g}}\rangle$ and $\vert{\mathrm{e}}\rangle$, respectively. The angular frequency corresponding to this energy difference is $\omega_{0}$. The cavity, which operates at a frequency $\omega$, is detuned from the atomic resonance by $\Delta$.}
 	\label{fig:JCFPcavity}
 \end{figure}
 The atom-cavity system is characterised by three key parameters: $g$, $\kappa$, and $\gamma$, which represent the atom-cavity coupling strength, the field decay rate from the cavity and the transverse polarisation decay rate\footnote{In the radiative limit, the transverse polarisation decay rate (loss of coherence or dephasing) equals half the population relaxation rate: $\gamma=\sfrac{\Gamma}{2}$. In general, $\gamma=\sfrac{\Gamma}{2}+\gamma_\phi$, where $\gamma_\phi$ is the pure dephasing rate, which describes the loss of coherence due to environmental interactions, without population transfer occurring between states.} of the atom, respectively. The interaction between the atom and the radiation field intensifies if the cavity is resonant with the atomic transition ($\Delta=0$), a condition that is achieved by adjusting the cavity length so that the frequency $\omega$ of the cavity mode matches the atomic transition frequency $\omega_0$. The photon decay rate $\kappa$ depends on the properties of the cavity and is related to its quality factor $Q$ via the relation
@@ -926,7 +926,7 @@ The atom-cavity system is characterised by three key parameters: $g$, $\kappa$, 
 \label{qfactor}
 	Q = \frac{\omega}{2\kappa}\,.
 \end{align}
-Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored energy in the cavity decreases to $\sfrac{1}{\mathrm{e}}$ of its original value. If follows from \autoref{qfactor} that a high $Q$ factor corresponds to a relatively low photon decay rate. The transverse polarisation decay rate $\gamma$ is affected by several factors. For instance, an atom may emit a photon at the resonant frequency in a direction that does not align with the cavity mode. Alternatively, the atom could transition to other energy levels, resulting in the emission of a photon with a different frequency that is not resonant with the cavity. The effect of spontaneous emission on the vacuum Rabi oscillations in a three-level system as in \autoref{fig:3lvlLambdaSystem} is shown in \autoref{fig:VacuumRabiOscillations}. The population oscillates between the states $\vert e, 0 \rangle$ and $\vert g, 1 \rangle$, whilst energy dissipates from the system as a result of spontaneous emission.
+Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored energy in the cavity decreases to $\sfrac{1}{\mathrm{e}}$ of its original value. If follows from \autoref{qfactor} that a high $Q$ factor corresponds to a relatively low photon decay rate. The transverse polarisation decay rate $\gamma$ is affected by several factors. For instance, an atom may emit a photon at the resonant frequency in a direction that does not align with the cavity mode. Alternatively, the atom could transition to other energy levels, resulting in the emission of a photon with a different frequency that is not resonant with the cavity. The effect of spontaneous emission on the vacuum Rabi oscillations in a three-level system as in \autoref{fig:3lvlLambdaSystem} is shown in \autoref{fig:VacuumRabiOscillations}. The population oscillates between the states $\vert \mathrm{e}, 0 \rangle$ and $\vert \mathrm{g}, 1 \rangle$, whilst energy dissipates from the system as a result of spontaneous emission.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -992,14 +992,14 @@ Note that $\sfrac{1}{2\kappa}$ represents the time over which the average stored
 	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{VRO_get_atomic_population.csv};
 	
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert e \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert g \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{u} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{e} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{g} \rangle$}
 	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Vacuum Rabi oscillations under the effect of spontaneous emission]{Vacuum Rabi oscillations under the effect of spontaneous emission shown in terms of the expected cavity photon number \textsc{(left)} and atomic state populations \textsc{(right)} as a function of time for a three level system as shown in \autoref{fig:3lvlLambdaSystem}. The initial state of the system is $\vert e, 0 \rangle$ and both the cavity decay rate and driving laser amplitude are set to zero. The atom-cavity coupling strength and transverse polarisation decay rate are given by $(g,\gamma)=2\pi\times(15,3)\,\si{\mega\hertz}$. The amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{85}{\percent} of a single excitation.}
+	\caption[Vacuum Rabi oscillations under the effect of spontaneous emission]{Vacuum Rabi oscillations under the effect of spontaneous emission shown in terms of the expected cavity photon number \textsc{(left)} and atomic state populations \textsc{(right)} as a function of time for a three level system as shown in \autoref{fig:3lvlLambdaSystem}. The initial state of the system is $\vert \mathrm{e}, 0 \rangle$ and both the cavity decay rate and driving laser amplitude are set to zero. The atom-cavity coupling strength and transverse polarisation decay rate are given by $(g,\gamma)=2\pi\times(15,3)\,\si{\mega\hertz}$. The amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{85}{\percent} of a single excitation.}
 	\label{fig:VacuumRabiOscillations} 
 \end{figure}
 
@@ -1012,7 +1012,7 @@ Different coupling regimes exist for the atom-cavity system, the first being the
 \end{align} 
 Strong coupling in the atom-cavity system is achieved when $C$ is maximised, a criterion that can be understood in the context of the Purcell factor $F_\mathrm{P}=2C$, which equals the ratio of emission into the cavity ($\sfrac{g^2}{\kappa}$) to the spontaneous emission probability into free space ($\gamma$). Experimentally, strong coupling typically occurs in cavities with a small mode volume $V$ and minimal losses (high $Q$).
 
-In the strong coupling regime, where the energy exchange between atom and cavity is fast and coherent, the method of V-STIRAP (as discussed in \autoref{vstirap}) can be employed to adiabatically transfer the population between $\vert u, 0\rangle$ and $\vert g, 1\rangle$ via an adequately shaped control pulse $\Omega(t)$. This process is shown in \autoref{fig:StrongCoupling}.
+In the strong coupling regime, where the energy exchange between atom and cavity is fast and coherent, the method of V-STIRAP (as discussed in \autoref{vstirap}) can be employed to adiabatically transfer the population between $\vert \mathrm{u}, 0\rangle$ and $\vert \mathrm{g}, 1\rangle$ via an adequately shaped control pulse $\Omega(t)$. This process is shown in \autoref{fig:StrongCoupling}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1083,30 +1083,30 @@ In the strong coupling regime, where the energy exchange between atom and cavity
 	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{SCR_get_atomic_population.csv};
 	
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert e \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert g \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{u} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{e} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{g} \rangle$}
 	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Time evolution of a three-level atom-cavity system in the strong coupling regime]{Time evolution of the cavity emission rate \textsc{(left)} and atomic state populations \textsc{(right)} for a three level system (\autoref{fig:3lvlLambdaSystem}) in the strong coupling regime. The driving pulse has a temporal profile of $\Omega(t)=g\sin^2(\pi t/\SI{2}{\micro\second})$ and is shown as a dashed line on the left. The initial state of the system is $\vert u, 0 \rangle$ and the relevant parameters are given by $\Delta_L=\Delta_C=0$ and $(g,\gamma,\kappa)=2\pi\times(15,3,2)\,\si{\mega\hertz}$. The total photon emission probability from the cavity is \SI{95}{\percent} and the amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{5.4}{\percent} of a single excitation.}
+	\caption[Time evolution of a three-level atom-cavity system in the strong coupling regime]{Time evolution of the cavity emission rate \textsc{(left)} and atomic state populations \textsc{(right)} for a three level system (\autoref{fig:3lvlLambdaSystem}) in the strong coupling regime. The driving pulse has a temporal profile of $\Omega(t)=g\sin^2(\pi t/\SI{2}{\micro\second})$ and is shown as a dashed line on the left. The initial state of the system is $\vert \mathrm{u}, 0 \rangle$ and the relevant parameters are given by $\Delta_\mathrm{L}=\Delta_\mathrm{C}=0$ and $(g,\gamma,\kappa)=2\pi\times(15,3,2)\,\si{\mega\hertz}$. The total photon emission probability from the cavity is \SI{95}{\percent} and the amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{5.4}{\percent} of a single excitation.}
 	\label{fig:StrongCoupling} 
 \end{figure}
 A larger detuning suppresses the transient population in the excited state and therefore reduces the amount of spontaneous emission into free space. Photon generation efficiencies in the strong coupling regime can therefore reach values close to unity. However, if the cavity decay rate is much larger than the coupling strength (as will be discussed in the following section), photons leak out of the cavity too quickly and the system cannot maintain coherence over the time needed for the V-STIRAP process.
 
 \subsection{Dynamics in the bad-cavity regime}
-In addition to the strong coupling regime, we consider the dynamics in bad-cavity regime, which is characterised by $\kappa \gg \sfrac{g^2}{\kappa} \gg \gamma $. Let us assume that the atom is excited with a pump pulse, while it emits a photon into the cavity via enhanced spontaneous emission. In this case, the bad cavity regime implies that the fastest timescale is set by the cavity field decay, while the spontaneous emission rate into the cavity dominates the incoherent polarisation decay of the atom, where the excitation is lost to unwanted modes of the radiation field. Quantitatively, the dynamics of a three-level system consisting of the states $\{ \vert u, 0 \rangle, \vert e, 0 \rangle, \vert g, 1 \rangle \}$ as described in the preceding section can be found by solving the Schr\"{o}dinger equation for the coefficients in the time dependent state vector $\vert \psi (t) \rangle = c_u(t)\vert u,0\rangle+c_e(t)\vert e, 0 \rangle + c_g(t) \vert g,1\rangle$. To this end, we employ the non-Hermitian Hamiltonian
+In addition to the strong coupling regime, we consider the dynamics in bad-cavity regime, which is characterised by $\kappa \gg \sfrac{g^2}{\kappa} \gg \gamma $. Let us assume that the atom is excited with a pump pulse, while it emits a photon into the cavity via enhanced spontaneous emission. In this case, the bad cavity regime implies that the fastest timescale is set by the cavity field decay, while the spontaneous emission rate into the cavity dominates the incoherent polarisation decay of the atom, where the excitation is lost to unwanted modes of the radiation field. Quantitatively, the dynamics of a three-level system consisting of the states $\{ \vert \mathrm{u}, 0 \rangle, \vert \mathrm{e}, 0 \rangle, \vert \mathrm{g}, 1 \rangle \}$ as described in the preceding section can be found by solving the Schr\"{o}dinger equation for the coefficients in the time dependent state vector $\vert \psi (t) \rangle = c_\mathrm{u}(t)\vert \mathrm{u},0\rangle+c_\mathrm{e}(t)\vert \mathrm{e}, 0 \rangle + c_\mathrm{g}(t) \vert \mathrm{g},1\rangle$. To this end, we employ the non-Hermitian Hamiltonian
 \begin{align}
 	\hat{\mathcal{H}}' = \hat{\mathcal{H}}_1 - i \hbar (\kappa \hat{a}^\dagger\hat{a}+\gamma \vert e \rangle\langle e \vert)\,,
 \end{align}
-which includes the Hermitian Hamiltonian $\hat{\mathcal{H}}_1$ as defined in \autoref{hamiltonianHn} and two additional terms that describe the cavity field decay and spontaneous emission. Assuming that $\Delta_L=\Delta_C=0$ and that the initial state is $\vert u, 0\rangle$, one can find an adiabatic solution as long as $\Omega(t)\ll \sfrac{g^2}{\kappa}$. This condition implies that the rate of spontaneous emission into the cavity is sufficiently fast to ensure that the populations in $\vert e,0\rangle$ and $\vert g, 1 \rangle$ are nearly time independent ($\dot{c}_e(t)\approx 0 $ and $\dot{c}_g(t)\approx 0$). Solving for $c_g(t)$, we obtain
+which includes the Hermitian Hamiltonian $\hat{\mathcal{H}}_1$ as defined in \autoref{hamiltonianHn} and two additional terms that describe the cavity field decay and spontaneous emission. Assuming that $\Delta_\mathrm{L}=\Delta_\mathrm{C}=0$ and that the initial state is $\vert \mathrm{u}, 0\rangle$, one can find an adiabatic solution as long as $\Omega(t)\ll \sfrac{g^2}{\kappa}$. This condition implies that the rate of spontaneous emission into the cavity is sufficiently fast to ensure that the populations in $\vert \mathrm{e},0\rangle$ and $\vert \mathrm{g}, 1 \rangle$ are nearly time independent ($\dot{c}_\mathrm{e}(t)\approx 0 $ and $\dot{c}_\mathrm{g}(t)\approx 0$). Solving for $c_\mathrm{g}(t)$, we obtain
 \begin{align}
-	c_g(t)\approx-\frac{g}{2\kappa} \alpha \Omega(t) \exp{-\frac{\alpha}{4} \int_{0}^{t} \Omega^2(\tau) \,\mathrm{d}\tau}\,,
+	c_\mathrm{g}(t)\approx-\frac{g}{2\kappa} \alpha \Omega(t) \exp{-\frac{\alpha}{4} \int_{0}^{t} \Omega^2(\tau) \,\mathrm{d}\tau}\,,
 \end{align} 
-where the constant $\alpha$ is defined as $\alpha=\frac{1}{\gamma+\sfrac{g^2}{\kappa}}$. This implies that the photon emission from the cavity occurs at a rate of $2\kappa \vert c_g(t)\vert^2$, since $\vert g, 1 \rangle$ is the only state from which the system can decay to $\vert g, 0 \rangle$ via the emission of a photon. The total photon emission probability $\eta$ therefore equals
+where the constant $\alpha$ is defined as $\alpha=\frac{1}{\gamma+\sfrac{g^2}{\kappa}}$. This implies that the photon emission from the cavity occurs at a rate of $2\kappa \vert c_\mathrm{g}(t)\vert^2$, since $\vert \mathrm{g}, 1 \rangle$ is the only state from which the system can decay to $\vert \mathrm{g}, 0 \rangle$ via the emission of a photon. The total photon emission probability $\eta$ therefore equals
 \begin{align}
- \eta = \int 2\kappa \vert c_g(t)\vert^2 \,\mathrm{d}t=\frac{g^2}{\kappa}\alpha \left( 1 -  \exp{-\frac{\alpha}{2} \int \Omega^2(t) \,\mathrm{d}t} \right)\,.
+ \eta = \int 2\kappa \vert c_\mathrm{g}(t)\vert^2 \,\mathrm{d}t=\frac{g^2}{\kappa}\alpha \left( 1 -  \exp{-\frac{\alpha}{2} \int \Omega^2(t) \,\mathrm{d}t} \right)\,.
 \end{align}
 Note that the exponential term vanishes for a sufficiently large pulse area, which leads to a simplified emission probability of
 \begin{align}
@@ -1183,14 +1183,14 @@ written in terms of the cooperativity. In the bad cavity regime, photon generati
 	thick
 	] table [col sep = comma, x index = 0, y expr=\thisrowno{3}]{BCR_get_atomic_population.csv};
 	
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert u \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert e \rangle$}
-	\addlegendentry{\footnotesize \hspace{0.3em} $\vert g \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{u} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{e} \rangle$}
+	\addlegendentry{\footnotesize \hspace{0.3em} $\vert \mathrm{g} \rangle$}
 	
 	\end{groupplot}
 	
 	\end{tikzpicture}
-	\caption[Time evolution of a three-level atom-cavity system in the bad cavity regime]{Time evolution of the cavity emission rate \textsc{(left)} and atomic state populations \textsc{(right)} for a three level system (\autoref{fig:3lvlLambdaSystem}) in the bad cavity regime. The driving pulse has a temporal profile of $\Omega(t)=g\sin^2(\pi t/\SI{2}{\micro\second})$ and is shown as a dashed line on the left. The initial state of the system is $\vert u, 0 \rangle$ and the relevant parameters are given by $\Delta_L=\Delta_C=0$ and $(g,\gamma,\kappa)=2\pi\times(15,3,20)\,\si{\mega\hertz}$. The total photon emission probability from the cavity is \SI{76}{\percent} and the amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{41}{\percent} of a single excitation.}
+	\caption[Time evolution of a three-level atom-cavity system in the bad cavity regime]{Time evolution of the cavity emission rate \textsc{(left)} and atomic state populations \textsc{(right)} for a three level system (\autoref{fig:3lvlLambdaSystem}) in the bad cavity regime. The driving pulse has a temporal profile of $\Omega(t)=g\sin^2(\pi t/\SI{2}{\micro\second})$ and is shown as a dashed line on the left. The initial state of the system is $\vert \mathrm{u}, 0 \rangle$ and the relevant parameters are given by $\Delta_\mathrm{L}=\Delta_\mathrm{C}=0$ and $(g,\gamma,\kappa)=2\pi\times(15,3,20)\,\si{\mega\hertz}$. The total photon emission probability from the cavity is \SI{76}{\percent} and the amount of energy dissipated in the form of spontaneously emitted photons lost to the environment amounts to \SI{41}{\percent} of a single excitation.}
 	\label{fig:BadCavityRegime} 
 \end{figure}
 However, it is still possible to achieve reasonable efficiencies given adequate values for $g$, $\kappa$ and $\alpha$. In this regime, the cavity serves more as a filter or a channel to direct the photon into a particular mode, but it does not significantly enhance the emission process. The photon leaks out quickly from the cavity because the cavity’s lifetime is short and the temporal profile of its wavepacket can be controlled via the pulse shape $\Omega(t)$. While less efficient than the strong coupling regime, the bad cavity regime can be easier to implement in practice, as it puts less stringent requirements on the atom-cavity coupling and mirror reflectivity.
