@@ -1735,7 +1735,7 @@ The diffraction patterns are simulated numerically using a standard FFT-based pr
 \begin{equation}
 N_\mathrm{F} = \frac{a^{2}}{4 \lambda d}\,,
 \end{equation}
-in terms of the wavelength $\lambda$ and the characteristic dimensions shown in \autoref{motdiffraction}. For $N_\mathrm{F} \gtrsim 1$, the system is in the Fresnel regime, where diffraction fringes are strongly influenced by near-field effects, whereas $N_\mathrm{F} \ll 1$ corresponds to the Fraunhofer (far-field) limit. For intermediate Fresnel numbers, where neither the Fresnel nor Fraunhofer approximations are strictly valid, one must in principle solve the full Fresnel-Kirchhoff diffraction integrals, which account for the exact distance-dependent phase and amplitude contributions from the aperture. Direct evaluation of these integrals on a two-dimensional grid with $N \times N$ points is computationally very inefficient, with the number of operations scaling as $N^4$ \cite{Schultheisz1994}.
+in terms of the wavelength $\lambda$ and the characteristic dimensions shown in \autoref{motdiffraction}. For $N_\mathrm{F} \gtrsim 1$, the system is in the Fresnel regime, where diffraction fringes are strongly influenced by near-field effects, whereas $N_\mathrm{F} \ll 1$ corresponds to the Fraunhofer (far-field) limit. For intermediate Fresnel numbers, where neither the Fresnel nor Fraunhofer approximations are strictly valid, one must in principle solve the full Fresnel--Kirchhoff diffraction integrals, which account for the exact distance-dependent phase and amplitude contributions from the aperture. Direct evaluation of these integrals on a two-dimensional grid with $N \times N$ points is computationally very inefficient, with the number of operations scaling as $N^4$ \cite{Schultheisz1994}.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}
@@ -1759,7 +1759,7 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 		\addplot graphics [
 		xmin=0, xmax=1,
 		ymin=0, ymax=1
-		] {motdiff#1.pdf}; % #1 is the current number
+		] {motdiff#1-cropped.pdf}; % #1 is the current number
 		
 		\coordinate (topnode#1) at (axis cs: -0.1,1.1);
 		\coordinate (bottomnode#1) at (axis cs: -0.1,-0.15);
@@ -1773,11 +1773,68 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 		
 		\coordinate (fresnel#1) at (axis cs: 0.5,0.9);
 		\coordinate (mfresnel#1) at (axis cs: 0.5,0.5);
+		
+		% --- draw square only for first column (d=0) ---
+		\pgfmathtruncatemacro{\aindex}{int((#1-1)/8)}   % row (0..7)
+		\pgfmathtruncatemacro{\dindex}{mod(#1-1,8)}     % column (0..7)
+		
+		\ifnum\dindex=0
+		% pick size depending on the row index (aindex = 0..7)
+		\ifcase\aindex
+		\def\s{0.1}%
+		\or
+		\def\s{0.2}%
+		\or
+		\def\s{0.3}%
+		\or
+		\def\s{0.4}%
+		\or
+		\def\s{0.5}%
+		\or
+		\def\s{0.6}%
+		\or
+		\def\s{0.7}%
+		\or
+		\def\s{0.8}%
+		\fi
+		% now draw the square
+		\draw[markgrijs]
+		(axis cs:{0.5-0.5*\s},{0.5-0.5*\s})
+		rectangle
+		(axis cs:{0.5+0.5*\s},{0.5+0.5*\s});
+		\fi
 	}
 	
 	
 	
 	\end{groupplot}
+	
+	% Center point between bottomnode60 and bottomnode61
+	\coordinate (cbarcenter) at ($ (mfresnel60)!0.5!(mfresnel61) $);
+	
+	% Horizontal colorbar: -1 .. 1 with 0 in the middle
+	\begin{axis}[
+	at={(cbarcenter)},
+	anchor=north,
+	yshift=-1cm,            % adjust vertical gap as needed
+	hide axis,
+	scale only axis,
+	width=9cm,               % requested length
+	height=0pt,
+	colormap name=spectral_r, % reversed Spectral
+	colorbar horizontal,
+	point meta min=-1,
+	point meta max=1,
+	colorbar style={
+		xtick={-1,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1},
+		xlabel={\small $\Delta I$},
+		xlabel near ticks,
+		xlabel style={at={(1.05,0.5)}, anchor=west} % place label at right end
+	}
+	]
+	% Dummy segment spanning the meta range to trigger the colorbar
+	\addplot [draw=none] coordinates {(-1,0) (1,0)};
+	\end{axis}
 	
 	% Set constants
 	\pgfmathsetmacro{\lambda}{0.780} % Wavelength in millimetres
@@ -1803,10 +1860,10 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 		\ifnum\boolean=0
 		% Fresnel number: F = (a/2)^2 / (λ d) = a^2 / (4 λ d)
 		\pgfmathsetmacro{\result}{1e3*(\a^2)/(4*\lambda*\d)}
-		\node[align=center, white] at (fresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
+		\node[align=center, markgrijs] at (fresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
 		\else
 		\pgfmathsetmacro{\result}{1e3*(\a^2)/(4*\lambda*\d)}
-		\node[align=center, white] at (mfresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
+		\node[align=center, markgrijs] at (mfresnel#1) {\tiny $\pgfmathprintnumber[fixed, fixed zerofill, precision=1]{\result}$};
 		\fi
 		\fi
 	}
@@ -1817,7 +1874,7 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 	
 	
 	
-	\draw[white, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\small $a$};
+	\draw[markgrijs, <->] (edgeleft57) -- (edgeright57) node[below, pos=0.5] {\small $a$};
 	
 	\draw[->, line cap=rect] (topnode1) -- (bottomnode57) node[left, rotate=0] {$a$};
 	\draw[->, line cap=rect] (topnode1) -- (rightnode8) node[above] {\small $d$};
@@ -1842,25 +1899,18 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 	\node[align=center] at (hor8) {\small $7$};
 	
 	\end{tikzpicture}
-	\caption[Simulated diffraction patterns from a pyramid MOT mirror configuration]{Simulated diffraction patterns from a pyramid MOT mirror configuration with a square aperture of various dimensions $a$ at the apex, observed at distances $d$. The Fresnel number $N_\mathrm{F}$ is indicated in each subplot. Each pattern represents a $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area in the observation plane.}
+	\caption[Residual maps of simulated diffraction patterns from a pyramidal MOT mirror configuration]{Residual maps of simulated diffraction patterns from a pyramidal MOT mirror configuration with a square aperture of various dimensions $a$ at the apex, observed at distances $d$. Each panel represents a $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area and shows the difference $\Delta I$ between the simulated and ideal (diffractionless) reflected intensity profile, normalised to the peak intensity of the incident Gaussian beam. The first column ($d=0$) shows the aperture outlines (grey), while the remaining panels are labelled with the corresponding Fresnel number $N_\mathrm{F}$.}
 	\label{diffraction2d}
 \end{figure}
-\autoref{diffraction2d} presents the near-field diffraction patterns obtained from simulations at different distances $d$ from the apex, highlighting how the intensity distribution varies with the aperture size $a$.
+\autoref{diffraction2d} presents the residual maps\footnote{Defined as $\Delta I = (I - I_{\mathrm{ideal}})/I_0$, where $I$ is the simulated reflected intensity, $I_{\mathrm{ideal}}$ is the ideal (diffractionless) reflected profile and $I_0$ represents the peak intensity of the incident Gaussian beam.} of near-field diffraction patterns obtained from simulations at different distances $d$ from the apex and various aperture sizes $a$. The simulations are performed on a $2048\times 2048$ grid that spans a $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ area, of which only the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ region is shown for clarity. The Gaussian beam features a waist radius of $w_0=\SI{5.7}{\milli\meter}$, which implies that about \SI{85}{\percent} of the total beam power is contained within the simulated window, which is intentionally much larger than the region of interest to avoid boundary artefacts. 
 
-CONTINUE HERE - describe Poisson spot, and fresnel numbers.
-
-A more quantitative analysis is provided in \autoref{diffraction1d}, which shows central cross-sections of the diffraction profiles. These plots reveal the residual on-axis intensity and quantify the deviation from the light profile at $d=0$.
-
-
-
-
-
-\begin{figure}[t]
+For the various parameters in \autoref{diffraction2d}, the Fresnel numbers span more than two orders of magnitude from $N_\mathrm{F} = 205$ for $a=\SI{0.8}{\milli\meter}$ and $d=\SI{1}{\milli\meter}$, down to $N_\mathrm{F} = 0.458$ for $a=\SI{0.1}{\milli\meter}$ and $d=\SI{7}{\milli\meter}$. Thus, the majority of cases lie well within the Fresnel (near-field) regime, while the smallest aperture ($a=\SI{0.1}{\milli\meter}$) already yields Fresnel numbers below unity for several distances ($d\ge \SI{4}{\milli\meter}$), thereby approaching the boundary with the Fraunhofer regime. We will later in this section quantify the accuracy of the Fresnel approximation by performing an error analysis against the full Fresnel--Kirchhoff diffraction integral in the configuration furthest from the near-field limit ($a=\SI{0.1}{\milli\meter}$, $d=\SI{7}{\milli\meter}$). Note the emergence of a bright on-axis feature in the simulations for small $a$ at larger $d$. This so-called Poisson (Arago) spot arises from constructive interference of the diffracted waves behind an opaque obstacle. Together with the observed fringe pattern at the edges, this leads to residual intensity in the central region, effectively narrowing the exit channel.
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}
 	
 	\pgfplotstableread[col sep=comma]{differrs.csv}\datatable
-	\pgfplotstableread[col sep=comma]{diffmaxerrs2d.csv}\datatablemax
+	\pgfplotstableread[col sep=comma]{middlevalue.csv}\datatablemax %diffmaxerrs2d
 		
 		\begin{groupplot}[group style={group size=8 by 8,horizontal sep=0.1cm, vertical sep=0.1cm},height=3cm,width=3cm,no markers]
 		
@@ -1933,12 +1983,14 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 				\pgfplotstablegetelem{\pgfmathresult}{[index] 0}\of\datatable % Get nth row, 1st column
 				\edef\valueone{\pgfplotsretval} % Store value
 				\pgfmathsetmacro{\resultone}{\valueone}
-				\node[align=left, markgrijs, anchor=west] at (axis cs: -0.05, 1.8) {\tiny $\pgfmathprintnumber[precision=1]{\resultone}$};
+				\pgfmathtruncatemacro{\resintone}{ifthenelse(\resultone<0.5,0,round(\resultone))}
+				\node[align=left, markgrijs, anchor=west] at (axis cs: -0.05, 1.8) {\tiny $\resintone$};
 				
 				\pgfplotstablegetelem{\pgfmathresult}{[index] 0}\of\datatablemax % Get nth row, 1st column
 				\edef\valuetwo{\pgfplotsretval} % Store value
 				\pgfmathsetmacro{\resulttwo}{\valuetwo*100}
-				\node[align=right, markgrijs, anchor=east] at (axis cs: 1.05, 1.8) {\tiny $\pgfmathprintnumber[precision=0]{\resulttwo}$};
+				\pgfmathtruncatemacro{\resint}{ifthenelse(\resulttwo<0.5,0,round(\resulttwo))}
+				\node[align=right, markgrijs, anchor=east] at (axis cs: 1.05, 1.8) {\tiny $\resint$};
 			\fi
 		}
 		
@@ -1990,12 +2042,12 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 		\node[markgrijs, align=center] at (louterright64) {\small $0$};
 		
 	\end{tikzpicture}
-	\caption[Central cross-sections of the diffraction profiles from a pyramid MOT mirror configuration]{Central cross-sections of the diffraction profiles from \autoref{diffraction2d}, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity) along a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (in arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over a distance of \SI{10}{\milli\meter}). The top right number is the maximum absolute difference as a percentage of maximum incident intensity.}
+	\caption[Central cross-sections of the simulated diffraction profiles from a pyramidal MOT mirror configuration]{Central cross-sections of the simulated diffraction profiles, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity of a Gaussian beam) over a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (in arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over the full simulation length of \SI{10}{\milli\meter}). The intensity at the exact centre of each cross-section is shown in the top right corner as a percentage of maximum incident intensity.}
 \label{diffraction1d}
 \end{figure}
+An alternative representation is provided in \autoref{diffraction1d}, which shows central cross-sections of the simulated diffraction profiles. On the basis of these simulations—and given the geometric limitations of the mirrors, which place the MOT between \SIrange{2}{5}{\milli\metre} from the apex—we adopt a design aperture of $a=\SIrange{0.3}{0.4}{\milli\metre}$. This choice is large enough that, in the relevant range of $d$, diffraction does not substantially alter the exit channel or produce a pronounced on-axis Poisson spot.
 
-
-
+ERROR ANALYSIS
 
 \begin{figure}[t]
 	\hspace{-0.15cm}
@@ -2080,7 +2132,7 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 	
 	\pgfplotsset{
 	after end axis/.append code={
-		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc direct integration};
+		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc Fresnel--Kirchhoff};
 		}
 	}
 	
@@ -2262,7 +2314,7 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration with an aperture of $\SI{0.1}{\milli\meter}\times\SI{0.1}{\milli\meter}$. The methods are based on the Fresnel approximation \textsc{(left)} and direct numerical integration of the Fresnel--Kirchhoff integral \textsc{(middle)}. The error between these methods is shown as a percentage of maximum intensity of the undiffracted beam \textsc{(right)}. The top and bottom rows correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and a magnification of the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area, respectively. Insets show additional simulations based on the central area only, highlighting significant boundary artefacts in the direct integration approach.}
+	\caption[Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration]{Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration with an aperture of $\SI{0.1}{\milli\meter}\times\SI{0.1}{\milli\meter}$. The methods are based on the Fresnel approximation \textsc{(left)} and direct numerical integration of the Fresnel--Kirchhoff integral \textsc{(middle)}. The error between these methods is shown as a percentage of maximum intensity of the undiffracted beam \textsc{(right)}. The top and bottom rows correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and a magnification of the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area, respectively. Insets show additional simulations based on the central area only, highlighting significant boundary artefacts in the direct integration approach.}
 	\label{differror}
 \end{figure}
 
@@ -2354,7 +2406,7 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 	] table [x index=0, y index=1, col sep=comma] {Kcs.csv};
 	
 	
-	\legend{\footnotesize\hspace{0.3em}Fresnel approx., \footnotesize\hspace{0.3em}direct integration}
+	\legend{\footnotesize\hspace{0.3em}Fresnel approx., \footnotesize\hspace{0.3em}Fresnel--Kirchhoff}
 	
 	\nextgroupplot
 	[
@@ -2387,7 +2439,7 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramid MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel--Kirchhoff integral. The error \textsc{(top)} between these methods \textsc{(bottom)} is shown as a percentage of maximum intensity of the undiffracted beam. The left and right columns correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ (centred), respectively.}
+	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel--Kirchhoff integral. The error \textsc{(top)} between these methods \textsc{(bottom)} is shown as a percentage of maximum intensity of the incident beam. The left and right columns correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ (centred), respectively.}
 	\label{differrorcross}
 \end{figure}
 
@@ -2615,7 +2667,7 @@ A more quantitative analysis is provided in \autoref{diffraction1d}, which shows
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[Fabrication and assembly process of the pyramid MOT mirror system]{Fabrication and assembly process of the pyramid MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with First Contact during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramid MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The label numbers correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture, with facet lengths indicated in micrometres. \textsc{(g)} Alignment tool used to position the mirrors within the mount during the glueing process. The alignment is performed via top-view microscope imaging.}
+	\caption[Fabrication and assembly process of the pyramidal MOT mirror system]{Fabrication and assembly process of the pyramidal MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with First Contact during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramidal MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The label numbers correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture, with facet lengths indicated in micrometres. \textsc{(g)} Alignment tool used to position the mirrors within the mount during the glueing process. The alignment is performed via top-view microscope imaging.}
 	\label{mirror}
 \end{figure}
 
