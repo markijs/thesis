@@ -1691,15 +1691,15 @@ In order to load atoms from the pyramidal MOT into the intra-cavity dipole trap,
 
 \subsection{Aperture diffraction analysis}
 \label{pyramidMOTaperture}
-A simple ray-optics picture suggests that any finite square aperture at the apex of a pyramidal MOT would provide a cuboid channel through which atoms can escape, since the retro-reflected light is absent in this region. In practice, however, diffraction of the retro-reflected beams around the aperture leads to a residual intensity that reduces the axial scattering force imbalance, yielding a slower output beam \cite{ravenhall2018a}. While this can help increase the capture probability in a downstream MOT or optical molasses, the primary risk of diffraction is that it effectively narrows the exit channel. This diffractive narrowing suppresses the atomic flux by increasing the probability of collisional loss. Atoms with large transverse velocities are more likely to leave the exit channel before arriving at the aperture. This increases the average number of recycling events that an atom undergoes, which prolongs the time $\tau$ for an atom to be cooled and reach the exit. The probability that an atom is lost due to collisions with the background vapour during this time can be expressed as
+A simple ray-optics picture suggests that any finite square aperture at the apex of a pyramidal MOT would provide a cuboid channel through which atoms can escape, since the retro-reflected light is absent in this region. In practice, however, diffraction of the retro-reflected beams around the aperture leads to a residual intensity that reduces the axial scattering force imbalance, yielding a slower output beam \cite{ravenhall2018a}. While this can help increase the capture probability in a downstream MOT or optical molasses, the primary risk of diffraction is that it effectively narrows the exit channel. This diffractive narrowing suppresses the atomic flux by increasing the probability of collisional loss. Atoms with large transverse velocities are more likely to leave the exit channel before arriving at the aperture. This increases the average number of recycling events that an atom undergoes, which prolongs the time $\tau$ for an atom to be cooled and reach the exit. The probability that an atom is lost due to background vapour collisions during this time is
 \begin{equation}
 P_{\rm loss} = 1 - \mathrm{e}^{-\gamma_1 \tau}\,,
 \end{equation}
 where $\gamma_1$ is the single-body collisional loss rate.\footnote{Here, $\gamma_1 = n \sigma_{\rm c} \bar{v}$, with $n$ the number density of the background gas, $\sigma_{\rm c}$ the collisional cross-section and $\bar{v}$ the mean speed of background atoms. The formula follows from a Poissonian treatment of collisions: $\mathrm{e}^{-\gamma_1 \tau}$ is the probability that no collision occurs in time $\tau$, so $1 - \mathrm{e}^{-\gamma_1 \tau}$ gives the probability of at least one collision, resulting in loss.} Consequently, the longer dwell time $\tau$ in a narrow-aperture pyramidal MOT directly increases the loss probability via collisions, thereby reducing the atomic flux.
 
-In a recent study of a compact pyramidal MOT, square apertures with side lengths below $\SI{0.3}{\milli\meter}$ resulted in a negligible flux, which increased roughly linearly up to an aperture size of $\SI{1}{\milli\meter}$ before showing signs of saturation \cite{Ravenhall2021}. Although increasing the aperture size can, in principle, enhance the atomic flux, this does not necessarily apply for a small pyramidal MOT. Our system is considerably smaller than these high-flux sources, with an expected MOT diameter of only a few millimetres. In this regime, an aperture on the order of $\SI{1}{\milli\meter}$ would severely limit the effective trapping volume and hence reduce the capture rate of the MOT source. We therefore aim for a sub-millimetre aperture that balances competing requirements. It must be small enough to maintain a sufficiently large MOT capture volume, yet not so small that diffraction effectively closes the exit channel and suppresses the atomic flux. To quantify the latter effect, we perform a near-field diffraction analysis.
+In a recent study of a compact pyramidal MOT, square apertures with side lengths below $\SI{0.3}{\milli\meter}$ resulted in a negligible flux, which increased roughly linearly up to an aperture size of $\SI{1}{\milli\meter}$ before showing signs of saturation \cite{Ravenhall2021}. Although increasing the aperture size can, in principle, enhance the atomic flux, this does not necessarily apply for a small pyramidal MOT. Our system is considerably smaller than typical high-flux sources, with an expected MOT diameter of only a few millimetres. In this regime, an aperture on the order of $\SI{1}{\milli\meter}$ would severely limit the effective trapping volume and hence reduce the capture rate of the MOT. We therefore aim for a sub-millimetre aperture that balances competing requirements. It must be small enough to maintain a sufficiently large MOT capture volume, yet not so small that diffraction narrows the exit channel and consequently suppresses the atomic flux of the cold atom source.
 
-As illustrated in \autoref{motdiffraction}, the reflected beams can be modelled as an incident plane wave diffracting from a square obstruction.
+To quantify this latter effect, we perform a near-field diffraction analysis. As illustrated in \autoref{motdiffraction}, the reflected beams can be modelled as an incident plane wave diffracting from a square obstruction.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
@@ -1731,11 +1731,11 @@ As illustrated in \autoref{motdiffraction}, the reflected beams can be modelled 
 	\caption[Schematic of the pyramidal MOT mirror configuration with an apex aperture and corresponding diffraction model]{Schematic of the pyramidal MOT mirror configuration with an aperture at the apex. The front view shows the four reflective faces around the square central aperture. The side view illustrates the incident and reflected \SI{780}{\nano\meter} laser beam. The diffraction of the reflected beam due to the finite aperture size is equivalently described as diffraction from a square obstruction with side length $a$ (right). The diffraction pattern is modelled at various distances $d$.}
 	\label{motdiffraction} 
 \end{figure}
-The diffraction patterns are simulated numerically using a standard FFT-based propagation method within the Fresnel approximation, which assumes paraxial propagation and neglects higher-order phase terms. The validity of the Fresnel approximation for near-field diffraction can be assessed via the Fresnel number:
+The diffraction patterns are calculated numerically on a $2048\times 2048$ grid using a standard FFT-based propagation method within the Fresnel approximation, which assumes paraxial propagation and neglects higher-order phase terms. The validity of the Fresnel approximation for near-field diffraction can be assessed via the Fresnel number:
 \begin{equation}
 N_\mathrm{F} = \frac{a^{2}}{4 \lambda d}\,,
 \end{equation}
-in terms of the wavelength $\lambda$ and the characteristic dimensions shown in \autoref{motdiffraction}. For $N_\mathrm{F} \gtrsim 1$, the system is in the Fresnel regime, where diffraction fringes are strongly influenced by near-field effects, whereas $N_\mathrm{F} \ll 1$ corresponds to the Fraunhofer (far-field) limit. For intermediate Fresnel numbers, where neither the Fresnel nor Fraunhofer approximations are strictly valid, one must in principle solve the full Fresnel--Kirchhoff diffraction integrals, which account for the exact distance-dependent phase and amplitude contributions from the aperture. Direct evaluation of these integrals on a two-dimensional grid with $N \times N$ points is computationally very inefficient, with the number of operations scaling as $N^4$ \cite{Schultheisz1994}.
+in terms of the wavelength $\lambda$ and the characteristic dimensions shown in \autoref{motdiffraction}. For $N_\mathrm{F} \gtrsim 1$, the system is in the Fresnel regime, where diffraction fringes are strongly influenced by near-field effects, whereas $N_\mathrm{F} \ll 1$ corresponds to the Fraunhofer (far-field) limit.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}
@@ -1902,7 +1902,7 @@ in terms of the wavelength $\lambda$ and the characteristic dimensions shown in 
 	\caption[Residual maps of simulated diffraction patterns from a pyramidal MOT mirror configuration]{Residual maps of simulated diffraction patterns from a pyramidal MOT mirror configuration with a square aperture of various dimensions $a$ at the apex, observed at distances $d$. Each panel represents a $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area and shows the difference $\Delta I$ between the simulated and ideal (diffractionless) reflected intensity profile, normalised to the peak intensity of the incident Gaussian beam. The first column ($d=0$) shows the aperture outlines (grey), while the remaining panels are labelled with the corresponding Fresnel number $N_\mathrm{F}$.}
 	\label{diffraction2d}
 \end{figure}
-\autoref{diffraction2d} presents the residual maps\footnote{Defined as $\Delta I = (I - I_{\mathrm{ideal}})/I_0$, where $I$ is the simulated reflected intensity, $I_{\mathrm{ideal}}$ is the ideal (diffractionless) reflected profile and $I_0$ represents the peak intensity of the incident Gaussian beam.} of near-field diffraction patterns obtained from simulations at different distances $d$ from the apex and various aperture sizes $a$. The simulations are performed on a $2048\times 2048$ grid that spans a $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ area, of which only the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ region is shown for clarity. The Gaussian beam features a waist radius of $w_0=\SI{5.7}{\milli\meter}$, which implies that about \SI{85}{\percent} of the total beam power is contained within the simulated window, which is intentionally much larger than the region of interest to avoid boundary artefacts. 
+\autoref{diffraction2d} presents the residual maps of near-field diffraction patterns, defined as $\Delta I = (I - I_{\mathrm{ideal}})/I_0$, where $I$ is the simulated reflected intensity, $I_{\mathrm{ideal}}$ is the ideal (diffractionless) reflected profile and $I_0$ represents the peak intensity of the incident Gaussian beam. Each panel corresponds to a different distance $d$ from the apex and aperture size $a$. The simulations span a $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ area, of which only the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ region is shown for clarity. The Gaussian beam features a waist radius of $w_0=\SI{5.7}{\milli\meter}$, which implies that about \SI{85}{\percent} of the total beam power is contained within the simulated domain, chosen to exceed the region of interest to minimise boundary artefacts.
 
 For the various parameters in \autoref{diffraction2d}, the Fresnel numbers span more than two orders of magnitude from $N_\mathrm{F} = 205$ for $a=\SI{0.8}{\milli\meter}$ and $d=\SI{1}{\milli\meter}$, down to $N_\mathrm{F} = 0.458$ for $a=\SI{0.1}{\milli\meter}$ and $d=\SI{7}{\milli\meter}$. Thus, the majority of cases lie well within the Fresnel (near-field) regime, while the smallest aperture ($a=\SI{0.1}{\milli\meter}$) already yields Fresnel numbers below unity for several distances ($d\ge \SI{4}{\milli\meter}$), thereby approaching the boundary with the Fraunhofer regime. We will later in this section quantify the accuracy of the Fresnel approximation by performing an error analysis against the full Fresnel--Kirchhoff diffraction integral in the configuration furthest from the near-field limit ($a=\SI{0.1}{\milli\meter}$, $d=\SI{7}{\milli\meter}$). Note the emergence of a bright on-axis feature in the simulations for small $a$ at larger $d$. This so-called Poisson (Arago) spot arises from constructive interference of the diffracted waves behind an opaque obstacle. Together with the observed fringe pattern at the edges, this leads to residual intensity in the central region, effectively narrowing the exit channel.
 \begin{figure}[!t]
@@ -2045,16 +2045,15 @@ For the various parameters in \autoref{diffraction2d}, the Fresnel numbers span 
 	\caption[Central cross-sections of the simulated diffraction profiles from a pyramidal MOT mirror configuration]{Central cross-sections of the simulated diffraction profiles, showing the normalised intensity (such that $1$ corresponds to the maximum incident intensity of a Gaussian beam) over a \SI{1}{\milli\meter} region in front of the aperture for various values of $a$ and $d$. Within each plot, the top left number (in arbitrary units) represents the integrated absolute difference from the corresponding cross-section at $d=0$ (integrated over the full simulation length of \SI{10}{\milli\meter}). The intensity at the exact centre of each cross-section is shown in the top right corner as a percentage of maximum incident intensity.}
 \label{diffraction1d}
 \end{figure}
-An alternative representation is provided in \autoref{diffraction1d}, which shows central cross-sections of the simulated diffraction profiles. On the basis of these simulations—and given the geometric limitations of the mirrors, which place the MOT between \SIrange{2}{5}{\milli\metre} from the apex—we adopt a design aperture of $a=\SIrange{0.3}{0.4}{\milli\metre}$. This choice is large enough that, in the relevant range of $d$, diffraction does not substantially alter the exit channel or produce a pronounced on-axis Poisson spot.
+An alternative representation is provided in \autoref{diffraction1d}, which shows central cross-sections of the calculated diffraction profiles. On the basis of these simulations—and given the geometric limitations of the mirrors, which place the MOT between \SIrange{2}{5}{\milli\metre} from the apex—we adopt a design aperture of $a=\SIrange{0.3}{0.4}{\milli\metre}$. These are large enough values that, up to a distance of $d=\SI{5}{\milli\meter}$, diffraction results in residual light that reaches only \SI{7}{\percent} of maximum incident intensity at the very centre of the exit channel.
 
-ERROR ANALYSIS
-
-\begin{figure}[t]
+For intermediate Fresnel numbers, where neither the Fresnel nor Fraunhofer approximations are strictly valid, one must in principle solve the full Fresnel--Kirchhoff diffraction integrals, which account for the exact distance-dependent phase and amplitude contributions from the aperture. Direct evaluation of these integrals on a two-dimensional grid with $N \times N$ points is computationally very inefficient, with the number of operations scaling as $N^4$ \cite{Schultheisz1994}.
+\begin{figure}[!t]
 	\hspace{-0.15cm}
 	\begin{tikzpicture}
-	\begin{groupplot}[group style={group size=3 by 4,horizontal sep=0.9cm, vertical sep=1.7cm},height=5cm,width=5cm,no markers]
+	\begin{groupplot}[group style={group size=3 by 4,horizontal sep=0.8cm, vertical sep=0.8cm},height=5cm,width=5cm,no markers]
 	
-		\nextgroupplot
+	\nextgroupplot
 	[
 	%xlabel={$x$},
 	%ylabel={$y$},
@@ -2069,15 +2068,15 @@ ERROR ANALYSIS
 	colorbar horizontal,
 	colorbar style={
 		at={(0,1.2)},
-		anchor=north west,
+		anchor=south west,
 		xticklabel pos=upper,
 		%x tick scale label style={yshift=-25pt, xshift=23pt},
 	},
 	point meta=explicit,
 	point meta min=0.0,
 	point meta max=2.0,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	xtick={0,5,10},
+	ytick={0,5,10},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
@@ -2086,11 +2085,11 @@ ERROR ANALYSIS
 	ymin=0, ymax=10    % Stretch to fit the y-axis limits
 	] {fresnelfull.pdf};
 	
-	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	\draw[fill=none, markrood, thick] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
 	
 	\pgfplotsset{
-	after end axis/.append code={
-		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc Fresnel approx.};
+		after end axis/.append code={
+			\node[align=center] at (axis cs: 5, 16.5) {\footnotesize\sc Fresnel approx.};
 		}
 	}
 	
@@ -2111,15 +2110,15 @@ ERROR ANALYSIS
 	colorbar horizontal,
 	colorbar style={
 		at={(0,1.2)},
-		anchor=north west,
+		anchor=south west,
 		xticklabel pos=upper,
 		%x tick scale label style={yshift=-25pt, xshift=23pt},
 	},
 	point meta=explicit,
 	point meta min=0.0,
 	point meta max=2.0,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	xtick={0,5,10},
+	ytick={0,5,10},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
@@ -2128,16 +2127,15 @@ ERROR ANALYSIS
 	ymin=0, ymax=10    % Stretch to fit the y-axis limits
 	] {kirfull.pdf};
 	
-	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	\draw[fill=none, markrood, thick] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
 	
 	\pgfplotsset{
-	after end axis/.append code={
-		\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc Fresnel--Kirchhoff};
+		after end axis/.append code={
+			\node[align=center] at (axis cs: 5, 16.5) {\footnotesize\sc Fresnel--Kirchhoff};
 		}
 	}
 	
-	
-		\nextgroupplot
+	\nextgroupplot
 	[
 	%xlabel={$x$},
 	%ylabel={$y$},
@@ -2152,30 +2150,33 @@ ERROR ANALYSIS
 	colorbar horizontal,
 	colorbar style={
 		at={(0,1.2)},
-		anchor=north west,
+		anchor=south west,
 		xticklabel pos=upper,
 		xtick={0,2.5,5,7.5,10},
-		xticklabels={0,2.5,5,7.5,10}
+		xticklabels={0,2.5,5,7.5,10},
+		%extra x ticks={0,2.5,5,7.5,10},
+		%extra x tick labels={0,25,50,75,100},
+		%extra x tick style={ticklabel pos=lower, color=markrood},
 		%x tick scale label style={yshift=-25pt, xshift=23pt},
 	},
 	point meta=explicit,
 	point meta min=0.0,
 	point meta max=10,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	xtick={0,5,10},
+	ytick={0,5,10},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
 	\addplot graphics [
 	xmin=0, xmax=10,  % Stretch to fit the x-axis limits
 	ymin=0, ymax=10    % Stretch to fit the y-axis limits
-	] {errorfull.pdf};
+	] {errorfull-cropped.pdf};
 	
-	\draw[fill=none, white] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
+	\draw[fill=none, markrood, thick] (axis cs:4.5,4.5) rectangle (axis cs:5.5,5.5);
 	
 	\pgfplotsset{
 		after end axis/.append code={
-			\node[align=center] at (axis cs: 5, 15) {\footnotesize\sc error {[\si{\percent}]}};
+			\node[align=center] at (axis cs: 5, 16.5) {\footnotesize\sc error {[\si{\percent}]}};
 		}
 	}
 	
@@ -2185,7 +2186,7 @@ ERROR ANALYSIS
 	[
 	%xlabel={$x$},
 	ylabel={$y$ {[\si{\milli\meter}]}},
-	ylabel style={xshift=2.5cm},
+	ylabel style={xshift=2.1cm},
 	enlargelimits=false,
 	%xmin=0.5,
 	%xmax=4.5,
@@ -2193,19 +2194,19 @@ ERROR ANALYSIS
 	%ymax=4.5,
 	axis on top,    % <-- (use with `matrix plot*')
 	view={0}{90},
-	colormap/viridis,
-	colorbar horizontal,
-	colorbar style={
-		at={(0,1.2)},
-		anchor=north west,
-		xticklabel pos=upper,
-		%x tick scale label style={yshift=-25pt, xshift=23pt},
-	},
-	point meta=explicit,
-	point meta min=0.0,
-	point meta max=2.0,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	%colormap/viridis,
+	%colorbar horizontal,
+	%colorbar style={
+	%	at={(0,1.2)},
+	%	anchor=north west,
+	%	xticklabel pos=upper,
+	%x tick scale label style={yshift=-25pt, xshift=23pt},
+	%},
+	%point meta=explicit,
+	%point meta min=0.0,
+	%point meta max=2.0,
+	xtick={0,0.5,1},
+	ytick={0,0.5,1},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
@@ -2219,13 +2220,13 @@ ERROR ANALYSIS
 	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
 	] {fresnelsmall.pdf};
 	
-	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	\draw[fill=none, markrood, thick] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
 	
 	
 	\node (lowerleft) at (axis cs: 0, -1.5) {};
 	
 	
-		\nextgroupplot
+	\nextgroupplot
 	[
 	xlabel={$x$ {[\si{\milli\meter}]}},
 	%ylabel={$y$},
@@ -2236,19 +2237,19 @@ ERROR ANALYSIS
 	%ymax=4.5,
 	axis on top,    % <-- (use with `matrix plot*')
 	view={0}{90},
-	colormap/viridis,
-	colorbar horizontal,
-	colorbar style={
-		at={(0,1.2)},
-		anchor=north west,
-		xticklabel pos=upper,
-		%x tick scale label style={yshift=-25pt, xshift=23pt},
-	},
-	point meta=explicit,
-	point meta min=0.0,
-	point meta max=2.0,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	%colormap/viridis,
+	%colorbar horizontal,
+	%colorbar style={
+	%	at={(0,1.2)},
+	%	anchor=north west,
+	%	xticklabel pos=upper,
+	%x tick scale label style={yshift=-25pt, xshift=23pt},
+	%},
+	%point meta=explicit,
+	%point meta min=0.0,
+	%point meta max=2.0,
+	xtick={0,0.5,1},
+	ytick={0,0.5,1},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
@@ -2256,18 +2257,18 @@ ERROR ANALYSIS
 	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
 	ymin=0, ymax=1    % Stretch to fit the y-axis limits
 	] {kirzoom.pdf};
-
+	
 	\addplot graphics [
 	xmin=0.6, xmax=0.98,  % Stretch to fit the x-axis limits
 	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
 	] {kirsmall.pdf};
 	
-	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	\draw[fill=none, markrood, thick] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
 	
 	
-
 	
-		\nextgroupplot
+	
+	\nextgroupplot
 	[
 	%xlabel={$x$ (\si{milli\meter})},
 	%ylabel={$y$},
@@ -2278,48 +2279,48 @@ ERROR ANALYSIS
 	%ymax=4.5,
 	axis on top,    % <-- (use with `matrix plot*')
 	view={0}{90},
-	colormap/viridis,
-	colorbar horizontal,
-	colorbar style={
-		at={(0,1.2)},
-		anchor=north west,
-		xticklabel pos=upper,
-		xtick={0,2.5,5,7.5,10},
-		xticklabels={0,2.5,5,7.5,10}
-		%x tick scale label style={yshift=-25pt, xshift=23pt},
-	},
-	point meta=explicit,
-	point meta min=0.0,
-	point meta max=10,
-	%xtick={1,2,3,4},
-	%ytick={1,2,3,4},
+	%colormap/viridis,
+	%colorbar horizontal,
+	%colorbar style={
+	%	at={(0,1.2)},
+	%	anchor=north west,
+	%	xticklabel pos=upper,
+	%	xtick={0,2.5,5,7.5,10},
+	%	xticklabels={0,2.5,5,7.5,10}
+	%x tick scale label style={yshift=-25pt, xshift=23pt},
+	%},
+	%point meta=explicit,
+	%point meta min=0.0,
+	%point meta max=10,
+	xtick={0,0.5,1},
+	ytick={0,0.5,1},
 	%xticklabels={1,2,3,4},
 	%yticklabels={1,2,3,4},
 	]
 	\addplot graphics [
 	xmin=0, xmax=1,  % Stretch to fit the x-axis limits
 	ymin=0, ymax=1    % Stretch to fit the y-axis limits
-	] {errorzoom.pdf};
+	] {errorzoom-cropped.pdf};
 	
 	
 	\addplot graphics [
 	xmin=0.6, xmax=0.98,  % Stretch to fit the x-axis limits
 	ymin=0.6, ymax=0.98    % Stretch to fit the y-axis limits
-	] {errorsmallbright.pdf};
+	] {errorsmallbright-cropped.pdf};
 	
-	\draw[fill=none, white] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
+	\draw[fill=none, markrood, thick] (axis cs:0.6,0.6) rectangle (axis cs:0.98,0.98);
 	
 	
 	
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration]{Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration with an aperture of $\SI{0.1}{\milli\meter}\times\SI{0.1}{\milli\meter}$. The methods are based on the Fresnel approximation \textsc{(left)} and direct numerical integration of the Fresnel--Kirchhoff integral \textsc{(middle)}. The error between these methods is shown as a percentage of maximum intensity of the undiffracted beam \textsc{(right)}. The top and bottom rows correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and a magnification of the central $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ area, respectively. Insets show additional simulations based on the central area only, highlighting significant boundary artefacts in the direct integration approach.}
+	\caption[Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration]{Error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration with an aperture of $\SI{0.1}{\milli\meter}\times\SI{0.1}{\milli\meter}$. For each simulation, the distance to the aperture is set to \SI{7}{\milli\meter}. The methods are based on the Fresnel approximation \textsc{(left)} and direct numerical integration of the Fresnel--Kirchhoff integral \textsc{(middle)}. The absolute error between these methods is shown as a percentage of maximum intensity of the incident beam \textsc{(right)}. The top row shows the full $\SI{10}{\milli\metre}\times\SI{10}{\milli\metre}$ simulation area, while the bottom row consists of magnifications of its central $\SI{1}{\milli\metre}\times\SI{1}{\milli\metre}$ region. Insets display simulations performed on the central region alone, revealing pronounced boundary artefacts for direct integration (Fresnel--Kirchhoff). Pixels exceeding the colour-scale maximum are rendered in white.
+	}
 	\label{differror}
 \end{figure}
-
-
-\begin{figure}[t]
+To benchmark the diffraction model in the least favourable case, we compare the Fresnel solution with a direct evaluation of the Fresnel--Kirchhoff integral for $a=\SI{0.1}{\milli\metre}$ at $d=\SI{7}{\milli\metre}$, as illustrated in \autoref{differror}. Over the full $\SI{10}{\milli\metre}\times\SI{10}{\milli\metre}$ domain the two intensity maps look very similar, but the absolute error profile exposes the largest discrepancies along the horizontal and vertical symmetry axes. \autoref{differrorcross} shows the corresponding cross-section featuring a local peak error of about \SI{17}{\percent}, while the remaining areas generally remain well below \SI{10}{\percent}.
+\begin{figure}[!t]
 	\vspace{0em}
 	\centering
 	\begin{tikzpicture}
@@ -2377,7 +2378,7 @@ ERROR ANALYSIS
 	ymin=0,
 	ymax=2,
 	xlabel={$x$ {[\si{\milli\meter}]}},
-	ylabel={Intensity {[a.\,u.]}},
+	ylabel={Rel. intensity {[a.u.]}},
 	enlargelimits=false,
 	ymajorgrids=true,
 	xmajorgrids=true,
@@ -2439,10 +2440,10 @@ ERROR ANALYSIS
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Cross-sectional error analysis of simulated diffraction profiles from a pyramidal MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles from \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel--Kirchhoff integral. The error \textsc{(top)} between these methods \textsc{(bottom)} is shown as a percentage of maximum intensity of the incident beam. The left and right columns correspond to simulated areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ (centred), respectively.}
+	\caption[Cross-sectional error analysis of simulated diffractions profile from a pyramidal MOT mirror configuration]{Cross-sectional error analysis of the diffraction profiles in \autoref{differror} based on the Fresnel approximation and direct numerical integration of the Fresnel--Kirchhoff integral. The error \textsc{(top)} between these methods \textsc{(bottom)} is shown as a percentage of maximum intensity of the incident beam. The left and right columns correspond to simulation areas of $\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$ and $\SI{1}{\milli\meter}\times\SI{1}{\milli\meter}$ (centred), respectively.}
 	\label{differrorcross}
 \end{figure}
-
+In particular, the region directly in front of the aperture is accurate to within a few per cent. Increased errors also appear near the domain boundaries, with the direct Fresnel--Kirchhoff integration resulting in noticeable artefacts. Compared with the FFT-based Fresnel propagation, direct evaluation of the Fresnel--Kirchhoff integral is more sensitive to the finite size of the computational window. Although the integral extends over the entire transverse plane, we evaluate it on a finite grid, which is equivalent to applying a top-hat window to the input field. This artificial aperture introduces diffraction that can propagate into the region of interest. By contrast, the FFT approach enforces periodic boundary conditions on the field, which avoids the hard step to zero that would otherwise behave like a diffracting edge. Because the FFT imposes periodic boundaries, any non-negligible field at the edges is recycled from the opposite side, so periodic replicas contaminate the solution even if no fringes are visible. This contamination grows with propagation distance $d$, as the Fresnel kernel spreads and couples more power from the periodic images into the region of interest. This underlines the need for a simulation domain that is significantly larger than the region of interest. \autoref{differror} and \autoref{differrorcross} together demonstrate that restricting the computation to an area of $\SI{1}{\milli\metre}\times\SI{1}{\milli\metre}$ leads to gross errors across the entire domain, with only the aperture region featuring errors below \SI{10}{\percent}.
 
 \subsection{Mirror fabrication}
 \label{pyramidMOTmirrorfab}
