@@ -169,7 +169,7 @@ Whether the condition for constructive interference is satisfied depends on the 
 	\label{phiairy}
 	\phi=kd=\pi\nu\frac{2d}{c}=\pi\frac{\nu}{\Delta\nu_\mathrm{FSR}}\,,
 \end{align}
-where $c$ denotes the speed of light in vacuum and $\Delta\nu_\mathrm{FSR}:=\sfrac{c}{2d}$, a quantity that is referred to as the free spectral range of the resonator. Resonances occur when light interferes constructively with itself upon a round-trip inside the cavity. This corresponds to frequencies for which the round-trip phase shift $2\phi$ equals a multiple of $2\pi$:
+where $c$ denotes the speed of light in vacuum and $\Delta\nu_\mathrm{FSR}\coloneqq\sfrac{c}{2d}$, a quantity that is referred to as the free spectral range of the resonator. Resonances occur when light interferes constructively with itself upon a round-trip inside the cavity. This corresponds to frequencies for which the round-trip phase shift $2\phi$ equals a multiple of $2\pi$:
 \begin{align}
 	\label{rescondition}
 	2\phi=2\pi q,\quad q \in \Z\,.
@@ -195,7 +195,7 @@ written in terms of the intensity reflectivities $R_1=r_1^2$ and $R_2=r_2^2$ of 
 \end{align}
 Since $2\Delta\phi={\pi\Delta\nu_\mathrm{A}}/{\Delta\nu_\mathrm{FSR}}$ (see \autoref{phiairy}), we can calculate the finesse $\mathcal{F}$ as
 \begin{align}
-	\mathcal{F}:=\frac{\Delta\nu_\mathrm{FSR}}{\Delta\nu_\mathrm{A}}=\frac{\pi}{2}\left(\arcsin{\frac{1-\sqrt{R_1R_2}}{2\sqrt[4]{R_1R_2}}}\right)^{-1}\,.
+	\mathcal{F}\coloneqq\frac{\Delta\nu_\mathrm{FSR}}{\Delta\nu_\mathrm{A}}=\frac{\pi}{2}\left(\arcsin{\frac{1-\sqrt{R_1R_2}}{2\sqrt[4]{R_1R_2}}}\right)^{-1}\,.
 \end{align}
 Note that the finesse is independent of the resonator length and is instead fully determined by the properties of the mirrors. For values of $\phi$ close to the nearest integer multiple of $\phi$, or more precisely $\min\{\lvert \phi \bmod \pi \rvert, \lvert \phi \bmod \pi - \pi\rvert\} \ll 1$, we can approximate $\sin^2(\phi)\approx\phi^2$ in \autoref{airy}, which yields
 \begin{align}
@@ -835,7 +835,7 @@ For higher-order transverse modes, the resonance frequencies are shifted with re
 The phase retardation $\Delta\Psi$ relative to a plane wave is given by the difference in Gouy phase across the cavity:
 \begin{align}
 \label{deltapsi}
-\Delta\Psi:=\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})\,.
+\Delta\Psi\coloneqq\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})\,.
 \end{align}
 Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by
 \begin{align}
@@ -1041,7 +1041,6 @@ Different mirror technologies for a Fabry--Pérot resonator have been employed i
 	\node[align=center, rotate=0] at (0.75,1) {\footnotesize\sc (c)};
 	
 	\node[align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (d)};
-	
 	
 	
 	\end{scope}
@@ -1263,7 +1262,7 @@ In this section, we characterise the optical properties of the assembled Fabry--
 	($(\x1, \y2)$) -- (\p1) node[label, right, xshift=2mm, yshift=3mm] {\autoref{resfreqsHG}};
 	
 	% Arrow from FSR down to d=2L
-	\draw[arrow] (fsr.south) -- (d2L.north) node[label, right, xshift=2mm, yshift=3mm] {\sc $\Delta \nu_{\mathrm{FSR},L}:=\sfrac{c}{2L}$};
+	\draw[arrow] (fsr.south) -- (d2L.north) node[label, right, xshift=2mm, yshift=3mm] {\sc $\Delta \nu_{\mathrm{FSR},L}\coloneqq\sfrac{c}{2L}$};
 	
 	% Horizontal line from d=2L to Delta Psi
 	\draw[line] (d2L.east) -- (deltaPsi.west);

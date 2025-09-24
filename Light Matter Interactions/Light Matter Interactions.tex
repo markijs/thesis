@@ -60,7 +60,7 @@ R_\mathrm{sc}=\frac{\Gamma}{2}\frac{{I}/{I_\mathrm{sat}}}{1+{4\Delta^2}/{\Gamma^
 \end{equation}
 where we have defined the saturation intensity
 \begin{align}
-I_\mathrm{sat}:=\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_\mathrm{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
+I_\mathrm{sat}\coloneqq\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_\mathrm{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
 \end{align}
 such that $2\Omega^2/\Gamma^2=I/I_\mathrm{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\mathrm{sc}\approx\sfrac{\Gamma}{2}$, which is the saturation limit. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\mathrm{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. The scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
@@ -444,7 +444,7 @@ I(r,z)=\frac{2P}{\pi w^2(z)}\exp{-2\frac{r^2}{w^2(z)}}\,,
 where $P$ represents the total beam power and $w(z)=w_0(1+(\sfrac{z}{z_\mathrm{R}})^2)^{\sfrac{1}{2}}$ is the $\sfrac{1}{\mathrm{e}^2}$ radius in terms of the waist radius $w_0$ and the Rayleigh length
 \begin{equation}
 \label{rayleigh}
-z_\mathrm{R}:=\frac{\pi w^2_0}{\lambda}\,.
+z_\mathrm{R}\coloneqq\frac{\pi w^2_0}{\lambda}\,.
 \end{equation}
 The peak intensity at $r=z=0$ is equal to $I_0=2P/\pi w_0^2$. For a tightly focused, red-detuned laser beam, atoms are drawn towards the region of highest intensity, where the optical potential reaches its minimum. In the case of a standing wave dipole trap, the intensity profile is different from \autoref{laser} (see \cite{Alt2003}).
 
@@ -501,7 +501,7 @@ and describes how easily the dipole moment is induced by an applied electric fie
 \label{definingrelationpolarisability}
 \langle d_\mu^{(+)}(\omega) \rangle = \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu	
 \end{equation}
-in tensor component notation ($( E_0^{(+)} )_\nu:={\epsilon}_\nu E_0^{(+)}$).
+in tensor component notation ($( E_0^{(+)} )_\nu\coloneqq{\epsilon}_\nu E_0^{(+)}$).
 \subsection{Induced dipole moment energy}
 According to the electric-dipole interaction, the potential energy associated with an induced dipole moment is given by
 \begin{equation}
@@ -582,15 +582,15 @@ Considering separate cases of linearly and circularly polarised light and writin
 \langle \hat{d}^{(+)}_\mu (\omega) \rangle = \sum_j \frac{1}{3} M^{(0)}_j \delta_{\mu\nu} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ \frac{1}{4} M^{(1)}_{\sigma,j} \epsilon_{\sigma\mu\nu} \frac{2\omega }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \\+ M^{(2)}_{\mu\nu,j} \frac{2\omega_{j0} }{\hbar (\omega_{j0}^2-\omega^2)} &( E_0^{(+)} )_\nu \,.
 \end{split}
 \end{align}
-Comparing the above expression with the defining relation in \autoref{definingrelationpolarisability}, we can directly infer the full polarisability tensor $\alpha_{\mu\nu}(\omega)$ and its decomposition into the isotropic, antisymmetric and symmetric traceless parts. Substituting this result into \autoref{StarkSummary}, we can evaluate the Stark shift of a particular hyperfine sublevel $\vert F\,m_F \rangle$ by replacing $\vert \mathrm{g} \rangle \rightarrow \vert F\,m_F \rangle$ and $\vert \mathrm{e}_j \rangle \rightarrow \vert F'\,m_F' \rangle$. The associated energy shift can be viewed as the scalar contraction of two rank-$2$ tensors: $T_{\mu\nu}:=-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ]$ containing the tensor polarisability and the dyadic tensor $U_{\mu\nu}:=( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu$ of the electric field.
+Comparing the above expression with the defining relation in \autoref{definingrelationpolarisability}, we can directly infer the full polarisability tensor $\alpha_{\mu\nu}(\omega)$ and its decomposition into the isotropic, antisymmetric and symmetric traceless parts. Substituting this result into \autoref{StarkSummary}, we can evaluate the Stark shift of a particular hyperfine sublevel $\vert F\,m_F \rangle$ by replacing $\vert \mathrm{g} \rangle \rightarrow \vert F\,m_F \rangle$ and $\vert \mathrm{e}_j \rangle \rightarrow \vert F'\,m_F' \rangle$. The associated energy shift can be viewed as the scalar contraction of two rank-$2$ tensors: $T_{\mu\nu}\coloneqq-\Re [ \alpha_{\mu \nu}(F,m_F;\omega) ]$ containing the tensor polarisability and the dyadic tensor $U_{\mu\nu}\coloneqq( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu$ of the electric field.
 \subsection{Decomposition into spherical tensors}
 In general, it is more convenient to work with a decomposition of these tensors into their irreducible spherical components $T_q^{(k)}$ given by $\{T_0^{(0)}, T_{q}^{(1)}, T_{q}^{(2)}\}$ with $q$ running from $-k$ to $k$. These spherical tensor operators transform among themselves like $2k+1$ angular momentum eigenstates $\vert j = k, m = q\rangle$, exactly like spherical harmonics according to
 \begin{align}
 \hat{R}(\vec{n}, \theta)T_q^{(k)} \hat{R}^\dagger(\vec{n}, \theta)= \sum_{q'=-k}^{k} T_{q'}^{(k)}\mathcal{D}_{q'q}^{(k)}(\vec{n}, \theta)\,,
 \end{align}
-in terms of the unitary rotation operator $\hat{R}(\vec{n}, \theta):=\exp \{-i\vec{n}\cdot \hat{J}\theta/\hbar\}$ for a rotation of $\theta$ about the unit vector $\vec{n}$, where $\hat{J}$ represents the angular momentum vector operator. On the right hand side we find the Wigner $\mathcal{D}$-matrix, which is defined as
+in terms of the unitary rotation operator $\hat{R}(\vec{n}, \theta)\coloneqq\exp \{-i\vec{n}\cdot \hat{J}\theta/\hbar\}$ for a rotation of $\theta$ about the unit vector $\vec{n}$, where $\hat{J}$ represents the angular momentum vector operator. On the right hand side we find the Wigner $\mathcal{D}$-matrix, which is defined as
 \begin{align}
-\mathcal{D}_{q'q}^{(k)}(\vec{n}, \theta):=\langle j=k, m=q' \vert \hat{R}(\vec{n}, \theta) \vert j=k, m=q \rangle\,.
+\mathcal{D}_{q'q}^{(k)}(\vec{n}, \theta)\coloneqq\langle j=k, m=q' \vert \hat{R}(\vec{n}, \theta) \vert j=k, m=q \rangle\,.
 \end{align}
 See \autoref{sphericaltensors} for a procedure that allows us to express the spherical tensor components $T_q^{(k)}$ in terms of the Cartesian components $T_{\mu\nu}$. The scalar contraction $T_{\mu\nu}U_{\mu\nu}$ in the spherical irreducible representation can then be written as the sum of inner products of the scalar, vector and tensors parts \cite{Man2013}:
 \begin{align}
@@ -604,7 +604,7 @@ Note that the scalar contraction operation, when applied to tensors decomposed i
 T^{(0)}_0&=-\sum_{F'}f_{F'F}(\omega) \langle F\, m_F \vert \underbrace{-\frac{1}{\sqrt{3}} \sum_{m'_F} \hat{d}_\mu \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{d}_\mu }_{\tilde{T}^{(0)}_0}  \vert F\, m_F \rangle\\&= -\sum_{F'}f_{F'F}(\omega) \langle F\| \tilde{T}^{(0)}_0 \| F \rangle \underbrace{\langle F\, m_F \vert F\, m_F ; 0\,0 \rangle }_{=1} \,,
 \end{split}
 \end{align}
-with $f_{F'F}(\omega):= {2\omega_{F' F} }/{\hbar (\omega_{F' F}^2-\omega^2)}$. We have kept the sum over $m'_F$ as part of a newly defined tensor $\tilde{T}_{\mu\nu}:=\sum_{m'_F} \hat{d}_\mu \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{d}_\nu$, of which we recognise the rank-$0$ spherical component $\tilde{T}^{(0)}_0$ in the first expression. In this way, we can apply the Wigner--Eckart theorem (\autoref{wignereckart}) as seen in the second expression. The reduced matrix element can then be decomposed according to \autoref{splitreducedmatrixelement}, resulting in
+with $f_{F'F}(\omega)\coloneqq {2\omega_{F' F} }/{\hbar (\omega_{F' F}^2-\omega^2)}$. We have kept the sum over $m'_F$ as part of a newly defined tensor $\tilde{T}_{\mu\nu}\coloneqq\sum_{m'_F} \hat{d}_\mu \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{d}_\nu$, of which we recognise the rank-$0$ spherical component $\tilde{T}^{(0)}_0$ in the first expression. In this way, we can apply the Wigner--Eckart theorem (\autoref{wignereckart}) as seen in the second expression. The reduced matrix element can then be decomposed according to \autoref{splitreducedmatrixelement}, resulting in
 \begin{align}
 \begin{split}
  \langle F\| \tilde{T}^{(0)}_0 \| F \rangle &= \sum_{F''}\sqrt{2F''+1} \tj{1}{1}{0}{F}{F}{F''}\\ &\hspace{5em}\times \langle F\| \hat{\vec{d}} \, \| F'' \rangle \langle F''\| \sum_{m'_F} \vert F'\, m'_F \rangle\langle F'\, m'_F \vert \hat{\vec{d}} \, \| F \rangle \\ &= \sqrt{2F'+1} \tj{1}{1}{0}{F}{F}{F'} \langle F\| \hat{\vec{d}} \, \| F' \rangle \langle F'\| \hat{\vec{d}} \, \| F \rangle \\ &= (-1)^{F+F'}\sqrt{2F+1} \tj{1}{1}{0}{F}{F}{F'} \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2 \\ &=-\frac{1}{\sqrt{3}} \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\,.
@@ -616,7 +616,7 @@ Due to orthogonality, the second reduced matrix element vanishes, except when $F
 T^{(1)}_q&=-\sum_{F'} g_{F'F}(\omega) \langle F\, m_F \vert {\tilde{T}^{(1)}_q}  \vert F\, m_F \rangle\\ T^{(2)}_q&=-\sum_{F'} f_{F'F}(\omega) \langle F\, m_F \vert {\tilde{T}^{(2)}_q}  \vert F\, m_F \rangle\,,
 \end{split}
 \end{align}
-where we have defined $g_{F'F}(\omega):= {2\omega }/{\hbar (\omega_{F' F}^2-\omega^2)}$, the results are
+where we have defined $g_{F'F}(\omega)\coloneqq {2\omega }/{\hbar (\omega_{F' F}^2-\omega^2)}$, the results are
 \begin{align}
 \begin{split}
 T^{(1)}_q&=-\sum_{F'} g_{F'F}(\omega) (-1)^{F+F'+1} \sqrt{\frac{3(2F+1)}{F(F+1)}} \tj{1}{1}{1}{F}{F}{F'} \delta_{q0} m_F  \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\\ T^{(2)}_q&=-\sum_{F'} f_{F'F}(\omega) (-1)^{F+F'} \sqrt{\frac{5(2F+1)}{F(F+1)(2F-1)(2F+3)}}\\ &\hspace{6em} \times \tj{1}{1}{2}{F}{F}{F'} \delta_{q0} (3m_F^2-F(F+1)) \lvert \langle{F}\| \hat{\vec{d}} \, \|{F'}\rangle\rvert^2\,.
@@ -630,7 +630,7 @@ Plugging all spherical tensor components $T^{(k)}_q$ and $U^{(k)}_q$ into \autor
 	\Delta E\left(F,m_F;\omega\right) = &- \alpha^{(0)}\left(F;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(F;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{m_F}{F}   \\&- \alpha^{(2)}\left(F;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3m_F^2-F\left(F+1\right)}{F\left(2F-1\right)} \,,
 \end{split}
 \end{align}
-written in terms of the spherical components of the positive-frequency electric field amplitude $(E_0^{(+)})_q:={\epsilon}_q E_0^{(+)}$ and the respective scalar, vector and tensor polarisabilities:
+written in terms of the spherical components of the positive-frequency electric field amplitude $(E_0^{(+)})_q\coloneqq{\epsilon}_q E_0^{(+)}$ and the respective scalar, vector and tensor polarisabilities:
 \begin{align}
 \label{Ftensorpolarisabilities}
 \begin{split}
@@ -642,7 +642,7 @@ Note that in the derivation of these expressions, we have implicitly assumed tha
 In the case of a largely detuned optical field with respect to the atomic transitions, we can simplify the tensor polarisability assuming $\omega_{F'F}\approx\omega_{J'J}$ and using the following decomposition of the reduced matrix element
 \begin{align}
 \begin{split}
-	 \langle F\| \hat{\vec{d}}\, \| F'\rangle &:= \langle J\, I\, F\| \hat{\vec{d}}\, \| J'\, I\, F'\rangle \\
+	 \langle F\| \hat{\vec{d}}\, \| F'\rangle &\coloneqq \langle J\, I\, F\| \hat{\vec{d}}\, \| J'\, I\, F'\rangle \\
 	&=\langle J\| \hat{\vec{d}}\, \| J'\rangle(-1)^{F'+J+1+I} \sqrt{\left(2 F'+1\right)(2 J+1)} \\ &\hspace{9em}\times \tj{J}{J'}{1}{F'}{F}{I}\,,
 \end{split}  
 \end{align}

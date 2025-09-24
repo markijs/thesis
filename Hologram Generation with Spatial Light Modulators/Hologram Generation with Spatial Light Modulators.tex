@@ -335,7 +335,7 @@ In our implementation for phase holography, the goal is to optimise the output i
 \end{align}
 where
 \begin{equation}
-X(p,q):= \mathcal{F}^{-1}\Bigl\{  E_\mathrm{out}^{(n+1)} (x,y) \left( [T(x,y)]^2 - \big\lvert  E_\mathrm{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
+X(p,q)\coloneqq \mathcal{F}^{-1}\Bigl\{  E_\mathrm{out}^{(n+1)} (x,y) \left( [T(x,y)]^2 - \big\lvert  E_\mathrm{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
 \end{equation}
 For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\mathrm{in}^{(n)}(p,q) \rightarrow \phi_\mathrm{in}^{(n+1)}(p,q)$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
 

@@ -58,7 +58,7 @@ which is also referred to as the Hamiltonian in the interaction picture.
 Spherical tensors are described using the set of spherical basis vectors $\{\hat{\mathrm{e}}_1, \hat{\mathrm{e}}_0, \hat{\mathrm{e}}_{-1}\}$ that are defined as
 \begin{align}
 \begin{split}
-\hat{\mathrm{e}}_{\pm 1} &:= \frac{\mp(\hat{\mathrm{e}}_x\pm i \hat{\mathrm{e}}_y)}{\sqrt{2}}\\ \hat{\mathrm{e}}_0&:=\hat{\mathrm{e}}_z\,,
+\hat{\mathrm{e}}_{\pm 1} &\coloneqq \frac{\mp(\hat{\mathrm{e}}_x\pm i \hat{\mathrm{e}}_y)}{\sqrt{2}}\\ \hat{\mathrm{e}}_0&\coloneqq\hat{\mathrm{e}}_z\,,
 \end{split}
 \end{align}
 in terms of the Cartesian unit vectors. The contravariant components $A^q$ of a vector $\vec{A}$ are
@@ -139,7 +139,7 @@ Through the use of the Wigner-Eckart theorem, one can derive the following relat
 \label{ccreducedmatrixelement}
 \langle j' \| T^{(k)} \| j \rangle = (-1)^{j'-j}\sqrt{\frac{2j+1}{2j'+1}}\langle j \| T^{(k)} \| j' \rangle^*\,.
 \end{align}
-Now assume that we have a reduced matrix element defined as $\langle j \| T^{(k)} \| j' \rangle := \langle j_1\, j_2\, j \| T^{(k)} \| j_1'\,j_2'\,j' \rangle$ between angular momentum states of $\hat{J}=\hat{J}_1+\hat{J}_2$. If $T^{(k)}$ only acts on the states that correspond to $\hat{J}_1$ (and not $\hat{J}_2$), then $\langle j \| T^{(k)} \| j' \rangle$ can be written in terms of a reduced matrix element that involves only $j_1$ and $j_1'$:
+Now assume that we have a reduced matrix element defined as $\langle j \| T^{(k)} \| j' \rangle \coloneqq \langle j_1\, j_2\, j \| T^{(k)} \| j_1'\,j_2'\,j' \rangle$ between angular momentum states of $\hat{J}=\hat{J}_1+\hat{J}_2$. If $T^{(k)}$ only acts on the states that correspond to $\hat{J}_1$ (and not $\hat{J}_2$), then $\langle j \| T^{(k)} \| j' \rangle$ can be written in terms of a reduced matrix element that involves only $j_1$ and $j_1'$:
 \begin{align}
 \label{reducedmatrixelementonecomponent}
 \begin{split}
@@ -272,7 +272,7 @@ A standard approach for entangling two distant atoms relies on the interference 
 	\caption[Cavity-mediated entangling scheme for two \ce{^87Rb} atoms]{Entangling scheme for two \ce{^87Rb} atoms. Each atom undergoes vacuum-stimulated Raman adiabatic passage \textsc{(a)}, which results in an atom-photon entangled state denoted by $\ket{\Psi}_\mathrm{ap}$. A bell state measurement of the emitted photon pair \textsc{(b)} projects the atoms onto a maximally entangled state \textsc{(c)}.} 
 	\label{fig:entangle} 
 \end{figure}
-\autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the \ce{5\!^2S_{\sfrac{1}{2}}} ground level. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the \ce{5\!^2P_{\sfrac{3}{2}}} excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z := \ket{F=1,m_F=-1}$ or $\ket{\uparrow}z := \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following entangled state
+\autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the \ce{5\!^2S_{\sfrac{1}{2}}} ground level. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the \ce{5\!^2P_{\sfrac{3}{2}}} excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z \coloneqq \ket{F=1,m_F=-1}$ or $\ket{\uparrow}z \coloneqq \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following entangled state
 \begin{equation}
 \color{black} \ket{\Psi}_\mathrm{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) \,.
 \end{equation}

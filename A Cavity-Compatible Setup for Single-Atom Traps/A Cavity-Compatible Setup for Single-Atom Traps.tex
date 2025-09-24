@@ -2447,41 +2447,51 @@ In particular, the region directly in front of the aperture is accurate to withi
 
 \subsection{Mirror fabrication}
 \label{pyramidMOTmirrorfab}
-
-5 - 2 * ((6. * a * t) ** (1./3.))
-
-\begin{figure}[t]
+Guided by the diffraction analysis above, we adopt a pyramidal reflector with an aperture $a=\SIrange{0.3}{0.4}{\milli\metre}$, limiting the on-axis residual intensity at the expected MOT position to at most \SI{7}{\percent} of the peak incident intensity whilst preserving the capture volume of the MOT. To realise this, the two adjacent base corners of four gold-coated, right-angle prism mirrors (Thorlabs MRA05-M01) are truncated so that the substrates fit together seamlessly to form a square-based pyramid with a central square aperture at the apex, as was illustrated in \autoref{fig:fingeroverview}. Each prism is secured with a nylon-tipped set screw in a custom aluminium mount (see \autoref{polish}), which holds the mirror at a \SI{45}{\degree} angle during processing.
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"polish"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
-			% labels
-			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
-			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
-			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-			
-			\node[align=center, rotate=0] at (0.155,-0.05) {\footnotesize\sc (a)};
-			\node[align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
-			\node[align=center, rotate=0] at (0.845,-0.05) {\footnotesize\sc (c)};
-			
-		\end{scope}
-		
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"polish"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	% labels
+	%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+	%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+	%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+	
+	\node[align=center, rotate=0] at (0.155,-0.05) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.5,-0.05) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.845,-0.05) {\footnotesize\sc (c)};
+	
+	\end{scope}
+	
 	\end{tikzpicture}
 	\caption[Polishing procedure for right-angle prism mirrors]{Polishing procedure for right-angle prism mirrors. \textsc{(a)} The right-angle prism mirror is secured in a custom aluminium mount using a grub screw. A polishing film is attached to a rotating disk of a fibre optic polishing tool. After removal of the required amount of glass from one corner \textsc{(b)}, the prism mirror is flipped inside the mount to polish the adjacent corner \textsc{(c)}. White arrows indicate the direction of polishing.}
 	\label{polish} 
 \end{figure}
+Material is removed one corner at a time using a fibre-optic polisher (Krelltech SpecPro), which is modified to allow microcontroller-timed operation (Arduino Uno with relay actuation). A typical sequence for the removal of a single corner involves \SIrange{165}{180}{\second} of polishing on \SI{30}{\micro\metre} diamond lapping film, followed by \SI{60}{\second} on \SI{3}{\micro\metre} silicon-carbide film to smooth the facet. Polishing is carried out exclusively towards the gold-coating (see \autoref{polish}) to minimise glass chipping at the edges and the resultant scatter, which can severely limit atom number in a pyramidal MOT.\footnote{Crudely cut prism substrates with rough edges have been shown to limit pyramidal MOT performance via edge-scattered light \cite{Arlt1998}. In this study, a MOT capturing over $10^{8}$ atoms within a trapping volume of \SI{1}{\centi\metre\cubed} showed a significant collapse for pyramidal beam intensities in excess of \SI{8}{\milli\watt\per\centi\metre\squared}.} Once the removal of one corner is completed the prism is flipped in the mount to process the adjacent corner.
 
-
-
-\begin{figure}
+To determine the polishing time $t_a$ required to reach a target aperture $a$, we adopt a simple material-removal model\footnote{We model only the coarse \SI{30}{\micro\metre} diamond-lapping step, since the subsequent \SI{3}{\micro\metre} finishing pass does not measurably contribute to the removal of material.} based on Preston's law \cite{Preston1927}. Widely applied in the context of glass lapping and polishing, Preston's law relates the volumetric removal rate $Q$ to the normal load $F$ and the relative speed $v$ between tool and workpiece:
+\begin{equation}
+Q \coloneqq \frac{\mathrm{d}V}{\mathrm{d}t} = k v F\,,
+\label{eq:preston-vol}
+\end{equation}
+where $V$ is the removed volume and $k$ represents the Preston coefficient. Since the mirror mount is free to translate vertically, its weight provides a constant\footnote{The weight of the substrate and its small decrease during polishing does not appreciably affect this load.} normal load for polishing. With the polisher maintaining a fixed relative speed, both $v$ and $F$ are effectively constant during a run. Consequently, the volumetric removal rate is constant and the total removed volume grows linearly with time: $V(t)=Qt$. As illustrated in \autoref{polishtime}, the total removed volume $V$ from each base corner of the substrate---a right-angle prism with edges of equal length $c=\SI{5}{\milli\meter}$---can be expressed in terms of the truncation length $b$ along the edge as $V={b^{3}}/{6}$. The fact that $b = (c-a)/2$, allows us to relate $a$ directly to $c$, $Q$ and $t$ via $V$:
+\begin{equation}
+V=\frac{(c-a)^3}{48}=Qt
+\;\;\Longrightarrow\;\;
+a(t)=c-\left( 48Qt \right)^{1/3}\,.
+\label{eq:at}
+\end{equation}
+In order to find the optimal polishing time $t_{\SI{300}{\micro\meter}}$ for an aperture with $a=\SI{300}{\micro\meter}$ via \autoref{eq:at}, we need an accurate estimate of the removal rate $Q$, which we determine empirically from a sequence of trials. A first trial of $t=\SI{180}{\second}$ yields $a=\SI{208}{\micro\metre}$ and thus $Q= \SI{0.01274}{\milli\metre\cubed\per\second}$, which predicts $t_{\SI{300}{\micro\meter}}=\SI{170}{\second}$. A second specimen polished for this time yields $a=\SI{267}{\micro\metre}$. A least-squares fit of \autoref{eq:at} to the two points refines the rate to $Q= \SI{0.01286}{\milli\metre\cubed\per\second}$, implying $t_{\SI{300}{\micro\meter}}=\SI{168}{\second}$. Repeating this procedure, we converge to polishing times that yield four substrates with $a$ in the \SIrange{300}{350}{\micro\metre} range, suitable for assembly into a square-based pyramid. Fitting the model in \autoref{eq:at} to the full data set yields $Q=\SI{0.01280 \pm 0.00007}{\cubic\milli\metre\per\second}$, as illustrated in \autoref{polishtime}.
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}
 		\begin{groupplot}[group style={group size=2 by 1,horizontal sep=2.5cm, vertical sep=2.5cm},height=5.5cm,width=5.5cm,no markers]
@@ -2515,12 +2525,12 @@ In particular, the region directly in front of the aperture is accurate to withi
 			ymin=-0.1, ymax=0.9    % Stretch to fit the y-axis limits
 			] {mirrorcut.pdf};
 			
-			\node[markgrijs, align=center, rotate=0] at (0.23,-0.025) {\footnotesize $5$};
+			\node[markgrijs, align=center, rotate=0] at (0.23,-0.025) {\footnotesize $c$};
 			\node[markgrijs, align=center, rotate=0] at (0.413,0.05) {\footnotesize $b$};
 			\node[markgrijs, align=center, rotate=0] at (0.255,0.115) {\footnotesize $a$};
 			
-			\node[markgrijs, align=center, rotate=0] at (0.93,0.52) {\footnotesize $5$};
-			\node[markgrijs, align=center, rotate=0] at (0.832,0.175) {\footnotesize $5$};
+			\node[markgrijs, align=center, rotate=0] at (0.93,0.52) {\footnotesize $c$};
+			\node[markgrijs, align=center, rotate=0] at (0.832,0.175) {\footnotesize $c$};
 			
 			\node[markrood, align=center, rotate=0] at (0.57,0.23) {\footnotesize $V$};
 			
@@ -2535,7 +2545,7 @@ In particular, the region directly in front of the aperture is accurate to withi
 			xmax=200,
 			ytick={0,1,2,3,4,5},
 			xlabel={Polishing time $t$ {[\si{\second}]}},
-			ylabel={End facet length $a$ {[\si{\milli\meter}]}},
+			ylabel={Aperture edge length $a$ {[\si{\milli\meter}]}},
 			ymajorgrids=true,
 			xmajorgrids=true,
 			grid style=dashed,
@@ -2550,11 +2560,11 @@ In particular, the region directly in front of the aperture is accurate to withi
 				168   0.337  0.1    0.005
 				168   0.327  0.1    0.005
 				165   0.344  0.1    0.005
-				169   0.267  0.1    0.005
+				170   0.267  0.1    0.005
 				180   0.208  0.1    0.005
 			};
 			
-			\addplot[markrood, thick, domain=0:200, samples=200] {(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+			\addplot[markrood, thick, domain=0:200, samples=200] {(5 - 2 * ( (6 * 0.01279683 * x)^(1/3) ))};
 			
 			
 			
@@ -2610,11 +2620,11 @@ In particular, the region directly in front of the aperture is accurate to withi
 				168   337  0.1    5
 				168   327  0.1    5
 				165   344  0.1    5
-				169   267  0.1    5
+				170   267  0.1    5
 				180   208  0.1    5
 			};
 			
-			\addplot[markrood, thick, domain=160:185, samples=200] {1000*(5 - 2 * ( (6 * 0.01280755 * x)^(1/3) ))};
+			\addplot[markrood, thick, domain=160:185, samples=200] {1000*(5 - 2 * ( (6 * 0.01279683 * x)^(1/3) ))};
 			
 			\draw[markgrijs]       (axis cs:165, 334) -- (axis cs:165, 304) node[below, align=center, markgrijs] {\footnotesize 1};
 			\draw[markgrijs]       (axis cs:168+1, 337) -- (axis cs:168+5, 340) node[right, align=center, markgrijs] {\footnotesize 2};
@@ -2623,11 +2633,11 @@ In particular, the region directly in front of the aperture is accurate to withi
 			
 		\end{axis}
 	\end{tikzpicture}
-	\caption[Right-angle prism mirror geometry and dependence of mirror end facet length on polishing time]{Right-angle prism mirror geometry \textsc{(left)} and dependence of mirror end facet length on polishing time \textsc{(right)}. The schematic shows the substrate dimensions in millimetres, as well as the end facet length $a$ and adjacent length $b$. The red volume $V$ represents the amount of removed material, which can be expressed in terms of the polishing depth $z$ or facet length $a$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1--4). The solid line represents a fit based on Preston’s law, which assumes a constant material removal rate ($\dot{V}=\SI{0.0128}{\milli\meter\cubed\per\second}$).}
+	\caption[Right-angle prism mirror geometry and dependence of aperture edge length on polishing time]{Right-angle prism mirror geometry \textsc{(left)} and dependence of aperture edge length $a$ on polishing time \textsc{(right)}. The schematic shows a substrate with equal edges of length $c=\SI{5}{\milli\meter}$. The red volume $V={b^3}/{6}$ represents the amount of removed material, which can also be expressed in terms of $a$ and $c$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1--4). The solid line represents a fit based on Preston's law, which yields a constant material removal rate of $Q=\SI{0.01280}{\milli\meter\cubed\per\second}$.}
 	\label{polishtime} 
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
 		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror"}.pdf}};
@@ -2668,13 +2678,25 @@ In particular, the region directly in front of the aperture is accurate to withi
 		\end{scope}
 		
 	\end{tikzpicture}
-	\caption[Fabrication and assembly process of the pyramidal MOT mirror system]{Fabrication and assembly process of the pyramidal MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with First Contact during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramidal MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The label numbers correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture, with facet lengths indicated in micrometres. \textsc{(g)} Alignment tool used to position the mirrors within the mount during the glueing process. The alignment is performed via top-view microscope imaging.}
+	\caption[Fabrication and assembly process of the pyramidal MOT mirror system]{Fabrication and assembly process of the pyramidal MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with a peel-off polymer film during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramidal MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The label numbers correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture, with edge lengths indicated in micrometres. \textsc{(g)} Alignment tool used to position the mirrors within the mount during the glueing process. The alignment is performed via top-view microscope imaging.}
 	\label{mirror}
 \end{figure}
 
 \subsection{Cold atom detection}
 \label{pyramidMOTcoldatom}
-\begin{figure}[t]
+from chris foot paper:\cite{Arlt1998}
+\iffalse
+4. Pulsed atomic beam
+The atomic source was operated in three different configurations shown in Fig. 3. Firstly, atoms were trapped by “plugging” the hole with a light beam made by taking a small part of the main trapping beam power and retroreflecting it at a small angle within the pyramid, Fig. 3(a). The trapping beam itself then becomes a pushing beam when the anti-Helmholtz coils and the “plugging” beam are switched off. In a second configuration the trapping light entered the pyramidal mirrors at an angle, thus avoiding the creation of a shadow of the exit hole within the light field, Fig. 3(b). The atoms could then be transferred using a separate pushing beam.
+
+Download: Download full-size image
+Fig. 3. Atomic source configurations within the pyramidal MOT.
+
+The results reported here were obtained in a third configuration, by “plugging” the hole with a beam of trapping light passing through it from the back, Fig. 3(a). This configuration proved to trap the largest number of atoms and to give the most reliable transfer of atoms. Again the trapping beam acted as the pushing beam after the “plugging” beam and the anti-Helmholtz field were switched off.
+\fi
+
+
+\begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
 		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidtest"}.pdf}};
@@ -2701,7 +2723,7 @@ In particular, the region directly in front of the aperture is accurate to withi
 \end{figure}
 
 
-\begin{figure}[t]
+\begin{figure}[!t]
 	\vspace{0em}
 	\centering
 	\begin{subfigure}[b]{.32\linewidth}
