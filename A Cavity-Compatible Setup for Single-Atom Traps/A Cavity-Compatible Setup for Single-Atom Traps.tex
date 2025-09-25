@@ -2445,7 +2445,7 @@ To benchmark the diffraction model in the least favourable case, we compare the 
 \end{figure}
 In particular, the region directly in front of the aperture is accurate to within a few per cent. Increased errors also appear near the domain boundaries, with the direct Fresnel--Kirchhoff integration resulting in noticeable artefacts. Compared with the FFT-based Fresnel propagation, direct evaluation of the Fresnel--Kirchhoff integral is more sensitive to the finite size of the computational window. Although the integral extends over the entire transverse plane, we evaluate it on a finite grid, which is equivalent to applying a top-hat window to the input field. This artificial aperture introduces diffraction that can propagate into the region of interest. By contrast, the FFT approach enforces periodic boundary conditions on the field, which avoids the hard step to zero that would otherwise behave like a diffracting edge. Because the FFT imposes periodic boundaries, any non-negligible field at the edges is recycled from the opposite side, so periodic replicas contaminate the solution even if no fringes are visible. This contamination grows with propagation distance $d$, as the Fresnel kernel spreads and couples more power from the periodic images into the region of interest. This underlines the need for a simulation domain that is significantly larger than the region of interest. \autoref{differror} and \autoref{differrorcross} together demonstrate that restricting the computation to an area of $\SI{1}{\milli\metre}\times\SI{1}{\milli\metre}$ leads to gross errors across the entire domain, with only the aperture region featuring errors below \SI{10}{\percent}.
 
-\subsection{Mirror fabrication}
+\subsection{Mirror fabrication and assembly}
 \label{pyramidMOTmirrorfab}
 Guided by the diffraction analysis above, we adopt a pyramidal reflector with an aperture $a=\SIrange{0.3}{0.4}{\milli\metre}$, limiting the on-axis residual intensity at the expected MOT position to at most \SI{7}{\percent} of the peak incident intensity whilst preserving the capture volume of the MOT. To realise this, the two adjacent base corners of four gold-coated, right-angle prism mirrors (Thorlabs MRA05-M01) are truncated so that the substrates fit together seamlessly to form a square-based pyramid with a central square aperture at the apex, as was illustrated in \autoref{fig:fingeroverview}. Each prism is secured with a nylon-tipped set screw in a custom aluminium mount (see \autoref{polish}), which holds the mirror at a \SI{45}{\degree} angle during processing.
 \begin{figure}[!t]
@@ -2633,54 +2633,55 @@ In order to find the optimal polishing time $t_{\SI{300}{\micro\meter}}$ for an 
 			
 		\end{axis}
 	\end{tikzpicture}
-	\caption[Right-angle prism mirror geometry and dependence of aperture edge length on polishing time]{Right-angle prism mirror geometry \textsc{(left)} and dependence of aperture edge length $a$ on polishing time \textsc{(right)}. The schematic shows a substrate with equal edges of length $c=\SI{5}{\milli\meter}$. The red volume $V={b^3}/{6}$ represents the amount of removed material, which can also be expressed in terms of $a$ and $c$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1--4). The solid line represents a fit based on Preston's law, which yields a constant material removal rate of $Q=\SI{0.01280}{\milli\meter\cubed\per\second}$.}
+	\caption[Right-angle prism mirror geometry and dependence of aperture edge length on polishing time]{Right-angle prism mirror geometry \textsc{(left)} and dependence of aperture edge length $a$ on polishing time $t$ \textsc{(right)}. The schematic shows a substrate with equal edges of length $c=\SI{5}{\milli\meter}$. The volume $V={b^3}/{6}$ of removed material can also be expressed in terms of $a$ and $c$. On the right, each data point corresponds to a polished substrate (mirrors suitable for assembly are numbered 1--4). The solid line represents a fit based on Preston's law (see \autoref{eq:at}), which yields a material removal rate of $Q=\SI{0.01280}{\milli\meter\cubed\per\second}$.}
 	\label{polishtime} 
 \end{figure}
 
+To integrate the pyramidal MOT into the cavity mounting structure (\autoref{fig:fingeroverview}), we require a compact holder that---apart from securing four polished prism mirrors---incorporates an additional mirror to retro-reflect two incident molasses beams for intra-cavity cooling of atoms (see \autoref{pyramidloading}). \autoref{mirror} illustrates the fabrication and assembly of a pyramidal MOT mirror system, based on a monolithic aluminium holder directly machined from a circular, gold-coated substrate mirror\footnote{Edmund Optics \#47-114 with a diameter of \SI{25.4}{\milli\metre} and a thickness of \SI{9.5}{\milli\metre}.}.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
-			% labels
-			%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
-			%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
-			%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
-			\node[align=center, rotate=0] at (0.10,0.555) {\footnotesize\sc (a)};
-			\node[align=center, rotate=0] at (0.10+0.206,0.555) {\footnotesize\sc (b)};
-			\node[align=center, rotate=0] at (0.10+0.412,0.555) {\footnotesize\sc (c)};
-			
-			\node[align=center, rotate=0] at (0.10,0.055) {\footnotesize\sc (d)};
-			\node[align=center, rotate=0] at (0.10+0.206,0.055) {\footnotesize\sc (e)};
-			\node[align=center, rotate=0] at (0.10+0.412,0.055) {\footnotesize\sc (f)};
-			
-			\node[align=center, rotate=0] at (0.815,0.055) {\footnotesize\sc (g)};
-			
-			
-			\node[black, align=center, rotate=0] at (0.514,0.15) {\footnotesize\sc \SI{310}{\micro\meter}};
-			\node[black, align=center, rotate=0] at (0.514,0.45) {\footnotesize\sc \SI{344}{\micro\meter}};
-			\node[black, align=center, rotate=90] at (0.59,0.29) {\footnotesize\sc \SI{337}{\micro\meter}};
-			\node[black, align=center, rotate=90] at (0.44,0.29) {\footnotesize\sc \SI{327}{\micro\meter}};
-			
-			\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.15+0.05) {\footnotesize\sc 4};
-			\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.45-0.05) {\footnotesize\sc 1};
-			\node[black, align=center, rotate=0] at (0.59-0.207-0.03,0.295) {\footnotesize\sc 2};
-			\node[black, align=center, rotate=0] at (0.44-0.207+0.02,0.295) {\footnotesize\sc 3};
-			
-		\end{scope}
-		
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% draw a grid
+	%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
+	% draw ticks
+	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
+	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
+	
+	% labels
+	%\node[markgrijs, align=center, rotate=0] at (0.0,0.9) {\footnotesize\sc (a)};
+	%\node[markgrijs, align=center, rotate=0] at (0.35,0.9) {\footnotesize\sc (b)};
+	%\node[markgrijs, align=center, rotate=0] at (0.7,0.9) {\footnotesize\sc (c)};
+	\node[align=center, rotate=0] at (0.097,0.555) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.097+0.208,0.555) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.097+0.416,0.555) {\footnotesize\sc (c)};
+	
+	\node[align=center, rotate=0] at (0.097,0.055) {\footnotesize\sc (d)};
+	\node[align=center, rotate=0] at (0.097+0.208,0.055) {\footnotesize\sc (e)};
+	\node[align=center, rotate=0] at (0.097+0.416,0.055) {\footnotesize\sc (f)};
+	
+	\node[align=center, rotate=0] at (0.815,0.055) {\footnotesize\sc (g)};
+	
+	\node[black, align=center, rotate=0] at (0.514,0.15) {\tiny\sc \SI{310}{\micro\meter}};
+	\node[black, align=center, rotate=0] at (0.514,0.45) {\tiny\sc \SI{344}{\micro\meter}};
+	\node[black, align=center, rotate=90] at (0.59,0.29) {\tiny\sc \SI{337}{\micro\meter}};
+	\node[black, align=center, rotate=90] at (0.44,0.29) {\tiny\sc \SI{327}{\micro\meter}};
+	
+	\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.15+0.05) {\footnotesize\sc 4};
+	\node[black, align=center, rotate=0] at (0.514-0.207-0.005,0.45-0.05) {\footnotesize\sc 1};
+	\node[black, align=center, rotate=0] at (0.59-0.207-0.03,0.295) {\footnotesize\sc 2};
+	\node[black, align=center, rotate=0] at (0.44-0.207+0.02,0.295) {\footnotesize\sc 3};
+	
+	\end{scope}
+	
 	\end{tikzpicture}
-	\caption[Fabrication and assembly process of the pyramidal MOT mirror system]{Fabrication and assembly process of the pyramidal MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with a peel-off polymer film during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramidal MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The label numbers correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture, with edge lengths indicated in micrometres. \textsc{(g)} Alignment tool used to position the mirrors within the mount during the glueing process. The alignment is performed via top-view microscope imaging.}
+	\caption[Fabrication and assembly process of the pyramidal MOT mirror system]{Fabrication and assembly process of the pyramidal MOT mirror system. \textsc{(a)} Brass collet holding the aluminium mirror mount during machining. \textsc{(b)} Completed mirror holder, which is machined from a gold-coated, aluminium substrate mirror. The gold coating is protected with a peel-off polymer film during fabrication of the mount. \textsc{(c)} A right-angle prism mirror after its adjacent corners at the base have been polished off. \textsc{(d)} Fully assembled pyramidal MOT mirror system. \textsc{(e)} Microscope image showing a top view of the mirrors. The numbers labelling each mirror correspond to those in \autoref{polishtime}. \textsc{(f)} Magnified microscope view of the central aperture with indicated edge lengths. \textsc{(g)} Alignment tool used to position and secure the mirrors in the mount.}
 	\label{mirror}
 \end{figure}
+The mirror surface is protected with a peel-off polymer film (First Contact) and the substrate is secured in a custom brass collet (see \autoref{mirror}) for the milling of two perpendicular trenches that accommodate the right-angle prism mirrors. Small epoxy reservoirs at the edges prevent the adhesive from creeping onto the mirror faces. A central \SI{0.5}{\milli\metre} through-hole provides clearance for the atomic beam emerging from the pyramidal aperture at the apex. During assembly, a custom alignment tool with four PTFE screws enables precise placement of each prism mirror in the holder. Using a top-view microscope with coaxial illumination, the position of each substrate is adjusted until the reflected illumination pattern is continuous across the facet junctions and the aperture edges form a centred square. Once alignment is verified, a small amount of vacuum-compatible, heat-curing epoxy (EPO-TEK 353ND) is dispensed into the reservoirs and the assembly is cured at \SI{120}{\degreeCelsius} for a duration of \SI{15}{\minute}.
 
 \subsection{Cold atom detection}
 \label{pyramidMOTcoldatom}
@@ -2703,12 +2704,6 @@ The results reported here were obtained in a third configuration, by “plugging
 		
 		% left four
 		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% draw a grid
-			%\draw[help lines,xstep=.1,ystep=.1,overlay] (0,0) grid (1,1);
-			% draw ticks
-			%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
-			%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
-			
 			% labels
 			\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
 			\node[align=center, rotate=0] at (0.57,0.95) {\footnotesize\sc (b)};
