@@ -2685,39 +2685,31 @@ The mirror surface is protected with a peel-off polymer film (First Contact) and
 
 \subsection{Cold atom detection}
 \label{pyramidMOTcoldatom}
-from chris foot paper:\cite{Arlt1998}
-\iffalse
-4. Pulsed atomic beam
-The atomic source was operated in three different configurations shown in Fig. 3. Firstly, atoms were trapped by “plugging” the hole with a light beam made by taking a small part of the main trapping beam power and retroreflecting it at a small angle within the pyramid, Fig. 3(a). The trapping beam itself then becomes a pushing beam when the anti-Helmholtz coils and the “plugging” beam are switched off. In a second configuration the trapping light entered the pyramidal mirrors at an angle, thus avoiding the creation of a shadow of the exit hole within the light field, Fig. 3(b). The atoms could then be transferred using a separate pushing beam.
-
-Download: Download full-size image
-Fig. 3. Atomic source configurations within the pyramidal MOT.
-
-The results reported here were obtained in a third configuration, by “plugging” the hole with a beam of trapping light passing through it from the back, Fig. 3(a). This configuration proved to trap the largest number of atoms and to give the most reliable transfer of atoms. Again the trapping beam acted as the pushing beam after the “plugging” beam and the anti-Helmholtz field were switched off.
-\fi
 
 
+Pyramidal MOTs can be operated either as continuous cold atom sources---maintaining a steady axial scattering force imbalance so that atoms are extracted through the apex at all times---or in a pulsed mode, cycling between loading the MOT and launching the atoms via a push beam. Continuous operation is attractive for its simplicity \cite{Cacciapuoti2001}, whereas pulsed schemes deliver colder atoms, enabling transfer efficiencies of \SIrange{80}{90}{\percent} \cite{Swanson1998,Myatt1996}. This is because the quadrupole field is switched off during a brief optical-molasses phase before launch, thereby enhancing sub-Doppler cooling mechanisms. Our aim is to operate the pyramidal MOT in continuous mode for simplicity, avoiding timing sequences and extra control hardware.\footnote{Nothing is lost by this choice: continuous sources can run in a pulsed mode by switching the flux on and off magnetically, optically or mechanically.} A practical requirement for continuous extraction is that the apex opening be smaller than the trapped cloud \cite{Kim2001}---a criterion that motivated our choice of a sub-millimetre square aperture.
+
+Establishing a stable cold-atom cloud is a prerequisite for operating the pyramidal MOT as a source. To this end, we address the radiation-pressure imbalance caused by the aperture, for which several methods exist \cite{Arlt1998}. One option is to tilt the mirror assembly so the main cooling beam enters at a slight angle, removing the aperture shadow. Alternatively, an additional cooling beam can block the opening either from the front (entering at an angle) or---more effectively---from the rear, as shown in \autoref{pyramidtest}.
 \begin{figure}[!t]
 	\centering
 	\begin{tikzpicture}[remember picture]
-		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidtest"}.pdf}};
-		
-		% left four
-		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			% labels
-			\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
-			\node[align=center, rotate=0] at (0.57,0.95) {\footnotesize\sc (b)};
-			\node[align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (c)};
-			\node[align=center, rotate=0] at (0.57,0.42) {\footnotesize\sc (d)};
-			
-		\end{scope}
-		
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidtest"}.pdf}};
+	
+	% left four
+	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
+	% labels
+	\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
+	\node[align=center, rotate=0] at (0.57,0.95) {\footnotesize\sc (b)};
+	\node[align=center, rotate=0] at (0.05,0.42) {\footnotesize\sc (c)};
+	\node[align=center, rotate=0] at (0.57,0.42) {\footnotesize\sc (d)};
+	
+	\end{scope}
+	
 	\end{tikzpicture}
-	\caption[Test bed setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator]{Test bed setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator. \textsc{(a)} A PTFE holder secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. \textsc{(b)} Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. \textsc{(c)} The stainless steel mounting structure supports the PTFE holder and aluminium mount, keeping the assembly in place while allowing optical access for the cooling beams. \textsc{(d)} Full assembly inside the glass cell, with anti-Helmholtz coils affixed to a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
+	\caption[Test setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator]{Test setup for evaluating the standalone performance of a pyramidal MOT before integration with a dipole trap and Fabry--Pérot resonator. \textsc{(a)} A PTFE plate secures an aluminium mount containing four mirrors arranged in a pyramidal configuration. A cooling beam illuminates the entire pyramid, while a counter-propagating beam plugs the hole at the apex to balance the cooling forces and enable MOT formation. \textsc{(b)} Rear view of the mount, showing the gold-coated surface, which helps reflect additional cooling beams to create an optical molasses at the dipole trap position. \textsc{(c)} The stainless steel mounting structure supports the PTFE retainer and mirror assembly, while allowing optical access for a pyramidal MOT cooling beam through a circular aperture. \textsc{(d)} Full assembly inside the glass cell, with anti-Helmholtz coils incorporated into a 3D-printed frame, generating the quadrupole magnetic field required for MOT operation.}
 	\label{pyramidtest} 
 \end{figure}
-
-
+The optical powers of the main and auxiliary cooling beams are adjusted so that leakage through the aperture is equal from both sides, balancing the axial radiation pressure in the trapping volume.
 \begin{figure}[!t]
 	\vspace{0em}
 	\centering
@@ -2726,7 +2718,7 @@ The results reported here were obtained in a third configuration, by “plugging
 		\centering
 		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbzero.pdf}};
 		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$B=0$};
+		%\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$B=0$};
 		\end{scope}
 		%\node[color=white] at (1.03,1.1) {\footnotesize \SI{20}{\micro\meter}};
 		\end{tikzpicture}
@@ -2739,7 +2731,7 @@ The results reported here were obtained in a third configuration, by “plugging
 		\centering
 		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbnonzero.pdf}};
 		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$B=\SI{11.3}{\gauss\per\centi\meter}$};
+		%\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize$\nabla B=\SI{11.3}{\gauss\per\centi\meter}$};
 		\end{scope}
 		\end{tikzpicture}
 		\centering
@@ -2751,17 +2743,20 @@ The results reported here were obtained in a third configuration, by “plugging
 		\centering
 		\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.4in] {motbdiff.pdf}};
 		\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
-			\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize\sc diff.};
+		%\node[white, fill=none, anchor=south west, align=left] at (0,0) {\footnotesize\sc diff.};
 		\end{scope}
 		\end{tikzpicture}
 		\centering
 		\caption{}
 		\label{motbfieldc}
 	\end{subfigure}
-	\caption[Images of a pyramidal mirror configuration with and without an applied magnetic field gradient]{CCD images of a pyramidal mirror configuration installed under ultra-high vacuum (UHV) and continuously illuminated with red-detuned cooling light. \textsc{(a)} Image taken at zero magnetic field ($B = 0$). \textsc{(b)} Image taken at a magnetic field gradient of $B =\SI{11.3}{\gauss\per\centi\meter}$. \textsc{(c)} Difference image obtained by subtracting \textsc{(a)} from \textsc{(b)}.}
+	\caption[Images of a pyramidal mirror configuration with and without an applied magnetic field gradient]{CCD images of a pyramidal mirror configuration under continuous illumination with cooling light. \textsc{(a)} Image taken at zero magnetic field. \textsc{(b)} Image taken with a quadrupole field gradient of \SI{11.3}{\gauss\per\centi\meter}. \textsc{(c)} Difference image obtained by subtracting \textsc{(a)} from \textsc{(b)}.}
 	\label{motbfield}
 \end{figure}
 
+To verify MOT formation under vacuum, we secure the pyramidal-mirror assembly to the stainless-steel mounting structure used for the fibre-tip resonator (\autoref{sec:mounting_structure}). As shown in \autoref{pyramidtest}, a PTFE plate with a circular aperture holds the gold-coated aluminium mirror module while preserving optical access for the cooling beams. The module is mounted in a glass-cell UHV chamber kept at a pressure of $\sim\SI{1e-8}{\milli\bar}$. For the quadrupole field, an anti-Helmholtz pair of coils is aligned with respect to the assembly using a 3D-printed frame on a three-axis translation stage. MOT fluorescence is recorded with a CCD camera placed \SI{30}{\degree} off-axis to avoid the incident cooling-beam path. Because the amount of scattered light from the machined mirror edges is substantial, traces of the MOT are only visible after background subtraction. We therefore record CCD frames under continuous illumination with cooling light at zero magnetic field and with a quadrupole field gradient of \SI{11.3}{\gauss\per\centi\meter} (see \autoref{motbfield}).
+
 \section{Conclusion}
+A quantitative flux characterisation of the pyramidal MOT is beyond the scope of this thesis.
 
 \end{document}
