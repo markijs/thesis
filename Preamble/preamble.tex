@@ -973,3 +973,27 @@ labelfont={small,bf}
 
 \DeclareMathOperator{\diag}{diag}
 \usepackage{mathtools}
+
+% ===== Toggle here =====
+\newif\ifcompressed
+\compressedtrue   % <-- turn ON to use "compressed" files
+%\compressedfalse     % <-- turn OFF to use originals
+
+% ===== Suffix selection =====
+\ifcompressed
+\newcommand{\figsuffix}{_compressed} % change to "_compressed" in your project
+\else
+\newcommand{\figsuffix}{}   % no suffix (original)
+\fi
+
+% === Manual force-rebuild switch ===
+\newif\ifforceremake
+%\forceremakefalse
+\forceremaketrue           % set \forceremaketrue to enable the trigger
+
+% Call this right before a picture you want rebuilt
+\newcommand{\ForceRemakeNext}{%
+	\ifforceremake
+	\tikzset{external/remake next}%
+	\fi
+}

@@ -986,8 +986,9 @@ To isolate the Gaussian mode from higher-order transverse modes, the free spectr
 Different mirror technologies for a Fabry--Pérot resonator have been employed in CQED experiments operating in the intermediate or strong coupling regime. These include dielectric coatings on superpolished macroscopic substrates \cite{Casabone2013, Reimann2015, Welte2017}, as well as fibre-tip mirrors fabricated via mirror transfer \cite{Steinmetz2006} or \ce{CO2} laser ablation \cite{Hunger2010}. Fibre-tip cavities offer several advantages, including compactness, intrinsic fibre coupling and tight mode confinement enabled by the small achievable radii of curvature and short cavity lengths. These features allow for strong light-matter interaction and make such cavities promising candidates for integration into scalable quantum network architectures. However, they also suffer from several limitations, including mechanical fragility and alignment sensitivity. Furthermore, fibre-tip cavities suffer from a fundamental limitation in photon extraction efficiency as a result of the mismatch between the cavity mode and the guided mode of a single-mode fibre core \cite{Gallego2016}. To overcome this, recent developments incorporate composite fibres with built-in mode-shaping structures \cite{Gulati2017}, as well as photonic crystal fibres for improved mode matching \cite{Ott2016}. Nonetheless, these approaches introduce fabrication complexity and may still suffer from reduced mechanical robustness. In contrast, superpolished mirrors on macroscopic substrates offer excellent optical quality and mechanical stability, along with the flexibility to implement external mode-matching optics for efficient coupling to free-space or fibre-guided modes.
 \begin{figure}[t]
 	\centering
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"drawing"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"drawing\figsuffix"}.pdf}};
 	
 	
 	% left four
@@ -1059,8 +1060,9 @@ This section describes the integration of the Fabry--Pérot resonator mirrors, i
 The design and assembly of the cavity module are shown in \autoref{moduledesign}.
 \begin{figure}[t]
 	\hspace{-0.8cm}
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[trim={0 0 0 0}, clip, width=1.1\textwidth]{{"module\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -1099,18 +1101,20 @@ To enable tunability of the resonator length while preserving mechanical stabili
 		\label{a}
 	\end{subfigure}
 	\begin{subfigure}[b]{.32\linewidth}
+		\ForceRemakeNext
 		\begin{tikzpicture}
 		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=4cm] {glue.pdf}};;
+		\node[inner sep=0] (image) {\includegraphics[width=4cm] {glue\figsuffix.pdf}};;
 		\end{tikzpicture}
 		\centering
 		\caption{}
 		\label{b}
 	\end{subfigure}
 	\begin{subfigure}[b]{.32\linewidth}
+		\ForceRemakeNext
 		\begin{tikzpicture}
 		\centering
-		\node[inner sep=0] (image) {\includegraphics[width=4cm] {cavity.pdf}};;
+		\node[inner sep=0] (image) {\includegraphics[width=4cm] {cavity\figsuffix.pdf}};;
 		\end{tikzpicture}
 		\centering
 		\caption{}
@@ -1126,8 +1130,9 @@ A bottom-up view of the baseplate reveals mounting points and wire-routing chann
 The optomechanical setup used for cavity mirror alignment is shown in \autoref{ubenchgantry}.
 \begin{figure}[t]
 	\hspace{-0.2cm}
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"mount\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -1167,8 +1172,9 @@ To ensure accurate alignment of the reference beam with respect to the cavity mo
 Throughout the remainder of this section, we describe the step-by-step procedure used to position the resonator mirrors onto the cavity module baseplate. An overview of the process is shown in \autoref{alignmentprocedure}.
 \begin{figure}[t!]
 	\hspace{-0.35cm}
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1.05\textwidth]{{"alignment\figsuffix"}.pdf}};
 	
 	
 	% left four

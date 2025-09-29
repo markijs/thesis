@@ -847,8 +847,9 @@ The fibre-tip resonator mount, while simple in its design, suffers from poor mec
 The mounting structure, shown in \autoref{fig:fingeroverview}, is machined from 316LN stainless steel and houses the cavity module (see \autoref{cavitymodulesection}), which slides in through the central square aperture and is fixed at the correct position with six countersunk screws. In addition, the mounting structure hosts a compact pyramidal mirror assembly (see \autoref{sec:pyramidal_mot}), held in place by a custom aluminium holder inserted from the side.
 \begin{figure}[t]
 	\centering
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"finger"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"finger\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -1659,8 +1660,9 @@ In this section, we discuss a pyramidal magneto-optical trap as a compact, cavit
 The choice of a pyramidal MOT as the cold-atom source is motivated by its compactness, mechanical robustness and minimal optical access requirements. Conventional MOTs use three orthogonal pairs of counter-propagating laser beams, requiring multiple independent optical elements and substantial optical access to the trapping region. While retro-reflection can halve the number of independent beams, the apparatus remains relatively bulky and alignment-sensitive. In contrast, the pyramidal MOT uses a set of four right-angle mirrors in a square-based\footnote{Alternative mirror arrangements have also been demonstrated \cite{Vangeleyn2009, Kim1997, Vangeleyn2010}.} pyramidal configuration to reflect a circularly polarised input beam into the full six-beam arrangement required for magneto-optical trapping in a spherical quadrupole magnetic field. Each pair of counter-propagating beams emerges with the correct relative circular polarisation by virtue of the \SI{180}{\degree} phase shift between the $s$- and $p$-components of the light upon reflection from the mirrors. This geometry, requiring only a single incident beam, yields balanced intensities at all points in the trapping volume (assuming well-aligned and identical mirrors), making efficient use of the available optical power. By truncating the pyramid apex to form an aperture, the configuration can be operated as a source, where atoms are extracted along the symmetry axis to load a downstream trap---in our case, the optical dipole trap inside the cavity mode as illustrated in \autoref{pyramidloading}.
 \begin{figure}[t]
 	\hspace{-0cm}
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=1\textwidth]{{"pyramidinfinger\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -2450,8 +2452,9 @@ In particular, the region directly in front of the aperture is accurate to withi
 Guided by the diffraction analysis above, we adopt a pyramidal reflector with an aperture $a=\SIrange{0.3}{0.4}{\milli\metre}$, limiting the on-axis residual intensity at the expected MOT position to at most \SI{7}{\percent} of the peak incident intensity whilst preserving the capture volume of the MOT. To realise this, the two adjacent base corners of four gold-coated, right-angle prism mirrors (Thorlabs MRA05-M01) are truncated so that the substrates fit together seamlessly to form a square-based pyramid with a central square aperture at the apex, as was illustrated in \autoref{fig:fingeroverview}. Each prism is secured with a nylon-tipped set screw in a custom aluminium mount (see \autoref{polish}), which holds the mirror at a \SI{45}{\degree} angle during processing.
 \begin{figure}[!t]
 	\centering
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"polish"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"polish\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -2640,8 +2643,9 @@ In order to find the optimal polishing time $t_{\SI{300}{\micro\meter}}$ for an 
 To integrate the pyramidal MOT into the cavity mounting structure (\autoref{fig:fingeroverview}), we require a compact holder that---apart from securing four polished prism mirrors---incorporates an additional mirror to retro-reflect two incident molasses beams for intra-cavity cooling of atoms (see \autoref{pyramidloading}). \autoref{mirror} illustrates the fabrication and assembly of a pyramidal-MOT mirror system, based on a monolithic aluminium holder directly machined from a circular, gold-coated substrate mirror\footnote{Edmund Optics \#47-114 with a diameter of \SI{25.4}{\milli\metre} and a thickness of \SI{9.5}{\milli\metre}.}.
 \begin{figure}[!t]
 	\centering
+	\ForceRemakeNext
 	\begin{tikzpicture}[remember picture]
-	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror"}.pdf}};
+	\node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[width=0.97\textwidth]{{"mirror\figsuffix"}.pdf}};
 	
 	% left four
 	\begin{scope}[x={(image1.south east)},y={(image1.north west)}]
