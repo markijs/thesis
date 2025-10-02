@@ -301,22 +301,22 @@ labelfont={small,bf}
 
 % Section title formatting
 \titleformat{\section}
-{\normalfont\Large\scshape\raggedright} % Section titles in small caps
+{\normalfont\large\scshape\raggedright} % Section titles in small caps
 {\thesection}               % The section number
 {1em}                       % Spacing between number and title
-{#1} 
+{\setstretch{0.95}#1} 
 
 % Subsection title formatting
 \titleformat{\subsection}
 {\normalfont\normalsize\scshape\raggedright} % Subsection titles in small caps
 {\thesubsection}                 % The subsection number
 {1em}                            % Spacing between number and title
-{#1} 
+{\setstretch{0.95}#1} 
 
 % Adjusting space above and below titles
 \titlespacing*{\chapter}{0pt}{50pt}{40pt}
 \titlespacing*{\section}{0pt}{20pt}{10pt}
-\titlespacing*{\subsection}{0pt}{15pt}{10pt}
+\titlespacing*{\subsection}{0pt}{16pt}{8pt}
 
 
 
@@ -353,8 +353,8 @@ labelfont={small,bf}
 \fancyfoot[LE]{\thepage} % Page number on the left
 
 % Optional: if you want headers with chapter/section names
-\fancyhead[LO]{\scshape\nouppercase{\rightmark}} % Section name on odd pages
-\fancyhead[RE]{\scshape\nouppercase{\leftmark}}  % Chapter name on even pages
+\fancyhead[RO]{\scshape\nouppercase{\rightmark}} % Section name on odd pages
+\fancyhead[LE]{\scshape\nouppercase{\leftmark}}  % Chapter name on even pages
 
 % this makes sure chapters start on the right side
 \usepackage{emptypage}
@@ -374,13 +374,13 @@ labelfont={small,bf}
 \renewcommand{\cftsubsecfont}{\normalfont\normalsize\scshape} % Subsections: Normal size small caps
 
 % Adjust spacing for ToC entries
-\iffalse
-\setlength{\cftbeforechapskip}{2pt}   % Space before chapters
-\setlength{\cftbeforesecskip}{8pt}      % Space before sections
-\setlength{\cftbeforesubsecskip}{2pt}   % Space before subsections
-\setlength{\cftbeforefigskip}{0pt}      % Space before figures
-\setlength{\cftbeforetabskip}{0pt}      % Space before tables
-\fi
+%\iffalse
+%\setlength{\cftbeforechapskip}{2pt}   % Space before chapters
+\setlength{\cftbeforesecskip}{-6pt}      % Space before sections
+\setlength{\cftbeforesubsecskip}{-6pt}   % Space before subsections
+%\setlength{\cftbeforefigskip}{0pt}      % Space before figures
+%\setlength{\cftbeforetabskip}{0pt}      % Space before tables
+%\fi
 
 % ***************************** Mark IJspeert ******************************
 
@@ -988,8 +988,8 @@ labelfont={small,bf}
 
 % === Manual force-rebuild switch ===
 \newif\ifforceremake
-%\forceremakefalse
-\forceremaketrue           % set \forceremaketrue to enable the trigger
+\forceremakefalse
+%\forceremaketrue           % set \forceremaketrue to enable the trigger
 
 % Call this right before a picture you want rebuilt
 \newcommand{\ForceRemakeNext}{%

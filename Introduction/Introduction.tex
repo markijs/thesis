@@ -9,7 +9,33 @@
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:Introduction}
 
-\blockquote[\begin{flushright}\vspace{-0.0\baselineskip}— E. Schrödinger \end{flushright}][]{``\emph{The world is given to me only once, not one existing and one perceived. Subject and object are only one. The barrier between them cannot be said to have broken down as a result of recent experience in the physical sciences, for this barrier does not exist.}"} 
+\blockquote[\begin{flushright}\vspace{-0.0\baselineskip}\textsc{— E. Schrödinger (1887--1961)} \end{flushright}][]{``\emph{I would not call [entanglement] one but rather the characteristic trait of quantum mechanics, the one that enforces its entire	departure from classical lines of thought.}"} 
+\vspace{2em}
+Since the early days of quantum mechanics, entanglement has stood out as one of its most striking and counter-intuitive features. Originally described by Einstein, Podolsky and Rosen as a paradox~\cite{PhysRev.47.777}, it has reshaped our understanding of physical reality---from Bell’s theorem and the CHSH inequality~\cite{Bell1964,Clauser1969}
+to modern, loophole-free tests of local realism~\cite{Hensen2015,Giustina2015,Shalm2015}. Entanglement is now understood not merely as a peculiarity, but as a fundamental feature of nature---and a resource to be harnessed. It underpins many powerful applications of quantum information science, including quantum tele\-por\-ta\-tion~\cite{Bennett1993}, entanglement swapping \cite{ukowski1993} and device-independent cryptography~\cite{Acn2007}.
+
+\section[From entanglement to quantum networks]{From entanglement to quantum networks}
+These developments have led to the notion of a quantum network: a distributed architecture in which distant nodes exchange and process quantum information mediated by entanglement~\cite{Kimble2008,Wehner2018}. Such networks promise secure communication through quantum key distribution~\cite{Bennett1987,PhysRevLett.67.661}, \iffalse entanglement-enhanced quantum sensing and clock synchronisation~\cite{Giovannetti2011Metrology} and the interconnection of modular quantum processors for distributed computation~\cite{Monroe2014MUSIQC,Briegel1998Repeater}.
+\fi
+
+\iffalse
+the extension of quantum computers via modular architectures,\cite{Monroe2014MUSIQC,Briegel1998Repeater,Duan2001DLCZ}
+and ultimately a quantum internet capable of tasks impossible with classical resources.\cite{Kimble2008QI,Wehner2018QI}
+Demonstrations over metropolitan and inter-city scales already illustrate feasibility—including fielded QKD networks in Vienna and Tokyo\cite{Peev2009SECOQC,Sasaki2011TokyoQKD} and satellite-assisted entanglement distribution over thousands of kilometres\cite{Yin2017Satellite,Liao2017Satellite}—while global networks remain a central long-term goal.
+
+\fi
+
+\iffalse
+
+\section{Atom–photon interfaces as a route to scalable networking}
+At the heart of any quantum network lies the challenge of connecting stationary quantum memories with flying qubits of light. Photons are the natural choice for transmitting quantum information across long distances, thanks to their speed and resilience to decoherence. However, they require an efficient and controllable interface to stationary systems where information can be stored and processed.
+
+Several physical platforms are under active development, including quantum dots, color centers in solids, trapped ions, and neutral atoms. Each offers distinct advantages and limitations in terms of coherence times, optical properties, and scalability. Neutral atoms, in particular, present a compelling combination of long-lived internal states, well-understood cooling and trapping techniques, and compatibility with scalable optical architectures.
+
+This thesis focuses on neutral atoms coupled to a high-finesse optical cavity, aiming to realize a deterministic atom–photon interface. By combining single-atom optical dipole traps with cavity quantum electrodynamics (CQED), we explore a route toward efficient single-photon generation and atom–photon entanglement, both essential primitives for quantum networking.
+
+
+
 
 Entanglement is a counterintuitive, perhaps distressing, yet spectacular property of quantum physics that has long puzzled scientists and philosophers alike. Its implications were first discussed by Albert Einstein in 1935, in a joint paper with Boris Podolsky and Nathan Rosen \cite{PhysRev.47.777}. For a long time, the majority of physicists considered the argument to be of historical interest, yet of little relevance to modern quantum mechanics. Remarkably, more than 80 years after its publication, the article is still cited hundreds of times each year. Today we live in an era in which entanglement is no longer looked upon as a mathematical artefact nor as one of the ``\textit{ridiculous consequences}'' of quantum theory that were envisioned by Erwin Schr\"odinger in 1952 \cite{schrodinger}. In fact, current experiments exploit the properties of entanglement to resolve important questions regarding the foundations of quantum theory itself \cite{Hensen2015,Giustina2015,Shalm2015}. Our increased understanding of how we may take advantage of phenomena such as entanglement in data processing and transmission also fostered the emergence of two pioneering fields: quantum computation and quantum communication \cite{nielsen_chuang_2010}. At the heart of these disciplines lies the notion that the specific rules of quantum physics offer an alternative way of calculating and communicating, for which no classical counterpart exists.
 
@@ -20,6 +46,7 @@ A promising technology is that of a quantum network, which is designed for the c
 >> section about dipole traps and cavities <<
 
 The goal of this doctoral research is then to combine such atom traps with an optical cavity for the purpose of deterministic entanglement generation---a necessary step towards the realisation of a prototype quantum network based on trapped atoms in optical cavities.
+\fi
 
 \iffalse
 The latter platform is particularly relevant to the photon generation scheme pursued here. Following the development of STIRAP techniques in molecular physics \cite{Gaubatz1990}, Hennrich et al.\ \cite{Hennrich2000} demonstrated stimulated Raman scattering into a cavity mode with a single \textsuperscript{85}Rb atom, leading to the first cavity-based V-STIRAP photon source by Kuhn et al.\ in 2002 \cite{Kuhn2002}. These early setups enabled deterministic photon production and later gave rise to additional capabilities such as quantum interference \cite{Legero2004}, wavepacket shaping \cite{Nisbet2011}, and quantum feedback \cite{Barter2016}. The same techniques have since been extended to polarisation control \cite{Wilk2007}, cavity-based quantum logic \cite{Holleczek2015}, and quantum network nodes combining atoms or ions with optical or fibre interfaces \cite{Ritter2012, Keller2004, Blatt2004}. The work in this thesis builds on this progress by implementing a compact high-finesse resonator optimised for V-STIRAP photon generation from neutral atoms.
