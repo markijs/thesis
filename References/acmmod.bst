@@ -678,32 +678,39 @@ FUNCTION {booklet}
 
 FUNCTION {inbook}
 { output.bibitem
+  % 1) Authors (with year)
   author empty$
     { format.editors "author and editor" output.check }
-    { format.authors output.nonnull
+    { format.authors "author" output.check
       crossref missing$
         { "author and editor" editor either.or.check }
         'skip$
       if$
     }
   if$
+
+  % 2) Part/chapter/section title (ends with a period via new.block)
   new.block
-  format.btitle "title" output.check
-  format.edition output
-  crossref missing$
-    { format.bvolume output
-      new.block
-      format.number.series output
-      new.sentence
-      publisher "publisher" output.check
-      address output
-    }
-    { new.block
-      format.book.crossref output.nonnull
-    }
+  format.title "title" output.check
+
+  % 3) In <booktitle>, then ed./vol./series, then ch./pp.
+  new.block
+  booktitle empty$
+    { format.btitle "title" output.check }             % fallback if no booktitle
+    { format.in.ed.booktitle "booktitle" output.check }% prints: In {\em <booktitle>}
   if$
-  %format.date "year" output.check
+  % preferred order here:
+  format.edition output
+  format.bvolume output
+  format.number.series output
   format.chapter.pages "chapter and pages" output.check
+
+  % 4) Publisher / address
+  new.block
+  publisher "publisher" output.check
+  address output
+
+  % DOI / note
   format.doi output
   new.block
   note output
@@ -787,7 +794,7 @@ FUNCTION {mastersthesis}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  format.title "title" output.check
+  format.btitle "title" output.check    % <-- was: format.title
   new.block
   "Master's thesis" format.thesis.type output.nonnull
   school "school" output.check
