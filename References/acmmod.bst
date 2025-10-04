@@ -191,8 +191,23 @@ INTEGERS { nameptr namesleft numnames }
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { new.block
-      "\url{https://doi.org/" doi * "}" *
+    { new.sentence
+      "\href{https://doi.org/" doi * "}{\url{" *
+      doi *
+      "}}" *
+    }
+  if$
+}
+
+FUNCTION {format.doi.labeled}
+{ doi empty$
+    { "" }
+    { new.sentence
+      "{\sc doi:} "                                  % label
+      "\href{https://doi.org/" doi * "}{\url{" *    % keep it one continuous string
+      doi *
+      "}}" *                                         % close \url and \href
+      *                                              % glue label + href
     }
   if$
 }
@@ -622,7 +637,7 @@ FUNCTION {article}
       format.pp.pages output
     }
   if$
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -655,7 +670,7 @@ FUNCTION {book}
     }
   if$
   %format.date "year" output.check
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -670,7 +685,7 @@ FUNCTION {booklet}
   howpublished output
   address output
   %format.date output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -711,7 +726,7 @@ FUNCTION {inbook}
   address output
 
   % DOI / note
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -736,7 +751,7 @@ FUNCTION {incollection}
     { format.incoll.inproc.crossref output.nonnull }
   if$
   format.chapter.pages output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -759,7 +774,7 @@ FUNCTION {inproceedings}
     { format.incoll.inproc.crossref output.nonnull }
   if$
   format.pp.pages output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -784,7 +799,7 @@ FUNCTION {manual}
   if$
   address output
   %format.date output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -800,7 +815,7 @@ FUNCTION {mastersthesis}
   school "school" output.check
   address output
   %format.date "year" output.check
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -814,7 +829,7 @@ FUNCTION {misc}
   howpublished new.block.checka
   howpublished output
   %format.date output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -831,7 +846,7 @@ FUNCTION {phdthesis}
   school "school" output.check
   address output
   %format.date "year" output.check
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -852,7 +867,7 @@ FUNCTION {proceedings}
     { organization output }
   if$
   publisher output
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry
@@ -868,7 +883,7 @@ FUNCTION {techreport}
   institution "institution" output.check
   address output
   %format.date "year" output.check
-  format.doi output
+  format.doi.labeled output
   new.block
   note output
   fin.entry

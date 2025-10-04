@@ -337,11 +337,11 @@ where $M$ is the mass matrix, $C$ the damping matrix, $K$ the stiffness matrix, 
 \begin{equation}
 M \ddot{\vec{x}}(t) + K \vec{x}(t) = \vec{0}\,.
 \end{equation}
-We then seek harmonic solutions of the form $\vec{x}(t) = \vec{\phi} \, \mathrm{e}^{i \omega t}$, where $\vec{\phi}$ is a mode shape vector and $\omega$ the angular frequency. Substitution yields the generalised eigenvalue problem:
+We then seek harmonic solutions of the form $\vec{x}(t) = \vec{\phi} \, \mathrm{e}^{i \omega t}$, where $\vec{\phi}$ is a mode shape vector and $\omega$ the angular frequency. Substitution yields
 \begin{equation}
-\bigl( K - \omega^{2} M \bigr)  \vec{\phi} = \vec{0}\,.
+\bigl( K - \omega^{2} M \bigr)  \vec{\phi} = \vec{0}\,,
 \end{equation}
-Non-trivial solutions exist only when $\det(K - \omega^{2} M)=0$, an equation which yields $n$ discrete natural frequencies $\omega_{i}$ and their associated mode shape eigenvectors $\vec{\phi}_{i}$ for $i \in \{ 1, \dots, n\}$. Collecting the eigenvectors as columns results in the following modal matrix:
+which is the generalised eigenvalue problem. Non-trivial solutions exist only when $\det(K - \omega^{2} M)=0$, an equation which yields $n$ discrete natural frequencies $\omega_{i}$ and their associated mode shape eigenvectors $\vec{\phi}_{i}$ for $i \in \{ 1, \dots, n\}$. Collecting the eigenvectors as columns yields the following modal matrix:
 \begin{equation}
 \Phi = \begin{bmatrix}  \vec{\phi}_{1} & \vec{\phi}_{2} & \cdots & \vec{\phi}_{n} \end{bmatrix}.
 \end{equation}
@@ -364,7 +364,7 @@ This allows us to perform a transformation $\vec{x}(t) = \Phi \vec{q}\hspace{0.1
 \begin{equation}
 M \Phi \ddot{\vec{q}} + C \Phi  \dot{\vec{q}} + K \Phi  \vec{q} = \vec{f}(t)\,.
 \end{equation}
-Multiplication from the left by $\Phi^{\!\top}$ and making use of the relations in \autoref{orthonormal}, we obtain\footnote{It is important to note that this decoupling is only possible if the system is classically damped, meaning that its damping matrix $C$ is also diagonalised by the undamped modal matrix $\Phi$.}
+Left-multiplying by $\Phi^{\!\top}$ and using the relations in \autoref{orthonormal}, we obtain\footnote{It is important to note that this decoupling is only possible if the system is classically damped, meaning that its damping matrix $C$ is also diagonalised by the undamped modal matrix $\Phi$.}
 \begin{equation}
 \label{transformation}
 \ddot{\vec{q}} + 2 Z \Omega \dot{\vec{q}} + \Omega^{2} \vec{q} = \Phi^{\!\top} \!\vec{f}(t)\,,
@@ -375,16 +375,16 @@ where $Z=\diag(\zeta_1, \cdots, \zeta_n)$ contains the modal damping ratios $\ze
 \end{equation}
 We see from \autoref{transformation} that each modal coordinate $q_{i}(t)$ satisfies
 \begin{equation}\label{eq:modal-scalar}
-\ddot{q}_{i}(t) + 2 \zeta_{i} \omega_{i} \dot{q}_{i}(t) + \omega_{i}^{2} q_{i}(t) = \vec{\phi}_{i}^{\,\top} \!\vec{f}(t)\,.
+\ddot{q}_{i}(t) + 2 \zeta_{i} \omega_{i} \dot{q}_{i}(t) + \omega_{i}^{2} q_{i}(t) = \vec{\phi}_{i}^{\,\top} \!\vec{f}(t)\,,
 \end{equation}
-The system has therefore been decoupled into $n$ independent second-order oscillators.
+which represents the decomposition into independent harmonic oscillators.
 
 \section{Transfer functions}
-In practice, we are often interested in the dynamical response of a system, which is characterised by transfer functions between scalar inputs and outputs. These functions are essential for performing frequency response analyses and assessing mechanical stability. Suppose a scalar drive $u(t)$ is applied at a given degree of freedom or location represented by the input vector $\vec{b}$, so that
+In practice, we are often interested in the dynamical response of a system, which is characterised by transfer functions between scalar inputs and outputs. These functions are essential for performing frequency response and stability analyses. Suppose a scalar drive $u(t)$ is applied at a given degree of freedom or location represented by the input vector $\vec{b}$, so that
 \begin{equation}
 \vec{f}(t) = \vec{b}  u(t)\,.
 \end{equation}
-Similarly, the output $y(t)$ is a scalar measurement of displacement defined by
+Similarly, the output $y(t)$ is a scalar measurement of displacement:
 \begin{equation}
 y(t) = \vec{c}^{\top} \!\vec{x}(t) = \vec{c}^{\top} \!\Phi  \vec{q}\hspace{0.1em}(t)\,,
 \end{equation}
@@ -490,7 +490,7 @@ of an undamped system features $n$ pairs of complex conjugate poles and $n - 1$ 
 	},
 	ymin=-200,
 	ymax=20,
-	height=4cm
+	height=4.5cm
 	]
 	
 	\addplot[thick,rainbow1of8] table [x expr=\thisrowno{0}/1000, y expr=\thisrowno{4}, col sep=comma] {tf_traces_downsampled.csv};
@@ -517,7 +517,7 @@ of an undamped system features $n$ pairs of complex conjugate poles and $n - 1$ 
 	}
 	\label{fig:tf_groupplot}
 \end{figure}
-The system matrices are chosen to yield exact natural frequencies at \(\nu_1 = \SI{1}{\kilo\hertz}\) and \(\nu_2 = \SI{2}{\kilo\hertz}\), with the mass and stiffness matrices given by
+The system matrices are chosen to yield exact natural frequencies at \(\nu_1 = \SI{1}{\kilo\hertz}\) and \(\nu_2 = \SI{2}{\kilo\hertz}\), with
 \begin{equation}
 \label{massandstiffness}
 M = \begin{bmatrix} 1 & 0 \\ 0 & 0.5625 \end{bmatrix}  \si{\kilogram}\,, \qquad
@@ -541,11 +541,13 @@ The effective modal mass ratio or modal participation fraction $\mu_i(\vec{r}\,)
 \end{equation}
 such that the modal mass ratios satisfy $\sum_{i=1}^{n} \mu_i(\vec{r}\,)=1$. The last equality in \autoref{modalmassratio} follows from the fact that
 \begin{align}
+\begin{split}
 \sum_{i=1}^{n} m_i^{\mathrm{eff}}(\vec{r}\,)
 &=\sum_{i=1}^{n} \bigl(\vec{\phi}_i^{\,\top}\!M\vec{r}\,\bigr)^2\\
 &= \bigl(\Phi^{\!\top}\!M\vec{r}\,\bigr)^{\!\top}\bigl(\Phi^{\!\top}\!M\vec{r}\,\bigr)\\
-&= \vec{r}^{\top} \!M \underbrace{\Phi\Phi^{\!\top} M}_{I} \vec{r}\\
-&= \vec{r}^{\top}\!M\vec{r}\,.
+&= \vec{r}^{\top} \!M \underbrace{\Phi\Phi^{\!\top} M}_{I} \vec{r}
+= \vec{r}^{\top}\!M\vec{r}\,.
+\end{split}
 \end{align}
 \autoref{modalmassratio} can be simplified further if $\vec{r}$ corresponds to unit translation of the entire structure in one Cartesian direction, in which case the effective modal masses for that translation sum to the total physical mass $M_\mathrm{tot}$ of the system: $\sum_{i=1}^{n} m_i^{\mathrm{eff}}(\vec{r}\,)=\vec{r}^{\top}\!M\vec{r}=M_{\mathrm{tot}}$.
 
