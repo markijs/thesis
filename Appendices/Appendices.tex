@@ -129,7 +129,7 @@ We note that the rank-$0$, rank-$1$ and rank-$2$ spherical components relate dir
 \label{wignereckart}
 \langle j\, m \vert  T^{(k)}_q \vert j'\, m' \rangle = (-1)^{2k}\langle j \| T^{(k)} \| j' \rangle \langle j\, m \vert j'\, m'; k\, q \rangle\,.
 \end{align}
-This factorisation involves a Clebsch–Gordan coefficient $\langle j\, m \vert j'\, m'; k\, q \rangle$ that encapsulates all orientation dependence of the matrix element and the so-called reduced matrix element $\langle j \| T^{(k)} \| j' \rangle$, which does not depend on $m$, $m′$, nor $q$ and is therefore orientation independent. The inverse relation is given by
+This factorisation involves a Clebsch–Gordan coefficient $\langle j\, m \vert j'\, m'; k\, q \rangle$ that encapsulates all orientation dependence of the matrix element and the so-called reduced matrix element $\langle j \| T^{(k)} \| j' \rangle$, which does not depend on $m$, $m′$, nor $q$ and is therefore orientation independent. The inverse relation is
 \begin{align}
 \label{inversewigner}
 \langle j \| T^{(k)} \| j' \rangle = (-1)^{2k}\sum_{m'q} \langle j\, m \vert  T^{(k)}_q \vert j'\, m' \rangle \langle j\, m \vert j'\, m'; k\, q \rangle\,.
@@ -139,7 +139,7 @@ Through the use of the Wigner-Eckart theorem, one can derive the following relat
 \label{ccreducedmatrixelement}
 \langle j' \| T^{(k)} \| j \rangle = (-1)^{j'-j}\sqrt{\frac{2j+1}{2j'+1}}\langle j \| T^{(k)} \| j' \rangle^*\,.
 \end{align}
-Now assume that we have a reduced matrix element defined as $\langle j \| T^{(k)} \| j' \rangle \coloneqq \langle j_1\, j_2\, j \| T^{(k)} \| j_1'\,j_2'\,j' \rangle$ between angular momentum states of $\hat{J}=\hat{J}_1+\hat{J}_2$. If $T^{(k)}$ only acts on the states that correspond to $\hat{J}_1$ (and not $\hat{J}_2$), then $\langle j \| T^{(k)} \| j' \rangle$ can be written in terms of a reduced matrix element that involves only $j_1$ and $j_1'$:
+Now assume that we have a reduced matrix element defined as $\langle j \| T^{(k)} \| j' \rangle \coloneqq \langle j_1\, j_2\, j \| T^{(k)} \| j_1'\,j_2'\,j' \rangle$ between angular momentum states of $\hat{J}=\hat{J}_1+\hat{J}_2$. If $T^{(k)}$ only acts on the states that correspond to $\hat{J}_1$ (and not $\hat{J}_2$), then $\langle j \| T^{(k)} \| j' \rangle$ can be written in terms of a reduced matrix element that involves only the quantum numbers $j_1$ and $j_1'$:
 \begin{align}
 \label{reducedmatrixelementonecomponent}
 \begin{split}
@@ -276,7 +276,7 @@ A standard approach for entangling two distant atoms relies on the interference 
 \begin{equation}
 \color{black} \ket{\Psi}_\mathrm{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) \,.
 \end{equation}
-Via the Hong–Ou–Mandel effect \cite{HOM}, a Bell-state measurement on the two photons projects the atoms onto one of two maximally entangled states:
+Via the Hong–Ou–Mandel effect~\cite{HOM}, a Bell-state measurement on the two photons projects the atoms onto one of two maximally entangled states:
 \begin{equation}
 \begin{split}
 \color{black} \ket{\Psi^+}_\mathrm{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x + \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) \,, \\ \color{black} \ket{\Psi^-}_\mathrm{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x - \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) \,.
@@ -303,7 +303,7 @@ Which of these specific Bell states is realised depends on the pair of detectors
 	\caption[The quantisation direction and supported polarisation modes in an optical cavity]{The quantisation direction (red) is along the axis of an optical cavity, which only supports the $\sigma^+$ and $\sigma^-$ polarisation modes. A perpendicular laser (blue) drives $\pi$ and $\sigma^+/\sigma^-$ transitions for horizontally and vertically polarised light, respectively.} 
 	\label{fig:cavity} 
 \end{wrapfigure}
-of the emitted photon pair. Deterministic schemes include the direct absorption of a photon emitted by one atom into a cavity mode coupled to a second atom. In the ideal impedance-matched regime, this transfers the photonic excitation with unit probability, mapping it onto the second atom and thereby generating entanglement between the emitters \cite{Cirac1997,Dilley2012}. Another approach for two neutral atoms trapped inside the same cavity is the carving technique, in which weak photon pulses are reflected from the cavity to remove the separable components of an initialised two-atom state \cite{Welte2017}.
+of the emitted photon pair. Deterministic schemes include the direct absorption of a photon emitted by one atom into a cavity mode coupled to a second atom. In the ideal impedance-matched regime, this transfers the photonic excitation with unit probability, mapping it onto the second atom and thereby generating entanglement between the emitters~\cite{Cirac1997,Dilley2012}. Another approach for two neutral atoms trapped inside the same cavity is the carving technique, in which weak photon pulses are reflected from the cavity to remove the separable components of an initialised two-atom state~\cite{Welte2017}.
 
 \chapter{Stochastic Cavity Loading}
 \label{app:stochasticcavityloading}
@@ -343,7 +343,7 @@ We then seek harmonic solutions of the form $\vec{x}(t) = \vec{\phi} \, \mathrm{
 \end{equation}
 which is the generalised eigenvalue problem. Non-trivial solutions exist only when $\det(K - \omega^{2} M)=0$, an equation which yields $n$ discrete natural frequencies $\omega_{i}$ and their associated mode shape eigenvectors $\vec{\phi}_{i}$ for $i \in \{ 1, \dots, n\}$. Collecting the eigenvectors as columns yields the following modal matrix:
 \begin{equation}
-\Phi = \begin{bmatrix}  \vec{\phi}_{1} & \vec{\phi}_{2} & \cdots & \vec{\phi}_{n} \end{bmatrix}.
+\Phi = \begin{bmatrix}  \vec{\phi}_{1} & \vec{\phi}_{2} & \cdots & \vec{\phi}_{n} \end{bmatrix}\,.
 \end{equation}
 The eigenvectors satisfy the following orthogonality relations with respect to both $M$ and $K$:
 \begin{equation}
@@ -424,7 +424,7 @@ From \autoref{freqtransferfunction} we see that resonances occur near $\omega=\o
 \begin{equation}
 H(i\omega) = \sum_{i=1}^{n} \frac{\alpha_{i}}{\omega_{i}^{2}-\omega^{2}}\,
 \end{equation}
-of an undamped system features $n$ pairs of complex conjugate poles and $n - 1$ pairs of complex conjugate zeros, such that between every two poles, there is a zero \cite{Aphale2007}. \autoref{fig:tf_groupplot} shows the frequency response function of a two-degree-of-freedom mechanical system.
+of an undamped system features $n$ pairs of complex conjugate poles and $n - 1$ pairs of complex conjugate zeros, such that between every two poles, there is a zero~\cite{Aphale2007}. \autoref{fig:tf_groupplot} shows the frequency response function of a two-degree-of-freedom mechanical system.
 \begin{figure}[t!]
 	\centering
 	\begin{tikzpicture}
