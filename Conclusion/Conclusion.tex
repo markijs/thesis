@@ -9,11 +9,82 @@
 \addtocontents{toc}{\vskip-6pt\par\noindent\protect\textcolor{gray75}{\protect\rule{\textwidth}{0.5pt}}\par}
 \label{chap:Conclusion}
 
+
+
+The research presented in this thesis has pursued a single, coherent objective: to develop and integrate the essential theoretical, algorithmic and experimental components required for a cavity-integrated neutral-atom platform.  By combining studies of optical dipole trapping, holographic beam shaping and Fabry–Pérot resonator engineering, the work produces a mutually compatible set of tools that together enable deterministic atom–photon interfacing in a mechanically robust apparatus.
+
+\section{Summary of key findings}
+
+\section*{Summary of key findings}
+
+This thesis has produced a set of interlocking results that collectively advance the development of cavity-integrated neutral-atom systems.  The principal quantitative findings are summarised below.
+
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+	\item \textbf{Enhanced single-atom loading and trap lifetime.}  
+	By increasing the depth of the optical dipole potential, the transition from fast loading to long-lived trapping was demonstrated.  The loading timescale improved from approximately $2.1~\mathrm{s}$ to a measured lifetime of $7.9~\mathrm{s}$, yielding a single-site filling fraction of $(79 \pm 2)\,\%$ without atom rearrangement.  This result surpasses the conventional collisional-blockade limit of $0.5$, offering a practical route to defect-free arrays.
+	
+	\item \textbf{Quantitative benchmarking of hologram-generation algorithms.}  
+	A systematic comparison of iterative Fourier–transform algorithms showed that weighted Gerchberg–Saxton (GSW) and hybrid GSW–MRAF methods achieved the best overall performance for $4\times4$ trap arrays.  The GSW approach maintained a power efficiency of about $90.3\,\%$, an intensity coefficient of variation as low as $4.2\times10^{-7}$, and the fastest convergence time of $0.8~\mathrm{s}$ among all tested algorithms.  These metrics establish a reliable computational framework for generating uniform, reconfigurable trap arrays.
+	
+	\item \textbf{Realisation of a high-finesse Fabry–Pérot resonator.}  
+	The cavity, formed by a high-transmission near-planar output coupler ($T = 38.2~\mathrm{ppm}$) and a low-transmission curved micro-mirror ($T = 1.74~\mathrm{ppm}$), exhibited a measured finesse of $F = (7.51 \pm 0.09)\times10^{4}$ and linewidth $\Delta\nu_{\mathrm{A}} = 4.20~\mathrm{MHz}$.  The corresponding coupling parameters $(g_{\mathrm{max}},\gamma,\kappa) = 2\pi\times(11.5,\,3.03,\,2.10)~\mathrm{MHz}$ yield a single-atom cooperativity $C = 10.4$, firmly within the strong-coupling regime required for cavity quantum electrodynamics.
+	
+	\item \textbf{Mechanically stable, cavity-compatible architecture.}  
+	Finite-element modal analysis of a legacy fibre-tip resonator mount revealed a dominant resonance at $267~\mathrm{Hz}$, limiting feedback bandwidth.  A redesigned glass-substrate mount shifted the fundamental resonance to $1.89~\mathrm{kHz}$ and reduced maximum displacement by nearly two orders of magnitude, allowing higher servo bandwidths for cavity-length stabilisation.  The structure provides optical access suitable for high-NA trapping beams.
+	
+	\item \textbf{Integration with a compact pyramidal magneto-optical trap.}  
+	A four-mirror pyramidal MOT module was fabricated with a $0.3$–$0.4~\mathrm{mm}$ apex aperture.  Diffraction modelling confirmed that residual on-axis intensity is limited to below $7\,\%$ of the incident beam at $2$–$5~\mathrm{mm}$ from the apex, preserving MOT capture volume.  Preliminary fluorescence imaging under a quadrupole field gradient of $11.3~\mathrm{G\,cm^{-1}}$ confirmed cold-atom accumulation near the pyramid centre, verifying the module’s operational viability.
+\end{enumerate}
+
+Together, these quantitative results demonstrate the feasibility of combining reconfigurable dipole-trap arrays with a high-finesse resonator in a mechanically robust, cavity-compatible environment—an essential step towards deterministic atom–photon interfaces.
+
+
+\noindent\textbf{Improved single-atom loading and trap control.}
+Investigations into both static and dynamically controlled optical dipole traps have shown that trap-depth engineering enables a transition from rapid loading dynamics to extended trap lifetimes.  This approach raises the time-averaged single-site occupation probability substantially and reduces or eliminates the need for active atom rearrangement when preparing defect-free arrays.
+
+\noindent\textbf{Practical holographic control for large arrays.}
+A systematic benchmarking of kinoform-generation algorithms identified weighted Gerchberg–Saxton variants and hybrid GSW–MRAF schemes as offering the best compromise between computational speed, optical power efficiency and trap-to-trap homogeneity for typical experimental targets.  These methods provide a pragmatic route to produce large, uniform optical tweezer arrays using phase-only spatial light modulators.
+
+\noindent\textbf{High-finesse Fabry–Pérot resonator for strong coupling.}
+Design, fabrication and characterisation of a Fabry–Pérot resonator yielded optical parameters appropriate for cavity quantum electrodynamics experiments.  The chosen mirror geometry and outcoupling strategy produce strong optical confinement while retaining practical access for high-numerical-aperture trapping fields, placing the system within the parameter regime required for deterministic single-photon generation and cavity-mediated state transfer.
+
+\noindent\textbf{Cavity-compatible mechanical and atomic subsystems.}
+Finite-element modal analysis and experimental tests informed a glass-substrate resonator mount with significantly reduced low-frequency motion and a favourable modal spectrum for high-bandwidth length stabilisation.  A compact pyramidal magneto-optical trap was designed and fabricated to supply cold atoms in a geometry compatible with intra-cavity dipole trapping.  Preliminary MOT fluorescence measurements and compatibility checks indicate the building blocks can be integrated within a single ultra-high-vacuum apparatus.
+
+\noindent Together, these results deliver a coherent experimental architecture in which reconfigurable single-atom arrays and a high-cooperativity optical resonator can be combined to realise cavity-enhanced atom–photon interfaces.
+
+\section{Outlook}
+
+The work reported here opens several concrete technical and scientific pathways.  Below I outline the most immediate and impactful next steps, grouped by theme.
+
+\subsection{Completing integration: cavity loading and deterministic positioning}
+The immediate milestone is reliable transfer of single atoms from the pyramidal MOT (or a near-field tweezer array) into intra-cavity trapping sites and deterministic positioning at cavity antinodes.  This requires quantitative flux and loading-rate measurements, optimisation of spatial mode overlap between the trap and the cavity mode, and real-time fluorescence-based feedback to halt loading once the desired occupancy is achieved.  Deterministic placement is a prerequisite for repeatable studies of atom–cavity coupling and subsequent quantum-protocol demonstrations.
+
+\subsection{Quantum protocols: single-photon sources and entanglement}
+With atoms positioned inside the resonator, the apparatus is directly suited to cavity-mediated quantum operations.  Implementing vacuum-stimulated Raman adiabatic passage (V-STIRAP) will enable deterministic single-photon emission and high-fidelity atom–photon state transfer.  Building on this, protocols for cavity-mediated entanglement between atoms — whether neighbouring or separated by a photonic channel — can be pursued, establishing elementary primitives for quantum networking.
+
+\subsection{Control and stabilisation: bandwidth and automation}
+Increasing the cavity-length stabilisation bandwidth, leveraging the quieter modal spectrum of the glass-substrate mount, will reduce sensitivity to environmental vibration and enable longer coherent interaction windows.  Parallel efforts to automate hologram calibration — integrating in-situ intensity measurements with kinoform optimisation loops — will correct static aberrations and maintain trap uniformity during extended experimental runs.  These control upgrades will substantially improve experimental duty cycle and reproducibility.
+
+\subsection{Scalability and hybrid architectures}
+The modular and holographically controlled nature of the platform supports scale-up to tens or hundreds of traps.  Future work could explore multi-resonator configurations, fibre or waveguide coupling for flexible photonic interfaces, and multiplexed out-coupling schemes.  Hybrid free-space / fibre-cavity approaches may broaden the platform’s applicability to distributed and metropolitan-scale quantum-processing tasks.
+
+\bigskip
+
+The thesis aimed to weave theory, algorithms and experiment into a single, functioning architecture rather than to pursue isolated technical achievements.  By improving single-atom loading, establishing practical holographic control and engineering a high-cooperativity, mechanically stable cavity assembly, the work reduces several critical barriers to deterministic cavity-integrated neutral-atom systems.  This integrated platform offers a realistic route towards cavity-mediated quantum operations and forms a solid foundation for continued progress towards scalable quantum networks built from neutral atoms.
+
+
+
+
+
+
+
+\iffalse
 Complementing this mechanical assembly, we have developed and characterised a pyramidal MOT tailored to the restricted optical access of the cavity setup. Diffraction simulations guided the choice of a sub-millimetre aperture size, balancing MOT capture volume against atomic flux. A polishing and assembly procedure for right-angle prism mirrors was established, yielding a reproducible method to fabricate compact pyramidal reflectors with well-defined apertures. Initial stand-alone tests confirmed the formation of a cold-atom cloud within the pyramidal MOT under UHV conditions, with fluorescence images providing direct evidence of stable operation.
 
 While a quantitative flux characterisation of the pyramidal MOT and direct loading of intra-cavity dipole traps remain tasks for future work, the present architecture establishes a solid experimental foundation for deterministic single-atom trapping and cavity-enhanced atom–photon interfaces. This platform opens the way towards scalable implementations of cavity-based quantum networking schemes requiring reliable single-atom loading and stable cavity operation.
 
-\iffalse
+
 This thesis has presented the construction, characterisation and application of a single-photon source that provides exceptional control over the photons themselves.  This system has wide-ranging applications in the field of quantum information, offering a path to preparing many-photon states for use in LOQC and providing the interface between flying and stationary qubits in quantum networks.  \Crefbf{sec:results} briefly summarises the key results found in this work and \crefbf{sec:futureOutlook} discusses the next steps to be taken.
 \pagebreak
 %----------------------------------------------------------------------------------------
