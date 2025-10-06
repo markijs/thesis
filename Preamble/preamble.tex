@@ -997,3 +997,24 @@ labelfont={small,bf}
 	\tikzset{external/remake next}%
 	\fi
 }
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+	{1.75ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\sc}} % or \normalfont\normalsize for plain
+\makeatother
+
+\usepackage{enumitem}
+
+\newcommand{\atombullet}{%
+	\tikz[baseline=-0.6ex, scale=0.13, external/export next=false]{
+		%\draw[line width=0.3pt] (0,0) circle (1);
+		\draw[line width=0.3pt] (0,0) ellipse (1 and .45);
+		\draw[line width=0.3pt, rotate=60] (0,0) ellipse (1 and .45);
+		\draw[line width=0.3pt, rotate=-60] (0,0) ellipse (1 and .45);
+		\fill (0,0) circle (0.18);
+	}%
+}
+
+\setlist[itemize]{label=\atombullet} % now works
