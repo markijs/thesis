@@ -65,6 +65,7 @@ A common stopping condition is that the relative change in error falls below a s
 for some chosen $k$. The GS algorithm is straightforward to implement and performs well in many applications, though it may stagnate in local minima and typically requires modifications (such as MRAF or OMRAF) to achieve improved performance for complex target patterns. A summary of the Gerchberg--Saxton algorithm is shown in \autoref{fig:GS_flowchart}.
 \begin{figure}[t!]
 	\centering
+	\vspace{0.1em}
 	\begin{tikzpicture}[
 	box/.style={
 		draw,
@@ -122,8 +123,10 @@ for some chosen $k$. The GS algorithm is straightforward to implement and perfor
 	-- ($(fft.north)-(0,-0.5)$)
 	-- (fft.north);
 	
+	\node[color=white] at ($(terminate.center)-(0,1.4)$) {x};
+	
+	
 	\end{tikzpicture}
-	\vspace{0.5em}
 	\caption[Flowchart of the Gerchberg--Saxton algorithm]{Flowchart of the Gerchberg--Saxton algorithm. Amplitudes are enforced in alternating planes while the phase evolves iteratively.}
 	\label{fig:GS_flowchart}
 \end{figure}
