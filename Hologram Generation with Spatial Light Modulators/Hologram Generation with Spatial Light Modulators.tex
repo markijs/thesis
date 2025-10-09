@@ -16,12 +16,12 @@ Spatial light modulators (SLMs) have become indispensable tools in modern cold a
 In this chapter, we discuss and test numerical methods for computing kinoforms that produce regular arrays of optical microtraps. The underlying problem is a constrained phase retrieval task: given a known intensity profile in both the input (SLM) and output (target) planes, the goal is to find a phase pattern that transforms one into the other under Fourier propagation. We begin by reviewing a number of iterative Fourier transform algorithms and a gradient descent-based optimisation approach. We then proceed to benchmark their performance in generating optical potentials suitable for single-atom trapping.
 
 \section{Algorithms for hologram generation}
-As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles~\cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised.
+As outlined in \autoref{setupoverview}, we employ a reflective liquid crystal SLM with an active area of $\SI{7.68}{\milli\meter}\times\SI{7.68}{\milli\meter}$ ($\num{512}\times\num{512}$ pixels) to imprint spatially varying phase profiles onto the incident beam. The objective is to engineer a far-field diffraction pattern that closely matches a prescribed target intensity distribution in the trapping plane. Although analytic kinoform solutions can be found for a limited class of target profiles~\cite{Matsumoto2008,Moulder2012}, the general problem of hologram generation is non-trivial and typically requires numerical techniques. The difficulty arises from the incomplete specification of the complex light field in both the input (SLM) and output (target) planes. In the target plane, the intensity is constrained by design, but the phase remains unconstrained. Conversely, in the SLM plane, the incident beam typically has a known Gaussian amplitude profile, while the phase is the degree of freedom to be optimised.
 
 This formulation naturally leads to iterative Fourier transform algorithms (IFTAs), which include the Gerchberg--Saxton (GS) algorithm~\cite{GS} and its numerous refinements, such as weighted GS (GSW)~\cite{DiLeonardo2007}, mixed-region amplitude freedom (MRAF)~\cite{Pasienski2008}, offset-MRAF (OMRAF)~\cite{Gaunt2012}, and softness-OMRAF (SOMRAF)~\cite{somraf}. Alternative approaches include the Floyd--Steinberg error diffusion dithering algorithm~\cite{floyd} and optimisation-based methods such as conjugate gradient minimisation~\cite{Harte2014}. In the following sections, we explain the underlying principles and assess the performance of four representative methods (GS, GSW, MRAF and conjugate gradient minimisation) in generating arrays of high-fidelity optical traps.
 
 \subsection{Gerchberg--Saxton}
-The Gerchberg--Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972~\cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration:
+The Gerchberg--Saxton algorithm is a foundational iterative method in phase retrieval and hologram generation, originally introduced in 1972~\cite{GS}. Unlike gradient-based approaches, the GS algorithm is not a minimisation technique. Instead, it relies on constraining the amplitude of the electric field in each plane while allowing the phase to evolve iteratively. The algorithm starts by defining the complex electric field in the input plane for the first iteration, defined over a grid of $N$ pixels:
 \begin{equation}
 \label{initialein}
 E_{\mathrm{in}}^{(1)} = A_{\mathrm{in}}^{(0)} \exp{i \phi_{\mathrm{in}}^{(0)}}\,,
@@ -30,12 +30,12 @@ where $A_{\mathrm{in}}^{(0)}$ is the fixed amplitude profile of the incident las
 \begin{align}
 \label{forwardfourier}
 \begin{split}
-E_{\mathrm{out}}^{(1)}(x,y) &= \mathcal{F}\left\{ E_{\mathrm{in}}^{(1)} (p,q)\right\} \\&= \frac{1}{N}\sum_{p,q} E_\mathrm{in}^{(1)}(p,q) \exp\Bigl\{-2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{out}}^{(1)} \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)} \Bigr\} \,,
+E_{\mathrm{out}}^{(1)}[x,y] &= \mathcal{F}\left\{ E_{\mathrm{in}}^{(1)} [p,q]\right\} \\&= \frac{1}{N}\sum_{p,q} E_\mathrm{in}^{(1)}[p,q] \exp\Bigl\{-2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{out}}^{(1)} \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)} \Bigr\} \,,
 \end{split}
 \end{align}
-where $(p,q)$ and $(x,y)$ represent the pixel indices in the input and output planes\footnote{Each consisting of $N$ pixels.}, respectively. The resulting amplitude and phase in the output plane are written as $A_{\mathrm{out}}^{(1)}$ and $\phi_{\mathrm{out}}^{(1)}$, respectively.
+where $[p,q]$ and $[x,y]$ represent the pixel indices in the input and output planes, respectively. The resulting amplitude in the output plane is written as $A_{\mathrm{out}}^{(1)}$, while the phase is denoted by $\phi_{\mathrm{out}}^{(1)}$, where the superscripts refer to the iteration number.
 
-At this stage, the computed output amplitude generally does not match the desired target amplitude $T(x,y)$. Therefore, $A_{\mathrm{out}}^{(1)} $ is replaced by the target amplitude, while the computed phase is retained:
+At this stage, the computed output amplitude generally does not match the desired target amplitude $T[x,y]$. Therefore, $A_{\mathrm{out}}^{(1)} $ is replaced by the target amplitude, while the computed phase is retained:
 \begin{equation}
 \label{Gout}
 G_{\mathrm{out}}^{(1)} = T \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)}\Bigr\}\,,
@@ -43,7 +43,7 @@ G_{\mathrm{out}}^{(1)} = T \exp\Bigl\{i \phi_{\mathrm{out}}^{(1)}\Bigr\}\,,
 which defines the modified output field for the next step. An inverse Fourier transform is then applied to return to the input plane:
 \begin{align}
 \begin{split}
-G_{\mathrm{in}}^{(1)}(p,q) &= \mathcal{F}^{-1}\Bigl\{G_{\mathrm{out}}^{(1)}(x,y) \Bigr\} \\&= \frac{1}{N}\sum_{x,y} G_{\mathrm{out}}^{(1)}(x,y) \exp\Bigl\{2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{in}}^{(1)} \exp\Bigl\{ i \phi_{\mathrm{in}}^{(1)}\Bigr\}\,,
+G_{\mathrm{in}}^{(1)}[p,q] &= \mathcal{F}^{-1}\Bigl\{G_{\mathrm{out}}^{(1)}[x,y] \Bigr\} \\&= \frac{1}{N}\sum_{x,y} G_{\mathrm{out}}^{(1)}[x,y] \exp\Bigl\{2\pi i (px + qy) /N \Bigr\} \\&= A_{\mathrm{in}}^{(1)} \exp\Bigl\{ i \phi_{\mathrm{in}}^{(1)}\Bigr\}\,,
 \end{split}
 \end{align}
 where $A_{\mathrm{in}}^{(1)}$ is the resulting amplitude and $\phi_{\mathrm{in}}^{(1)}$ the updated phase at the input plane. To enforce consistency with the input beam profile, the amplitude is again replaced by the original $A_{\mathrm{in}}^{(0)}$, while the phase is retained:
@@ -55,7 +55,7 @@ which becomes the input for the next iteration. This cycle of forward and invers
 The algorithm continues until a suitable convergence criterion is met, which is based on the following error between the generated and target intensity profile:
 \begin{equation}
 \label{costfunction}
-\epsilon^{(n)} =  \sum_{x,y} \left( [A_{\mathrm{out}}^{(n)}(x,y) ]^2 - [T(x,y) ]^2 \right)^2 \,.
+\epsilon^{(n)} =  \sum_{x,y} \left( \left( A_{\mathrm{out}}^{(n)}[x,y] \right)^2 - \left( T[x,y] \right)^2 \right)^2 \,.
 \end{equation}
 A common stopping condition is that the relative change in error falls below a set threshold:
 \begin{equation}
@@ -145,17 +145,17 @@ T & \text{if } n=1\,, \\
 w^{(n)} T^{(n-1)} & \text{if } n>1\,.
 \end{cases}
 \end{align}
-The weights $w^{(n)}(x,y)$ are defined by
+The weights $w^{(n)}[x,y]$ are defined by
 \begin{equation}
-w^{(n)}(x,y) = 
+w^{(n)}[x,y] = 
 \begin{cases}
-\sqrt{ \dfrac{\big\langle [A_{\mathrm{out}}^{(n)}(x,y)]^2 \big\rangle_\Omega}{[A_{\mathrm{out}}^{(n)}(x,y)]^2} } & \text{if } (x,y) \in \Omega\,, \\
+\sqrt{ \dfrac{\big\langle \left(A_{\mathrm{out}}^{(n)}[x,y]\right)^2 \big\rangle_\Omega}{\left(A_{\mathrm{out}}^{(n)}[x,y]\right)^2} } & \text{if } [x,y] \in \Omega\,, \\
 1 & \text{otherwise}\,,
 \end{cases}
 \end{equation}
 with the average intensity taken over the region $\Omega$ associated with the traps:
 \begin{equation}
-\big\langle [A_{\mathrm{out}}^{(n)}(x,y)]^2 \big\rangle_\Omega = \frac{1}{N_\Omega} \sum_{(x, y)\in\Omega} [A_{\mathrm{out}}^{(n)}(x, y)]^2\,,
+\big\langle \left(A_{\mathrm{out}}^{(n)}[x,y]\right)^2 \big\rangle_\Omega = \frac{1}{N_\Omega} \sum_{(x, y)\in\Omega} \left(A_{\mathrm{out}}^{(n)}(x, y)\right)^2\,,
 \end{equation}
 where $N_\Omega$ denotes the number of pixels used for the trapping sites.
 
@@ -172,8 +172,8 @@ T^{(n)}(x, y) =
 where $\alpha$ is the mixing parameter that represents the fraction of optical power assigned to the signal region. The constants $c_T$ and $c_{A,n}$ ensure normalisation of the total intensity and are defined as:
 \begin{align}
 \begin{split}
-c_T &= \sum_{(x,y)\in\Omega_\mathrm{s}} [T(x,y)]^2\,,\\
-c_{A,n} &= \sum_{(x,y)\in\Omega_\mathrm{n}} [A^{(n)}_{\mathrm{out}}(x,y)]^2\,.
+c_T &= \sum_{[x,y]\in\Omega_\mathrm{s}} [T[x,y]]^2\,,\\
+c_{A,n} &= \sum_{[x,y]\in\Omega_\mathrm{n}} [A^{(n)}_{\mathrm{out}}[x,y]]^2\,.
 \end{split}
 \end{align}
 Figure \autoref{fig:mraf} shows a schematic representation of the MRAF algorithm. The phase pattern is iteratively updated in the hologram and then propagated through the Fourier transform to yield an intensity distribution that matches the target profile in the signal region. The periphery (noise region) is deliberately left unconstrained to absorb the light that does not contribute to the desired pattern.
@@ -338,18 +338,18 @@ thereby enhancing the method's global convergence behaviour. In modern applicati
 \end{figure}
 The steepest descent method follows the local gradient direction at each step, which results in oscillatory and inefficient progress on anisotropic landscapes. In contrast, the conjugate gradient method selects search directions that account for the curvature and converges to the exact minimum in at most $ n $ iterations for a quadratic cost function in an $ n $-dimensional space. This is not the case for non-quadratic cost functions, where convergence typically requires more than $n$ steps.
 
-In our implementation for phase holography, the goal is to optimise the output intensity pattern to match a desired target. The controllable variable in this optimisation is the input phase pattern, while the input amplitude is kept fixed. To iteratively update the input phase $\phi_\mathrm{in}^{(n)}(p,q)$, we evaluate the gradient of the cost function $\epsilon^{(n+1)}$ (\autoref{costfunction}), which depends on the resulting output amplitude $A_\mathrm{out}^{(n+1)}(x,y)$ (see \autoref{forwardfourier}):
+In our implementation for phase holography, the goal is to optimise the output intensity pattern to match a desired target. The controllable variable in this optimisation is the input phase pattern, while the input amplitude is kept fixed. To iteratively update the input phase $\phi_\mathrm{in}^{(n)}[p,q]$, we evaluate the gradient of the cost function $\epsilon^{(n+1)}$ (\autoref{costfunction}), which depends on the resulting output amplitude $A_\mathrm{out}^{(n+1)}[x,y]$ (see \autoref{forwardfourier}):
 \begin{align}
 \label{gradientdef}
 \begin{split}
-\frac{\partial \epsilon^{(n+1)}}{\partial \phi_\mathrm{in}^{(n)}(p,q)} = 4\Re {i \left(E_\mathrm{in}^{(n+1)}(p,q)\right)^{\!*} X(p,q) } \,,
+\frac{\partial \epsilon^{(n+1)}}{\partial \phi_\mathrm{in}^{(n)}[p,q]} = 4\Re {i \left(E_\mathrm{in}^{(n+1)}[p,q]\right)^{\!*} X[p,q] } \,,
 \end{split}
 \end{align}
 where
 \begin{equation}
-X(p,q)\coloneqq \mathcal{F}^{-1}\Bigl\{  E_\mathrm{out}^{(n+1)} (x,y) \left( [T(x,y)]^2 - \big\lvert  E_\mathrm{out}^{(n+1)}(x,y) \big\rvert^2 \right)\Bigr\} \,.
+X[p,q]\coloneqq \mathcal{F}^{-1}\Bigl\{  E_\mathrm{out}^{(n+1)} [x,y] \left( [T[x,y]]^2 - \big\lvert  E_\mathrm{out}^{(n+1)}[x,y] \big\rvert^2 \right)\Bigr\} \,.
 \end{equation}
-For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\mathrm{in}^{(n)}(p,q) \rightarrow \phi_\mathrm{in}^{(n+1)}(p,q)$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
+For use in the conjugate gradient minimisation algorithm, we stack all partial derivatives from \autoref{gradientdef} into a single vector $\vec{g}_n$. For the initial iteration ($n = 0$), the conjugate direction is taken as the steepest descent direction ($\vec{p}_0 = \vec{g}_0$) and the cost function is minimised along this direction using Brent’s method. For all subsequent iterations ($n \geq 1$), the new search direction $\vec{p}_n$ is computed from the current and previous gradients, $\vec{g}_n$ and $\vec{g}_{n-1}$, together with the previous search direction $\vec{p}_{n-1}$. A line search is again performed using Brent’s method and used to update the input phase ($\phi_\mathrm{in}^{(n)}[p,q] \rightarrow \phi_\mathrm{in}^{(n+1)}[p,q]$), after which the gradient is recomputed accordingly. This process is iterated until convergence is achieved as defined in \autoref{convergence}.
 
 \section{IFTA benchmarking}
 In this section, we analyse the simulated and measured performance of various iterative Fourier transform algorithms (IFTAs) to generate uniform optical trap arrays with high efficiency and fast convergence. We focus on a fixed $4 \times 4$ trap array and assess each algorithm according to three key criteria: the total optical power delivered to the traps (to ensure efficient use of optical power), the uniformity of trap intensities and the convergence rate of the algorithm. To quantify trap uniformity, we use the coefficient of variation
@@ -586,7 +586,7 @@ where $N$ is the number of traps, $I_n$ is the intensity in trap number $n$ and 
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods]{Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. For a calculated intensity distribution $I(x,y)$, the brightness in these images corresponds to the quantity $\log_{10}(10^{-9} + I(x,y))$, to enhance low-intensity background features and reveal artefacts more clearly.}
+	\caption[Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods]{Representations of the calculated intensity distributions in the trapping plane for different kinoform generation methods: \textsc{(a)} GS, \textsc{(b--d)} MRAF with respective mixing parameters of $\alpha \in \{0.8, 0.9, 0.99\}$, \textsc{(e)} GSW, and \textsc{(f--h)} hybrid GSW--MRAF methods with the same respective values of $\alpha$. For a calculated intensity distribution $I[x,y]$, the brightness in these images corresponds to the quantity $\log_{10}(10^{-9} + I[x,y])$, to enhance low-intensity background features and reveal artefacts more clearly.}
 	\label{calculated4by4}
 \end{figure}
 Across all methods, a repeating structure of ghost traps is clearly visible at regular spacings, extending well beyond the signal region. These artefacts are particularly pronounced in symmetric trap arrangements and likely originate from the Fourier relationship between hologram and image domain~\cite{Hesseling2011}. The GS algorithm recovers the correct array layout but exhibits prominent ghost traps and a noisy speckle background across the full field. In comparison, the MRAF algorithm redistributes optical power to improve trap fidelity in the signal region. As $\alpha$ is decreased, more light is deliberately dumped outside the trapping area, leading to an increasingly bright peripheral region, as is visible in the distribution images. The weighted variants of the aforementioned algorithms produce near-identical intensity maps to their unweighted counterparts. At this stage, there is no obvious visual distinction between weighted and unweighted methods based solely on the two-dimensional intensity distributions. Likewise, any variation in trap uniformity is not yet evident in these images and will be quantified in subsequent figures using cross-sections and the coefficient of variation $c_\mathrm{v}$.
@@ -1753,7 +1753,7 @@ In this section, we benchmark the performance of conjugate gradient (CG) minimis
 	\end{groupplot}
 	\end{tikzpicture}
 	
-	\caption[Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation]{Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation. \textsc{(a)} Representation of the calculated intensity distribution $I(x,y)$ in the trapping plane for a conjugate gradient minimisation method (PRP$^+$) of kinoform generation. As in \autoref{calculated4by4}, the brightness corresponds to the quantity $\log_{10}(10^{-9} + I(x,y))$. \textsc{(b)} Horizontal cross-section of $I(x,y)$ along the second row from below of the $4 \times 4$ trapping grid. Shown are the target profile (red) and calculated cross-section (blue). \textsc{(c)} Heatmap of the calculated optical intensities at each trapping site in the $4\times4$ grid, normalised to the total incident intensity. \textsc{(d)} Convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for gradient-based kinoform generation methods: steepest descent (red) and conjugate gradient minimisation (FR in blue, PRP$^+$ in green). The shaded regions in the corresponding colours indicate iterations for which the convergence criterion has been satisfied ($k=4$ as defined in \autoref{convergence}).}
+	\caption[Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation]{Intensity distribution in the trapping plane and convergence analysis of conjugate gradient minimisation. \textsc{(a)} Representation of the calculated intensity distribution $I[x,y]$ in the trapping plane for a conjugate gradient minimisation method (PRP$^+$) of kinoform generation. As in \autoref{calculated4by4}, the brightness corresponds to the quantity $\log_{10}(10^{-9} + I[x,y])$. \textsc{(b)} Horizontal cross-section of $I[x,y]$ along the second row from below of the $4 \times 4$ trapping grid. Shown are the target profile (red) and calculated cross-section (blue). \textsc{(c)} Heatmap of the calculated optical intensities at each trapping site in the $4\times4$ grid, normalised to the total incident intensity. \textsc{(d)} Convergence of the cost function $\epsilon_n$ as a function of iteration number $n$ for gradient-based kinoform generation methods: steepest descent (red) and conjugate gradient minimisation (FR in blue, PRP$^+$ in green). The shaded regions in the corresponding colours indicate iterations for which the convergence criterion has been satisfied ($k=4$ as defined in \autoref{convergence}).}
 	\label{conjugategradient}
 \end{figure}
 The calculated intensity distribution in the trapping plane for the PRP$^+$ method exhibits similar artefacts to those seen in the IFTA-generated distributions. The traps are sharply defined and located as intended. However, as the cross-section and heatmap reveal, the relative intensities across the array are far from uniform. While the overall power in the traps is high---\SI{89.9}{\percent} of the total incident light, which is on par with the best IFTA results---the calculated intensity homogeneity remains limited, with $c_\mathrm{v} = \num{1.56e-2}$. This is comparable to the values observed for unweighted IFTA methods and significantly worse than those achieved with weighted approaches. The convergence plot in \autoref{conjugategradient} provides further insight into the behaviour of different CG strategies. The PRP$^+$ method achieves the lowest cost function value at convergence, $ \epsilon_n = \num{8.13e-4}$, outperforming all IFTA methods except GS. However, this improvement comes at the cost of convergence speed, given that PRP$^+$ requires \num{100} iterations to meet the convergence criterion. The trajectory shows the characteristic behaviour of PRP-type methods---initial descent, followed by plateaus and renewed progress as new conjugate directions are found. In contrast to this slow convergence, the FR method converges after only \num{21} iterations and steepest descent after \num{50}, though both ultimately settle at slightly higher cost function values than PRP$^+$. Their calculated grid homogeneity and power efficiency metrics are of similar order. Taken together, these results suggest that CG minimisation can produce trapping potentials with excellent global fidelity. However, it does not offer practical advantages over weighted IFTA methods for several reasons. Although the number of iterations to convergence can be low (as with FR), direct calculation of the gradient requires extra computation time. As a result, the overall convergence time exceeds that of IFTA methods by about an order of magnitude. Moreover, the final homogeneity across trapping sites does not outperform even unweighted IFTA methods. When factoring in the increased computational complexity and slower convergence of CG minimisation, the theoretical improvements in cost function value are not sufficient to justify its use in practice.

@@ -1080,11 +1080,12 @@ The design and assembly of the module are shown in \autoref{moduledesign}.
 	%\foreach \x in {0,1,...,9} { \node [anchor=north,overlay] at (\x/10,0) {0.\x}; }
 	%\foreach \y in {0,1,...,9} { \node [anchor=east,overlay] at (0,\y/10) {0.\y}; }
 	
-	
 	% labels
 	\node[align=center, rotate=0] at (0.11,0.15) {\footnotesize\sc (a)};
 	\node[align=center, rotate=0] at (0.6,0.15) {\footnotesize\sc (b)};
 	\node[align=center, rotate=0] at (0.5,0.85) {\footnotesize\sc (c)};
+	
+	\node[markgrijs, align=center] at (0.75,0.58) {\footnotesize $\SI{65}{\milli\meter}$};
 	
 	\end{scope}
 	
@@ -1095,7 +1096,7 @@ The design and assembly of the module are shown in \autoref{moduledesign}.
 \end{figure}
 To enable tunability of the resonator length while preserving mechanical stability, the pyramidal and conical mirror substrates are bonded to piezoelectric actuators that translate each mirror in opposite directions along the cavity axis. These shear actuators (Noliac CSAP03) provide a displacement range of up to \SI{1.5}{\micro\metre}, allowing the cavity to be scanned across multiple free spectral ranges. A plano-convex lens with focal length $f = \SI{20}{\milli\metre}$ is mounted with a machined holder and facilitates mode-matching of a collimated input beam directed a the pyramidal mirror. This beam, operating at a reference wavelength, can be used to stabilise the resonator length.
 
-All cavity elements are bonded directly to a precision-machined 316LN stainless steel baseplate, chosen for its low magnetic permeability. The baseplate features alignment grooves and epoxy wells to assist in the accurate positioning and bonding of the piezoelectric actuators. Electrically conductive silver epoxy (Epo-Tek H20E) is used to ensure both mechanical bonding and electrical grounding between the underside of each actuator and the steel baseplate. The lens holder is secured at its designated location using thermally curing epoxy (Epo-Tek 353ND). On the underside of the steel plate, milled wire-routing channels guide the Kapton-coated piezo leads away from the optical beam path. A removable bracket is attached to the baseplate to reinforce the assembly without obstructing optical access along the transverse (vertical) axis.
+All cavity elements are bonded directly to a precision-machined 316LN stainless steel baseplate, chosen for its low magnetic permeability. The baseplate features alignment grooves and epoxy wells to assist in the accurate positioning and bonding of the piezoelectric actuators. Electrically conductive silver epoxy (Epo-Tek H20E) is used to ensure both mechanical bonding and electrical grounding between the underside of each actuator and the steel baseplate. The lens holder is secured at its designated location using thermally curing epoxy (Epo-Tek 353ND). On the underside of the steel plate, milled wire-routing channels guide the Kapton-coated piezo leads away from the optical beam path. A removable bracket is attached to the baseplate for reinforcement---preserving optical access along the transverse axes.
 
 \autoref{cavitymodulepictures} presents close-up views of key components of the cavity module.
 \begin{figure}[t]
@@ -1130,7 +1131,7 @@ All cavity elements are bonded directly to a precision-machined 316LN stainless 
 		\caption{}
 		\label{b}
 	\end{subfigure}
-	\caption[Selected components involved in the cavity module assembly process.]{Selected components involved in the cavity module assembly process. \textsc{(a)} Bottom-up view of the cavity module baseplate. \textsc{(b)} Top view of the pyramidal mirror substrate, showing the UV-cured epoxy used to bond it to the underlying piezoelectric plate. \textsc{(c)} Side view of the Fabry--Pérot resonator within the caged assembly, showing the aligned tips of both the conical and pyramidal mirror substrates.}
+	\caption[Selected components involved in the cavity module assembly process.]{Selected components involved in the assembly process of the cavity module. \textsc{(a)} Bottom-up view of the cavity module baseplate with a length of \SI{65}{\milli\meter}. \textsc{(b)} Top view of the pyramidal mirror substrate, showing the UV-cured epoxy used to bond it to the underlying piezoelectric plate ($\SI{10}{\milli\meter}\times\SI{10}{\milli\meter}$). \textsc{(c)} Side view through a \SI{11}{\milli\meter}-diameter aperture of the cage structure showing the Fabry--Pérot resonator and the aligned end facets of both the conical and pyramidal mirror substrates, which are separated by \SI{0.5}{\milli\meter}.}
 	\label{cavitymodulepictures}
 \end{figure}
 A bottom-up view of the baseplate reveals mounting points and wire-routing channels. The pyramidal mirror substrate is shown bonded to its piezoelectric actuator using UV-curable epoxy (Norland Optical Adhesive 88). The same adhesive is used for the conical mirror substrate (not shown). Before application, this epoxy is outgassed for \SI{15}{\minute} at a pressure of \SI{1e-5}{\milli\bar} to ensure UHV compatibility.
@@ -1536,6 +1537,7 @@ The propagation of the Gaussian beam, simulated using a ray transfer matrix anal
 \subsection{Linewidth and finesse}
 The linewidth is extracted by scanning the cavity length. The resulting transmission spectrum---measured on a Thorlabs APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated by means of laser frequency modulation\footnote{Via the diode current of a Toptica DL pro ECDL}, resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth represents the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be
 \begin{wrapfigure}[13]{l}{0.5\textwidth}
+	\vspace{0.2em}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
