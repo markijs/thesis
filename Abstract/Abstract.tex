@@ -8,26 +8,71 @@
 \smalldrop=0.5\baselineskip
 
 \begin{center}
+% Disable TikZ externalisation just for the next picture
+\tikzset{external/export next=false}
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
 
-\rule[\baselineskip]{\textwidth}{1pt}\\[-0.5\baselineskip]
+%----- rule lengths in terms of \textwidth -----
+\newlength{\RuleFull} \setlength{\RuleFull}{\textwidth}
+\newlength{\RuleShortt}\setlength{\RuleShortt}{0.8\textwidth}
+% half-widths for convenience
+\newlength{\HalfFull}\setlength{\HalfFull}{0.5\RuleFull}
+\newlength{\HalfShort}\setlength{\HalfShort}{0.5\RuleShortt}
 
-{\Large \textsc{\phantom{asdfas} Optical Dipole Traps for \phantom{asdfas} Interfacing Single Atoms with Fabry--Pérot Resonators}}\\[0.5\baselineskip]
+%----- coordinates -----
+\coordinate (ruleTop) at (0,0);
+\coordinate (ruleMid) at (0,-3cm);
+\coordinate (ruleBot) at (0,-6cm);
 
-\rule[\baselineskip]{0.8\textwidth}{0.5pt}\\[-\baselineskip]
+%----- draw rules -----
+\draw[line width=1pt]
+($(ruleTop)+(-\HalfFull,0)$) -- ($(ruleTop)+(\HalfFull,0)$);
+\draw[line width=0.5pt]
+($(ruleMid)+(-\HalfShort,0)$) -- ($(ruleMid)+(\HalfShort,0)$);
+\draw[line width=1pt]
+($(ruleBot)+(-\HalfFull,0)$) -- ($(ruleBot)+(\HalfFull,0)$);
 
-Mark IJspeert, Christ Church\\
-Department of Physics\\[0.3\baselineskip]
+%----- shared baselineskip for even line spacing -----
+\def\MyBoxBaselineskip{24pt}
 
-Thesis submitted for the degree of Doctor of Philosophy\\at the University of Oxford, Trinity 2025.\\[0.5\baselineskip]
+% Title node
+\node[align=center,anchor=center] at ($(ruleTop)!0.5!(ruleMid)$) {%
+	\parbox{\RuleShortt}{\centering
+		\setlength{\baselineskip}{\MyBoxBaselineskip}%
+		{\Large\scshape Optical Dipole Traps for}\\
+		{\Large\scshape Interfacing Single Atoms with}\\
+		{\Large\scshape Fabry--Pérot Resonators}%
+	}%
+};
 
-\rule[\baselineskip]{\textwidth}{1pt}\\[-0.3\baselineskip]
-\vspace{2em}
-{\Large\sc Abstract}\\[2em]
+\def\MyBoxtwoBaselineskip{18pt}
 
+% Author/affiliation node
+\node[align=center,anchor=center] at ($(ruleMid)!0.5!(ruleBot)$) {%
+	\parbox{\RuleShortt}{\centering
+		\setlength{\baselineskip}{\MyBoxtwoBaselineskip}%
+		Mark IJspeert\\
+		University of Oxford, Christ Church\\
+		A thesis submitted for the degree of Doctor of Philosophy\\
+		Trinity 2025%
+	}%
+};
+
+\end{tikzpicture}
+\par\vspace{1.7em} % same as below
+{\Large\sc Abstract}
+\vspace{1.3em} % identical explicit skip before paragraph text
 \end{center}
-\startsquarepar
-This thesis presents the development of optical dipole trapping techniques and cavity-based architectures for interfacing single neutral atoms with high-finesse Fabry--Pérot resonators. Such systems form key components for quantum networks, where coherent atom–photon coupling enables long-distance entanglement distribution and quantum information processing. We demonstrate enhanced single-atom loading of microscopic dipole traps beyond the collisional-blockade limit through dynamic modulation of the trap depth, achieving time-averaged single-site occupancies exceeding 80 without the need for rearrangement. Hologram generation techniques for spatial light modulators are benchmarked, establishing weighted Gerchberg–Saxton and hybrid iterative algorithms as optimal for producing uniform, reconfigurable trap arrays. A Fabry--Pérot resonator with a finesse of is designed, constructed, and characterised, yielding a single-atom cooperativity of 10.4 and operation in the strong-coupling regime. Finite-element modal analyses inform a mechanically stable cavity mount compatible with ultra-high-vacuum environments and integrated cold-atom sources. A pyramidal magneto-optical trap is fabricated and validated as a compact atom-loading module for intra-cavity trapping. Together, these results establish a robust and scalable platform for integrating reconfigurable dipole-trap arrays with high-finesse optical resonators, advancing the experimental groundwork for network-ready atom–photon interfaces in quantum communication and distributed quantum computing.
-\stopsquarepar
+%\startsquarepar
+Coherent and scalable coupling of single atoms to optical resonators is fundamental to the distribution of entanglement across quantum networks. In this thesis, we present the development of optical dipole trapping techniques and a compatible architecture for a quantum interface between atoms and photons using a high-finesse Fabry--Pérot resonator. We demonstrate enhanced loading of single-atom dipole traps beyond the collisional-blockade limit through modulation of the trap depth, achieving a time-averaged single-site occupancy of \SI{79\pm 2}{\percent}. To realise reconfigurable and scalable trap arrays, we benchmark hologram generation algorithms, establishing weighted Gerchberg--Saxton and its combination with mixed region amplitude freedom as optimal in terms of achieving array uniformity and optical power efficiency. We further present a Fabry--Pérot resonator with a finesse of $\num{7.51(9)e4}$, capable of reaching a single-atom cooperativity of \num{10.4} and thus enabling operation in the strong-coupling regime. Through finite-element modal response analyses we develop a mechanically stable cavity mount compatible with ultra-high-vacuum environments and a pyramidal MOT as an integrated cold-atom source. Together, these results establish a robust and scalable platform for integrating reconfigurable dipole-trap arrays with high-finesse optical resonators, advancing the experimental groundwork for network-ready light-matter interfaces.
+%\stopsquarepar
+\vfill
+\begin{center}
+\tikzset{external/export next=false}
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+ \draw[line width=1pt] ($(0,0)+(-0.5\textwidth,0)$) -- ($(0,0)+(0.5\textwidth,0)$);
+\end{tikzpicture}
+\end{center}
 \pagebreak
 
 \end{document}

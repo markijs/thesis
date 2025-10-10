@@ -1,7 +1,5 @@
 \documentclass[../Thesis-IJspeert.tex]{subfiles}
 
-
-
 \begin{document}
 
 \graphicspath{ {Title/figs/} }
@@ -16,20 +14,30 @@
 \vspace{-4em}
 %\rule[-0.\baselineskip]{\textwidth}{1pt}\par
 %\vspace{0.3\baselineskip}
-{\Large \textsc{\phantom{asdfas} Optical Dipole Traps for \phantom{asdfas} Interfacing Single Atoms with Fabry--Pérot Resonators}}\\[0cm]
-%{\Large \textsc{\phantom{asdfas} Single-Atom Dipole Traps \phantom{asdfas} \phantom{asdf} for Deterministic Loading of \phantom{asdf} Fabry--Pérot Resonators}}\\[0cm]
-% Single-Atom Trapping with Optical Tweezers for Deterministic Loading of Fabry--Pérot Resonators
-%\rule[0.\baselineskip]{\textwidth}{1pt}\par
-\vspace{3em}
-\ornamentSep
-%\PRLsep
+% ---------- title block with controlled line spacing ----------
+\tikzset{external/export next=false}
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+%----- shared baselineskip for even line spacing -----
+\def\MyBoxBaselineskip{30pt}
+\newlength{\RuleShort}\setlength{\RuleShort}{0.8\textwidth}
+% Title node
+\node[align=center,anchor=center] at (0,0) {%
+	\parbox{\RuleShort}{\centering
+		\setlength{\baselineskip}{\MyBoxBaselineskip}%
+		{\Large\scshape Optical Dipole Traps for}\\
+		{\Large\scshape Interfacing Single Atoms with}\\
+		{\Large\scshape Fabry--Pérot Resonators}\\%
+	}%
+};
+\end{tikzpicture}
 
 \vspace{3em}
-% statement
+\ornamentSep
+\vspace{3em}
 
 %author
 {\large\textsc{Mark IJspeert}}
-%\vspace{3em}
+
 \vfill
 
 \textsc{University of Oxford\\}
@@ -42,11 +50,9 @@
 \vspace{1em}
 \includegraphics[width=0.1\textwidth,trim=0cm 0cm 0cm 0cm,clip]{chch}~\\[0.25\baselineskip]
 
-
 \textsc{A thesis submitted for the degree of\\}
 \emph{Doctor of Philosophy\\}
 
-%\vfill
 \vspace{2em}
 {\textsc{Trinity 2025}}
 \end{center}

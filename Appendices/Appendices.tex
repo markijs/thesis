@@ -39,7 +39,7 @@ where $\hat{R}(t)$ represents an arbitrary (unitary) rotation operator, such tha
 &= -\frac{i}{\hbar} \hat{\mathcal{H}}'(t) \lvert \phi(t) \rangle\,.
 \end{split}
 \end{align}
-In the final line, we observe that our new state vector $\lvert \phi(t) \rangle$ obeys the Schrödinger equation with a modified Hamiltonian $\hat{\mathcal{H}}'(t)$. The transformed Hamiltonian in the rotating frame is thus given by
+In the final line, we observe that our new state vector $\lvert \phi(t) \rangle$ obeys the Schrödinger equation with a modified Hamiltonian $\hat{\mathcal{H}}'(t)$. The transformed Hamiltonian in the rotating frame is thus given by:
 \begin{align}
 \hat{\mathcal{H}}'(t) = i \hbar \left( \frac{\partial}{\partial t} \hat{R}(t) \right) \hat{R}^{\dagger}(t) + \hat{R}(t) \hat{\mathcal{H}}(t) \hat{R}^{\dagger}(t)\,.
 \end{align}
@@ -55,29 +55,29 @@ which is also referred to as the Hamiltonian in the interaction picture.
 
 \chapter{Spherical Tensors}
 \label{sphericaltensors}
-Spherical tensors are described using the set of spherical basis vectors $\{\hat{\mathrm{e}}_1, \hat{\mathrm{e}}_0, \hat{\mathrm{e}}_{-1}\}$ that are defined as
+Spherical tensors are described using the set of spherical basis vectors $\{\hat{\mathrm{e}}_1, \hat{\mathrm{e}}_0, \hat{\mathrm{e}}_{-1}\}$ that are defined as:
 \begin{align}
 \begin{split}
 \hat{\mathrm{e}}_{\pm 1} &\coloneqq \frac{\mp(\hat{\mathrm{e}}_x\pm i \hat{\mathrm{e}}_y)}{\sqrt{2}}\\ \hat{\mathrm{e}}_0&\coloneqq\hat{\mathrm{e}}_z\,,
 \end{split}
 \end{align}
-in terms of the Cartesian unit vectors. The contravariant components $A^q$ of a vector $\vec{A}$ are
+in terms of the Cartesian unit vectors. The contravariant components $A^q$ of a vector $\vec{A}$ are:
 \begin{align}
 A^q=\hat{\mathrm{e}}_q^*\cdot \vec{A}\,,
 \end{align}
-which allow us to decompose $\vec{A}$ in the spherical basis as
+which allow us to decompose $\vec{A}$ in the spherical basis as:
 \begin{align}
 \vec{A}=\sum_q A^q \hat{\mathrm{e}}_q\,.
 \end{align}
-In the dual basis, which consists of the basis vectors $\hat{\mathrm{e}}^q=\hat{\mathrm{e}}_q^*$ such that $\hat{\mathrm{e}}^q\hat{\mathrm{e}}_{q'}=\delta_{qq'}$, the covariant components of $\vec{A}$ are
+In the dual basis, which consists of the basis vectors $\hat{\mathrm{e}}^q=\hat{\mathrm{e}}_q^*$ such that $\hat{\mathrm{e}}^q\hat{\mathrm{e}}_{q'}=\delta_{qq'}$, the covariant components of $\vec{A}$ are:
 \begin{align}
 A_q = \hat{\mathrm{e}}_q\cdot \vec{A}\,,
 \end{align} 
-such that the decomposition reads
+such that the decomposition reads:
 \begin{align}
 \vec{A}=\sum_q A_q \hat{\mathrm{e}}^q\,.
 \end{align}
-Note that $\hat{\mathrm{e}}^q=\hat{\mathrm{e}}_q^*=(-1)^q\hat{\mathrm{e}}_{-q}$, which gives rise to various notations for the decomposition of $\vec{A}$ and the fact that $A^0=A_0$ and $A^{\pm 1}= -A_{\mp 1}$. Using different representations, the inner product of two vectors $\vec{A}$ and $\vec{B}$ in the spherical basis can be written as
+Note that $\hat{\mathrm{e}}^q=\hat{\mathrm{e}}_q^*=(-1)^q\hat{\mathrm{e}}_{-q}$, which gives rise to various notations for the decomposition of $\vec{A}$ and the fact that $A^0=A_0$ and $A^{\pm 1}= -A_{\mp 1}$. Using different representations, the inner product of two vectors $\vec{A}$ and $\vec{B}$ in the spherical basis can be written as:
 \begin{align}
 \begin{split}
 \vec{A}\cdot\vec{B}= A^q \hat{\mathrm{e}}_q B_{q'} \hat{\mathrm{e}}^{q'} = A^q B_q &= A^1 B_1 + A^0 B_0 + A^{-1} B_{-1} \\&= -A^1 B^{-1} + A^0 B^0 - A^{-1} B^1 \\&= \sum_q (-1)^q A^q B^{-q} \\&= \sum_q (-1)^q A_q B_{-q}\,.
@@ -95,8 +95,8 @@ T_0^{(0)}=-\sum_{q=-1}^{1} \frac{(-1)^q}{\sqrt{3}}A^{(1)}_q B^{(1)}_{-q}=-\frac{
 rewritten in terms of the inner product of the vectors $\vec{A}$ and $\vec{B}$. Similarly, the rank-$1$ combination can be evaluated, giving rise to the following three components:
 \begin{align}
 \begin{split}
-T_1^{(1)} &= \frac{1}{\sqrt{2}}(A_1B_0-A_0B_1)\\
-T_0^{(1)} &= \frac{1}{\sqrt{2}}(A_1B_{-1}-A_{-1}B_1)\\
+T_1^{(1)} &= \frac{1}{\sqrt{2}}(A_1B_0-A_0B_1)\,,\\
+T_0^{(1)} &= \frac{1}{\sqrt{2}}(A_1B_{-1}-A_{-1}B_1)\,,\\
 T_{-1}^{(1)} &= \frac{1}{\sqrt{2}}(A_0B_{-1}-A_{-1}B_0)\,,
 \end{split}
 \end{align}
@@ -104,11 +104,11 @@ which can be summarised in terms of the spherical components of the cross produc
 \begin{align}
 T_q^{1}=\frac{i}{\sqrt{2}}(\vec{A}\times\vec{B})_q\,.
 \end{align}
-Lastly, the rank-$2$ components are
+Lastly, the rank-$2$ components are:
 \begin{align}
 \begin{split}
-T_{\pm 2}^{(2)} &= A_{\pm 1}B_{\pm 1}\\
-T_{\pm 1}^{(2)} &= \frac{1}{\sqrt{2}}(A_{\pm 1}B_{0}+A_{0}B_{\pm 1})\\
+T_{\pm 2}^{(2)} &= A_{\pm 1}B_{\pm 1}\,,\\
+T_{\pm 1}^{(2)} &= \frac{1}{\sqrt{2}}(A_{\pm 1}B_{0}+A_{0}B_{\pm 1})\,,\\
 T_{0}^{(2)} &= \frac{1}{\sqrt{6}}(A_1B_{-1}+2A_0B_0+A_{-1}B_1)\,.
 \end{split}
 \end{align}
@@ -116,20 +116,20 @@ All of these spherical tensor components can subsequently be written in terms of
 \begin{align}
 \label{sphericalintermsofcartesian}
 \begin{split}
-T_0^{(0)}&=-\frac{1}{\sqrt{3}}\left[T_{xx}+T_{yy}+T_{zz}\right]\\
-T_{\pm 1}^{(1)} &=\frac{1}{2}\left[T_{zx}-T_{xz}\pm i(T_{zy}-T_{yz})\right]\\
-T_0^{(1)} &=\frac{i}{\sqrt{2}}\left[T_{xy}-T_{yx}\right]\\
-T_{\pm 2}^{(2)} &= \frac{1}{2}\left[T_{xx}-T_{yy}\pm i (T_{xy}+T_{yx})\right]\\
-T_{\pm 1}^{(2)} &= \frac{1}{2}\left[\mp (T_{xz}+T_{zx}) - i (T_{yz}+T_{zy})\right]\\
+T_0^{(0)}&=-\frac{1}{\sqrt{3}}\left[T_{xx}+T_{yy}+T_{zz}\right]\,,\\
+T_{\pm 1}^{(1)} &=\frac{1}{2}\left[T_{zx}-T_{xz}\pm i(T_{zy}-T_{yz})\right]\,,\\
+T_0^{(1)} &=\frac{i}{\sqrt{2}}\left[T_{xy}-T_{yx}\right]\,,\\
+T_{\pm 2}^{(2)} &= \frac{1}{2}\left[T_{xx}-T_{yy}\pm i (T_{xy}+T_{yx})\right]\,,\\
+T_{\pm 1}^{(2)} &= \frac{1}{2}\left[\mp (T_{xz}+T_{zx}) - i (T_{yz}+T_{zy})\right]\,,\\
 T_{0}^{(2)} &= -\frac{1}{\sqrt{6}}\left[T_{xx}+T_{yy}-2T_{zz}\right]\,.
 \end{split}
 \end{align}
-We note that the rank-$0$, rank-$1$ and rank-$2$ spherical components relate directly to the isotropic, antisymmetric and symmetric traceless parts of the tensor, respectively. An important result from representation theory is the Wigner-Eckart theorem, which states that, given a tensor operator $T^{(k)}$, the matrix elements of its spherical component $T^{(k)}_q$ between two angular momentum eigenstates $\vert j\, m\rangle$ and $\vert j'\, m'\rangle$ can be decomposed as
+We note that the rank-$0$, rank-$1$ and rank-$2$ spherical components relate directly to the isotropic, antisymmetric and symmetric traceless parts of the tensor, respectively. An important result from representation theory is the Wigner-Eckart theorem, which states that, given a tensor operator $T^{(k)}$, the matrix elements of its spherical component $T^{(k)}_q$ between two angular momentum eigenstates $\vert j\, m\rangle$ and $\vert j'\, m'\rangle$ can be decomposed as:
 \begin{align}
 \label{wignereckart}
 \langle j\, m \vert  T^{(k)}_q \vert j'\, m' \rangle = (-1)^{2k}\langle j \| T^{(k)} \| j' \rangle \langle j\, m \vert j'\, m'; k\, q \rangle\,.
 \end{align}
-This factorisation involves a Clebsch–Gordan coefficient $\langle j\, m \vert j'\, m'; k\, q \rangle$ that encapsulates all orientation dependence of the matrix element and the so-called reduced matrix element $\langle j \| T^{(k)} \| j' \rangle$, which does not depend on $m$, $m′$, nor $q$ and is therefore orientation independent. The inverse relation is
+This factorisation involves a Clebsch–Gordan coefficient $\langle j\, m \vert j'\, m'; k\, q \rangle$ that encapsulates all orientation dependence of the matrix element and the so-called reduced matrix element $\langle j \| T^{(k)} \| j' \rangle$, which does not depend on $m$, $m′$, nor $q$ and is therefore orientation independent. The inverse relation is:
 \begin{align}
 \label{inversewigner}
 \langle j \| T^{(k)} \| j' \rangle = (-1)^{2k}\sum_{m'q} \langle j\, m \vert  T^{(k)}_q \vert j'\, m' \rangle \langle j\, m \vert j'\, m'; k\, q \rangle\,.
@@ -275,7 +275,7 @@ A standard approach for entangling two distant atoms relies on the interference 
 	\caption[Cavity-mediated entangling scheme for two \ce{^87Rb} atoms]{Entangling scheme for two \ce{^87Rb} atoms. Each atom undergoes vacuum-stimulated Raman adiabatic passage \textsc{(a)}, which results in an atom-photon entangled state denoted by $\ket{\Psi}_\mathrm{ap}$. A Bell state measurement of the emitted photon pair \textsc{(b)} projects the atoms onto a maximally entangled state \textsc{(c)}.} 
 	\label{fig:entangle} 
 \end{figure}
-\autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the \ce{5\!^2S_{\sfrac{1}{2}}} ground level. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the \ce{5\!^2P_{\sfrac{3}{2}}} excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z \coloneqq \ket{F=1,m_F=-1}$ or $\ket{\uparrow}z \coloneqq \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following state
+\autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the \ce{5\!^2S_{\sfrac{1}{2}}} ground level. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the \ce{5\!^2P_{\sfrac{3}{2}}} excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z \coloneqq \ket{F=1,m_F=-1}$ or $\ket{\uparrow}z \coloneqq \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following state:
 \begin{equation}
 \color{black} \ket{\Psi}_\mathrm{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) \,.
 \end{equation}
@@ -340,7 +340,7 @@ where $M$ is the mass matrix, $C$ the damping matrix, $K$ the stiffness matrix, 
 \begin{equation}
 M \ddot{\vec{x}}(t) + K \vec{x}(t) = \vec{0}\,.
 \end{equation}
-We then seek harmonic solutions of the form $\vec{x}(t) = \vec{\phi} \, \mathrm{e}^{i \omega t}$, where $\vec{\phi}$ is a mode shape vector and $\omega$ the angular frequency. Substitution yields
+We then seek harmonic solutions of the form $\vec{x}(t) = \vec{\phi} \, \mathrm{e}^{i \omega t}$, where $\vec{\phi}$ is a mode shape vector and $\omega$ the angular frequency. Substitution yields:
 \begin{equation}
 \bigl( K - \omega^{2} M \bigr)  \vec{\phi} = \vec{0}\,,
 \end{equation}
@@ -363,11 +363,11 @@ Consequently, we have the following relations between $\Phi$, $M$ and $K$:
 \Phi^{\!\top} \!M \Phi = I\,, \qquad \Phi^{\!\top} \!K \Phi = \Omega^{2},
 \end{equation}
 where $I$ is the identity matrix and $\Omega = \text{diag}(\omega_1, \dots, \omega_n)$.
-This allows us to perform a transformation $\vec{x}(t) = \Phi \vec{q}\hspace{0.1em}(t)$ into modal coordinates $\vec{q}\hspace{0.1em}(t)$ in which the mass and stiffness matrices are simultaneously diagonalised, decoupling the equations of motion. Substitution of $\vec{x}(t) = \Phi \vec{q}\hspace{0.1em}(t)$ in \autoref{ndogeq} yields
+This allows us to perform a transformation $\vec{x}(t) = \Phi \vec{q}\hspace{0.1em}(t)$ into modal coordinates $\vec{q}\hspace{0.1em}(t)$ in which the mass and stiffness matrices are simultaneously diagonalised, decoupling the equations of motion. Substitution of $\vec{x}(t) = \Phi \vec{q}\hspace{0.1em}(t)$ in \autoref{ndogeq} yields:
 \begin{equation}
 M \Phi \ddot{\vec{q}} + C \Phi  \dot{\vec{q}} + K \Phi  \vec{q} = \vec{f}(t)\,.
 \end{equation}
-Left-multiplying by $\Phi^{\!\top}$ and using the relations in \autoref{orthonormal}, we obtain\footnote{It is important to note that this decoupling is only possible if the system is classically damped, meaning that its damping matrix $C$ is also diagonalised by the undamped modal matrix $\Phi$.}
+Left-multiplying by $\Phi^{\!\top}$ and using the relations in \autoref{orthonormal}, we obtain:\footnote{It is important to note that this decoupling is only possible if the system is classically damped, meaning that its damping matrix $C$ is also diagonalised by the undamped modal matrix $\Phi$.}
 \begin{equation}
 \label{transformation}
 \ddot{\vec{q}} + 2 Z \Omega \dot{\vec{q}} + \Omega^{2} \vec{q} = \Phi^{\!\top} \!\vec{f}(t)\,,
@@ -376,14 +376,14 @@ where $Z=\diag(\zeta_1, \cdots, \zeta_n)$ contains the modal damping ratios $\ze
 \begin{equation}
 \zeta_i = \frac{\vec{\phi}_i^{\,\top} \!C  \vec{\phi}_i}{2 \, \omega_i}\,.
 \end{equation}
-We see from \autoref{transformation} that each modal coordinate $q_{i}(t)$ satisfies
+We see from \autoref{transformation} that each modal coordinate $q_{i}(t)$ satisfies:
 \begin{equation}\label{eq:modal-scalar}
 \ddot{q}_{i}(t) + 2 \zeta_{i} \omega_{i} \dot{q}_{i}(t) + \omega_{i}^{2} q_{i}(t) = \vec{\phi}_{i}^{\,\top} \!\vec{f}(t)\,,
 \end{equation}
 which represents the decomposition into independent harmonic oscillators.
 
 \section{Transfer functions}
-In practice, we are often interested in the dynamical response of a system, which is characterised by transfer functions between scalar inputs and outputs. These functions are essential for performing frequency response and stability analyses. Suppose a scalar drive $u(t)$ is applied at a given degree of freedom or location represented by the input vector $\vec{b}$, so that
+In practice, we are often interested in the dynamical response of a system, which is characterised by transfer functions between scalar inputs and outputs. These functions are essential for performing frequency response and stability analyses. Suppose a scalar drive $u(t)$ is applied at a given degree of freedom or location represented by the input vector $\vec{b}$, so that:
 \begin{equation}
 \vec{f}(t) = \vec{b}  u(t)\,.
 \end{equation}
@@ -391,39 +391,39 @@ Similarly, the output $y(t)$ is a scalar measurement of displacement:
 \begin{equation}
 y(t) = \vec{c}^{\top} \!\vec{x}(t) = \vec{c}^{\top} \!\Phi  \vec{q}\hspace{0.1em}(t)\,,
 \end{equation}
-where $\vec{c}$ is the output selection vector. For collocated driving and sensing, we have $\vec{b}=\vec{c}$. If we define the respective modal input and output coordinates as follows
+where $\vec{c}$ is the output selection vector. For collocated driving and sensing, we have $\vec{b}=\vec{c}$. If we define the respective modal input and output coordinates as follows:
 \begin{equation}
 \vec{b}_{m} = \Phi^{\!\top} \vec{b}\,, \qquad \vec{c}_{m} = \Phi^{\!\top} \!\vec{c}\,,
 \end{equation}
-\autoref{eq:modal-scalar} becomes
+\autoref{eq:modal-scalar} can be expressed as:
 \begin{equation}
 \ddot{q}_{i}(t) + 2 \zeta_{i} \omega_{i} \dot{q}_{i}(t) + \omega_{i}^{2} q_{i}(t) = b_{m,i} \, u(t)\,,
 \end{equation}
-while the scalar output can be written as
+while the scalar output can be written as:
 \begin{equation}
 y(t) = \sum_{i=1}^{n} c_{m,i} \, q_{i}(t)\,.
 \end{equation}
-To compute the transfer function we take the Laplace transform under zero initial conditions. Let $Q_{i}(s)=\mathcal{L}\{q_{i}(t)\}$ and $U(s)=\mathcal{L}\{u(t)\}$. We can then write the modal equations as
+To compute the transfer function we take the Laplace transform under zero initial conditions. Let $Q_{i}(s)=\mathcal{L}\{q_{i}(t)\}$ and $U(s)=\mathcal{L}\{u(t)\}$. We can then write the modal equations as:
 \begin{equation}
 \bigl(s^{2} + 2 \zeta_{i} \omega_{i} s + \omega_{i}^{2}\bigr) Q_{i}(s) = b_{m,i} \, U(s)\,.
 \end{equation}
-The Laplace transform $Y(s)=\mathcal{L}\{y(t)\}$ of the output is therefore
+The Laplace transform $Y(s)=\mathcal{L}\{y(t)\}$ of the output is therefore:
 \begin{equation}
 Y(s) = \sum_{i=1}^{n} c_{m,i} \, Q_{i}(s) 
 = \sum_{i=1}^{n} \frac{c_{m,i} \,b_{m,i}}{s^{2} + 2 \zeta_{i} \omega_{i} s + \omega_{i}^{2}} \, U(s)\,.
 \end{equation}
-The transfer function $H(s)=Y(s)/U(s)$ can thus be written as
+The transfer function $H(s)=Y(s)/U(s)$ can thus be written as:
 \begin{equation}
 H(s) = \sum_{i=1}^{n} \frac{\alpha_{i}}{s^{2} + 2 \zeta_{i} \omega_{i} s + \omega_{i}^{2}}\,,
 \end{equation}
-where we have defined the modal residues $\alpha_{i} = c_{m,i} \,b_{m,i}$, which quantify the participation of each mode in the chosen input-output pair. For collocated driving and sensing, we have $\alpha_{i}\geq 0\ \forall i\in\{1,\cdots,n\}$. Finally, setting $s=i\omega$ gives the frequency response function
+where we have defined the modal residues $\alpha_{i} = c_{m,i} \,b_{m,i}$, which quantify the participation of each mode in the chosen input-output pair. For collocated driving and sensing, we have $\alpha_{i}\geq 0\ \forall i\in\{1,\cdots,n\}$. Finally, setting $s=i\omega$ gives the frequency response function:
 \begin{equation}
 \label{freqtransferfunction}
 H(s=i\omega) = \sum_{i=1}^{n} \frac{\alpha_{i}}{\omega_{i}^{2}-\omega^{2} + 2i \zeta_{i} \omega_{i} \omega}\,.
 \end{equation}
 
 \section{Resonances and anti-resonances}
-From \autoref{freqtransferfunction} we see that resonances occur near $\omega=\omega_{i}$, where the denominator of one term is small. Anti-resonances occur at frequencies where the transfer function approaches zero. It can be shown that for a collocated input-output pair, the transfer function
+From \autoref{freqtransferfunction} we see that resonances occur near $\omega=\omega_{i}$, where the denominator of one term is small. Anti-resonances occur at frequencies where the transfer function approaches zero. It can be shown that for a collocated input-output pair, the transfer function:
 \begin{equation}
 H(i\omega) = \sum_{i=1}^{n} \frac{\alpha_{i}}{\omega_{i}^{2}-\omega^{2}}\,
 \end{equation}
@@ -520,20 +520,20 @@ of an undamped system features $n$ pairs of complex conjugate poles and $n - 1$ 
 	}
 	\label{fig:tf_groupplot}
 \end{figure}
-The system matrices are chosen to yield exact natural frequencies at \(\nu_1 = \SI{1}{\kilo\hertz}\) and \(\nu_2 = \SI{2}{\kilo\hertz}\), with
+The system matrices are chosen to yield exact natural frequencies at \(\nu_1 = \SI{1}{\kilo\hertz}\) and \(\nu_2 = \SI{2}{\kilo\hertz}\):
 \begin{equation}
 \label{massandstiffness}
 M = \begin{bmatrix} 1 & 0 \\ 0 & 0.5625 \end{bmatrix}  \si{\kilogram}\,, \qquad
 K = \begin{bmatrix} 1.342 \times 10^{8} & -3.553 \times 10^{7} \\ -3.553 \times 10^{7} & 3.553 \times 10^{7} \end{bmatrix} \si{\newton\per\meter}\,. 
 \end{equation}
-The input (of the form $u(t)=F_0\mathrm{e}^{i \omega t}$ with $F_0=\SI{1}{\newton}$) and output are collocated at the first degree of freedom, resulting in modal residues $\alpha_1 \approx \SI{0.20}{\per\kilogram}$ and $\alpha_2 \approx \SI{0.80}{\per\kilogram}$. The three damping levels shown ($\zeta =\zeta_1=\zeta_2\in \{\SI{0.05}{\percent}, \SI{0.5}{\percent},\SI{2.5}{\percent}\}$) illustrate how increasing damping progressively reduces the amplitude of the resonance and anti-resonance features.
+The input (of the form $u(t)=F_0\mathrm{e}^{i \omega t}$ with $F_0=\SI{1}{\newton}$) and output are collocated at the first degree of freedom, resulting in modal residues $\alpha_1 \approx \SI{0.20}{\per\kilogram}$ and $\alpha_2 \approx \SI{0.80}{\per\kilogram}$. The three modal damping ratios used in \autoref{fig:tf_groupplot} ($\zeta =\zeta_1=\zeta_2\in \{\SI{0.05}{\percent}, \SI{0.5}{\percent},\SI{2.5}{\percent}\}$) illustrate how increasing damping leads to progressively smoother response curves, characterised by reduced amplitudes of the resonance and anti-resonance features.
 
 \section{Effective modal mass}
-For a given mode vector $\phi_i$ and influence vector $\vec{r}$ which represents the displacements of the masses resulting from static application of a unit ground translation or rotation, the effective modal mass of mode $i$ is defined as
+For a given mode vector $\phi_i$ and influence vector $\vec{r}$ which represents the displacements of the masses resulting from static application of a unit ground translation or rotation, the effective modal mass of mode $i$ is defined as:
 \begin{equation}
 m_i^{\mathrm{eff}}(\vec{r}\,) = \frac{\bigl(\vec{\phi}_i^{\,\top} \!M \vec{r}\,\bigr)^2}{\vec{\phi}_i^{\,\top} \!M \vec{\phi}_i}\,.
 \end{equation}
-Following the convention of mass-normalised mode vectors (\autoref{massnormalisation}), this expression simplifies to
+Following the convention of mass-normalised mode vectors (\autoref{massnormalisation}), this expression simplifies to:
 \begin{equation}
 m_i^{\mathrm{eff}}(\vec{r}\,) = \bigl(\vec{\phi}_i^{\,\top} \!M \vec{r}\,\bigr)^2 .
 \end{equation}
@@ -542,7 +542,7 @@ The effective modal mass ratio or modal participation fraction $\mu_i(\vec{r}\,)
 \label{modalmassratio}
 \mu_i(\vec{r}\,) = \frac{m_i^{\mathrm{eff}}(\vec{r}\,)}{\sum_{i=1}^{n} m_i^{\mathrm{eff}}(\vec{r}\,)} = \frac{m_i^{\mathrm{eff}}(\vec{r}\,)}{\vec{r}^{\hspace{0.1em}\top}\!M\vec{r}}\,,
 \end{equation}
-such that the modal mass ratios satisfy $\sum_{i=1}^{n} \mu_i(\vec{r}\,)=1$. The last equality in \autoref{modalmassratio} follows from the fact that
+such that the modal mass ratios satisfy $\sum_{i=1}^{n} \mu_i(\vec{r}\,)=1$. The last equality in \autoref{modalmassratio} follows from the fact that:
 \begin{align}
 \begin{split}
 \sum_{i=1}^{n} m_i^{\mathrm{eff}}(\vec{r}\,)

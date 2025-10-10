@@ -17,9 +17,9 @@ Single atoms are ideal candidates for implementing light-matter quantum interfac
 
 The central figure of merit in is the cooperativity $C$, which quantifies the ratio of coherent coupling to dissipative losses. Operating in the strong-coupling regime ($C\gg1$) is critical for the realisation of an efficient quantum interface between atoms and photons. This requires optical resonators with minimal loss and small mode volume. These criteria underpin the resonator design presented in this work.
 
-Early demonstrations of strong coupling in CQED have been realised across a range of physical systems. Notable examples include atoms and ions in Fabry--Pérot resonators \cite{Thompson1992,Hiroki2020}, Rydberg atoms in microwave cavities~\cite{Brune1996}, superconducting qubits coupled to on-chip microwave resonators~\cite{Wallraff2004} or superconducting quantum interference devices (SQUIDs)~\cite{Chiorescu2004} and semiconductor quantum dots embedded in photonic crystals~\cite{Yoshie2004} or micropillar resonators~\cite{Reithmaier2004}.
+Early demonstrations of strong coupling in CQED have been realised across a range of physical systems. Notable examples include atoms and ions in Fabry--Pérot resonators \cite{Thompson1992,Hiroki2020}, Rydberg atoms in microwave cavities~\cite{Brune1996}, superconducting qubits coupled to on-chip microwave resonators~\cite{Wallraff2004} or superconducting quantum interference devices (SQUIDs)~\cite{Chiorescu2004} and semiconductor quantum dots embedded in photonic crystals~\cite{Yoshie2004} or micro-pillar resonators~\cite{Reithmaier2004}.
 
-A common limitation of many platforms is their poor compatibility with (near-infrared) optical photons, which are essential for high-fidelity, long-distance quantum communication over existing telecom fibre networks. Only ions and atoms possess optical transitions by nature and can therefore directly interface with optical photons when coupled to suitable resonators. Several architectures have been developed to achieve this, including Fabry--Pérot cavities~\cite{Thompson1992}, whispering-gallery-mode resonators---such as microspheres, microtoroids or bottle resonators~\cite{Vahala2003}---and photonic crystal cavities~\cite{Thompson2013}. Among these, Fabry--Pérot resonators were the first to facilitate strong coupling between light and alkali atoms in the optical domain \cite{Thompson1992}.
+A common limitation of many platforms is their poor compatibility with (near-infrared) optical photons, which are essential for high-fidelity, long-distance quantum communication over existing telecom fibre networks. Only ions and atoms possess optical transitions by nature and can therefore directly interface with optical photons when coupled to suitable resonators. Several architectures have been developed to achieve this, including Fabry--Pérot cavities~\cite{Thompson1992}, whispering-gallery-mode resonators---such as micro-spheres, micro-toroids or bottle resonators~\cite{Vahala2003}---and photonic crystal cavities~\cite{Thompson2013}. Among these, Fabry--Pérot resonators were the first to facilitate strong coupling between light and alkali atoms in the optical domain \cite{Thompson1992}.
 
 Experimental implementations of Fabry--Pérot resonators commonly achieve cavity linewidths on the order of a few \si{\mega\hertz}---well-matched to the natural linewidth of alkaline atomic transitions. These systems offer several advantages. Emitters within the cavity can be addressed transversely, decoupling resonator-mode interactions from auxiliary optical processes such as laser cooling, trapping, state preparation and driving V-STIRAP processes. The energy of photons inside the resonator is predominantly stored in the vacuum, which minimises losses from material absorption. Furthermore, neutral atoms remain isolated from dielectric surfaces, thereby preventing perturbative effects from surface charges and van der Waals forces. Piezoelectric elements are normally used for precise tunability and active stabilisation of the cavity length. Note that precise transverse alignment of the resonator mirrors is rarely required, since appropriately curved mirrors guarantee the existence of a stable mode. The Fabry--Pérot resonator forms the basis of the system investigated in this work and the following sections present a detailed account of its properties.
 
@@ -164,7 +164,7 @@ A Fabry--Pérot resonator is an optical device that consists of two parallel, hi
 Light entering the resonator undergoes multiple reflections between the mirrors, causing constructive or destructive interference. This gives rise to resonator modes at certain frequencies and a characteristic lineshape of the transmitted light. The modal frequencies and lineshape will be discussed in the following sections.
 
 \subsection{Resonance frequencies}
-Whether the condition for constructive interference is satisfied depends on the round-trip phase accumulated by the light propagating inside the resonator. For light entering at a frequency of $\nu$, this round-trip phase shift (written as $2\phi$) equals twice the single-pass phase shift $\phi$, which can be expressed in terms of the wavenumber $k$ and the mirror separation $d$ as
+Whether the condition for constructive interference is satisfied depends on the round-trip phase accumulated by the light propagating inside the resonator. For light entering at a frequency of $\nu$, this round-trip phase shift (written as $2\phi$) equals twice the single-pass phase shift $\phi$, which can be expressed in terms of the wavenumber $k$ and the mirror separation $d$ as:
 \begin{align}
 	\label{phiairy}
 	\phi=kd=\pi\nu\frac{2d}{c}=\pi\frac{\nu}{\Delta\nu_\mathrm{FSR}}\,,
@@ -177,10 +177,10 @@ where $c$ denotes the speed of light in vacuum and $\Delta\nu_\mathrm{FSR}\colon
 The integer $q$ is referred to as the mode index and labels the resonance that occurs at a frequency of $\nu_q=q\Delta\nu_\mathrm{FSR}$ or a wavenumber of $k_q=2\pi q \Delta\nu_\mathrm{FSR}/c$. It follows that the free spectral range $\Delta\nu_\mathrm{FSR}$ as defined earlier can be interpreted as the frequency spacing between two adjacent modes, as can be seen in \autoref{fabryperot}.
 
 \subsection{Lineshape and finesse}
-In this section, we derive the lineshape of the Fabry--Pérot resonator as shown in \autoref{fabryperot} by considering the transmitted field intensity ${\lvert E_\mathrm{t}\rvert^2}$ relative to the incident field intensity ${\lvert E_\mathrm{i}\rvert^2}$. This is done by relating both $ E_\mathrm{i}$ and $ E_\mathrm{t}$ to $ E_\mathrm{c}$, which is the steady-state amplitude of the field circulating inside the resonator. To find these relations, we assume that the optical thickness of the mirrors (lossless, thin dielectric slabs) is an odd number of quarter wavelengths. In addition, we consider the waves at separate reference planes that are located on opposite sides of this slab and are thus separated by the mirror thickness. In this case, the amplitude reflection coefficients from both sides of the mirror are symmetric and purely real (denoted $r_1$ and $r_2$). The amplitude transmission factors, however, acquire an additional phase shift of $\sfrac{\pi}{2}$ and can thus be written as $it_1$ and $it_2$, where $t_i\in \mathbb{R}$ and $r_i^2+t_i^2=1$ for $i\in \{ 1,2\}$. With these conventions, we can write
+In this section, we derive the lineshape of the Fabry--Pérot resonator as shown in \autoref{fabryperot} by considering the transmitted field intensity ${\lvert E_\mathrm{t}\rvert^2}$ relative to the incident field intensity ${\lvert E_\mathrm{i}\rvert^2}$. This is done by relating both $ E_\mathrm{i}$ and $ E_\mathrm{t}$ to $ E_\mathrm{c}$, which is the steady-state amplitude of the field circulating inside the resonator. To find these relations, we assume that the optical thickness of the mirrors (lossless, thin dielectric slabs) is an odd number of quarter wavelengths. In addition, we consider the waves at separate reference planes that are located on opposite sides of this slab and are thus separated by the mirror thickness. In this case, the amplitude reflection coefficients from both sides of the mirror are symmetric and purely real (denoted $r_1$ and $r_2$). The amplitude transmission factors, however, acquire an additional phase shift of $\sfrac{\pi}{2}$ and can thus be written as $it_1$ and $it_2$, where $t_i\in \mathbb{R}$ and $r_i^2+t_i^2=1$ for $i\in \{ 1,2\}$. With these conventions, we can write the following:
 \begin{align}
 	\begin{split}
-		&E_\mathrm{t}= it_2 \mathrm{e}^{i\phi} E_\mathrm{c} \implies \frac{E_\mathrm{t}}{E_\mathrm{c}} = it_2 \mathrm{e}^{i\phi}\\
+		&E_\mathrm{t}= it_2 \mathrm{e}^{i\phi} E_\mathrm{c} \implies \frac{E_\mathrm{t}}{E_\mathrm{c}} = it_2 \mathrm{e}^{i\phi}\,,\\
 		&E_\mathrm{c}= it_1 E_\mathrm{i} + r_1 r_2 \mathrm{e}^{2i\phi} E_\mathrm{c} \implies \frac{E_\mathrm{c}}{E_\mathrm{i}} = \frac{it_1}{1-r_1 r_2 \mathrm{e}^{2i\phi}} \,.
 	\end{split}
 \end{align}
@@ -199,12 +199,12 @@ Since $2\Delta\phi={\pi\Delta\nu_\mathrm{A}}/{\Delta\nu_\mathrm{FSR}}$ (see \aut
 \begin{align}
 	\mathcal{F}\coloneqq\frac{\Delta\nu_\mathrm{FSR}}{\Delta\nu_\mathrm{A}}=\frac{\pi}{2}\left(\arcsin{\frac{1-\sqrt{R_1R_2}}{2\sqrt[4]{R_1R_2}}}\right)^{-1}\,.
 \end{align}
-Note that the finesse is independent of the resonator length and is instead fully determined by the properties of the mirrors. For values of $\phi$ close to the nearest integer multiple of $\phi$, or more precisely $\min\{\lvert \phi \bmod \pi \rvert, \lvert \phi \bmod \pi - \pi\rvert\} \ll 1$, we can approximate $\sin^2(\phi)\approx\phi^2$ in \autoref{airy}, which yields
+Note that the finesse is independent of the resonator length and is instead fully determined by the properties of the mirrors. For values of $\phi$ close to the nearest integer multiple of $\phi$, or more precisely $\min\{\lvert \phi \bmod \pi \rvert, \lvert \phi \bmod \pi - \pi\rvert\} \ll 1$, we can approximate $\sin^2(\phi)\approx\phi^2$ in \autoref{airy}, which yields:
 \begin{align}
 	\label{approxfinesse}
 	\mathcal{F}\approx \pi \frac{\sqrt[4]{R_1R_2}}{1-\sqrt{R_1R_2}}\,.
 \end{align}
-In the case of identical mirrors ($R_1=R_2=R$), \autoref{approxfinesse} reduces to
+In the case of identical mirrors ($R_1=R_2=R$), \autoref{approxfinesse} reduces to:
 \begin{align}
 \mathcal{F}\approx \pi\frac{\sqrt{R}}{1-R}\,.
 \end{align}
@@ -213,12 +213,12 @@ In the case of identical mirrors ($R_1=R_2=R$), \autoref{approxfinesse} reduces 
 \label{sec:transversemodes}
 In a Fabry--Pérot resonator, the standing wave patterns that form between the mirrors are not limited to a single uniform distribution across the transverse (perpendicular to the optical axis) plane but can exhibit various spatial intensity distributions, known as transverse modes. Each transverse mode corresponds to a specific solution of the paraxial Helmholtz equation within the resonator. The most fundamental modes are Gaussian, which have a single intensity peak centred on the optical axis. Higher-order transverse modes, such as Hermite--Gaussian, Laguerre--Gaussian, and Ince--Gaussian modes, exhibit increasingly complex intensity profiles with distinct nodal structures. These modes differ not only in their spatial energy distributions but also in their resonance frequencies due to their transverse confinement, a phenomenon known as transverse mode spacing. Throughout this section, we will discuss the paraxial Helmholtz equation that governs these solutions, which is followed by an analysis of Gaussian and higher-order modes.
 \subsection{The paraxial Helmholtz equation}
-The paraxial Helmholtz equation provides a fundamental framework for describing the propagation of light in optical systems where the beam divergence is small, and the paraxial approximation holds. Its solutions form the basis for understanding the transverse modes of Fabry--Pérot resonators, including Gaussian beams and their higher-order generalisations. The derivation and key properties of these solutions are presented in this section. We start from the Helmholtz equation, which reads
+The paraxial Helmholtz equation provides a fundamental framework for describing the propagation of light in optical systems where the beam divergence is small, and the paraxial approximation holds. Its solutions form the basis for understanding the transverse modes of Fabry--Pérot resonators, including Gaussian beams and their higher-order generalisations. The derivation and key properties of these solutions are presented in this section. We start from the Helmholtz equation, which reads:
 \begin{align}
 	\label{Helmholtz}
 	\left(\nabla^2 + k^2\right) E_0^{(+)}(\vec{r}\,)=0\,,
 \end{align}
-written in terms of the wavenumber $k$ and the complex electric field amplitude $E_0^{(+)}(\vec{r}\,)$ as defined in \autoref{Efield}. For a plane wave travelling along the $z$ direction, we can write the complex electric field amplitude as
+written in terms of the wavenumber $k$ and the complex electric field amplitude $E_0^{(+)}(\vec{r}\,)$ as defined in \autoref{Efield}. For a plane wave travelling along the $z$ direction, we can write the complex electric field amplitude as:
 \begin{align}
 	E_0^{(+)}(\vec{r}\,)=u(\vec{r}\,)\mathrm{e}^{ikz}\,
 \end{align}
@@ -226,14 +226,14 @@ where $u(\vec{r}\,)$ represents the complex transverse profile. In the paraxial 
 \begin{align}
 	\left\lvert \frac{\partial^2 u}{\partial z^2} \right\rvert \ll  \left\lvert 2k \frac{\partial u}{\partial z}\right\rvert , \left\lvert \frac{\partial^2 u}{\partial x^2} \right\rvert, \left\lvert \frac{\partial^2 u}{\partial y^2} \right\rvert \,.
 \end{align}
-Under these conditions, \autoref{Helmholtz} simplifies to the paraxial Helmholtz equation, which is written as
+Under these conditions, \autoref{Helmholtz} simplifies to the paraxial Helmholtz equation, which is written as:
 \begin{align}
 	\label{paraxialHelmholtz}
 	\Delta_\perp u(\vec{r}\,)+2ik\frac{\partial}{\partial z}u(\vec{r}\,)=0\,,
 \end{align}
 where $\Delta_\perp={\partial^2}/{\partial x^2} + {\partial^2}/{\partial x^2}$ is the transverse Laplacian operator.
 \subsection{Gaussian modes}
-The Gaussian beam\footnote{With an intensity profile as given in \autoref{laser}.} is the fundamental solution to the paraxial Helmholtz equation and represents the simplest transverse mode of optical resonators with a spatially localised intensity profile. It can be written in cylindrical coordinates as~\cite{Saleh1991}
+The Gaussian beam\footnote{With an intensity profile as given in \autoref{laser}.} is the fundamental solution to the paraxial Helmholtz equation and represents the simplest transverse mode of optical resonators with a spatially localised intensity profile. It can be written in cylindrical coordinates as~\cite{Saleh1991}:
 \begin{align}
 	\label{gaussianmode}
 	u(r, \phi, z) = \frac{w_0}{w(z)}\exp{\frac{-r^2}{w^2(z)}}\exp{i\left( kz + \frac{kr^2}{2R_\mathrm{c}(z)} - \Psi(z)\right)}\,,
@@ -242,7 +242,7 @@ in terms of the waist radius $w_0$, the beam radius $w(z)$ at a distance $z$ and
 \begin{align}
 	\label{waisteqs}
 	\begin{split}
-		&w_0^2 = \frac{\lambda d}{2\pi}\sqrt{2\frac{\lvert R_\mathrm{c} \rvert}{d} - 1}\\
+		&w_0^2 = \frac{\lambda d}{2\pi}\sqrt{2\frac{\lvert R_\mathrm{c} \rvert}{d} - 1}\,,\\
 		&w_1^2 = w_2^2 = \frac{\lambda d}{\pi} \frac{1}{\sqrt{\sfrac{d}{\lvert R_\mathrm{c} \rvert}\left( 2 - \sfrac{d}{\lvert R_\mathrm{c} \rvert} \right)}}\,.
 	\end{split}
 \end{align}
@@ -694,7 +694,7 @@ Higher-order modes arise as alternative solutions to the paraxial Helmholtz equa
 \end{align}
 where $n_x$ and $n_y$ are non-negative integers representing the mode indices along the $x$- and $y$-axes, respectively. The functions $H_{n_x}$ and $H_{n_y}$ are the Hermite polynomials of order $n_x$ and $n_y$, which govern the transverse structure of the beam along the corresponding directions. Note the presence of the exponential factors from \autoref{gaussianmode}, which maintain the Gaussian envelope and wavefront curvature. Apart from the fundamental Gaussian mode $\mathcal{H}_{0,0}$, which is the only circularly symmetric member of the Hermite--Gaussian mode family, all higher order modes feature an enhanced Gouy phase shift due to the factor of $n_x+n_y+1$ in \autoref{HG}.
 
-The normalised Laguerre--Gaussian modes can be written in cylindrical coordinates as
+The normalised Laguerre--Gaussian modes can be written in cylindrical coordinates as:
 \begin{align}
 \label{LG}
 \begin{split}
@@ -703,7 +703,7 @@ The normalised Laguerre--Gaussian modes can be written in cylindrical coordinate
 \end{align}
 These modes are distinguished by a radial index $n$ and an azimuthal index $l$, the latter of which corresponds to the number of helical phase wraps around the beam axis. This is due to the factor of $\mathrm{e}^{ -il\phi}$, which gives rise to optical vortices and results in the beam carrying orbital angular momentum for $l\neq0$. The Laguerre polynomials $L_n^{\lvert l \rvert}(x)$, in conjunction with the factors of $x^{\vert l \rvert/2}$ and $\mathrm{e}^{x/2}$ (the Gaussian envelope) in \autoref{LG}, ensure the orthogonality of modes with equal azimuthal index. In addition, they are responsible for the characteristic radial intensity distribution associated with these modes.
 
-The third family of complete orthogonal modes are the Ince--Gaussian modes, which are defined in an elliptic coordinate system and are subdivided into even and odd modes. Their respective expressions are
+The third family of complete orthogonal modes are the Ince--Gaussian modes, which are defined in an elliptic coordinate system and are subdivided into even and odd modes. Their respective expressions are:
 \begin{align}
 \label{IG}
 \begin{split}
@@ -713,9 +713,9 @@ The third family of complete orthogonal modes are the Ince--Gaussian modes, whic
 \,,
 \end{split}
 \end{align}
-in which $C$ and $S$ represent normalisation constants. $C_p^m$ and $S_p^m$ denote the even and odd Ince polynomials of order $p$ and degree $m$. The indices must be of equal parity ($(-1)^{p-m}=1$) and satisfy either $0 \leq m \leq p$ (even functions) or $1 \leq m \leq p$ (odd functions). The respective radial and angular elliptic coordinates $\xi\in \left[0,\infty \right)$ and $\eta\in\left[0,2\pi\right)$ are defined by
+in which $C$ and $S$ represent normalisation constants. $C_p^m$ and $S_p^m$ denote the even and odd Ince polynomials of order $p$ and degree $m$. The indices must be of equal parity ($(-1)^{p-m}=1$) and satisfy either $0 \leq m \leq p$ (even functions) or $1 \leq m \leq p$ (odd functions). The respective radial and angular elliptic coordinates $\xi\in \left[0,\infty \right)$ and $\eta\in\left[0,2\pi\right)$ are defined by:
 \begin{align}
-&x = \sqrt{\frac{\epsilon}{2}} w(z) \cosh(\xi)\cos(\eta)\\
+&x = \sqrt{\frac{\epsilon}{2}} w(z) \cosh(\xi)\cos(\eta)\,,\\
 &y = \sqrt{\frac{\epsilon}{2}} w(z) \sinh(\xi)\sin(\eta)\,.
 \end{align}
 The parameter $\epsilon\in\left[0,\infty \right)$ represents the ellipticity of the transverse mode distribution. By continuously varying $\epsilon$, \autoref{IG} interpolates smoothly between Laguerre--Gaussian ($\epsilon\rightarrow 0$) and Hermite--Gaussian ($\epsilon\rightarrow \infty$) modes. This is shown for a number of Ince--Gaussian modes in \autoref{incegauss}.
@@ -833,7 +833,7 @@ $n_y = p - m + 1$ for the odd modes.
 
 
 \subsection{Transverse mode spacing}
-For higher-order transverse modes, the resonance frequencies are shifted with respect to the fundamental mode. This shift depends on the Gouy phase, which is enhanced for higher-order modes (see \autoref{higerordermodesection}). Along the optical axis ($r=0$) of a Gaussian beam (\autoref{gaussianmode}), the resonance condition (\autoref{rescondition}) is still valid and the single-pass phase shift $\phi$ now equals
+For higher-order transverse modes, the resonance frequencies are shifted with respect to the fundamental mode. This shift depends on the Gouy phase, which is enhanced for higher-order modes (see \autoref{higerordermodesection}). Along the optical axis ($r=0$) of a Gaussian beam (\autoref{gaussianmode}), the resonance condition (\autoref{rescondition}) is still valid and the single-pass phase shift $\phi$ now equals:
 \begin{align}
 \phi=kd-\Delta\Psi\,.
 \end{align}
@@ -842,7 +842,7 @@ The phase retardation $\Delta\Psi$ relative to a plane wave is given by the diff
 \label{deltapsi}
 \Delta\Psi\coloneqq\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})\,.
 \end{align}
-Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by
+Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by:
 \begin{align}
 \label{resfreqsG}
 \nu_q = \left(q + \frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
@@ -1317,7 +1317,7 @@ In this section, we characterise the optical properties of the assembled Fabry--
 The resonator operates at the D$_2$ line of \ce{^87Rb}, with a wavelength of $\lambda =\SI{780.23}{\nano\metre}$. From the measured free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ we infer a physical cavity length of $L = \SI{476\pm5}{\micro\metre}$. To remain consistent with the equations derived for symmetric resonators in the preceding sections, we consider the equivalent cavity geometry with an effective length $d = 2L$ and define the corresponding effective free spectral range as $\Delta\nu_{\mathrm{FSR},d} = \sfrac{\Delta\nu_{\mathrm{FSR},L}}{2}$. All effective parameters refer to this symmetric configuration. Note that only the even-numbered modes of this effective cavity are visible, since the odd-numbered modes would have an antinode on the flat mirror, which is not allowed. Due to the elliptical mirror curvature, the transverse modes along the $x$ and $y$ directions are non-degenerate and their measured spacings in terms of the effective free spectral range are:
 \begin{align}
 \begin{split}
-\Delta\nu_{\perp,x} &= \nu_{q,1,0}- \nu_{q,0,0} = 0.393 \Delta\nu_{\mathrm{FSR},d} \\
+\Delta\nu_{\perp,x} &= \nu_{q,1,0}- \nu_{q,0,0} = 0.393 \Delta\nu_{\mathrm{FSR},d} \,,\\
 \Delta\nu_{\perp,y} &=\Delta\nu_{q,0,1} - \nu_{q,0,0} = 0.355 \Delta\nu_{\mathrm{FSR},d}\,,
 \end{split}
 \end{align}
@@ -1593,19 +1593,19 @@ The linewidth is extracted by scanning the cavity length. The resulting transmis
 inferred as $\mathcal{F} = {\Delta\nu_{\mathrm{FSR},L}}/{\Delta \nu_\mathrm{A}} = \num{75.1 \pm 0.9e3}$. Given the reflectivity $R_1$ of one reference mirror, the reflectivity $R_2$ of the second mirror can thus be inferred. When combined with independent measurements of the mirror transmission, the round-trip incoherent losses of the cavity can be extracted. A comprehensive discussion of cavity mirror losses, including a systematic breakdown of the different loss mechanisms, is beyond the scope of this thesis. For further detail, the reader is referred to~\cite{doherty2021a}.
 
 \subsection{Coupling strength}
-To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope $u(r, z)$ takes the following form
+To evaluate the atom-cavity coupling strength $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ as defined in \autoref{couplingrate}, we require an explicit expression for the normalised field mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$. For a standing-wave Gaussian mode confined between two ideal mirrors at $z = 0$ (planar) and $z = L$ (spherical), the scalar field envelope $u(r, z)$ takes the following form:
 \begin{equation}
 u(r, z) = \frac{w_0}{w(z)} \exp\left( \frac{-r^2}{w^2(z)} \right) \sin(kz)\,,
 \end{equation}
-with wavenumber $k = q\pi / L$ for some longitudinal mode index $q$. The full (vector-valued) mode function is then given by
+with wavenumber $k = q\pi / L$ for some longitudinal mode index $q$. The full (vector-valued) mode function is then given by:
 \begin{equation}
 \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = A\, u(r, z)\, \hat{\epsilon}\,,
 \end{equation}
-where $A$ is a normalisation constant to be determined. The separation into a scalar mode envelope $u(r, z)$ and a constant polarisation vector $\hat{\epsilon}$ is valid in the paraxial approximation, where the field predominantly propagates along the $z$-axis and the wavefront curvature is small. The normalisation condition for $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which ensures correct field quantisation, implies
+where $A$ is a normalisation constant to be determined. The separation into a scalar mode envelope $u(r, z)$ and a constant polarisation vector $\hat{\epsilon}$ is valid in the paraxial approximation, where the field predominantly propagates along the $z$-axis and the wavefront curvature is small. The normalisation condition for $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which ensures correct field quantisation, implies:
 \begin{equation}
 \lvert A \rvert^2 \int \lvert u(r, z) \rvert^2\, \mathrm{d}^3 r = 1\,.
 \end{equation}
-Evaluating the integral using $\int_0^L \sin^2(kz)\, \mathrm{d}z = \sfrac{L}{2}$ for integer $q$ yields the normalisation constant
+Evaluating the integral using $\int_0^L \sin^2(kz)\, \mathrm{d}z = \sfrac{L}{2}$ for integer $q$ yields the normalisation constant:
 \begin{equation}
 \lvert A \rvert = \sqrt{\frac{4}{\pi w_0^2 L}}\,.
 \end{equation}
@@ -1614,12 +1614,12 @@ To estimate the maximum coupling strength inside the resonator, we examine the m
 \lvert \vec{f}_{\mathrm{max}} \rvert = \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(r=0, z=\sfrac{L}{2q}) \rvert = \lvert A \rvert \cdot \frac{w_0}{w(\sfrac{L}{2q})} \approx  \lvert A \rvert \,.
 \end{equation}
 The approximation holds when the first antinode lies well within the Rayleigh range: $\sfrac{L}{2q} \ll z_{\mathrm{R}}$. In our resonator, $L=\SI{476}{\micro\meter}$ and $q\sim 10^3$, which yield $\sfrac{L}{2q}\sim \SI{0.2}{\micro\meter} \ll \SI{718}{\micro\meter} = z_\mathrm{R}$.
-Since $L \ll z_\mathrm{R}$, the approximation $w(z) \approx w_0$ holds across the entire cavity length. Thus, the coupling strength is maximised regardless of longitudinal position, provided the atom is placed at an antinode and the polarisation $\hat{\epsilon}$ is aligned with the transition dipole moment $\langle \mathrm{e} \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle$. Under these conditions, the maximally achievable single-photon coupling strength $g_{\mathrm{max}}$ can be written as
+Since $L \ll z_\mathrm{R}$, the approximation $w(z) \approx w_0$ holds across the entire cavity length. Thus, the coupling strength is maximised regardless of longitudinal position, provided the atom is placed at an antinode and the polarisation $\hat{\epsilon}$ is aligned with the transition dipole moment $\langle \mathrm{e} \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle$. Under these conditions, the maximally achievable single-photon coupling strength $g_{\mathrm{max}}$ can be written as:
 \begin{equation}
 g_{\mathrm{max}} \approx \lvert A \rvert \sqrt{\frac{\omega}{2\epsilon_0 \hbar}} \, \lvert \langle \mathrm{e} \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \rvert =  \sqrt{\frac{2\omega}{\pi\epsilon_0 \hbar w_0^2 L}} \, \lvert \langle \mathrm{e} \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \rvert \,.
 \label{eq:gmax}
 \end{equation}
-To estimate the value of $g_\mathrm{max}$, we must consider a suitable choice for $\vert \mathrm{g} \rangle$ and $\vert \mathrm{e} \rangle$ in the context of cavity-mediated population transfer for the extraction and shaping of single photons from  \ce{^87Rb} atoms (see \autoref{vstirap}). The V-STIRAP protocol can be executed in a $\Lambda$-like three level system (\autoref{fig:3lvlLambdaSystem}) with, for instance, $\vert \mathrm{g} \rangle= \lvert F = 1, m_F = -1 \rangle$, $ \lvert \mathrm{e} \rangle = \lvert F' = 1, m_F' = 0 \rangle $ and $\lvert \mathrm{u} \rangle = \lvert F=2, m_F = 0 \rangle $. Considering the relevant Clebsch--Gordan coefficient, we thus obtain
+To estimate the value of $g_\mathrm{max}$, we must consider a suitable choice for $\vert \mathrm{g} \rangle$ and $\vert \mathrm{e} \rangle$ in the context of cavity-mediated population transfer for the extraction and shaping of single photons from  \ce{^87Rb} atoms (see \autoref{vstirap}). The V-STIRAP protocol can be executed in a $\Lambda$-like three level system (\autoref{fig:3lvlLambdaSystem}) with, for instance, $\vert \mathrm{g} \rangle= \lvert F = 1, m_F = -1 \rangle$, $ \lvert \mathrm{e} \rangle = \lvert F' = 1, m_F' = 0 \rangle $ and $\lvert \mathrm{u} \rangle = \lvert F=2, m_F = 0 \rangle $. Considering the relevant Clebsch--Gordan coefficient, we thus obtain:
 \begin{equation}
  \lvert \langle \mathrm{e} \vert \hat{\vec{d}}\, \vert \mathrm{g} \rangle \rvert = \sqrt{\sfrac{5}{24}} \times \lvert \langle J = \sfrac{1}{2} \| \hat{\vec{d}}\, \| J' = \sfrac{3}{2} \rangle \rvert= \SI{1.636e-29}{\coulomb\meter}\,.
 \end{equation}
