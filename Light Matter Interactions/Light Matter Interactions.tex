@@ -221,7 +221,7 @@ The kinetic energy cooling rate that corresponds to this damping force can be wr
 	\frac{\mathrm{d} \langle E_\mathrm{c} \rangle}{\mathrm{d}t}=\langle F_\mathrm{net}v\rangle\approx-\alpha\langle v^2 \rangle  \,,
 \label{coolingrate}
 \end{align}
-where the angle brackets denote the ensemble average. While the cooling force systematically reduces the atomic velocity, each spontaneously emitted photon (associated with a scattering event) transfers a momentum of magnitude $\hbar k$ to the atom in a random direction, which increases the kinetic energy by the recoil energy $E_\mathrm{r}=\sfrac{\hbar^2 k^2}{2m}$. This stochastic process of recoil heating ultimately limits the minimum temperature $T_\mathrm{D}$ achievable through Doppler cooling. The kinetic energy heating rate can be written as~\cite{cohen1992}:
+where the angle brackets denote the ensemble average. While the cooling force systematically reduces the atomic velocity, each spontaneously emitted photon transfers a momentum of magnitude $\hbar k$ to the atom in a random direction, which increases the kinetic energy by the recoil energy $E_\mathrm{r}=\sfrac{\hbar^2 k^2}{2m}$. This stochastic process of recoil heating ultimately limits the minimum temperature $T_\mathrm{D}$ achievable through Doppler cooling. In the low-saturation limit, the kinetic energy heating rate can be written as~\cite{Savage1996,cohen1992}:
 \begin{align}
 \frac{\mathrm{d} \langle E_\mathrm{h} \rangle}{\mathrm{d}t}=4 E_\mathrm{r} R_\mathrm{sc} \,.
 \label{heatingrate}
@@ -688,7 +688,7 @@ In writing down the preceding expressions, we have assumed the tensor shifts to 
 \begin{align}
 \label{effectivestarkhamiltonian}
 \begin{split}
-\hat{\mathcal{H}}_\mathrm{S}\left(J;\omega\right) = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(J;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{\hat{J}_z}{J}   \\&- \alpha^{(2)}\left(J;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}}{J\left(2J-1\right)} \,,
+\hat{\mathcal{H}}_\mathrm{S}\left(J;\omega\right) = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \\&- \alpha^{(1)} \left(J;\omega\right)   \left( \lvert (E_0^{(+)})_{-1}\rvert ^2 - \lvert (E_0^{(+)})_{1}\rvert ^2  \right)    \frac{\hat{J}_z}{\hbar J}   \\&- \alpha^{(2)}\left(J;\omega\right)\frac{1}{2}\left(3\lvert (E_{0}^{(+)})_0 \rvert ^2 - \lvert E_0^{(+)}\rvert ^2 \right) \frac{3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}}{\hbar^2 J\left(2J-1\right)} \,,
 \end{split}
 \end{align}
 where the polarisabilities are defined analogously to \autoref{Ftensorpolarisabilities} in terms of $J$ and $\omega$. In the limit of a strong electric field, the hyperfine interaction can be treated as perturbation to the dominating Stark Hamiltonian. This is analogous to the (hyperfine) Paschen--Back regime for strong magnetic fields that decouple the nuclear spin ($I$) from the total angular momentum ($J$) of the electron but do not decouple the electron's spin ($S$) from its orbital angular momentum ($L$). In this case, we see that $\hat{\mathcal{H}}_\mathrm{S}$ is diagonal in the strong-field basis $\vert J\, m_J\, I\, m_I\rangle$, which is used to calculate the first-order, hyperfine perturbation as $\langle J\, m_J\, I\, m_I \vert \hat{\mathcal{H}}_{\mathrm{hfs}} \vert J\, m_J\, I\, m_I\rangle$. The resulting energies of the perturbed eigenstates are:
@@ -701,7 +701,7 @@ where the eigenvalues with respect to \autoref{hyperfinehamiltonian} have been o
 \begin{align}
 \label{matrixelementofstark}
 \begin{split}
-\langle F\,m_F \vert \hat{\mathcal{H}}_\mathrm{S} \vert F'\, m'_F \rangle = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \delta_{FF'}\delta_{m_F m'_F} \\&- \alpha^{(2)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \frac{ \langle F\,m_F \vert 3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}  \vert F'\, m'_F \rangle }{J\left(2J-1\right)} \,.
+\langle F\,m_F \vert \hat{\mathcal{H}}_\mathrm{S} \vert F'\, m'_F \rangle = &- \alpha^{(0)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \delta_{FF'}\delta_{m_F m'_F} \\&- \alpha^{(2)}\left(J;\omega\right) \lvert E_0^{(+)}\rvert ^2 \frac{ \langle F\,m_F \vert 3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}  \vert F'\, m'_F \rangle }{\hbar^2 J\left(2J-1\right)} \,.
 \end{split}
 \end{align}
 Since $3{\hat{J}}_z^2-\hat{\vec{J}}^{\,2}$ is a rank-$2$ spherical tensor component ($q=0$), we can use the Wigner--Eckart theorem to write the matrix element in \autoref{matrixelementofstark} as:
@@ -858,28 +858,28 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\begin{tikzpicture}
 	
 	% Colors
-	\colorlet{cavitycolor}{markrood!50}
+	\colorlet{cavitycolor}{markrood}
 	\colorlet{cylindercolor}{markgrijs}
 	\colorlet{atomcolor}{rainbow7of8}% soft gold
 	
-	\def\a{(0, 2) circle (1.4)}
+	\def\a{(0, 2.5) circle (1.8)}
 	\def\b{(0, 0) circle (2)}
-	\def\c{(0, -2) circle (1.4)}
+	\def\c{(0, -2.5) circle (1.8)}
 	
 	\begin{scope}
 	\clip \b;
 	\clip[reverseclip] \a;
 	\clip[reverseclip] \c;
-	\fill[cavitycolor,even odd rule] \a \b \c;
+	\filldraw[fill=cavitycolor!50, draw=cavitycolor, ultra thick, even odd rule] \a \b \c;
 	\end{scope}
 	
-	\def\A{(-2.5,2) to[out=0,in=180] (-1,2) -- (-1,-2) to[out=180,in=0] (-2.5,-2) -- cycle};
-	\def\B{(2.5,2) to[out=180,in=0] (1,2) -- (1,-2) to[out=0,in=180] (2.5,-2) -- cycle};
-	\def\C{(0.2,2) arc[start angle=90, end angle=270, radius=2cm] -- cycle};
-	\def\D{(-0.2,-2) arc[start angle=-90, end angle=90, radius=2cm] -- cycle};
+	\def\A{(-2.5,1.9) to[out=0,in=180] (-1,1.9) -- (-1,-1.9) to[out=180,in=0] (-2.5,-1.9) -- cycle};
+	\def\B{(2.5,1.9) to[out=180,in=0] (1,1.9) -- (1,-1.9) to[out=0,in=180] (2.5,-1.9) -- cycle};
+	\def\C{(0.4,2) arc[start angle=90, end angle=270, radius=2cm] -- cycle};
+	\def\D{(-0.4,-2) arc[start angle=-90, end angle=90, radius=2cm] -- cycle};
 	
 	\def\E{(-2,2) to[out=0,in=180] (2,2) -- (2,-2) to[out=180,in=0] (-2,-2) -- cycle};
-	\def\F{(0,1) arc[start angle=0, end angle=180, radius=2cm] -- cycle};
+	\def\F{(0,1) arc[start angle=0, end angle=180, radius=1.9cm] -- cycle};
 	% Draw cavity
 	%\fill[cavitycolor] (-2,2) to[out=0,in=180] (2,2) -- (2,-2) to[out=180,in=0] (-2,-2) -- cycle;
 	
@@ -887,21 +887,20 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\begin{scope}
 	\clip \A;
 	\clip[reverseclip] \C;
-	\fill[cylindercolor, draw=none, even odd rule] \C \A \D;
+	\fill[fill=cylindercolor!50, draw=cylindercolor, ultra thick, even odd rule] \C \A \D;
 	\end{scope}
 	
 	\begin{scope}
 	\clip \B;
 	\clip[reverseclip] \D;
-	\fill[cylindercolor, even odd rule] \C \B \D;
+	\filldraw[fill=cylindercolor!50, draw=cylindercolor, ultra thick, even odd rule] \C \B \D;
 	\end{scope}
 	
-	
 	% Draw atom
-	\fill[atomcolor] (0,0) circle (0.4);
+	\filldraw[fill=atomcolor!50,draw=atomcolor, thick] (0,0) circle (0.4);
 	\draw[thick] (-0.15,0.15) -- (0.15,0.15);
 	\draw[thick] (-0.15,-0.15) -- (0.15,-0.15);
-	\draw[fill=atomcolor] (0,0.15) circle (0.05);
+	\draw[fill=atomcolor!50] (0,0.15) circle (0.05);
 	\fill (0,-0.15) circle (0.05);
 	\centerarc[->,thick](0.61,0)(5:155:0.4);
 	\centerarc[->,thick](0.61,0)(210:355:0.4);
@@ -913,16 +912,16 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	
 	% Cavity photon decay
 	\draw[thick,->] (2,0) -- (3,0);
-	\node at (2.75,0.2) {$\kappa$};
+	\node at (2.7,0.2) {$\kappa$};
 	
 	% Energy level diagram
-	\fill[atomcolor] (6,0) circle (2);
+	\filldraw[fill=atomcolor!50,draw=atomcolor, thick] (6,0) circle (2);
 	\draw[thick] (5,-1) -- (6.5,-1);
 	\draw[thick] (5,1) -- (6.5,1);
 	\draw[thick,dashed] (5.5,0.4) -- (6.5,0.4);
 	
-	\draw[thick,dashed, atomcolor] (-0.1,0.38) -- (5.7,1.96);
-	\draw[thick,dashed, atomcolor] (-0.1,-0.38) -- (5.7,-1.96);
+	\draw[thick,dashed, atomcolor] (-0.1,0.387) -- (5.58,1.958);
+	\draw[thick,dashed, atomcolor] (-0.1,-0.387) -- (5.58,-1.958);
 	
 	% Energy levels labels
 	\draw[<->, thick] (5.2,-0.95) -- (5.2,0.95) node[midway, left] {$\omega_{0}$};
