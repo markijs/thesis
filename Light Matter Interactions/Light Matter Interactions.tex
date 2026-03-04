@@ -920,8 +920,8 @@ In the preceding discussion of the dressed eigenstates of two- and three-level s
 	\draw[thick] (5,1) -- (6.5,1);
 	\draw[thick,dashed] (5.5,0.4) -- (6.5,0.4);
 	
-	\draw[thick,dashed, atomcolor] (-0.1,0.387) -- (5.58,1.958);
-	\draw[thick,dashed, atomcolor] (-0.1,-0.387) -- (5.58,-1.958);
+	\draw[shorten <=2mm, shorten >=4.3mm, thick,dashed, atomcolor] (-0.1,0.387) -- (5.58,1.958);
+	\draw[shorten <=2mm, shorten >=4.3mm, thick,dashed, atomcolor] (-0.1,-0.387) -- (5.58,-1.958);
 	
 	% Energy levels labels
 	\draw[<->, thick] (5.2,-0.95) -- (5.2,0.95) node[midway, left] {$\omega_{0}$};
@@ -1024,14 +1024,14 @@ The transverse polarisation decay rate $\gamma$ is affected by several factors. 
 
 \subsection{Strong coupling regime}
 \label{sec:strongcoupling}
-Different coupling regimes exist for the atom-cavity system, the first being the strong coupling regime, in which $g \gg \max \{\kappa,\gamma\}$. In the strong coupling regime, the atom-photon interaction occurs more rapidly than the irreversible processes caused by photon loss from the cavity mode. This makes the emission of the photon a reversible process, where the photon is reabsorbed by the atom before it escapes the cavity, resulting in vacuum Rabi oscillations. Alternatively, this regime can be characterised is via the cooperativity:\footnote{The cooperativity may appear differently in literature, depending on the definition of $\kappa$ and $\gamma$.}
+Different coupling regimes exist for the atom-cavity system, the first being the strong coupling regime, in which $g \gg \max \{\kappa,\gamma\}$. In the strong coupling regime, the atom-photon interaction occurs more rapidly than the irreversible processes caused by photon loss from the cavity mode. This makes the emission of the photon a reversible process, where the photon is reabsorbed by the atom before it escapes the cavity, resulting in vacuum Rabi oscillations. The interaction regime may also be characterised by the cooperativity:%\footnote{The cooperativity may appear differently in literature, depending on the definition of $\kappa$ and $\gamma$.}
 \begin{align}
 \label{cooperativity}
-	C=\frac{g^2}{2\kappa\gamma}\,.
-\end{align} 
-Strong coupling in the atom-cavity system is achieved when $C$ is maximised, a criterion that can be understood in the context of the Purcell factor $F_\mathrm{P}=2C$, which equals the ratio of emission into the cavity ($\sfrac{g^2\!}{\kappa}$) to the spontaneous emission probability into free space ($\gamma$). Experimentally, strong coupling typically occurs in cavities with a small mode volume $V$ and minimal losses (high $Q$).
+	C=\frac{g^2}{2\kappa\gamma}\,,
+\end{align}
+a dimensionless figure of merit that quantifies the ratio of coherent coupling to dissipative processes. Strong coupling in the atom-cavity system implies that $C \gg 1$, reflecting that coherent excitation exchange dominates over decay. Since the coupling strength $g$ is proportional to the electric field amplitude at the atomic position, it increases for strongly confined optical modes. In addition, $\kappa \propto \sfrac{\omega}{Q}$, from which we conclude that a large cooperativity is favoured in cavities featuring minimal losses (high-$Q$) and strong field confinement.
 
-In the strong coupling regime, where the energy exchange between atom and cavity is fast and coherent, the method of V-STIRAP (as discussed in \autoref{vstirap}) can be employed to adiabatically transfer the population between $\vert \mathrm{u}, 0\rangle$ and $\vert \mathrm{g}, 1\rangle$ via an adequately shaped control pulse $\Omega(t)$. This process is shown in \autoref{fig:StrongCoupling}.
+In the strong coupling regime, the method of V-STIRAP (as discussed in \autoref{vstirap}) can be employed to adiabatically transfer the population between $\vert \mathrm{u}, 0\rangle$ and $\vert \mathrm{g}, 1\rangle$ via an adequately shaped control pulse $\Omega(t)$. This process is shown in \autoref{fig:StrongCoupling}.
 \begin{figure}[!t]
 	%\vspace{0.7em}
 	\centering
@@ -1115,7 +1115,8 @@ In the strong coupling regime, where the energy exchange between atom and cavity
 A larger detuning suppresses the transient population in the excited state and therefore reduces the amount of spontaneous emission into free space. Photon generation efficiencies in the strong coupling regime can therefore reach values close to unity. However, if the cavity decay rate is much larger than the coupling strength (as will be discussed in the following section), photons leak out of the cavity too quickly and the system cannot maintain coherence over the time needed for the V-STIRAP process.
 
 \subsection{Dynamics in the bad-cavity regime}
-In addition to the strong coupling regime, we consider the dynamics in bad-cavity regime, which is characterised by $\kappa \gg \sfrac{g^2\!}{\kappa} \gg \gamma $. Let us assume that the atom is excited with a pump pulse, while it emits a photon into the cavity via enhanced spontaneous emission. In this case, the bad cavity regime implies that the fastest timescale is set by the cavity field decay, while the spontaneous emission rate into the cavity dominates the incoherent polarisation decay of the atom, where the excitation is lost to unwanted modes of the radiation field. Quantitatively, the dynamics of a three-level system consisting of the states $\{ \vert \mathrm{u}, 0 \rangle, \vert \mathrm{e}, 0 \rangle, \vert \mathrm{g}, 1 \rangle \}$ as described in the preceding section can be found by solving the Schr\"{o}dinger equation for the coefficients in the time dependent state vector $\vert \psi (t) \rangle = c_\mathrm{u}(t)\vert \mathrm{u},0\rangle+c_\mathrm{e}(t)\vert \mathrm{e}, 0 \rangle + c_\mathrm{g}(t) \vert \mathrm{g},1\rangle$. To this end, we employ the non-Hermitian Hamiltonian:
+\label{badcavityregimesection}
+In addition to the strong coupling regime, we consider the dynamics in bad-cavity regime, which is characterised by $\kappa \gg \sfrac{g^2\!}{\kappa} \gg \gamma $. Let us assume that the atom is excited with a pump pulse, while it emits a photon into the cavity via enhanced\footnote{The enhancement of spontaneous emission is characterised by the Purcell factor $F_\mathrm{P}$, which corresponds to the ratio of the cavity-enhanced emission rate (proportional to $\sfrac{g^2\!}{\kappa}$) to the free-space spontaneous emission rate $\gamma$. In the bad-cavity regime, we can therefore write $F_\mathrm{P}=2C$.} spontaneous emission. In this case, the bad cavity regime implies that the fastest timescale is set by the cavity field decay, while the spontaneous emission rate into the cavity dominates the incoherent polarisation decay of the atom, where the excitation is lost to unwanted modes of the radiation field. Quantitatively, the dynamics of a three-level system consisting of the states $\{ \vert \mathrm{u}, 0 \rangle, \vert \mathrm{e}, 0 \rangle, \vert \mathrm{g}, 1 \rangle \}$ as described in the preceding section can be found by solving the Schr\"{o}dinger equation for the coefficients in the time dependent state vector $\vert \psi (t) \rangle = c_\mathrm{u}(t)\vert \mathrm{u},0\rangle+c_\mathrm{e}(t)\vert \mathrm{e}, 0 \rangle + c_\mathrm{g}(t) \vert \mathrm{g},1\rangle$. To this end, we employ the non-Hermitian Hamiltonian:
 \begin{align}
 	\hat{\mathcal{H}}' = \hat{\mathcal{H}}_1 - i \hbar (\kappa \hat{a}^\dagger\hat{a}+\gamma \vert e \rangle\langle e \vert)\,,
 \end{align}
