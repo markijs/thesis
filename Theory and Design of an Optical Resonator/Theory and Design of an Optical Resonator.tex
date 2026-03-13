@@ -238,7 +238,7 @@ The Gaussian beam\footnote{With an intensity profile as given in \autoref{laser}
 	\label{gaussianmode}
 	u(r, \phi, z) = \frac{w_0}{w(z)}\exp{\frac{-r^2}{w^2(z)}}\exp{i\left( kz + \frac{kr^2}{2R_\mathrm{c}(z)} - \Psi(z)\right)}\,,
 \end{align}
-in terms of the waist radius $w_0$, the beam radius $w(z)$ at a distance $z$ and Rayleigh length $z_\mathrm{R}$, which were given in \autoref{dipoleforce}. We have furthermore introduced the wavefront curvature radius $R_\mathrm{c}(z)=z(1+(\sfrac{z_\mathrm{R}}{z})^2)$ and the Guoy phase $\Psi(z)=\arctan\left(\sfrac{z}{z_\mathrm{R}}\right)$. The expression for $R_\mathrm{c}(z)$ illustrates how the wavefront curvature becomes spherical away from the beam waist and flattens as $z \to 0$. The Gouy phase accounts for the additional phase accumulated by a focused beam and increases smoothly from $\sfrac{-\pi}{2}$ to $\sfrac{\pi}{2}$ as the beam propagates through the focus. In the context of optical resonators, it is important to note that Gaussian beams constitute solutions to the paraxial Helmholtz equation subject to the boundary conditions imposed by a pair of spherical mirrors in a Fabry--Pérot cavity. This is due to the fact that a reflected Gaussian beam will retrace itself as long as the curvature of its wavefront matches that of the mirror. For a pair of concave, spherical mirrors separated by a distance $d$ and matching the Gaussian wavefront at their respective positions, the beam can, through repeated reflections, exist self-consistently within this optical resonator. Under the additional condition that the phase retraces itself upon reflection, the Gaussian beam is said to be a mode of the resonator. For a Gaussian mode in a symmetric spherical-mirror resonator (with mirror radii of curvature\footnote{A negative radius of curvature corresponds to a concave mirror. We therefore define the mirror radii of curvature as $R_{\mathrm{c},1}=R_\mathrm{c}(\sfrac{-d}{2})$ and $R_{\mathrm{c},2}=-R_\mathrm{c}(\sfrac{d}{2})$ in terms of the wavefront curvature radius $R_\mathrm{c}(z)$. For mirrors of equal curvature we write $R_{\mathrm{c},1}=R_{\mathrm{c},2}= R_\mathrm{c}$.} $R_{\mathrm{c},1}=R_{\mathrm{c},2}=-\lvert R_\mathrm{c} \rvert$ for concave mirrors), the beam waist $w_0$ and beam radii $w_1$ and $w_2$ at the mirror positions ($w_1=w(\sfrac{-d}{2})$ and $w_2=w(\sfrac{d}{2})$) can be calculated from the following relations:
+in terms of the waist radius $w_0$, the beam radius $w(z)$ at a distance $z$ and Rayleigh length $z_\mathrm{R}$, which were given in \autoref{dipoleforce}. We have furthermore introduced the wavefront curvature radius $R_\mathrm{c}(z)=z(1+(\sfrac{z_\mathrm{R}}{z})^2)$ and the Guoy phase $\Psi(z)=\arctan\left(\sfrac{z}{z_\mathrm{R}}\right)$. The expression for $R_\mathrm{c}(z)$ illustrates how the wavefront curvature becomes spherical away from the beam waist and flattens as $z \to 0$. The Gouy phase accounts for the additional phase accumulated by a focused beam and increases smoothly from $\sfrac{-\pi}{2}$ to $\sfrac{\pi}{2}$ as the beam propagates through the focus. In the context of optical resonators, it is important to note that Gaussian beams constitute solutions to the paraxial Helmholtz equation subject to the boundary conditions imposed by a pair of spherical mirrors in a Fabry--Pérot cavity. This is due to the fact that a reflected Gaussian beam will retrace itself as long as the curvature of its wavefront matches that of the mirror. For a pair of concave, spherical mirrors separated by a distance $d$ and matching the Gaussian wavefront at their respective positions, the beam can, through repeated reflections, exist self-consistently within this optical resonator. Under the additional condition that the phase retraces itself upon reflection, the Gaussian beam is said to be a mode of the resonator. For a Gaussian mode in a symmetric spherical-mirror resonator (with mirror radii of curvature\footnote{A negative radius of curvature corresponds to a concave mirror. We thus define the mirror radii of curvature as $R_{\mathrm{c},1}=R_\mathrm{c}(\sfrac{-d}{2})$ and $R_{\mathrm{c},2}=-R_\mathrm{c}(\sfrac{d}{2})$ in terms of the wavefront curvature radius $R_\mathrm{c}(z)$. For mirrors of equal curvature we write $R_{\mathrm{c},1}=R_{\mathrm{c},2}= R_\mathrm{c}$.} $R_{\mathrm{c},1}=R_{\mathrm{c},2}=-\lvert R_\mathrm{c} \rvert$ for concave mirrors), the beam waist $w_0$ and beam radii $w_1$ and $w_2$ at the mirror positions ($w_1=w(\sfrac{-d}{2})$ and $w_2=w(\sfrac{d}{2})$) can be calculated from the following relations:
 \begin{align}
 	\label{waisteqs}
 	\begin{split}
@@ -246,7 +246,7 @@ in terms of the waist radius $w_0$, the beam radius $w(z)$ at a distance $z$ and
 		&w_1^2 = w_2^2 = \frac{\lambda d}{\pi} \frac{1}{\sqrt{\sfrac{d}{\lvert R_\mathrm{c} \rvert}\left( 2 - \sfrac{d}{\lvert R_\mathrm{c} \rvert} \right)}}\,.
 	\end{split}
 \end{align}
-To avoid unconfined solutions to the paraxial Helmholtz equation, which is to prevent diverging beam radii in \autoref{waisteqs}, the modulus of the mirror radius of curvature $\lvert R_\mathrm{c} \rvert$ and mirror separation $d$ must satisfy the confinement criterion:
+To avoid unconfined\footnote{This corresponds to the beam radii in \autoref{waisteqs} becoming unbounded.} solutions to the paraxial Helmholtz equation, the modulus of the mirror radius of curvature $\lvert R_\mathrm{c} \rvert$ and mirror separation $d$ must satisfy the following confinement criterion:
 \begin{align}
 	0 \le \frac{d}{\lvert R_\mathrm{c} \rvert} \le 2\,.
 \end{align}
@@ -715,10 +715,12 @@ The third family of complete orthogonal modes are the Ince--Gaussian modes, whic
 \end{align}
 in which $C$ and $S$ represent normalisation constants. $C_p^m$ and $S_p^m$ denote the even and odd Ince polynomials of order $p$ and degree $m$. The indices must be of equal parity ($(-1)^{p-m}=1$) and satisfy either $0 \leq m \leq p$ (even functions) or $1 \leq m \leq p$ (odd functions). The respective radial and angular elliptic coordinates $\xi\in \left[0,\infty \right)$ and $\eta\in\left[0,2\pi\right)$ are defined by:
 \begin{align}
+\begin{split}
 &x = \sqrt{\frac{\epsilon}{2}} w(z) \cosh(\xi)\cos(\eta)\,,\\
 &y = \sqrt{\frac{\epsilon}{2}} w(z) \sinh(\xi)\sin(\eta)\,.
+\end{split}
 \end{align}
-The parameter $\epsilon\in\left[0,\infty \right)$ represents the ellipticity of the transverse mode distribution. By continuously varying $\epsilon$, \autoref{IG} interpolates smoothly between Laguerre--Gaussian ($\epsilon\rightarrow 0$) and Hermite--Gaussian ($\epsilon\rightarrow \infty$) modes. This is shown for a number of Ince--Gaussian modes in \autoref{incegauss}.
+The parameter $\epsilon\in\left[0,\infty \right)$ represents the ellipticity of the transverse mode distribution. By continuously varying $\epsilon$, \autoref{IG} interpolates smoothly between Laguerre--Gaussian ($\epsilon\rightarrow 0$) and Hermite--Gaussian ($\epsilon\rightarrow \infty$) modes. Examples of this continuous transition are shown for several even Ince--Gaussian modes in \autoref{incegauss}. In the Hermite--Gaussian limit, a direct correspondence exists between the even Ince--Gaussian modes and Hermite--Gaussian modes: $\mathcal{I}_{4,0}^\mathrm{e}(\epsilon\rightarrow\infty)\propto \mathcal{H}_{0,4}$, $\mathcal{I}_{4,2}^\mathrm{e}(\epsilon\rightarrow\infty)\propto -\mathcal{H}_{2,2}$ and $\mathcal{I}_{4,4}^\mathrm{e}(\epsilon\rightarrow\infty)\propto \mathcal{H}_{4,0}$. In the Laguerre--Gaussian limit, the even Ince--Gaussian modes reduce to superpositions of Laguerre--Gaussian modes with opposite azimuthal indices: $\mathcal{I}_{4,2}^\mathrm{e}(\epsilon\rightarrow 0)\propto-\mathcal{L}_{1,2}-\mathcal{L}_{1,-2}$ and $\mathcal{I}_{4,4}^\mathrm{e}(\epsilon\rightarrow 0)\propto\mathcal{L}_{0,4}+\mathcal{L}_{0,-4}$.
 \iffalse
 In the former limit, the mode indices are related as follows~\cite{Bandres2004}: $m = l$ and $p = 2n + l$. In the latter case, $n_x = m$ and $n_y = p - m$ for the even Ince--Gaussian modes, in contrast to $n_x = m - 1$ and
 $n_y = p - m + 1$ for the odd modes.
@@ -823,31 +825,26 @@ $n_y = p - m + 1$ for the odd modes.
 	\node[anchor=south west, text=white] at (-0.005 + 5*\xstep + 5*\xgap, -0.012) {\footnotesize $\mathcal{H}_{\,4,0}$};
 	
 	% title
-	\node[anchor=center] at (4.5*\xstep + 4*\xgap, 1.2) {\footnotesize $\mathcal{I}_{4,m}^\mathrm{e}(\vec{r}, \epsilon)$};
+	\node[anchor=center] at (4.5*\xstep + 4*\xgap, 1.2) {\footnotesize $\mathcal{I}_{4,m}^\mathrm{e}(\epsilon)$};
 	
 \end{scope}
 \end{tikzpicture}
-\caption[Optical setup for generation of dipole traps and MOT]{Ince--Gaussian modes as a continuous mode family that interpolates between Laguerre--Gaussian ($\mathcal{L}_{n,l}$) and Hermite--Gaussian ($\mathcal{H}_{n_x,n_y}$) modes. This transition is parametrised via the ellipticity parameter $\epsilon$. \textsc{(right)} The even Ince--Gaussian modes $\mathcal{I}_{4,m}^\mathrm{e}(\vec{r}, \epsilon)$ are shown for $\epsilon\in\{0,2,\infty\}$ and $m\in\{0,2,4\}$. Using the hue-saturation-value (HSV) colour representation \textsc{(top left)}, the value and hue correspond to the amplitude and phase of these modes, respectively. The mode amplitudes are scaled such that the fundamental Gaussian mode attains a maximum of unity (not shown). As $\epsilon\rightarrow 0$ or $\epsilon\rightarrow \infty$, the Ince--Gaussian modes reveal a direct correspondence to the Laguerre--Gaussian and Hermite--Gaussian mode families, respectively \textsc{(bottom left)}.}
+\caption[Ince--Gaussian modes as a continuous mode family that interpolates between Laguerre--Gaussian and Hermite--Gaussian modes]{Ince--Gaussian modes as a continuous mode family that interpolates between Laguerre--Gaussian ($\mathcal{L}_{n,l}$) and Hermite--Gaussian ($\mathcal{H}_{n_x,n_y}$) modes. This transition is parametrised via the ellipticity parameter $\epsilon$. \textsc{(right)} The even Ince--Gaussian modes $\mathcal{I}_{4,m}^\mathrm{e}(\epsilon)$ are shown for $\epsilon\in\{0,2,\infty\}$ and $m\in\{0,2,4\}$. Using the hue-saturation-value (HSV) colour representation \textsc{(top left)}, the value and hue are chosen to represent the amplitude and phase of these modes, respectively. The mode amplitudes are scaled such that the fundamental Gaussian mode attains a maximum of unity (not shown). As $\epsilon\rightarrow 0$ or $\epsilon\rightarrow \infty$, the Ince--Gaussian modes reveal a direct correspondence to the Laguerre--Gaussian and Hermite--Gaussian mode families, respectively \textsc{(bottom left)}.}
 \label{incegauss} 
 \end{figure}
 
-
 \subsection{Transverse mode spacing}
-For higher-order transverse modes, the resonance frequencies are shifted with respect to the fundamental mode. This shift depends on the Gouy phase, which is enhanced for higher-order modes (see \autoref{higerordermodesection}). Along the optical axis ($r=0$) of a Gaussian beam (\autoref{gaussianmode}), the resonance condition (\autoref{rescondition}) is still valid and the single-pass phase shift $\phi$ now equals:
-\begin{align}
-\phi=kd-\Delta\Psi\,.
-\end{align}
-The phase retardation $\Delta\Psi$ relative to a plane wave is given by the difference in Gouy phase across the cavity:
+For higher-order transverse modes, the resonance frequencies are shifted with respect to the fundamental mode. This shift depends on the Gouy phase, which is enhanced for higher-order modes (see \autoref{higerordermodesection}). Along the optical axis ($r=0$) of a Gaussian beam (\autoref{gaussianmode}), the resonance condition (\autoref{rescondition}) is still valid and the single-pass phase shift now equals $\phi=kd-\Delta\Psi$. The phase retardation $\Delta\Psi$ relative to a plane wave is given by the difference in Gouy phase across the cavity, which can be written as:
 \begin{align}
 \label{deltapsi}
 \Delta\Psi\coloneqq\Psi(\sfrac{d}{2})-\Psi(\sfrac{-d}{2})=2\arctan(\sfrac{d}{2z_\mathrm{R}})\,.
 \end{align}
-Using this result, it follows from \autoref{rescondition} that the resonance frequencies $\nu_q = \sfrac{k_qc}{2\pi}$ are given by:
+Using this relation, the round-trip phase condition (\autoref{rescondition}) yields:
 \begin{align}
 \label{resfreqsG}
 \nu_q = \left(q + \frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
 \end{align}
-which yields the same mode spacing of $\Delta\nu_\mathrm{FSR}$ as obtained earlier. Following the same approach for the Hermite--Gaussian mode family, we obtain the following resonance frequencies:
+which features the same mode spacing of $\Delta\nu_\mathrm{FSR}$ as obtained earlier. Following the same approach for the Hermite--Gaussian mode family, we obtain the following resonance frequencies:
 \begin{align}
 \label{resfreqsHG}
 \nu_{q,n_x,n_y} = \left(q + \left(n_x+n_y+1\right)\frac{\Delta\Psi}{\pi} \right)\Delta\nu_\mathrm{FSR}\,,
@@ -1537,7 +1534,7 @@ The propagation of the Gaussian beam, simulated using a ray transfer matrix anal
 \subsection{Linewidth and finesse}
 The linewidth is extracted by scanning the cavity length. The resulting transmission spectrum---measured on a Thorlabs APD110A/M avalanche photo\-diode---is shown in \autoref{cavitytrace} and features a Lorentzian resonance peak with a FWHM of $\Delta \nu_\mathrm{A} = \SI{4.20\pm0.03}{\mega\hertz}$. The frequency axis is calibrated by means of laser frequency modulation\footnote{Via the diode current of a Toptica DL pro ECDL}, resulting in sidebands at $\pm\SI{25}{\mega\hertz}$ in the transmission signal. The linewidth represents the energy decay rate $2\kappa$ of the cavity field---a key parameter in determining the cooperativity and coupling regime of the system: $2\kappa = 2\pi \Delta \nu_\mathrm{A}$, from which we infer the field decay rate $\kappa = 2\pi \times \SI{2.10\pm0.02}{\mega\hertz}$. With the free spectral range $\Delta\nu_{\mathrm{FSR},L} = \SI{315\pm3}{\giga\hertz}$ determined in the previous section, the cavity finesse can be
 \begin{wrapfigure}[13]{l}{0.5\textwidth}
-	\vspace{0.2em}
+	\vspace{0.4em}
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}
