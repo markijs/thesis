@@ -53,14 +53,14 @@ where $\hat{\rho}$ is the time-dependent density operator\footnote{Also in the r
 \label{rhoee}
 {\rho}_\mathrm{ee}=\frac{\Omega^2}{\Gamma^2+4\Delta^2+2\Omega^2}\,.
 \end{equation}
-The scattering rate $R_\mathrm{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\mathrm{sc}=\Gamma \rho_\mathrm{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\epsilon_0 c E_0^2$, we can rewrite the scattering rate as:
+The scattering rate $R_\mathrm{sc}$ of spontaneously emitted photons is the product of the population in the excited state and the natural decay rate: $R_\mathrm{sc}=\Gamma \rho_\mathrm{ee}$. Since the laser intensity is given by $I=\frac{1}{2}\varepsilon_0 c E_0^2$, we can rewrite the scattering rate as:
 \begin{equation}
 \label{scatter}
 R_\mathrm{sc}=\frac{\Gamma}{2}\frac{{I}/{I_\mathrm{sat}}}{1+{4\Delta^2}/{\Gamma^2}+{I}/{I_\mathrm{sat}}}\,,
 \end{equation}
 where we have defined the saturation intensity:
 \begin{align}
-I_\mathrm{sat}\coloneqq\frac{c\epsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_\mathrm{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
+I_\mathrm{sat}\coloneqq\frac{c\varepsilon_0\Gamma^2\hbar^2}{4\lvert \vec{d}_\mathrm{eg}\cdot\vec{\epsilon}\, \rvert^2}\,,
 \end{align}
 such that $2\Omega^2/\Gamma^2=I/I_\mathrm{sat}$. Note from \autoref{rhoee} that for $\Omega^2\gg\Gamma^2,\Delta^2$, we have $R_\mathrm{sc}\approx\sfrac{\Gamma}{2}$, which is the saturation limit. Dipole trapping lasers typically operate at a large detuning ($\Delta^2\gg\Omega^2,\Gamma^2$), in which case $R_\mathrm{sc}\approx\sfrac{\Gamma\Omega^2}{4\Delta^2}$. The scattering force is given by the product of the photon momentum $\hbar k$ and the scattering rate:
 \begin{equation}
@@ -433,9 +433,9 @@ For the ground state of a two-level atom, the denominator reads $\epsilon_\mathr
 \Delta E_\mathrm{g/e}=\mp\frac{\hbar\Omega^2}{4\Delta}=\mp \frac{3\pi c^2}{2\omega_0^3}\frac{\Gamma}{\Delta}I\,,
 \end{split}
 \end{align}
-where the minus and plus signs correspond to the ground and excited state, respectively. One can see from \autoref{rhoee} that the atom is practically in the ground state for large detuning. Therefore, the energy of the atom corresponds to the energy of the light shifted ground state, which results in an effective dipole potential $V_\mathrm{dip} = \Delta E_\mathrm{g}$. Note that this potential is proportional to the intensity and attractive for a ground state atom in red-detuned light ($\Delta>0$), in which case it can be trapped. The dipole force $F_\mathrm{dip}$ is given by the potential gradient:
+where the minus and plus signs correspond to the ground and excited state, respectively. One can see from \autoref{rhoee} that the atom is practically in the ground state for large detuning. Therefore, the energy of the atom corresponds to the energy of the light shifted ground state, which results in an effective dipole potential $U = \Delta E_\mathrm{g}$. Note that this potential is proportional to the intensity and attractive for a ground state atom in red-detuned light ($\Delta>0$), in which case it can be trapped. The dipole force $\vec{F}$ is given by the potential gradient:
 \begin{equation}
-F_\mathrm{dip}=-\nabla V_\mathrm{dip}\,,
+\vec{F}=-\nabla U(\vec{r}\,)\,,
 \end{equation}
 which is only non-zero if there is a spatial intensity variation of the light. This is the case for a Gaussian laser beam, which, in radial ($r$) and axial ($z$) coordinates, has an intensity profile $I$ given by:
 \begin{equation}
@@ -488,7 +488,7 @@ Let us consider a monochromatic optical field of the form:
 \label{Efield}
 \vec{E}(\vec{r},t) = \underbrace{\hat{\epsilon}E_0^{(+)}(\vec{r}\,) \mathrm{e}^{-i\omega t}}_{\vec{E}^{(+)}} +  \underbrace{\hat{\epsilon}^*E_0^{(-)}(\vec{r}\,) \mathrm{e}^{i\omega t}}_{\vec{E}^{(-)}} =  2\Re {\hat{\epsilon}{E_0}^{(+)}(\vec{r}\,) \mathrm{e}^{-i\omega t} } \,,
 \end{equation}
-where we have explicitly decomposed the field into its positive and negative frequency components. The polarisation unit vector is represented by $\hat{\epsilon}$ and the complex field amplitudes are denoted by $E_0^{(+)}$ and $E_0^{(-)}$ for the positive and negative frequency components, respectively. Note that with this definition, the intensity of the light is expressed as $I=2\epsilon_0 c \vert E_0^{(+)}\vert ^2$.
+where we have explicitly decomposed the field into its positive and negative frequency components. The polarisation unit vector is represented by $\hat{\epsilon}$ and the complex field amplitudes are denoted by $E_0^{(+)}$ and $E_0^{(-)}$ for the positive and negative frequency components, respectively. Note that with this definition, the intensity of the light is expressed as $I=2\varepsilon_0 c \vert E_0^{(+)}\vert ^2$.
 
 \subsection{Atomic polarisability}
 At the position of the atom, the oscillating field induces a displacement of the electron $x(t)=x^{(+)}(t)+x^{(-)}(t)$, which can be found by treating the system as a damped harmonic oscillator driven by an external force. The positive frequency component of the induced dipole moment of the atom is then given by:
@@ -503,25 +503,25 @@ The complete response of the atom to the applied field can then be characterised
 and describes how easily the dipole moment is induced by an applied electric field. More generally, the polarisability is defined as a rank-2 tensor $\alpha_{\mu \nu}$ such that to first order (\ie, for a sufficiently small electric field), the positive frequency component of the mean induced dipole moment vector can be written as:
 \begin{equation}
 \label{definingrelationpolarisability}
-\langle d_\mu^{(+)}(\omega) \rangle = \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu\,,
+\langle d_\mu^{(+)}(\omega) \rangle = \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu
 \end{equation}
 in tensor component notation ($( E_0^{(+)} )_\nu\coloneqq{\epsilon}_\nu E_0^{(+)}$).
 
 \subsection{Induced dipole moment energy}
 According to the electric-dipole interaction, the potential energy associated with an induced dipole moment is given by:
 \begin{equation}
-V = -\frac{\vec{d}\cdot \vec{E}}{2}\,.
+U = -\frac{\vec{d}\cdot \vec{E}}{2}\,.
 \end{equation}
 It is precisely this relation that will lead us to an expression for the energy shifts known as the ac-Stark shifts. In order to make progress, we can write out the positive and negative frequency components and discard those that oscillate at twice the optical frequency:
 \begin{align}
 \begin{split}
-V &= -\frac{1}{2}\left( \vec{d}^{\,(+)} + \vec{d}^{\,(-)} \right) \cdot \left( \vec{E}^{(+)} + \vec{E}^{(-)} \right)\\ &\approx -\frac{1}{2} \vec{d}^{\,(+)}\cdot \vec{E}^{(-)} -\frac{1}{2} \vec{d}^{\,(-)} \cdot \vec{E}^{(+)}\,.
+U &= -\frac{1}{2}\left( \vec{d}^{\,(+)} + \vec{d}^{\,(-)} \right) \cdot \left( \vec{E}^{(+)} + \vec{E}^{(-)} \right)\\ &\approx -\frac{1}{2} \vec{d}^{\,(+)}\cdot \vec{E}^{(-)} -\frac{1}{2} \vec{d}^{\,(-)} \cdot \vec{E}^{(+)}\,.
 \end{split}
 \end{align}
 Replacing the frequency components of the induced dipole moments with their respective means allows us to express the potential energy in terms of the real part of the tensor polarisability:
 \begin{align}
 \begin{split}
-V &\approx -\frac{1}{2} \langle d_\mu^{(+)}(\omega) \rangle ( E_0^{(-)} )_\mu  -\frac{1}{2} \langle d_\nu^{(-)}(\omega) \rangle ( E_0^{(+)} )_\nu \\&= -\frac{1}{2} \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu ( E_0^{(-)} )_\mu -\frac{1}{2} \alpha_{\nu \mu}(\omega) ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu \\ &= -\Re [ \alpha_{\mu \nu}(\omega) ] ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu\,,
+U &\approx -\frac{1}{2} \langle d_\mu^{(+)}(\omega) \rangle ( E_0^{(-)} )_\mu  -\frac{1}{2} \langle d_\nu^{(-)}(\omega) \rangle ( E_0^{(+)} )_\nu \\&= -\frac{1}{2} \alpha_{\mu \nu}(\omega) ( E_0^{(+)} )_\nu ( E_0^{(-)} )_\mu -\frac{1}{2} \alpha_{\nu \mu}(\omega) ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu \\ &= -\Re [ \alpha_{\mu \nu}(\omega) ] ( E_0^{(-)} )_\mu ( E_0^{(+)} )_\nu\,,
 \end{split}
 \end{align}
 where we have used the fact that $\alpha_{\nu \mu}(\omega) = \alpha_{\mu \nu}^*(\omega)$, as we will see later. Thus far we have omitted the dependence of the polarisability on the atomic state in the notation above. To be more precise, the ac-Stark shift $\Delta E(F,m_F;\omega)$ of a particular hyperfine sublevel $\vert F\,m_F \rangle$ depends on the tensor polarisability associated with that specific state:
@@ -668,6 +668,7 @@ in terms of the fine-structure (electronic) reduced matrix element $\langle J\| 
 	 \alpha^{(2)}(F ; \omega) &\approx \sum_{J'}(-1)^{-2 J-J'-F-I} \sqrt{\frac{40 F(2 F+1)(2 F-1)}{3(F+1)(2 F+3)}}(2 J+1)  \\
 	&\hspace{4em}\times \tj{1}{1}{2}{J}{J}{J'}\tj{J}{J}{2}{F}{F}{I} \frac{\omega_{J' J}\lvert \langle J\| \hat{\vec{d}}\, \| J' \rangle\rvert^2}{\hbar\left(\omega_{J' J}^2-\omega^2\right)}\,.
 \end{split}
+\label{polarisabilitiesfardetunedfields}
 \end{align}
 \subsection{Alkali ground state shift}
 \label{alkaligroundstateshift}
@@ -679,7 +680,7 @@ resulting in $\alpha^{(2)}(F ; \omega) \approx 0$. If we furthermore assume a li
 \begin{align}
 \label{groundstatestark}
 \begin{split}
-\Delta E_\mathrm{g}\left(\omega\right) &\approx - \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \lvert E_0^{(+)}\rvert ^2 \\&= -\frac{1}{\epsilon_0 c} \sum_{J'} \frac{\omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} I \,.
+\Delta E_\mathrm{g}\left(\omega\right) &\approx - \sum_{J'} \frac{2 \omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} \lvert E_0^{(+)}\rvert ^2 \\&= -\frac{1}{\varepsilon_0 c} \sum_{J'} \frac{\omega_{J' J}\lvert \langle J=\sfrac{1}{2} \| \hat{\vec{d}}\, \| J'\rangle\rvert ^2}{3 \hbar\left(\omega_{J' J}^2-\omega^2\right)} I \,.
 \end{split}
 \end{align}
 
@@ -729,11 +730,11 @@ In the second quantisation, the Hamiltonian of a two-level atom interacting with
 where we have set the atomic ground state energy to zero to express the Hamiltonian in terms of the atomic transition frequency $\omega_0$. The cavity resonance frequency is denoted by $\omega$, while $\hat{a}^\dagger_{\vec{k},\hat{\epsilon}}$ and $\hat{a}_{\vec{k},\hat{\epsilon}}$ represent the respective field creation and annihilation operators for a mode with wave vector $\vec{k}$ and unit polarisation $\hat{\epsilon}$. Similar to the interaction Hamiltonian as discussed under \autoref{systemhamiltonian}, we have $\hat{\mathcal{H}}_\mathrm{I}=-\hat{\vec{d}}\cdot \hat{\vec{E}}$, now written in terms of the quantised electric field, which can be expressed in the Schr\"{o}dinger picture as:
 \begin{align}
 \label{electricfieldoperator}
-\hat{\vec{E}}(\vec{r}\,) = \sqrt{\frac{\hbar \omega}{2 \epsilon_0}} \left(\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}_{\vec{k},\hat{\epsilon}}  + \vec{f}^*_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \right)\,,
+\hat{\vec{E}}(\vec{r}\,) = \sqrt{\frac{\hbar \omega}{2 \varepsilon_0}} \left(\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}_{\vec{k},\hat{\epsilon}}  + \vec{f}^*_{\vec{k},\hat{\epsilon}}(\vec{r}\,) \hat{a}^\dagger_{\vec{k},\hat{\epsilon}} \right)\,,
 \end{align}
 written in terms of the normalised\footnote{The mode functions are assumed to normalised such that $\int \lvert \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\rvert^2 \, \mathrm{d}^3 \vec{r}=1$.} mode function $\vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$, which contains all spatial dependence of the field.
 \iffalse
-This expression includes the quantisation volume\footnote{For a given spatial mode of the electric field $\vec{E}(\vec{r}\,)$ in vacuum, we define this volume as $V = \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} / \max_{\vec{r}} |\vec{E}(\vec{r}\,)|^2$. This definition captures how concentrated the field energy is in space. By equating the energy stored in the electric field to half the zero-point energy, $ \frac{1}{2} \epsilon_0 \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} = \frac{1}{4} \hbar \omega $, we can express the maximum electric field amplitude in terms of $\omega$ and $V$: $\max_{\vec{r}} |\vec{E}(\vec{r}\,)| = \sqrt{ \hbar \omega / (2 \varepsilon_0 V) }$, which is precisely the prefactor that appears in the electric field operator (\autoref{electricfieldoperator}).} $V$ of the cavity and the wavevector $\vec{k}$.
+This expression includes the quantisation volume\footnote{For a given spatial mode of the electric field $\vec{E}(\vec{r}\,)$ in vacuum, we define this volume as $V = \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} / \max_{\vec{r}} |\vec{E}(\vec{r}\,)|^2$. This definition captures how concentrated the field energy is in space. By equating the energy stored in the electric field to half the zero-point energy, $ \frac{1}{2} \varepsilon_0 \int |\vec{E}(\vec{r}\,)|^2 \, \mathrm{d}^3\vec{r} = \frac{1}{4} \hbar \omega $, we can express the maximum electric field amplitude in terms of $\omega$ and $V$: $\max_{\vec{r}} |\vec{E}(\vec{r}\,)| = \sqrt{ \hbar \omega / (2 \varepsilon_0 V) }$, which is precisely the prefactor that appears in the electric field operator (\autoref{electricfieldoperator}).} $V$ of the cavity and the wavevector $\vec{k}$.
 \fi
 \iffalse
 In the electric dipole approximation, the electromagnetic field is assumed to be uniform over the size of the atom. This reduces the electric dipole interaction to $\hat{\mathcal{H}}_\mathrm{I}=-\hat{\vec{d}}\cdot \hat{\vec{E}}(\vec{0}\,)$.
@@ -748,7 +749,7 @@ In the interaction picture, $\hat{\mathcal{H}}_\mathrm{I}$ reads:
 where the atom-cavity coupling rate $g_{\vec{k},\hat{\epsilon}}(\vec{r}\,)$ is defined as:
 \begin{align}
 \label{couplingrate}
-g_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = -\sqrt{\frac{\omega}{2\epsilon_0\hbar}} \langle \mathrm{e} \vert \hat{\vec{d}} \, \vert \mathrm{g} \rangle \cdot \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\,.
+g_{\vec{k},\hat{\epsilon}}(\vec{r}\,) = -\sqrt{\frac{\omega}{2\varepsilon_0\hbar}} \langle \mathrm{e} \vert \hat{\vec{d}} \, \vert \mathrm{g} \rangle \cdot \vec{f}_{\vec{k},\hat{\epsilon}}(\vec{r}\,)\,.
 \end{align}
 If the resonance frequency of the cavity is sufficiently close to the atomic transition frequency, which is to say $\vert \omega_0-\omega\vert \ll \omega_0 + \omega$, we see that the first two terms in \autoref{interactionhamiltonianallterms} are nearly resonant, whereas the remaining terms oscillate at a frequency of roughly $2\omega$. In this so-called rotating wave approximation, these latter two average to zero over timescales that correspond to the resonant dynamics. Transforming this interaction Hamiltonian back to the Schr\"{o}dinger picture and ignoring the zero-point energy of the field in \autoref{uncoupledham} that does not contribute to the system dynamics, the full Hamiltonian\footnote{This is referred to as the Jaynes--Cummings Hamiltonian.} can be written as:
 \begin{align}
@@ -852,7 +853,7 @@ In the limit of a vanishing laser coupling ($\Omega\rightarrow 0 $), the states 
 As will be discussed in the following section, a realistic cavity is subject to photon loss. This means that, once the system reaches the state $ \vert \mathrm{g}, 1\rangle $, the photon will irreversibly decay from the cavity at a constant rate, eventually leaving the system in the state $ \vert \mathrm{g}, 0\rangle$. This cavity-mediated, adiabatic population transfer is referred to as Vacuum Stimulated Raman Adiabatic Passage (V-STIRAP) and constitutes a valuable method for extracting and shaping single photons from atoms~\cite{Kuhn2002,McKeever2004,Brattke2001}. This is especially relevant for photons in the context of linear optics quantum computing (LOQC)~\cite{Knill2001,Ralph2001,Kok2007,OBrien2007}, the scalability of which relies heavily on deterministic single-photon generation and preparation.
 
 \subsection{Loss mechanisms in an atom-cavity system}
-In the preceding discussion of the dressed eigenstates of two- and three-level systems, we have ignored the effect of spontaneous emission and cavity field decay. In practice, a good model for a single-mode radiation field is that of an optical cavity, which consists of two reflective mirrors. By trapping an atom inside this cavity, light-matter interaction can be achieved. \autoref{fig:JCFPcavity} illustrates a two-level atom confined within a cavity with mode volume $V$.
+In the preceding discussion of the dressed eigenstates of two- and three-level systems, we have ignored the effect of spontaneous emission and cavity field decay. In practice, a good model for a single-mode radiation field is that of an optical cavity, which consists of two reflective mirrors. By trapping an atom inside this optical resonator, light-matter interaction can be achieved. \autoref{fig:JCFPcavity} illustrates a two-level atom in such a configuration.
 \begin{figure}[t]
 	\centering
 	\begin{tikzpicture}
