@@ -193,17 +193,27 @@ A standard approach for entangling two distant atoms relies on the interference 
 	%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
 	%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
 	
+	\begin{scope}[shift={(-8.2mm,0)}]
+	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=55mm,
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.305,0.215-0.05) {\footnotesize\textcolor{markgrijs}{$ \color{markgrijs} \ket{\Psi}_\mathrm{ap} = \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_z\!\ket{\sigma^+} + \ket{\uparrow}_z\!\ket{\sigma^-} \! \big) $}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=55mm,
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.305,0.0850-0.05) {\footnotesize\textcolor{markgrijs}{$ \color{white} \ket{\Psi}_\mathrm{ap} \color{markgrijs}= \frac{1}{\sqrt{2}} \big( \ket{\downarrow}_x\!\ket{\mathrm{V}} + \ket{\uparrow}_x\!\ket{\mathrm{H}} \! \big)$}};
 	
-	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
-	anchor=base, very thick, draw=none, fill=white, align=left] at (0.165+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\downarrow}_z\!$}};	
+	\node[markgrijs] at (0.07+0.06, 0.92) {\footnotesize $5\mathrm{P}_{\sfrac{3}{2}}$};
 	
-	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
-	anchor=base, very thick, draw=none, fill=white, align=left] at (0.262+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\uparrow}_z\!$}};		
+	\node[markgrijs] at (0.07+0.06, 0.535) {\footnotesize $5\mathrm{S}_{\sfrac{1}{2}}$};
+	
+	\begin{scope}[shift={(3mm,0)}]
+	
+	\node[markgrijs] at (0.37+0.072, 0.496) {\footnotesize $F=1$};
+	\node[markgrijs] at (0.37+0.072, 0.57) {\footnotesize $F=2$};
+	\node[markgrijs] at (0.33+0.072, 0.92) {\footnotesize $F'=1$};	
+	
+	\end{scope}
+	
+	\begin{scope}[shift={(2.3mm,0)}]
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=3mm,
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.15+0.072,0.717) {\footnotesize\textcolor{markviesblauw}{$ \sigma^+$}};	
@@ -212,13 +222,32 @@ A standard approach for entangling two distant atoms relies on the interference 
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.265+0.072,0.717) {\footnotesize\textcolor{markviesblauw}{$ \sigma^-$}};	
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
-	anchor=base, very thick, draw=none, fill=white, align=left] at (0.209+0.072,0.717) {\footnotesize\textcolor{markrood}{$ \pi$}};	
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.209+0.072,0.717) {\footnotesize\textcolor{markrood}{$ \pi$}};
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.165+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\downarrow}_z\!$}};	
+	
+	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=5mm,
+	anchor=base, very thick, draw=none, fill=white, align=left] at (0.262+0.072,0.42) {\footnotesize\textcolor{markgrijs}{$ \ket{\uparrow}_z\!$}};		
+	
+	
+	\end{scope}
+	
+	\end{scope}
+	
+	\begin{scope}[shift={(-0.5mm,0)}]
+	
+	\begin{scope}[shift={(0.5mm,0)}]
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=60mm,
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.76,0.215-0.05) {\footnotesize\textcolor{markgrijs}{\color{markgrijs} $1.$\quad$\ket{\Psi^+}_\mathrm{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x + \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) $}};
 	
 	\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=60mm,
 	anchor=base, very thick, draw=none, fill=white, align=left] at (0.76,0.085-0.05) {\footnotesize\textcolor{markgrijs}{\color{markgrijs} $2.$\quad $\ket{\Psi^-}_\mathrm{aa} = \frac{1}{\sqrt{2}} \big( \ket{\uparrow}_x\!\ket{\downarrow}_x - \ket{\downarrow}_x\!\ket{\uparrow}_x \! \big) $}};
+	
+	\end{scope}
+	
+	\begin{scope}[shift={(-0.95mm,0)}]
 	
 	
 	\node[markgrijs] at (0.542+0.055, 0.76) {\footnotesize $\mathrm{a}$};
@@ -229,14 +258,7 @@ A standard approach for entangling two distant atoms relies on the interference 
 	\node[markgrijs] at (0.92, 0.4) {\footnotesize $1$};
 	\node[markgrijs] at (0.96, 0.4) {\footnotesize $2$};
 	
-	\node[markgrijs] at (0.07+0.06, 0.92) {\footnotesize $5\mathrm{P}_{\sfrac{3}{2}}$};
-	
-	\node[markgrijs] at (0.07+0.06, 0.535) {\footnotesize $5\mathrm{S}_{\sfrac{1}{2}}$};
-	
-	
-	\node[markgrijs] at (0.37+0.072, 0.496) {\footnotesize $F=1$};
-	\node[markgrijs] at (0.37+0.072, 0.57) {\footnotesize $F=2$};
-	\node[markgrijs] at (0.33+0.072, 0.92) {\footnotesize $F'=1$};
+
 	
 	\node[markgrijs] at (0.775, 0.595) {\footnotesize $\sfrac{\lambda}{2}$};
 	\node[markgrijs] at (0.798, 0.54) {\footnotesize $\sfrac{\lambda}{4}$};
@@ -252,10 +274,14 @@ A standard approach for entangling two distant atoms relies on the interference 
 	\node[markgrijs] at (0.882, 0.685+0.14) {\tiny PD};
 	\node[markgrijs] at (0.882, 0.685-0.14) {\tiny PD};
 	
+	\end{scope}
 	
-	\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
-	\node[align=center, rotate=0] at (0.5,0.95) {\footnotesize\sc (b)};
-	\node[align=center, rotate=0] at (0.05,0.21) {\footnotesize\sc (c)};
+	\end{scope}
+	
+	
+	%\node[align=center, rotate=0] at (0.05,0.95) {\footnotesize\sc (a)};
+	%\node[align=center, rotate=0] at (0.5,0.95) {\footnotesize\sc (b)};
+	%\node[align=center, rotate=0] at (0.05,0.21) {\footnotesize\sc (c)};
 	
 	
 	%\node[rectangle, rounded corners=1mm, minimum size=5mm, text width=2mm,
@@ -272,7 +298,7 @@ A standard approach for entangling two distant atoms relies on the interference 
 	
 	\end{scope}
 	\end{tikzpicture}
-	\caption[Cavity-mediated entangling scheme for two \ce{^87Rb} atoms]{Entangling scheme for two \ce{^87Rb} atoms. Each atom undergoes vacuum-stimulated Raman adiabatic passage \textsc{(a)}, which results in an atom-photon entangled state denoted by $\ket{\Psi}_\mathrm{ap}$. A Bell state measurement of the emitted photon pair \textsc{(b)} projects the atoms onto a maximally entangled state \textsc{(c)}.} 
+	\caption[Cavity-mediated entangling scheme for two \ce{^87Rb} atoms]{Entangling scheme for two \ce{^87Rb} atoms. \textsc{(left)} Each atom undergoes vacuum-stimulated Raman adiabatic passage, which results in an atom-photon entangled state ($\ket{\Psi}_\mathrm{ap}$). $\mathrm{H}$ and $\mathrm{V}$ denote horizontally and vertically polarised photons, respectively. \textsc{(right)} A Bell state measurement of the emitted photon pair projects the atoms onto a maximally entangled state ($\ket{\Psi^+}_\mathrm{aa}$ or $\ket{\Psi^-}_\mathrm{aa}$).} 
 	\label{fig:entangle} 
 \end{figure}
 \autoref{fig:entangle} illustrates a particular entangling scheme in which two single \ce{^87Rb} atoms are coupled to optical cavities and prepared in the $\ket{F=2,m_F=0}$ state of the $5\mathrm{S}_{\sfrac{1}{2}}$ manifold. The cavity axis defines the quantisation direction, as shown in \autoref{fig:cavity}. Both right- ($\sigma^+$) and left-circular ($\sigma^-$) polarisation modes are supported by the resonator that couples $\ket{F=1}$ in the ground state to $\ket{F'=1}$ of the $5\mathrm{P}_{\sfrac{3}{2}}$ excited level. A $\pi$-polarised laser resonant with the $\ket{F=2}\leftrightarrow \ket{F'=1}$ transition drives a vacuum-stimulated Raman adiabatic passage to $\ket{\downarrow}_z \coloneqq \ket{F=1,m_F=-1}$ or $\ket{\uparrow}_z \coloneqq \ket{F=1,m_F=1}$ in the ground state, accompanied by the emission of a $\sigma^+$ or $\sigma^-$ photon, respectively. This prepares each atom-photon system in the following state:
