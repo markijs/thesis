@@ -22,6 +22,76 @@
 \usepackage{textcomp} % access \textquotesingle
 
 
+% -------------------------------------------------------------------------
+% Page geometry for hard-bound thesis copy
+%
+% Original LaTeX/report-class layout, measured from the compiled document:
+%   TEXTWIDTH      = 390.0pt
+%   TEXTHEIGHT     = 592.0pt
+%   TOPMARGIN      = 20.0pt
+%   HEADHEIGHT     = 15.0pt
+%   HEADSEP        = 25.0pt
+%   FOOTSKIP       = 30.0pt
+%   ODDSIDEMARGIN  = 10.0pt
+%   EVENSIDEMARGIN = 52.0pt
+%   PAPERWIDTH     = 597.50787pt
+%   PAPERHEIGHT    = 845.04684pt
+%
+% Original physical horizontal margins:
+%   inner = 1in + 10.0pt  = 82.27pt
+%   outer = 597.50787pt - 390.0pt - 82.27pt = 125.23787pt
+%
+% Binding-adjusted values below:
+%   inner = 107.87748pt
+%   outer = 99.63039pt
+%
+% This applies a 9 mm binding shift:
+%   9 mm = 25.60748pt
+%
+% Therefore:
+%   inner_new = inner_original + 25.60748pt = 107.87748pt
+%   outer_new = outer_original - 25.60748pt = 99.63039pt
+%
+% Crucially:
+%   inner + outer = 207.50787pt is unchanged
+%   textwidth     = 390.0pt is unchanged
+%   textheight    = 592.0pt is unchanged
+%
+% Therefore line breaks, figure widths based on \textwidth, and vertical
+% page layout should remain unchanged. Only the whole text block is shifted
+% away from the binding edge.
+%
+% To tweak binding allowance later:
+%   increase inner by X pt
+%   decrease outer by the same X pt
+%   keep textwidth, textheight, top, bottom, headheight, headsep, footskip fixed
+%
+% Example:
+%   for +1 mm more gutter, add 2.84528pt to inner
+%   and subtract 2.84528pt from outer.
+% -------------------------------------------------------------------------
+
+\usepackage[
+a4paper,
+twoside,
+% Horizontal layout:
+% original inner = 82.27pt, original outer = 125.23787pt
+% binding shift = +25.60748pt = +9 mm
+% keep inner + outer fixed so \textwidth does not change
+inner=107.87748pt,
+outer=99.63039pt,
+textwidth=390.0pt,
+% Vertical layout:
+% preserves the original report-class body position and height
+top=132.27pt,
+bottom=120.77684pt,
+textheight=592.0pt,
+% Header/footer values measured from the original compiled layout
+headheight=15.0pt,
+headsep=25.0pt,
+footskip=30.0pt
+]{geometry}
+
 % ************************* Algorithms and Pseudocode **************************
 
 %\usepackage{algpseudocode}
